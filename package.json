@@ -1,0 +1,47 @@
+{
+  "name": "start-template",
+  "author": "Eroshkin A",
+  "version": "3.0.0",
+  "description": "start template",
+  "scripts": {
+    "dev": "gulp --require babel-register --gulpfile gulp-tasks",
+    "build": "NODE_ENV=production gulp build --require babel-register --gulpfile gulp-tasks"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "babelrc": false
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "gulp": "",
+    "vue-hot-reload-api": "^2.1.0",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^12.0.2",
+    "vue-template-compiler": "^2.3.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0",
+    "write-file-webpack-plugin": "^4.5.0"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.5",
+    "babel-preset-latest": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-data": "^1.3.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-twig": "^1.2.0",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.3.0",
+    "vue-style-loader": "^4.1.2"
+  },
+  "main": "index.js",
+  "keywords": []
+}

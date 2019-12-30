@@ -1,0 +1,97 @@
+{
+  "title": "Главная",
+  "site": {
+    "link": "home.html",
+    "theme": {
+      "link": ""
+    }
+  },
+  "phone": "+7 (999) 999-99-99",
+  "mail": "info@test.ru",
+  "menu_header":[
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    }
+  ],
+  "menu_footer_1":[
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    }
+  ],
+  "menu_footer_2":[
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    },
+    {
+      "class":"",
+      "link":"#",
+      "title":"Пункт"
+    }
+  ]
+}                                       
