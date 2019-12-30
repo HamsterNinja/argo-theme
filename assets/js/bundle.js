@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7532997a169beb275af7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9320aad77e198a509b6f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -700,7 +700,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "C:\\xampp\\htdocs\\argo-theme\\assets";
+/******/ 	__webpack_require__.p = "D:\\argo-theme\\assets";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -913,27 +913,30 @@ module.exports = Html5Entities;
 
 
 $('.popular-slick').slick({
-  infinite: true,
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  arrows: false
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    arrows: false
 });
-$('.menu-slick').slick({
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true
+$('.menu-slick').not('.slick-initialized').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true
 });
 $('.choice-button').click(function (event) {
-  event.preventDefault();
-  $('.choice-button').removeClass('active');
-  $(this).addClass('active');
+    event.preventDefault();
+    $('.choice-button').removeClass('active');
+    $(this).addClass('active');
 
-  var id = $(this).attr('data-id');
-  if (id) {
-    $('.single_menu-tabs-content:visible').fadeOut(0);
-    $('.single_menu-tabs').find('#' + id).fadeIn('slow');
-  }
+    var id = $(this).attr('data-id');
+    if (id) {
+        $('.single_menu-tabs-content:visible').fadeOut(0, function () {
+            $('.single_menu-tabs').find('#' + id).fadeIn('slow', function () {
+                $('.menu-slick').slick('reinit');
+            });
+        });
+    }
 });
 
 /***/ }),

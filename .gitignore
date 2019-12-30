@@ -1,5 +1,6 @@
 node_modules
 .vscode/*
+assets/*.hot-update.*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
