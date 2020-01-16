@@ -817,8 +817,11 @@ a.page-numbers {
     color: #333333;
     margin-bottom: 10px;
 }
-.reservation-form-row{
+.reservation-form-row:first-child{
     margin-bottom: 20px;
+}
+.reservation-form-row:nth-child(2){
+    margin-bottom: 10px;
 }
 .reservation-form-row:first-child {
     display: flex;
@@ -885,6 +888,9 @@ a.page-numbers {
     cursor: pointer;
     outline: none;
 }
+.reservation-form-calendar{
+    margin-bottom: 20px;
+}
 .reservation-form-calendar input {
     outline: none;
     border: 1px solid #E3E3E3;
@@ -906,6 +912,71 @@ a.page-numbers {
   background-size: 20px;
   border-left: 1px solid #ccc;
   margin-left: 8px;
+}
+.reservation-form-time {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    height: 29px;
+    width: 67px;
+    margin-bottom: 10px;
+}
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.control_indicator {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 29px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #E3E3E3;
+}
+.control:hover input ~ .control_indicator, .control input:focus ~ .control_indicator {
+    background: rgba(0, 129, 4, 0.4);
+}
+
+.control input:checked ~ .control_indicator {
+    background: rgba(0, 129, 4, 0.4);
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: rgba(0, 129, 4, 0.4);
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-radio .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: -1.3rem;
+    margin-top: -1.3rem;
+    background: rgba(0, 129, 4, 0.4);
+    border-radius: 3rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
 }
 .reservation-form-client-info {
     display: flex;

@@ -59,7 +59,13 @@
                             <input type="date" name="calendar">
                         </div>
                         <div class="reservation-form-time">
-                            
+                        {% for item in 0..23 %}
+                            <label class="control control-radio">
+                                18:00
+                                <input type="radio" name="radio">
+                                <div class="control_indicator"></div>
+                            </label>
+                        {% endfor %}
                         </div>
                     </div>
                     <div class="reservation-form-row">
