@@ -1,0 +1,95 @@
+{% include "partials/header.twig" %}
+<main class='main-content page' id="app">
+    <div class="page-header">
+        <div class="container">
+            <nav class="woocommerce-breadcrumb"><a href="">Главная</a> / Бронирование</nav>
+            <div class="all-page-title">
+                <h1>Бронирование</h1>
+            </div>
+        </div>
+    </div>
+    <div class="reservation-content">
+        <div class="container">
+            <div class="reservation-left">
+                <div class="reservation-left-title">Забронировать стол</div>
+                <form action="javascript:void(0);">
+                    <div class="reservation-form-row">
+                        <div class="reservation-form-column">
+                            <div class="reservation-form-column-name">Зал</div>
+                            <div class="reservation-form-column-value">
+                                <select name="" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="reservation-form-column">
+                            <div class="reservation-form-column-name">Стол</div>
+                            <div class="reservation-form-column-value">
+                                <select name="" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="reservation-form-column">
+                            <div class="reservation-form-column-name">Количество гостей</div>
+                            <div class="person-quantity">
+                                <button onclick="$(this).next()[0].stepDown();">
+                                    <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
+                                </button>
+                                <input type="number" min="1" value="1" class="inputNumber">
+                                <button onclick="$(this).prev()[0].stepUp();">
+                                    <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reservation-form-row">
+                        <div class="reservation-form-column-name">Дата и время визита</div>
+                        <div class="reservation-form-calendar">
+                            <input type="date" name="calendar">
+                        </div>
+                        <div class="reservation-form-time">
+                            
+                        </div>
+                    </div>
+                    <div class="reservation-form-row">
+                        <div class="reservation-form-column-name">Ваши данные</div>
+                        <div class="reservation-form-client-info">
+                            <input type="text" name="name" placeholder="Имя">
+                            <input type="phone" name="phone" placeholder="Телефон">
+                            <textarea name="description" placeholder="Пожелания (не обязательно)"></textarea>
+                        </div>
+                    </div>
+                    <button class="reservation-submit">ЗАБРОНИРОВАТЬ</button>
+                </form>
+            </div>
+            <div class="reservation-right">
+                <div class="scheme-buttons">
+                    <div class="scheme-button active" data-id="s1">1 зал</div>
+                    <div class="scheme-button" data-id="s2">2 зал</div>
+                    <div class="scheme-button" data-id="s3">3 зал</div>
+                </div>
+                <div class="scheme-content">
+                    <div class="scheme-content-inner" id="s1">
+                        <object type="image/svg+xml" data="./assets/images/scheme-1.svg">Ваш браузер не поддерживает SVG</object>
+                    </div>
+                    <div class="scheme-content-inner" id="s2">
+                        <object type="image/svg+xml" data="./assets/images/scheme-2.svg">Ваш браузер не поддерживает SVG</object>
+                    </div>
+                    <div class="scheme-content-inner" id="s3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% include "partials/footer.twig" %}

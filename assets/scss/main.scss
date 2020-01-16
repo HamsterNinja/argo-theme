@@ -177,13 +177,15 @@ p{
 }
 .popular-item-price {
     font-size: 36px;
-    line-height: 47px;
+    line-height: 36px;
     color: #000000;
     min-width: 143px;
     background: #FFC844;
-    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.56);
+    padding: 0 0 6px;
+    box-shadow: 0px 6px 5px rgba(0,0,0,0.56);
     padding-left: 29px;
     position: relative;
+    max-width: 165px;
 }
 .popular-item-price:before {
     content: "";
@@ -208,8 +210,8 @@ button.popular-item-button.add-to-cart {
     background-repeat: no-repeat;
     background-position: 9px 50%;
     width: 143px;
-    padding: 0 9px 0 38px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 9px 9px 10px 38px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 .delivery-menu {
     background-color: #fff;
@@ -477,6 +479,503 @@ a.page_menu-item{
 	background-image: url(../images/right-arrow.svg);
 	background-position: 50%;
 	background-repeat: no-repeat;
+}
+.delivery-menu_child {
+    background-color: #fff;
+    padding: 35px 0 55px;
+}
+.delivery-menu_child-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(295px,1fr));
+    grid-gap: 50px 80px;
+}
+.vue-pagination {
+    text-align: center;
+    font-size: 18px;
+    color: #1aa74b;
+    list-style: none;
+    margin: 60px 0 0 0;
+}
+
+.vue-pagination li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    margin: 0 5px;
+}
+
+.vue-pagination li a span {
+    /* width: 28px; */
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 0;
+}
+
+.vue-pagination li.active a {
+    padding: 4px 1px 1px;
+    border: 1px solid #FFC844;
+    border-radius: 50%;
+    width: 30px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+    background-color: #FFC844;
+}
+
+.vue-pagination li a {
+    padding: 3px 1px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000;
+    background-color: #fff;
+}
+
+a.page-numbers {
+    border-radius: 50%;
+    padding: 3px 1px 1px;
+    text-decoration: none;
+    width: 28px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 21px;
+    color: #333333;
+}
+.product_single-page{
+    background-color: #fff;
+    padding: 50px 0;
+}
+.product-content-top {
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.product-content-img {
+    width: 390px;
+}
+.product-content-top-info {
+    background-color: #F5E7C2;
+    padding: 15px 33px 25px;
+    width: calc(100% - 450px);
+}
+.product-content-info-name h2 {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    color: #000000;
+    margin: 0 0 10px;
+}
+.product-content-info-composition {
+    margin-bottom: 25px;
+}
+.product-content-info-composition p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.product-quantity {
+    width: 87px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 15px;
+}
+.product-quantity input {
+    width: 35px;
+    border: none;
+    background-color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    padding: 9px 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.product-quantity input::-webkit-outer-spin-button,
+.product-quantity input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.product-quantity button {
+    width: 26px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.product-content-info-add-to-cart {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.choose-button {
+    font-size: 22px;
+    line-height: 29px;
+    color: #000000;
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+}
+.choose-button.active {
+    border-color: #391E25;
+}
+.choose-button:first-child {
+    margin-right: 70px;
+}
+.tab-content {
+    padding: 20px 0;
+}
+.tab-content-inner p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.relative-products-title {
+    font-size: 36px;
+    line-height: 47px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.contacts-content {
+    background-color: #fff;
+    padding: 20px 0 50px;
+}
+.contacts-content-top {
+    background-color: #FFC844;
+    padding: 20px 0;
+    margin-bottom: 14px;
+}
+.contacts-content-top .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.contacts-content-top-item{}
+.contacts-content-top-item-name {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.contacts-content-top-item-value {
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+}
+.contacts-content-bottom{}
+.contacts-content-bottom-info{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+.contacts-content-bottom-info-item {
+    width: 188px;
+    margin-right: 26.7%;
+}
+.contacts-info-item-name{
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.contacts-info-item-socials{}
+.social-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.social-item-name {
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+    width: 138px;
+    margin-right: 16px;
+}
+.social-item-link {
+    width: 20px;
+    text-align: center;
+}
+.contacts-info-item-value a {
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+    text-decoration: none;
+}
+.delivery-area-content{
+    background-color: #fff;
+    padding: 40px 0 20px;
+}
+.delivery-area-list{
+    margin-bottom: 25px;
+}
+.delivery-area-list-title{
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+.delivery-area-list ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.delivery-area-list ul li{
+    font-size: 16px;
+    line-height: 21px;
+    color: #333333;
+    width: calc(100% - 46px);
+    margin-bottom: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.delivery-area-list ul li:before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.delivery-area-list ul li:nth-child(1):before{
+    background-color: #5E9756;
+}
+.delivery-area-list ul li:nth-child(2):before{
+    background-color: #FF0002;
+}
+.delivery-area-list ul li:nth-child(3):before{
+    background-color: #FF6B00;
+}
+.delivery-area-text h2{
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: #333333;
+    margin-bottom: 25px;
+}
+.delivery-area-text p{
+    font-size: 18px;
+    line-height: 30px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+.delivery-area-text table{
+    width: 100%;
+}
+.delivery-area-text table tbody tr:first-child td{
+    font-weight: bold;
+    padding: 0 0 11px 0;
+}
+.delivery-area-text table tbody tr td{
+    font-size: 18px;
+    line-height: 30px;
+    color: #333333;
+    padding: 3px 0;
+}
+.reservation-content {
+    background-color: #fff;
+    padding: 20px 0 50px;
+}
+.reservation-content .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.reservation-left {
+    max-width: 463px;
+    width: 40%;
+}
+.reservation-right{
+    width: calc(60% - 40px);
+}
+.reservation-left-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.reservation-form-row{
+    margin-bottom: 20px;
+}
+.reservation-form-row:first-child {
+    display: flex;
+    flex-wrap: wrap;
+}
+.reservation-form-column {
+    margin-right: 30px;
+}
+.reservation-form-column-name {
+    font-size: 16px;
+    line-height: 21px;
+    color: #333333;
+    margin-bottom: 14px;
+}
+.reservation-form-column-value select {
+    width: 67px;
+    border: 1px solid #E3E3E3;
+    text-align: center;
+    padding: 1px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #333333;
+    -webkit-appearance: none;
+    position: relative;
+    background-image: url(../images/down-arrow.svg);
+    background-position: 81% 50%;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+.person-quantity {
+    width: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid #E3E3E3;
+}
+.person-quantity input {
+    width: 35px;
+    border: none;
+    background-color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+    padding: 1px 0px;
+    outline: none;
+    font-family: 'Roboto Slab', serif;
+    outline: none;
+}
+.person-quantity input::-webkit-outer-spin-button,
+.person-quantity input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.person-quantity button {
+    width: 26px;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+.reservation-form-calendar input {
+    outline: none;
+    border: 1px solid #E3E3E3;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    max-width: 405px;
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+    padding: 3px 0 3px 11px;
+    
+}
+.reservation-form-calendar input::-webkit-calendar-picker-indicator {
+  color: transparent;
+  opacity: 1;
+  width: 46px;
+  height: 18px;
+  background: url(../images/calendar.svg) no-repeat center;
+  background-size: 20px;
+  border-left: 1px solid #ccc;
+  margin-left: 8px;
+}
+.reservation-form-client-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.reservation-form-client-info input {
+    border: 1px solid #E3E3E3;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    padding: 5px 11px;
+    width: calc(50% - 7px);
+    margin-bottom: 15px;
+    outline: none;
+}
+.reservation-form-client-info textarea {
+    border: 1px solid #E3E3E3;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    width: 100%;
+    height: 164px;
+    padding: 9px 11px;
+    resize: none;
+    outline: none;
+}
+.reservation-form-client-info input::-webkit-input-placeholder,
+.reservation-form-client-info textarea::-webkit-input-placeholder{
+    color: #000;
+    opacity: 1;
+}
+.reservation-submit {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #333333;
+    background: #FFC844;
+    border-radius: 50px;
+    outline: none;
+    border: 1px solid #ffc844;
+    width: 100%;
+    padding: 11px 5px;
+    margin-top: 30px;
+}
+.scheme-button {
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #333333;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.scheme-button:hover,
+.scheme-button.active{
+    border-color: #FFC844;
+}
+.scheme-content {
+    padding: 25px 0;
+}
+.scheme-content-inner{
+    display: none;
+}
+.scheme-content-inner:first-child{
+    display: block;
 }
 @import 'pages/home';
 @import 'components/buttons';
