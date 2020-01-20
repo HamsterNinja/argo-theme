@@ -918,7 +918,7 @@ a.page-numbers {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.control {
+.reservation-form-time .control {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -929,12 +929,12 @@ a.page-numbers {
     width: 67px;
     margin-bottom: 10px;
 }
-.control input {
+.reservation-form-time .control input {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
-.control_indicator {
+.reservation-form-time .control_indicator {
     position: absolute;
     top: 0px;
     left: 0;
@@ -943,26 +943,26 @@ a.page-numbers {
     background: transparent;
     border: 1px solid #E3E3E3;
 }
-.control:hover input ~ .control_indicator, .control input:focus ~ .control_indicator {
+.reservation-form-time .control:hover input ~ .control_indicator, .reservation-form-time .control input:focus ~ .control_indicator {
     background: rgba(0, 129, 4, 0.4);
 }
 
-.control input:checked ~ .control_indicator {
+.reservation-form-time .control input:checked ~ .control_indicator {
     background: rgba(0, 129, 4, 0.4);
 }
-.control:hover input:not([disabled]):checked ~ .control_indicator,
-.control input:checked:focus ~ .control_indicator {
+.reservation-form-time .control:hover input:not([disabled]):checked ~ .control_indicator,
+.reservation-form-time .control input:checked:focus ~ .control_indicator {
     background: rgba(0, 129, 4, 0.4);
 }
-.control input:disabled ~ .control_indicator {
+.reservation-form-time .control input:disabled ~ .control_indicator {
     background: #e6e6e6;
     opacity: 0.6;
     pointer-events: none;
 }
-.control input:checked ~ .control_indicator:after {
+.reservation-form-time .control input:checked ~ .control_indicator:after {
     display: block;
 }
-.control-radio .control_indicator::before {
+.reservation-form-time .control-radio .control_indicator::before {
     content: '';
     display: block;
     position: absolute;
@@ -1146,8 +1146,20 @@ a.page-numbers {
     background-color: #fff;
     padding: 50px 0;
 }
+.page_cart-content form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cart-left{
+    margin-right: 34px;
+}
+.cart-table.mobile{
+    display: none;
+}
 .cart-table table{
     text-align: center;
+    border-collapse: collapse;
 }
 .cart-table table tbody tr td {
     font-size: 18px;
@@ -1202,6 +1214,165 @@ p.cart-product-name {
     width: 14px;
     display: block;
     margin: 0 auto;
+}
+.refresh-cart {
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 1);
+    background: #ffc844;
+    border-radius: 50px;
+    border: 1px solid #ffc844;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cart-right {
+    border: 1px solid #E3E3E3;
+    width: 375px;
+    padding: 25px 23px 35px;
+}
+.cart-right-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 30px;
+}
+.cart-right-delivery .control {
+    display: block;
+    position: relative;
+    padding-left: 39px;
+    margin-bottom: 20px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+.cart-right-delivery .control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.cart-right-delivery .control_indicator {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background: #EDEDED;
+    border: 2px solid #E3E3E3;
+}
+
+
+.cart-right-delivery .control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.cart-right-delivery .control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.cart-right-delivery .control-radio .control_indicator {
+    border-radius: 50%;
+}
+
+.cart-right-delivery .control-radio .control_indicator:after {
+    left: 2px;
+    top: 2px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #FFC844;
+    transition: background 250ms;
+}
+.cart-right-delivery {
+    border-bottom: 1px solid #E3E3E3;
+    margin-bottom: 24px;
+    padding-bottom: 4px;
+}
+.cart-total-price {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.cart-total-price-name {
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.cart-total-price-value {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+button.checkout-btn {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    background: #FFC844;
+    border-radius: 50px;
+    border: 1px solid #ffc844;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    width: 100%;
+}
+.cart-table-item {
+    border-bottom: 1px solid #E3E3E3;
+    padding: 14px 0;
+}
+.cart-table-item-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.cart-table-item-name {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+.cart-table-item-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cart-table-item-img {
+    width: 75px;
+    margin-right: 20px;
+}
+.cart-table-item-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 120px);
+}
+.cart-table-item-info-name {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.cart-table-item-price-value {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+.cart-table-item-price-total-value {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
 }
 @import 'pages/home';
 @import 'components/buttons';

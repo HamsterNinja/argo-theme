@@ -15,38 +15,93 @@
         <div class="container">
             <form action="">
             <div class="cart-left">
-            <div class="cart-table">
-                <table>
-                    <tr>
-                        <td>Товар</td>
-                        <td>Цена</td>
-                        <td>Количество</td>
-                        <td>Итого</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img class="cart-product-img" src="./assets/images/menu_del.png" alt="">
-                            <p class="cart-product-name">Хинкали с бараниной</p>
-                        </td>
-                        <td>100 р.</td>
-                        <td>
-                            <div class="person-quantity">
-                                <button onclick="$(this).next()[0].stepDown();">
-                                    <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
-                                </button>
-                                <input type="number" min="1" value="1" class="inputNumber">
-                                <button onclick="$(this).prev()[0].stepUp();">
-                                    <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
-                                </button>
-                            </div>
-                        </td>
-                        <td>100 р.</td>
-                        <td><a class="delete-product" href=""><img src="./assets/images/close.svg" alt=""></a></td>
-                    </tr>
-                </table>
+            	<div class="cart-table desktop">
+            	    <table>
+            	        <tr>
+            	            <td>Товар</td>
+            	            <td>Цена</td>
+            	            <td>Количество</td>
+            	            <td>Итого</td>
+            	            <td></td>
+            	        </tr>
+            	        {% for item in 0..1 %}
+            	        <tr>
+            	            <td>
+            	                <img class="cart-product-img" src="./assets/images/menu_del.png" alt="">
+            	                <p class="cart-product-name">Хинкали с бараниной</p>
+            	            </td>
+            	            <td>100 р.</td>
+            	            <td>
+            	                <div class="person-quantity">
+            	                    <button onclick="$(this).next()[0].stepDown();">
+            	                        <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
+            	                    </button>
+            	                    <input type="number" min="1" value="1" class="inputNumber">
+            	                    <button onclick="$(this).prev()[0].stepUp();">
+            	                        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
+            	                    </button>
+            	                </div>
+            	            </td>
+            	            <td>100 р.</td>
+            	            <td><a class="delete-product" href=""><img src="./assets/images/close.svg" alt=""></a></td>
+            	        </tr>
+            	        {% endfor %}
+            	    </table>
+            	</div>
+            	<div class="cart-table mobile">
+            	    <div class="cart-table-item">
+            	    	<div class="cart-table-item-header">
+            	    		<div class="cart-table-item-name">Хинкали с бараниной</div>
+            	    		<div class="cart-table-item-del"><a class="delete-product" href=""><img src="./assets/images/close.svg" alt=""></a></div>
+            	    	</div>
+            	    	<div class="cart-table-item-content">
+            	    		<div class="cart-table-item-img"><img class="cart-product-img" src="./assets/images/menu_del.png" alt=""></div>
+							<div class="cart-table-item-info">
+								<div class="cart-table-item-price">
+									<div class="cart-table-item-info-name">цена</div>
+									<div class="cart-table-item-price-value">100 р.</div>
+								</div>
+								<div class="cart-table-item-quantity">
+									<div class="cart-table-item-info-name">количество</div>
+									<div class="person-quantity">
+            	                    	<button onclick="$(this).next()[0].stepDown();">
+            	                    	    <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
+            	                    	</button>
+            	                    	<input type="number" min="1" value="1" class="inputNumber">
+            	                    	<button onclick="$(this).prev()[0].stepUp();">
+            	                    	    <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
+            	                    	</button>
+            	                	</div>
+								</div>
+								<div class="cart-table-item-total">
+									<div class="cart-table-item-info-name">Итого:</div>
+									<div class="cart-table-item-price-total-value">100 р.</div>
+								</div>
+							</div>
+            	    	</div>
+            	    </div>
+            	</div>
+            	<a href="" class="refresh-cart">Обновить корзину</a>
             </div>
-            button.
+            <div class="cart-right">
+            	<div class="cart-right-title">СУММА ЗАКАЗа</div>
+            	<div class="cart-right-delivery">
+            		<label class="control control-radio">
+                        Доставка курьером
+                        <input type="radio" name="deliv">
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-radio">
+                        Самовывоз
+                        <input type="radio" name="deliv">
+                        <div class="control_indicator"></div>
+                    </label>
+            	</div>
+            	<div class="cart-total-price">
+            		<div class="cart-total-price-name">Итого</div>
+            		<div class="cart-total-price-value">1200 р.</div>
+            	</div>
+            	<button class="checkout-btn">Оформить заказ</button>
             </div>
             </form>
         </div>
