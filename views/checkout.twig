@@ -1,0 +1,121 @@
+{% include "partials/header.twig" %}
+<main class='main-content page cart' id="app">
+    <div class="page-header">
+        <div class="container">
+            <div class="cart-steps">
+                <div class="cart-step">Корзина</div>
+                <span class="next-step"><img src="./assets/images/arrow-r.svg" alt=""></span>
+                <div class="cart-step active">Оформление заказа</div>
+                <span class="next-step"><img src="./assets/images/arrow-r.svg" alt=""></span>
+                <div class="cart-step">Заказ оформлен</div>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-page-content">
+        <div class="container">
+            <div class="checkout-form">
+                <div class="checkout-form-name">Оформление заказа</div>
+                <form action="">
+                    <div class="checkout-form-content">
+                        <label for="">
+                            <p class="checkout-label">Имя</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p class="checkout-label">Телефон *</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p class="checkout-label">Выберите или введите адрес доставки  *</p>
+                            <select name="" id="">
+                                <option value="">Иван Иванов ул. Киевская, д.5, кв.4 Ликино-Дулево</option>
+                                <option value="">Иван Иванов ул. Киевская, д.5, кв.4 Ликино-Дулево</option>
+                            </select>
+                        </label>
+                        <div class="checkout-form-row">
+                            <label for="">
+                                <p class="checkout-label">Город *</p>
+                                <input type="text">
+                            </label>
+                            <label for="">
+                                <p class="checkout-label">Улица *</p>
+                                <input type="text">
+                            </label>
+                        </div>
+                        <div class="checkout-form-row">
+                            <label class="check" for="">
+                                <p class="checkout-label">Дом *</p>
+                                <input type="text">
+                            </label>
+                            <label for="">
+                                <p class="checkout-label">Кв./офис</p>
+                                <input type="text">
+                            </label>
+                            <label for="">
+                                <p class="checkout-label">Домофон (необязательно)</p>
+                                <input type="text">
+                            </label>
+                        </div>
+                        <div class="checkout-form-row">
+                            <label for="">
+                                <p class="checkout-label">Подъезд (необязательно)</p>
+                                <input type="text">
+                            </label>
+                            <label for="">
+                                <p class="checkout-label">Этаж (необязательно)</p>
+                                <input type="text">
+                            </label>
+                        </div>
+                        <textarea name=""></textarea>
+                    </div>
+                    <div class="checkout-form-content">
+                        <div class="checkout-form-name">ВАШ ЗАКАЗ</div>
+                        <div class="checkout-total">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>ТОВАР</td>
+                                        <td>ИТОГО</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Говяжий язык с пикантным соусом × 2</td>
+                                        <td>1200 р.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Говяжий язык с пикантным соусом × 2</td>
+                                        <td>1200 р.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Итого</td>
+                                        <td>10000 р.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="cart-right-delivery">
+                            <label class="control control-radio">
+                                Оплата картой банка
+                                <input type="radio" name="pay">
+                                <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                                Оплата терминалом
+                                <input type="radio" name="pay">
+                                <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                                Наличными при получении
+                                <input type="radio" name="pay">
+                                <div class="control_indicator"></div>
+                            </label>
+                        </div>
+                        <p class="policy_text">Подтверждая заказ, вы соглашаетесь с <a href="">политикой конфиденциальности</a>.</p>
+                        <button class="checkout-btn">Подтвердить заказ</button>
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% include "partials/footer.twig" %}
