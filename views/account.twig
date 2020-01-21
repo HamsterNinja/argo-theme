@@ -1,0 +1,130 @@
+{% include "partials/header.twig" %}
+<main class='main-content page cart' id="app">
+    <div class="page-header">
+        <div class="container">
+            <nav class="woocommerce-breadcrumb"><a href="">Главная</a> / Личный Кабинет</nav>
+            <div class="all-page-title">
+                <h1>Личный Кабинет</h1>
+            </div>
+        </div>
+    </div>
+<div class="account-content">
+    <div class="container">
+        <div class="account-left">
+            <div class="account-left-name">Моя учетная запись</div>
+            <div class="account-left-menu">
+                <ul>
+                    <li><a href="">Основные данные</a></li>
+                    <li><a href="">Изменить свой пароль</a></li>
+                    <li><a href="">Изменить мои адреса</a></li>
+                    <li><a href="">Уведомления</a></li>
+                </ul>
+            </div>
+            <div class="account-left-name">Мои заказы</div>
+            <div class="account-left-menu">
+                <ul>
+                    <li><a href="">История заказов</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="account-right">
+            <div class="account-right-name">Основные данные</div>
+            <div class="account-right-form">
+                <form action="">
+                    <label for=""><p>Имя</p><input type="text" placeholder="Иван"></label>
+                    <label for=""><p>Фамилия</p><input type="text" placeholder="Иванов"></label>
+                    <label for=""><p>E-Mail</p><input type="email" placeholder="ivanov@mail.ru"></label>
+                    <label for=""><p>Телефон *</p><input type="phone" placeholder="+7 (000) 000-00-00"></label>
+                    <button class="acoount-submit">ПОДТВЕРДИТЬ</button>
+                </form>
+            </div>
+
+            <div class="account-right-name">Смена пароля</div>
+            <div class="account-right-form">
+                <form action="">
+                    <label for=""><p>Пароль *</p><input type="text"></label>
+                    <label for=""><p>Подтвердить *</p><input type="text"></label>
+                    <button class="acoount-submit">ПОДТВЕРДИТЬ</button>
+                </form>
+            </div>
+
+            <div class="account-right-name">Список адресов доставки</div>
+            <div class="addresses-content">
+                <div class="addresses-content-table">
+                    <div class="address-item">
+                        <div class="address-item-value">
+                            Иван Иванов<br>
+                            ул. Киевская, д.5, кв.4 Ликино-Дулево 
+                        </div>
+                        <div class="address-item-edit">
+                            <a href="" class="button-edit">Редактировать</a>
+                            <a href="" class="button-del">Удалить</a>
+                        </div>
+                    </div>
+                    <div class="address-item">
+                        <div class="address-item-value">
+                            Иван Иванов<br>
+                            ул. Киевская, д.5, кв.4 Ликино-Дулево 
+                        </div>
+                        <div class="address-item-edit">
+                            <a href="" class="button-edit">Редактировать</a>
+                            <a href="" class="button-del">Удалить</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="add-address">Новый адрес</a>
+            </div>
+            
+
+
+            <div class="account-right-name">История заказов</div>
+            <div class="history-content">
+                <p>Вы еще не совершали покупок!</p>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>Заказ</td>
+                        <td>Стоимость</td>
+                        <td>Статус</td>
+                        <td>Операции</td>
+                    </tr>
+                    <tr>
+                        <td>28.12.2019</td>
+                        <td>№ 83a85995-df</td>
+                        <td>504 руб.</td>
+                        <td>Готов</td>
+                        <td><a href="">Повторить заказ</a></td>
+                    </tr>
+                    <tr>
+                        <td>28.12.2019</td>
+                        <td>№ 83a85995-df</td>
+                        <td>504 руб.</td>
+                        <td>Готов</td>
+                        <td><a href="">Повторить заказ</a></td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="account-right-name">Уведомления</div>
+            <div class="account-right-under-name">Мы вас будем уведомлять о мероприятиях</div>
+            <div class="account-right-form notice">
+                <form action="">
+                    <label class="control control-checkbox">
+                        SMS уведомление
+                        <input type="checkbox">
+                        <div class="control_indicator"></div>
+                    </label>
+                    <label class="control control-checkbox">
+                        E-mail уведомление
+                        <input type="checkbox">
+                        <div class="control_indicator"></div>
+                    </label>
+                    <button class="acoount-submit">ПОДТВЕРДИТЬ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{% include "partials/footer.twig" %}

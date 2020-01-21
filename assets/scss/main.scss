@@ -1541,6 +1541,295 @@ button.checkout-btn {
 .check-thanks{
     margin-bottom: 30px;
 }
+.account-content {
+    background-color: #fff;
+    padding: 25px 0 50px;
+    font-size: 0;
+}
+.account-content .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.account-left{
+    width: 325px;
+    border-right: 1px solid #E3E3E3;
+}
+.account-left-name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.account-left-menu:nth-child(2){
+    margin-bottom: 30px;
+}
+.account-left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.account-left-menu ul li {
+    margin-bottom: 15px;
+}
+.account-left-menu ul li a{
+font-size: 18px;
+line-height: 24px;
+text-align: center;
+color: #000000;
+text-decoration: none;
+}
+.account-right {
+    padding-left: 35px;
+    width: calc(100% - 325px);
+}
+.account-right-name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+.account-right-form,
+.addresses-content,
+.history-content {
+    margin-top: 30px;
+}
+.account-right-under-name {
+    font-size: 14px;
+    line-height: 18px;
+    color: #959595;
+    margin-top: 5px;
+}
+.account-right-form form {
+    max-width: 485px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.account-right-form.notice form{
+    display: block;
+}
+.account-right-form label {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    align-items: center;
+    width: 100%;
+}
+.account-right-form label p {
+    width: 130px;
+}
+.account-right-form label input {
+    width: calc(100% - 130px);
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    border: 1px solid #E3E3E3;
+    padding: 4px 15px;
+}
+button.acoount-submit {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    background: #FFC844;
+    border-radius: 50px;
+    border: 1px solid #FFC844;
+    padding: 5px 27px;
+}
+.addresses-content {
+    max-width: 535px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.addresses-content-table {
+    width: 100%;
+}
+.address-item {
+    border: 1px solid #E3E3E3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.address-item-value {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    border-right: 1px solid #E3E3E3;
+    width: 230px;
+    padding: 13px 15px;
+}
+.address-item-edit {
+    width: calc(100% - 230px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+a.button-edit {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    background: #F1F1F1;
+    border-radius: 50px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 8px;
+    border: 1px solid #f1f1f1;
+    margin: 10px;
+}
+a.button-del {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    background: #F1F1F1;
+    border-radius: 50px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 8px;
+    border: 1px solid #f1f1f1;
+    margin: 10px;
+}
+a.add-address {
+    background: #FFC844;
+    border: 1px solid #ffc884;
+    border-radius: 50px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.history-content p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+.history-content table {
+    width: 100%;
+}
+.history-content table tr td {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    padding: 14px 0;
+    border-bottom: 1px solid #E3E3E3;
+}
+.history-content table tr td:nth-child(3),
+.history-content table tr td:nth-child(4),
+.history-content table tr td:nth-child(5){
+    text-align: center;
+}
+.history-content table tr td:nth-child(4){
+    width: 30%;
+}
+.history-content table tr:first-child td {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    padding: 0 0 10px;
+    border-bottom: none;
+}
+.history-content table tr td:last-child{
+    width: 130px;
+} 
+.history-content table tr td a {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.account-right-form .control {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 25px;
+    padding-top: 2px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 220px;
+}
+.account-right-form .control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.account-right-form .control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 1px solid #E3E3E3;
+    border-radius: 0px;
+}
+.account-right-form .control:hover input ~ .control_indicator,
+.account-right-form .control input:focus ~ .control_indicator {
+    background: #fff;
+}
+
+.account-right-form .control input:checked ~ .control_indicator {
+    background: #fff;
+}
+.account-right-form .control:hover input:not([disabled]):checked ~ .control_indicator,
+.account-right-form .control input:checked:focus ~ .control_indicator {
+    background: #fff;
+}
+
+.account-right-form .control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.account-right-form .control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.account-right-form .control-checkbox .control_indicator:after {
+    left: 7px;
+    top: 2px;
+    width: 3px;
+    height: 9px;
+    border: solid #ffc844;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.account-right-form .control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+.account-right-form .control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: -1.3rem;
+    margin-top: -1.3rem;
+    background: #2aa1c0;
+    border-radius: 3rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'layout/header';
