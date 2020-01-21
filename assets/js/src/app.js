@@ -1,3 +1,9 @@
+$('.btn-hamburger').click(function() {    
+        $('.mobile-menu').addClass('active');
+    });
+    $('.btn-hamburger.active').click(function() {    
+        $('.mobile-menu').removeClass('active');
+    });
 $('.popular-slick').slick({
     infinite: true,
     slidesToShow: 3,

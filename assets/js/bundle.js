@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bd8742d645d97e206710"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fa377bec29b0a4b7395f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -912,6 +912,12 @@ module.exports = Html5Entities;
 "use strict";
 
 
+$('.btn-hamburger').click(function () {
+    $('.mobile-menu').addClass('active');
+});
+$('.btn-hamburger.active').click(function () {
+    $('.mobile-menu').removeClass('active');
+});
 $('.popular-slick').slick({
     infinite: true,
     slidesToShow: 3,

@@ -1,6 +1,9 @@
 header.main-header {
     background-color: #FFFFFF;
 }
+.main-header.mobile{
+    display: none;
+}
 .main-header-top {
     padding: 19px 0 7px;
 }
