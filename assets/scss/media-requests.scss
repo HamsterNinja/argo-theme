@@ -157,6 +157,16 @@ a.main-header-lk span {
 .mobile-menu .main-header-phone a {
     color: #fff;
 }
+.about-content-info {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.about-content-image {
+    width: 100%;
+}
+.about-content-row:nth-child(2) {
+    text-align: left;
+}
 }
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
@@ -280,6 +290,11 @@ a.delivery-menu-item:nth-child(7),
 a.delivery-menu-item:nth-child(10),
 a.delivery-menu-item:nth-child(11), {
     background-color: #F5F5F5;
+}
+.popular-item-price {
+    font-size: 28px;
+    min-width: 126px;
+    padding: 3px 0 3px;
 }
 }
 @media(max-width: 377px){
