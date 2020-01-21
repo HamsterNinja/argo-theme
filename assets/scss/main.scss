@@ -455,6 +455,8 @@ img.page_menu-decore_rb {
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 880px;
+    position: relative;
+    z-index: 1;
 }
 a.page_menu-item{
 	text-decoration: none;

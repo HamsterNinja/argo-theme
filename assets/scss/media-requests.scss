@@ -178,6 +178,35 @@ a.main-header-lk span {
     display: none;
 }
 }
+@media(max-width: 680px){
+.page_menu-content .container {
+    justify-content: center;
+}
+a.page_menu-item {
+    text-decoration: none;
+    margin: 13px 5px;
+}
+.page_menu-item-name {
+    font-size: 22px;
+    width: 280px;
+}
+img.page_menu-decore_lt {
+    top: -35px;
+    width: 84px;
+}
+img.page_menu-decore_rt {
+    top: -30px;
+    width: 69px;
+}
+img.page_menu-decore_rb {
+    bottom: 65%;
+    width: 96px;
+}
+img.page_menu-decore_lb {
+    bottom: 43%;
+    width: 110px;
+}
+}
 @media(max-width: 640px){
 .footer-content .container {
     flex-direction: column;
