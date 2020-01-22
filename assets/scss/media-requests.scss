@@ -310,6 +310,14 @@ a.delivery-menu-item {
     width: 100%;
     margin: 16px 0;
 }
+.delivery-area-text table tbody tr td {
+    font-size: 16px;
+    line-height: 22px;
+}
+.delivery-area-text p {
+    font-size: 16px;
+    line-height: 26px;
+}
 }
 @media(max-width: 480px){
 .main-header-logo svg {
