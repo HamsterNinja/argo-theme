@@ -92,8 +92,6 @@
 .main-header-cart{
 	margin-right: 0;
 }
-
-
 	.btn-hamburger{
 		display: block;
 	}
@@ -179,6 +177,16 @@ a.main-header-lk span {
 .cart-table.mobile {
     display: block;
     margin-bottom: 20px;
+}
+.account-content .container {
+    display: block;
+}
+.account-left {
+    border-right: none;
+}
+.account-right {
+    padding-left: 0;
+    width: 100%;
 }
 }
 @media(max-width: 840px){
