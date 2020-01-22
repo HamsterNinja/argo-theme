@@ -347,6 +347,29 @@ a.delivery-menu-item {
     font-size: 16px;
     line-height: 26px;
 }
+.checkout-form {
+    padding: 18px 0px 0px;
+    background-color: #fff;
+}
+.checkout-form-content {
+    padding: 25px 10px;
+}
+.checkout-form form{
+    background-color: #f8f8f8;
+    padding-bottom: 24px;
+}
+.checkout-form-row label {
+    width: 100%;
+}
+.checkout-total table tr td:first-child {
+    padding-right: 10px;
+}
+.checkout-form .cart-right-delivery {
+    padding: 0 5px;
+}
+button.checkout-btn {
+    max-width: 260px;
+}
 }
 @media(max-width: 480px){
 .main-header-logo svg {
