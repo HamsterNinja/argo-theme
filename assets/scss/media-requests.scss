@@ -173,15 +173,29 @@ a.main-header-lk span {
 .about-content-row:nth-child(2) {
     text-align: left;
 }
+.cart-table.desktop {
+    display: none;
+}
+.cart-table.mobile {
+    display: block;
+    margin-bottom: 20px;
+}
+}
+@media(max-width: 840px){
+.cart .page-header {
+    padding: 45px 0 40px;
+}
+.cart-steps {
+    flex-direction: column;
+}
+.next-step {
+    margin: 10px 0 20px;
+    transform: rotate(90deg);
+}
 }
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-
-  .product-content-img {
+.product-content-img {
     width: 290px;
 }
 .product-content-top-info {
@@ -203,6 +217,26 @@ a.main-header-lk span {
 }
 .reservation-right {
     width: 100%;
+}
+.contacts-content-top-item {
+    margin-bottom: 25px;
+}
+.contacts-content-top-item:last-child {
+    margin-bottom: 0px;
+}
+.page_cart-content form {
+    justify-content: center;
+}
+.cart-left {
+    margin-right: 0;
+    width: 100%;
+}
+
+.refresh-cart {
+    display: block;
+    margin: 0 auto 25px;
+    text-align: center;
+    width: 234px;
 }
 }
 @media(max-width: 765px){
@@ -299,12 +333,7 @@ a.delivery-menu-item {
 }
 
 }
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
+
 @media(max-width: 540px){
 .main-page-trigger {
     width: 100%;
@@ -376,6 +405,17 @@ a.delivery-menu-item:nth-child(11), {
     color: #000000;
     margin-bottom: 20px;
 }
+.cart-table-item-total {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+.cart-table-item-total .cart-table-item-info-name {
+    margin-right: 20px;
+}
+
 }
 @media(max-width: 377px){
 .main-header-text {
@@ -384,5 +424,13 @@ a.delivery-menu-item:nth-child(11), {
 }
 .mobile-menu {
     top: 52px;
+}
+}
+@media(max-width: 340px){
+.contacts-content-top-item-value {
+    font-size: 15px;
+}
+.contacts-content {
+    padding: 0px 0 50px;
 }
 }

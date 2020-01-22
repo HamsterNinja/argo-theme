@@ -1266,8 +1266,9 @@ a.page-numbers {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.cart-left{
+.cart-left {
     margin-right: 34px;
+    width: calc(100% - 409px);
 }
 .cart-table.mobile{
     display: none;
@@ -1477,6 +1478,7 @@ button.checkout-btn {
     line-height: 21px;
     text-transform: uppercase;
     color: #000000;
+    margin-bottom: 9px;
 }
 .cart-table-item-price-value {
     font-size: 18px;
