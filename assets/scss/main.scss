@@ -169,13 +169,13 @@ p{
     width: 33.333%;
 }
 .main-page-trigger:nth-child(1) .main-page-trigger-text{
-    width: 302px;
+    max-width: 302px;
 }
 .main-page-trigger:nth-child(2) .main-page-trigger-text{
-    width: 345px;
+    max-width: 345px;
 }
 .main-page-trigger:nth-child(3) .main-page-trigger-text{
-    width: 216px;
+    max-width: 216px;
 }
 .main-page-trigger-text {
     font-weight: 300;
@@ -207,9 +207,11 @@ p{
     justify-content: space-between;
 }
 .activity-item {
-    width: 388px;
     text-align: center;
     position: relative;
+}
+.activity-item img{
+    margin: 0 auto;
 }
 .activity-hidden-block {
     position: absolute;
@@ -217,10 +219,15 @@ p{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255,255,255,0.9);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+.activity-item:hover .activity-hidden-block{
+    opacity: 1;
 }
 .activity-hidden-block-title {
     font-weight: 900;
@@ -232,11 +239,12 @@ p{
     margin: 0 auto 15px;
 }
 .activity-hidden-block-text {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     color: #000000;
-    width: 317px;
+    max-width: 317px;
+    width: 90%;
     margin: 0 auto;
 }
 .popular-dishes {
@@ -307,6 +315,8 @@ button.popular-item-button.add-to-cart {
     width: 143px;
     padding: 9px 9px 10px 38px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    outline: none;
+    cursor: pointer;
 }
 .delivery-menu {
     background-color: #fff;
@@ -1014,9 +1024,11 @@ a.page-numbers {
   margin-left: 8px;
 }
 .reservation-form-time {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(67px,1fr));
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    grid-gap: 7px;
 }
 .reservation-form-time .control {
     display: flex;
@@ -1027,7 +1039,6 @@ a.page-numbers {
     font-size: 16px;
     height: 29px;
     width: 67px;
-    margin-bottom: 10px;
 }
 .reservation-form-time .control input {
     position: absolute;

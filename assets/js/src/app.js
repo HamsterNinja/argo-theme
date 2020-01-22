@@ -4,6 +4,41 @@ $('.btn-hamburger').click(function() {
     $('.btn-hamburger.active').click(function() {    
         $('.mobile-menu').removeClass('active');
     });
+
+
+    $('.activity-block-slick').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: true,
+        responsive: [
+    {
+      breakpoint: 950,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        arrows: false,
+        dots: true
+      }
+    },{
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+        dots: true
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+    });
+
+
 $('.popular-slick').slick({
     infinite: true,
     slidesToShow: 3,
