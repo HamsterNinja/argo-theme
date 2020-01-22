@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "13941a095875f7f33923"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "52ec9180898f2fda8622"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -922,7 +922,30 @@ $('.popular-slick').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
-    arrows: false
+    arrows: false,
+    dots: true,
+    responsive: [{
+        breakpoint: 950,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            arrows: false,
+            dots: true
+        }
+    }, {
+        breakpoint: 640,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: false,
+            dots: true
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+    }]
 });
 $('.menu-slick').not('.slick-initialized').slick({
     infinite: true,
