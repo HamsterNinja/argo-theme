@@ -38,19 +38,25 @@
 }
 .footer-content-center {
     text-align: center;
+    width: calc(100% - 260px - 206px);
 }
 .footer-logo {
     margin-bottom: 20px;
 }
 .footer-menu-container ul {
     display: grid;
-    grid-template-columns: repeat(4,115px);
+    grid-template-columns: repeat(4, 115px);
     grid-gap: 15px 50px;
     padding: 0;
     margin: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 .footer-menu-container ul li{
 	list-style: none;
+    width: 115px;
 }
 .footer-menu-container ul li a {
     font-weight: bold;

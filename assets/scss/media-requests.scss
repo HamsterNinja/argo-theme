@@ -438,7 +438,13 @@ a.delivery-menu-item:nth-child(11), {
 .cart-table-item-total .cart-table-item-info-name {
     margin-right: 20px;
 }
-
+.page_thanks-content-title {
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 30px;
+}
 }
 @media(max-width: 377px){
 .main-header-text {

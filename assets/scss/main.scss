@@ -324,8 +324,12 @@ button.popular-item-button.add-to-cart {
 }
 .delivery-menu-content {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,200px));
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
     grid-gap: 33px 50px;
+    justify-content: center;
+    -ms-flex-pack: start;
 }
 
 a.delivery-menu-item {
@@ -337,6 +341,9 @@ a.delivery-menu-item {
     height: 147px;
     padding: 20px 0;
     text-decoration: none;
+    min-width: 145px;
+    max-width: 200px;
+    width: 100%;
 }
 a.delivery-menu-item:nth-child(2n){
 	background-color: #F5F5F5;
