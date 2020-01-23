@@ -12,19 +12,30 @@
     <div class="container">
         <div class="account-left">
             <div class="account-left-name">Моя учетная запись</div>
-            <div class="account-left-menu">
-                <ul>
-                    <li><a href="">Основные данные</a></li>
-                    <li><a href="">Изменить свой пароль</a></li>
-                    <li><a href="">Изменить мои адреса</a></li>
-                    <li><a href="">Уведомления</a></li>
-                </ul>
+            <div class="account-left-desktop">
+                <div class="account-left-menu">
+                    <ul>
+                        <li><a href="">Основные данные</a></li>
+                        <li><a href="">Изменить свой пароль</a></li>
+                        <li><a href="">Изменить мои адреса</a></li>
+                        <li><a href="">Уведомления</a></li>
+                    </ul>
+                </div>
+                <div class="account-left-name">Мои заказы</div>
+                <div class="account-left-menu">
+                    <ul>
+                        <li><a href="">История заказов</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="account-left-name">Мои заказы</div>
-            <div class="account-left-menu">
-                <ul>
-                    <li><a href="">История заказов</a></li>
-                </ul>
+            <div class="account-left-mobile">
+                <select name="" id="">
+                    <option value="" selected ><a href="">Основные данные</a></option>
+                    <option value=""><a href="">Изменить свой пароль</a></option>
+                    <option value=""><a href="">Изменить мои адреса</a></option>
+                    <option value=""><a href="">Уведомления</a></option>
+                    <option value=""><a href="">История заказов</a></option>
+                </select>
             </div>
         </div>
         <div class="account-right">
@@ -74,12 +85,10 @@
                 </div>
                 <a href="" class="add-address">Новый адрес</a>
             </div>
-            
-
-
             <div class="account-right-name">История заказов</div>
             <div class="history-content">
                 <p>Вы еще не совершали покупок!</p>
+                <div class="history-content-inner desktop">
                 <table>
                     <tr>
                         <td></td>
@@ -88,6 +97,7 @@
                         <td>Статус</td>
                         <td>Операции</td>
                     </tr>
+                    {% for item in 0..1 %}
                     <tr>
                         <td>28.12.2019</td>
                         <td>№ 83a85995-df</td>
@@ -95,16 +105,35 @@
                         <td>Готов</td>
                         <td><a href="">Повторить заказ</a></td>
                     </tr>
-                    <tr>
-                        <td>28.12.2019</td>
-                        <td>№ 83a85995-df</td>
-                        <td>504 руб.</td>
-                        <td>Готов</td>
-                        <td><a href="">Повторить заказ</a></td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
-
+            <div class="history-content-inner mobile">
+                {% for item in 0..1 %}
+                <div class="history-content-item">
+                    <div class="history-date">28.12.2019</div>
+                    <div class="history-content-item-info">
+                        <div class="history-content-item-column">
+                            <div class="history-content-item-name">Заказ</div>
+                            <div class="history-content-item-value">№ 83a85995-df</div>
+                        </div>
+                        <div class="history-content-item-column">
+                            <div class="history-content-item-name">Стоимость</div>
+                            <div class="history-content-item-value">504 руб.</div>
+                        </div>
+                        <div class="history-content-item-column">
+                            <div class="history-content-item-name">Статус</div>
+                            <div class="history-content-item-value">Готов</div>
+                        </div>
+                    </div>
+                    <div class="history-content-item-operations">
+                        <div class="history-content-item-name">Операции</div>
+                         <div class="history-content-item-value"><a href="">Повторить заказ</a></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
 
             <div class="account-right-name">Уведомления</div>
             <div class="account-right-under-name">Мы вас будем уведомлять о мероприятиях</div>

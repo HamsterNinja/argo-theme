@@ -1,0 +1,59 @@
+{% include "partials/header.twig" %}
+<main class='main-content page cart' id="app">
+    <div class="page-header">
+        <div class="container">
+            <div class="all-page-title">
+                <h1>Регистрация</h1>
+            </div>
+            <div class="registration-text">Если вы уже зарегистрированы, перейдите на страницу <a href="">авторизации</a>.</div>
+        </div>
+    </div>
+    <div class="registration-content">
+        <div class="container">
+            <div class="registration-form">
+                <form action="">
+                    <div class="registration-form-item">
+                        <div class="registration-form-name">Основные данные</div>
+                        <label for="">
+                            <p>Имя</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p>Телефон *</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p>E-mail</p>
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div class="registration-form-item">
+                        <div class="registration-form-name">Ваш пароль</div>
+                        <label for="">
+                            <p>Пароль *</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p>Подтвердите пароль *</p>
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div class="account-right-form notice">
+                            <label class="control control-checkbox">
+                                SMS уведомление
+                                <input type="checkbox">
+                                <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-checkbox">
+                                E-mail уведомление
+                                <input type="checkbox">
+                                <div class="control_indicator"></div>
+                            </label>
+                            <button class="acoount-submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% include "partials/footer.twig" %}

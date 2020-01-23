@@ -1687,6 +1687,21 @@ button.checkout-btn {
     color: #000000;
     margin-bottom: 20px;
 }
+.account-left-mobile select {
+    max-width: 480px;
+    width: 100%;
+    border: 1px solid #E3E3E3;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 1px 5px;
+    -webkit-appearance: none;
+    background-image: url(../images/down-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) 50%;
+    background-size: 15px;
+    outline: none;
+}
 .account-left-menu:nth-child(2){
     margin-bottom: 30px;
 }
@@ -1719,6 +1734,9 @@ text-decoration: none;
 .addresses-content,
 .history-content {
     margin-top: 30px;
+}
+.history-content-inner.mobile{
+    display: none;
 }
 .account-right-under-name {
     font-size: 14px;
@@ -1870,14 +1888,54 @@ a.add-address {
 .history-content table tr td:last-child{
     width: 130px;
 } 
-.history-content table tr td a {
+.history-content table tr td a,
+.history-content-item-value a {
     font-weight: bold;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
     color: #000000;
 }
+.history-content-item {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+    margin-bottom: 0;
+    margin-top: -1px;
+    padding: 15px 0 20px;
+}
+.history-date,
+.history-content-item-name,
+.history-content-item-value {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+}
+.history-date{
+    margin-bottom: 15px;
+}
+.history-content-item-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.history-content-item-column{
+    width: 33.333%;
+    margin-right: 30px;
+}
 
+.history-content-item-column {
+    width: 90px;
+    margin-right: 10px;
+}
+.history-content-item-column:last-child {
+    margin: 0;
+}
+.history-content-item-name{
+    margin-bottom: 7px;
+}
+.history-content-item-operations{
+    margin-top: 15px;
+}
 .account-right-form .control {
     display: block;
     position: relative;
@@ -1892,6 +1950,7 @@ a.add-address {
     position: absolute;
     z-index: -1;
     opacity: 0;
+    width: 0;
 }
 .account-right-form .control_indicator {
     position: absolute;
@@ -1954,6 +2013,55 @@ a.add-address {
     transform: scale(0);
 }
 
+.registration-text {
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.registration-text a {
+    color: #FFC844;
+    text-decoration: none;
+}
+.registration-content {
+    background-color: #fff;
+    padding: 35px 0 75px;
+}
+.registration-form form{
+    max-width: 370px;
+    width: 100%;
+    margin: 0 auto;
+}
+.registration-form-name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+    text-align: center;
+}
+.registration-form form p{
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.registration-form form input {
+    border: 1px solid #E3E3E3;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+}
+.registration-form .forgot-password{
+    font-size: 13px;
+    line-height: 17px;
+    color: #AEAEAE;
+    text-decoration: none;
+}
+.registration-form form button {
+    margin: 40px auto 0;
+    display: block;
+}
 @import 'pages/home';
 @import 'components/buttons';
 @import 'layout/header';

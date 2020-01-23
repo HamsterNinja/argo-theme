@@ -1,0 +1,34 @@
+{% include "partials/header.twig" %}
+<main class='main-content page cart' id="app">
+    <div class="page-header">
+        <div class="container">
+            <div class="all-page-title">
+                <h1>Регистрация</h1>
+            </div>
+            <div class="registration-text">Если вы еще не зарегистрированы, перейдите на страницу <a href="">регистрации</a>.</div>
+        </div>
+    </div>
+    <div class="registration-content">
+        <div class="container">
+            <div class="registration-form">
+                <form action="">
+                    <div class="registration-form-item">
+                        <label for="">
+                            <p>E-Mail или номер телефона</p>
+                            <input type="text">
+                        </label>
+                        <label for="">
+                            <p>Пароль</p>
+                            <input type="text">
+                        </label>
+                        <a href="" class="forgot-password">Забыли пароль?</a>
+                    </div>
+                    <div class="account-right-form notice">                                               
+                        <button class="acoount-submit">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% include "partials/footer.twig" %}
