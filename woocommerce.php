@@ -87,6 +87,15 @@ if ( is_singular( 'product' ) ) {
     $context['comments'] = $comments;
     $context['average_product_rating'] = $average_product_rating ? $average_product_rating : 0;
 
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 5,
+        'caller_get_posts' => true,
+        'post__not_in' => array($post->ID),
+    );
+        
+    $context['related_products'] = Timber::get_posts( $args );
+
     Timber::render( 'single-product.twig', $context );
 } else {
     $posts = Timber::get_posts();

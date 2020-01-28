@@ -13,12 +13,13 @@
             <div class="product-content-top">
                 <div class="product-content-img"><img src="{{ site.theme.link }}/assets/images/product_full.png" alt=""></div>
                 <div class="product-content-top-info">
-                    <div class="product-content-info-name"><h2>Хинкали жареные с бараниной</h2></div>
-                    <div class="product-content-info-composition">
-                        <p>Фарш баранина, лук, специи, перец.</p>
-                        <p>Вес блюда: 80 г.</p>
+                    <div class="product-content-info-name">
+                        <h2>{{ post.title }}</h2>
                     </div>
-                    <div class="popular-item-price">65 р.</div>
+                    <div class="product-content-info-composition">
+                        {{ post.get_field('composition') }}
+                    </div>
+                    <div class="popular-item-price">{{ product.get_price_html }}</div>
                     <div class="product-content-info-add-to-cart">
                         <div class="product-quantity">
                             <button onclick="$(this).next()[0].stepDown();">
@@ -40,30 +41,19 @@
                 </div>
                 <div class="tab-content">
                     <div class="tab-content-inner" id="a1">
-                        <p>Цена указана за 1 шт.</p>
-                        <p>Минимальный заказ от 3-х/шт.</p>
+                        {{ post.get_content|shortcodes }}
                     </div>
                     <div class="tab-content-inner" id="a2">
-                        <p>Фарш баранина, лук, специи, перец.</p>
-                        <p>Вес блюда: 80 г.</p>
+                        {{ post.get_field('composition') }}
                     </div>
                 </div>
             </div>
             <div class="relative-products">
                 <div class="relative-products-title">ПОХОЖИЕ ТОВАРЫ</div>
                 <div class="popular-slick">
-                {% for item in 0..4 %}
-                    <div class="popular-slick-content">             
-                        <div class="popular-item">
-                            <div class="popular-item-img"><img src="{{ site.theme.link }}/assets/images/product.png" alt=""></div>
-                            <div class="popular-item-inner">
-                                <div class="popular-item-name">Хинкали жареные «Традиционные»</div>
-                                <div class="popular-item-info">
-                                    <div class="popular-item-price">350 р.</div>
-                                    <button class="popular-item-button add-to-cart">В корзину</button>
-                                </div>
-                            </div>
-                        </div>
+                {% for post in related_products %}
+                    <div class="popular-slick-content"> 
+                        {% include "partials/product-item.twig" %}            
                     </div>
                 {% endfor %}
                 </div>
