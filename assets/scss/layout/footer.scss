@@ -1,15 +1,18 @@
 .footer-content {
     padding: 22px 0 40px;
 }
+
 .footer-content .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
 }
+
 .footer-content-left {
     width: 206px;
 }
+
 .footer-phones {
     margin-bottom: 7px;
 }
@@ -20,6 +23,7 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+
 .social-name {
     font-size: 18px;
     line-height: 24px;
@@ -27,22 +31,27 @@
     color: #FFFFFF;
     margin-bottom: 15px;
 }
+
 .socials {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
+
 .socials a {
     margin: 0 13px;
 }
+
 .footer-content-center {
     text-align: center;
     width: calc(100% - 260px - 206px);
 }
+
 .footer-logo {
     margin-bottom: 20px;
 }
+
 .footer-menu-container ul {
     display: grid;
     grid-template-columns: repeat(4, 115px);
@@ -54,10 +63,12 @@
     -ms-flex-pack: center;
     justify-content: center;
 }
-.footer-menu-container ul li{
-	list-style: none;
+
+.footer-menu-container ul li {
+    list-style: none;
     width: 115px;
 }
+
 .footer-menu-container ul li a {
     font-weight: bold;
     font-size: 15px;
@@ -65,10 +76,12 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+
 .footer-content-right {
     width: 260px;
     margin-bottom: 20px;
 }
+
 .footer-text {
     font-size: 18px;
     line-height: 24px;
@@ -76,9 +89,11 @@
     color: #FFFFFF;
     margin-bottom: 15px;
 }
+
 .footer-callback {
     text-align: center;
 }
+
 .footer-callback a {
     font-weight: bold;
     font-size: 16px;
@@ -91,11 +106,13 @@
     display: inline-block;
     padding: 10px 22px;
 }
+
 .under-footer {
     background-color: #fff;
     padding: 5px 0 20px;
     position: relative;
 }
+
 .under-footer:before {
     content: "";
     display: block;
@@ -106,17 +123,20 @@
     background-image: url(../images/bottom-decore.png);
     background-position: 50% 0%;
 }
+
 .under-footer .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .under-footer-link a {
     font-size: 12px;
     line-height: 25px;
     color: #391E25;
     text-decoration: none;
 }
+
 .copyright {
     font-size: 12px;
     line-height: 25px;

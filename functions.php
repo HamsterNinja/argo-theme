@@ -87,6 +87,14 @@ class StarterSite extends TimberSite {
 }
 new StarterSite();
 
+function timber_set_product( $post ) {
+    global $product;
+    
+    if ( is_woocommerce() || is_home() || is_page('filter') ) {
+        $product = wc_get_product( $post->ID );
+    }
+}
+
 include_once(get_template_directory() .'/include/acf-fields.php');
 include_once(get_template_directory() .'/include/rest-api.php');
 include_once(get_template_directory() .'/include/theme-settings.php');

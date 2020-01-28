@@ -11,18 +11,13 @@
     <div class="delivery-menu_child">
         <div class="container">
             <div class="delivery-menu_child-content">
-                {% for item in 0..5 %}
-                <div class="popular-item">
-                    <div class="popular-item-img"><img src="{{ site.theme.link }}/assets/images/product.png" alt=""></div>
-                    <div class="popular-item-inner">
-                        <div class="popular-item-name">Хинкали жареные «Традиционные»</div>
-                        <div class="popular-item-info">
-                            <div class="popular-item-price">350 р.</div>
-                            <button class="popular-item-button add-to-cart">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+                {% if posts is not empty  %}
+					{% for post in posts %}
+                        {% include "partials/product-item.twig" %}
+					{% endfor %}
+				{% else %}
+					<div class="not-content">Категория пуста</div>
+				{% endif %}
             </div>
             <div class="pagination-block">
             	<ul class="vue-pagination">
