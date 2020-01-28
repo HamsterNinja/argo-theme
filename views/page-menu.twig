@@ -1,0 +1,36 @@
+{% include "partials/header.twig" %}
+<main class='main-content page'>
+    <div class="page-header">
+        <div class="container">
+            <nav class="woocommerce-breadcrumb"><a href="">Главная</a> / Меню</nav>
+            <div class="all-page-title">
+                <h1>Меню</h1>
+            </div>
+        </div>
+    </div>
+    <div class="page_menu-content">
+        <img class="page_menu-decore_lt" src="{{ site.theme.link }}/assets/images/menu-decore_lt.png" alt="">
+        <img class="page_menu-decore_rt" src="{{ site.theme.link }}/assets/images/menu-decore_rt.png" alt="">
+        <div class="container">
+            <a href="{{ site.link }}/product-category/menyu-dostavki/" class="page_menu-item">
+                <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_del.png" alt=""></div>
+                <div class="page_menu-item-name">Меню доставки</div>
+            </a>
+            <a href="{{ site.link }}" class="page_menu-item">
+                <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_main.png" alt=""></div>
+                <div class="page_menu-item-name">Основное меню</div>
+            </a>
+            <a href="{{ site.link }}" class="page_menu-item">
+                <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_banquet.png" alt=""></div>
+                <div class="page_menu-item-name">БАНКЕТНОЕ МЕНЮ</div>
+            </a>
+            <a href="{{ site.link }}" class="page_menu-item">
+                <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_funeral.png" alt=""></div>
+                <div class="page_menu-item-name">Поминальное меню</div>
+            </a>
+        </div>
+        <img class="page_menu-decore_lb" src="{{ site.theme.link }}/assets/images/menu-decore_lb.png" alt="">
+        <img class="page_menu-decore_rb" src="{{ site.theme.link }}/assets/images/menu-decore_rb.png" alt="">
+    </div>
+</main>
+{% include "partials/footer.twig" %}

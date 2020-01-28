@@ -4,9 +4,9 @@
         <div class="container">
             <div class="cart-steps">
                 <div class="cart-step active">Корзина</div>
-                <span class="next-step"><img src="./assets/images/arrow-r.svg" alt=""></span>
+                <span class="next-step"><img src="{{ site.theme.link }}/assets/images/arrow-r.svg" alt=""></span>
                 <div class="cart-step">Оформление заказа</div>
-                <span class="next-step"><img src="./assets/images/arrow-r.svg" alt=""></span>
+                <span class="next-step"><img src="{{ site.theme.link }}/assets/images/arrow-r.svg" alt=""></span>
                 <div class="cart-step">Заказ оформлен</div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             	        {% for item in 0..1 %}
             	        <tr>
             	            <td>
-            	                <img class="cart-product-img" src="./assets/images/menu_del.png" alt="">
+            	                <img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt="">
             	                <p class="cart-product-name">Хинкали с бараниной</p>
             	            </td>
             	            <td>100 р.</td>
@@ -43,7 +43,7 @@
             	                </div>
             	            </td>
             	            <td>100 р.</td>
-            	            <td><a class="delete-product" href=""><img src="./assets/images/close.svg" alt=""></a></td>
+            	            <td><a class="delete-product" href=""><img src="{{ site.theme.link }}/assets/images/close.svg" alt=""></a></td>
             	        </tr>
             	        {% endfor %}
             	    </table>
@@ -52,10 +52,10 @@
             	    <div class="cart-table-item">
             	    	<div class="cart-table-item-header">
             	    		<div class="cart-table-item-name">Хинкали с бараниной</div>
-            	    		<div class="cart-table-item-del"><a class="delete-product" href=""><img src="./assets/images/close.svg" alt=""></a></div>
+            	    		<div class="cart-table-item-del"><a class="delete-product" href=""><img src="{{ site.theme.link }}/assets/images/close.svg" alt=""></a></div>
             	    	</div>
             	    	<div class="cart-table-item-content">
-            	    		<div class="cart-table-item-img"><img class="cart-product-img" src="./assets/images/menu_del.png" alt=""></div>
+            	    		<div class="cart-table-item-img"><img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt=""></div>
 							<div class="cart-table-item-info">
 								<div class="cart-table-item-price">
 									<div class="cart-table-item-info-name">цена</div>
