@@ -132,5 +132,27 @@ const app = new Vue({
         'masked-input': MaskedInput,
     },
     computed: {},
-    methods: {},
+    methods: {
+        async addCart(ID) {
+            this.adding = true;
+            let formProduct = new FormData();
+            formProduct.append('action', 'add_one_product');
+            formProduct.append('product_id', ID);
+            formProduct.append('quantity', store.state.productCount ?  store.state.productCount : 1);
+                        
+            let fetchData = {
+                method: "POST",
+                body: formProduct
+            };
+            let response = await fetch(wc_add_to_cart_params.ajax_url, fetchData);
+            let jsonResponse = await response.json();
+            if (jsonResponse.error != 'undefined' && jsonResponse.error) {
+                console.log(jsonResponse.error);
+            } else if (jsonResponse.success) {
+                location = SITEDATA.url + "/cart/";
+            }
+            this.adding = false;
+        },
+        
+    },
 });

@@ -1,4 +1,3 @@
-{% include "partials/header.twig" %}
 <main class='main-content page cart'>
     <div class="page-header">
         <div class="container">
@@ -24,26 +23,34 @@
             	            <td>Итого</td>
             	            <td></td>
             	        </tr>
-            	        {% for item in 0..1 %}
+            	        {% for product in cart_products  %}
             	        <tr>
             	            <td>
-            	                <img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt="">
-            	                <p class="cart-product-name">Хинкали с бараниной</p>
+								{% if product.thumbnail %}
+									<img class="cart-product-img" src="{{ product.thumbnail }}" alt="">
+								{% else %}
+									<img class="cart-product-img" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+								{% endif %}
+            	                <p class="cart-product-name">{{ product.title }}</p>
             	            </td>
-            	            <td>100 р.</td>
+            	            <td>{{ product.price }}</td>
             	            <td>
             	                <div class="person-quantity">
             	                    <button onclick="$(this).next()[0].stepDown();">
             	                        <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
             	                    </button>
-            	                    <input type="number" min="1" value="1" class="inputNumber">
+            	                    <input type="number" min="1" value="{{ product.quantity.value }}" class="inputNumber">
             	                    <button onclick="$(this).prev()[0].stepUp();">
             	                        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
             	                    </button>
             	                </div>
             	            </td>
-            	            <td>100 р.</td>
-            	            <td><a class="delete-product" href=""><img src="{{ site.theme.link }}/assets/images/close.svg" alt=""></a></td>
+            	            <td>{{ product.subtotal }}</td>
+            	            <td>
+								<a class="delete-product" href="{{ product.remove_url }}">
+									<img src="{{ site.theme.link }}/assets/images/close.svg" alt="">
+								</a>
+							</td>
             	        </tr>
             	        {% endfor %}
             	    </table>
@@ -99,12 +106,11 @@
             	</div>
             	<div class="cart-total-price">
             		<div class="cart-total-price-name">Итого</div>
-            		<div class="cart-total-price-value">1200 р.</div>
+            		<div class="cart-total-price-value">{{ cart_total }}₽</div>
             	</div>
-            	<button class="checkout-btn">Оформить заказ</button>
+				<a class="checkout-btn" href="{{ checkout_url }}">Оформить заказ</a>
             </div>
             </form>
         </div>
     </div>
 </main>
-{% include "partials/footer.twig" %}

@@ -1,7 +1,3 @@
 {% include "partials/header.twig" %}
-<main class='main-content page'>
-    <div class="page-content container">
-        {{ post.get_content|shortcodes }}
-    </div>
-</main>
+    {{ post.get_content|shortcodes }}
 {% include "partials/footer.twig" %}

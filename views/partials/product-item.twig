@@ -11,7 +11,8 @@
         <a href="{{ post.link }}" class="popular-item-name">{{ post.title }}</a>
         <div class="popular-item-info">
             <div class="popular-item-price">350 р.</div>
-            <button class="popular-item-button add-to-cart">В корзину</button>
+            <button class="popular-item-button add-to-cart" v-on:click="addCart({{ post.id }})">В корзину</button>
         </div>
     </div>
 </div>
+

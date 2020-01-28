@@ -1660,7 +1660,7 @@ p.cart-product-name {
     color: #000000;
 }
 
-button.checkout-btn {
+.checkout-btn {
     font-size: 18px;
     line-height: 24px;
     color: #000000;
@@ -1885,7 +1885,7 @@ p.policy_text a {
     text-decoration: none;
 }
 
-button.checkout-btn {
+.checkout-btn {
     font-size: 18px;
     line-height: 24px;
     color: #000000;
@@ -1898,6 +1898,8 @@ button.checkout-btn {
     width: 100%;
     margin: 0 auto;
     display: block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .page_thanks-content {
