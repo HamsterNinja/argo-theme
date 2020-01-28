@@ -1,0 +1,25 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+          "modules": false
+        }],
+      ],
+    "plugins": ["@babel/plugin-transform-spread"],
+    "env": {
+        "test": {
+          "presets": [
+              ["@babel/preset-env", {
+            "modules": false
+          }]
+        ],
+          "plugins": [
+            ["transform-es2015-modules-commonjs"],
+            ["module-resolver", {
+              "root": ["./"],
+              "alias": {
+                "@": "./assets/js/src"
+              }
+          }]]
+        }
+    }
+}

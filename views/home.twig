@@ -1,24 +1,24 @@
 {% include "partials/header.twig" %}
-<main class='main-content' id="app">
+<main class='main-content'>
 <div class="main-slider">
 	<div class="main-slick">
 		<div class="main-slick-content">
-			<img src="./assets/images/slide.jpg" alt="">
+			<img src="{{ site.theme.link }}/assets/images/slide.jpg" alt="">
 		</div>
 	</div>
 </div>
 <div class="main-page-tiggers">
 	<div class="container">
 		<div class="main-page-trigger">
-			<div class="main-page-trigger-img"><img src="./assets/images/trigger-1.png" alt=""></div>
+			<div class="main-page-trigger-img"><img src="{{ site.theme.link }}/assets/images/trigger-1.png" alt=""></div>
 			<div class="main-page-trigger-text">Самые вкусные хинкали в городе</div>
 		</div>
 		<div class="main-page-trigger">
-			<div class="main-page-trigger-img"><img src="./assets/images/trigger-2.png" alt=""></div>
+			<div class="main-page-trigger-img"><img src="{{ site.theme.link }}/assets/images/trigger-2.png" alt=""></div>
 			<div class="main-page-trigger-text">Готовим шашлык из самого свежего мяса</div>
 		</div>
 		<div class="main-page-trigger">
-			<div class="main-page-trigger-img"><img src="./assets/images/trigger-3.png" alt=""></div>
+			<div class="main-page-trigger-img"><img src="{{ site.theme.link }}/assets/images/trigger-3.png" alt=""></div>
 			<div class="main-page-trigger-text">А еще у нас выпечка вкусная</div>
 		</div>
 	</div>
@@ -28,21 +28,21 @@
 		<div class="main-page-title">Мероприятия</div>
 		<div class="activity-block-slick">
 			<div class="activity-item">
-				<img src="./assets/images/merop-1.jpg" alt="">
+				<img src="{{ site.theme.link }}/assets/images/merop-1.jpg" alt="">
 				<div class="activity-hidden-block">
 					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
 					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
 				</div>
 			</div>
 			<div class="activity-item">
-				<img src="./assets/images/merop-2.jpg" alt="">
+				<img src="{{ site.theme.link }}/assets/images/merop-2.jpg" alt="">
 				<div class="activity-hidden-block">
 					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
 					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
 				</div>
 			</div>
 			<div class="activity-item">
-				<img src="./assets/images/merop-3.jpg" alt="">
+				<img src="{{ site.theme.link }}/assets/images/merop-3.jpg" alt="">
 				<div class="activity-hidden-block">
 					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
 					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
@@ -58,7 +58,7 @@
 			{% for item in 0..4 %}
 				<div class="popular-slick-content">				
 					<div class="popular-item">
-						<div class="popular-item-img"><img src="./assets/images/product.png" alt=""></div>
+						<div class="popular-item-img"><img src="{{ site.theme.link }}/assets/images/product.png" alt=""></div>
 						<div class="popular-item-inner">
 							<div class="popular-item-name">Хинкали жареные «Традиционные»</div>
 							<div class="popular-item-info">
@@ -77,47 +77,47 @@
 		<div class="main-page-title">МЕНЮ ДОСТАВКИ</div>
 		<div class="delivery-menu-content">
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-1.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-1.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Хинкали</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-2.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-2.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Салаты</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-3.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-3.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Холодные закуски</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-4.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-4.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Горячие закуски</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-5.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-5.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Супы</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-6.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-6.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Шашлыки</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-7.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-7.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Гарниры</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-8.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-8.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Выпечка</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-9.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-9.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Десерты</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-10.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-10.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Фрукты</div>
 			</a>
 			<a href="" class="delivery-menu-item">
-				<div class="delivery-menu-item-img"><img src="./assets/images/menu-11.svg" alt=""></div>
+				<div class="delivery-menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu-11.svg" alt=""></div>
 				<div class="delivery-menu-item-name">Напитки</div>
 			</a>
 		</div>
