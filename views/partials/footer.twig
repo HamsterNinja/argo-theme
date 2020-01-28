@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="footer-content-left">
 				<div class="footer-phones">
-					<div class="footer-phone"><a href="">+7 (496) 414-14-14</a></div>
-					<div class="footer-phone"><a href="">+7 (968) 689-22-77</a></div>
+					<div class="footer-phone"><a href="tel:+74964141414">+7 (496) 414-14-14</a></div>
+					<div class="footer-phone"><a href="tel:+79686892277">+7 (968) 689-22-77</a></div>
 				</div>
 				<div class="footer-socials">
 					<div class="social-name">Социальные сети</div>
@@ -21,15 +21,14 @@
 				</div>
 				<div class="footer-menu">
 					<div class="footer-menu-container">
-						<ul>
-							<li><a href="">Главная</a></li>
-							<li><a href="">О ресторане</a></li>
-							<li><a href="">Доставка</a></li>
-							<li><a href="">Фотоархив</a></li>
-							<li><a href="">Меню</a></li>
-							<li><a href="">Бронирование</a></li>
-							<li><a href="">Мероприятия</a></li>
-							<li><a href="">Контакты</a></li>
+						<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+							{% for item in menu_footer.get_items %}
+								<li itemprop="name" class="{{item.class}}">
+									<a itemprop="url" href="{{ item.link }}">
+										{{ item.title }}
+									</a>
+								</li>
+							{% endfor %}   
 						</ul>
 					</div>
 				</div>

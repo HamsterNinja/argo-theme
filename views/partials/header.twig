@@ -60,16 +60,14 @@
             <div class="container">
                 <div class="main-header-menu">
                     <div class="main-header-menu-container">
-                        <ul>
-                            <li><a href="{{ site.link }}">Главная</a></li>
-                            <li><a href="{{ site.link }}/menu">Меню</a></li>
-                            <li><a href="{{ site.link }}">Заказать доставку</a></li>
-                            <li><a href="{{ site.link }}/about_us">О ресторане</a></li>
-                            <li><a href="{{ site.link }}/reservation">Бронирование</a></li>
-                            <li><a href="{{ site.link }}/delivery">Доставка</a></li>
-                            <li><a href="{{ site.link }}/activity">Мероприятия</a></li>
-                            <li><a href="{{ site.link }}/photos">Фотоархив</a></li>
-                            <li><a href="{{ site.link }}/contacts">Контакты</a></li>
+                        <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                            {% for item in menu_header.get_items %}
+								<li itemprop="name" class="{{item.class}}">
+									<a itemprop="url" href="{{ item.link }}">
+										{{ item.title }}
+									</a>
+								</li>
+							{% endfor %}   
                         </ul>
                     </div>
                 </div>
@@ -122,16 +120,14 @@
                     <button class="btn-hamburger active btn-hamburger-1 js_hamburger"><span></span></button>
                 </div>
                 <div class="mobile-menu-content">
-                    <ul>
-                        <li><a href="{{ site.link }}">Главная</a></li>
-                        <li><a href="{{ site.link }}/menu">Меню</a></li>
-                        <li><a href="{{ site.link }}">Заказать доставку</a></li>
-                        <li><a href="{{ site.link }}/about_us">О ресторане</a></li>
-                        <li><a href="{{ site.link }}">Бронирование</a></li>
-                        <li><a href="{{ site.link }}">Доставка</a></li>
-                        <li><a href="{{ site.link }}">Мероприятия</a></li>
-                        <li><a href="{{ site.link }}">Фотоархив</a></li>
-                        <li><a href="{{ site.link }}/contacts">Контакты</a></li>
+                    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                        {% for item in menu_header.get_items %}
+                            <li itemprop="name" class="{{item.class}}">
+                                <a itemprop="url" href="{{ item.link }}">
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        {% endfor %}   
                     </ul>
                 </div>
                 <div class="mobile-menu-phones">
