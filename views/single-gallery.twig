@@ -4,36 +4,21 @@
         <div class="container">
             {{ function('woocommerce_breadcrumb') }}
             <div class="all-page-title">
-                <h1>Фотоархив 20 декабря 2019</h1>
+                <h1>{{ post.title }}</h1>
             </div>
         </div>
     </div>
     <div class="photo-gallery_content">
         <div class="container">
-            <div class="photo-gallery_content-inner"> 
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/gallery.jpg" alt="">
-                </a>
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/about2.jpg" alt="">
-                </a>
-            </div>
-            <div class="photo-gallery_content-inner">
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/about2.jpg" alt="">
-                </a>
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/gallery.jpg" alt="">
-                </a>
-            </div>
-            <div class="photo-gallery_content-inner">
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/about2.jpg" alt="">
-                </a>
-                <a fancybox="" class="gallery-item" href="">
-                    <img src="{{ site.theme.link }}/assets/images/gallery.jpg" alt="">
-                </a>
-            </div>
+            {% for row in gallery_chunks %}
+                <div class="photo-gallery_content-inner">
+                    {% for image in row %}
+                        <a fancybox="" class="gallery-item" href="">
+                            <img src="{{ Image(image) }}" />
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </div>
 </main>

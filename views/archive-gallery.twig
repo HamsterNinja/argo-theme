@@ -10,12 +10,22 @@
     </div>
     <div class="archive-gallery_content">
         <div class="container">
-            {% for item in 0..5 %}
-                <a class="photo-gallery-item" href="">
-                    <div class="photo-gallery-image"><img src="{{ site.theme.link }}/assets/images/about2.jpg" alt=""></div>
-                    <div class="photo-gallery-name">20 декабря 2019</div>
-                </a>
-            {% endfor %}
+            {% if posts is not empty  %}
+				{% for post in posts %}
+                    <a class="photo-gallery-item" href="{{ post.link }}">
+                        <div class="photo-gallery-image">
+                            {% if post.thumbnail %}
+                                <img src="{{ post.thumbnail.src('medium_large') }}" alt="{{ post.title }}">
+                            {% else %}
+                                <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="photo-gallery-name">{{ post.title }}</div>
+                    </a>
+				{% endfor %}
+			{% else %}
+				<div class="not-content">Категория пуста</div>
+			{% endif %}
         </div>
     </div>
 </main>

@@ -1,5 +1,5 @@
 <?php
-$templates = array( 'archive.twig', 'index.twig' );
+$templates = ['archive.twig', 'index.twig'];
 $context = Timber::get_context();
 $context['title'] = 'Archive';
 if ( is_day() ) {
@@ -17,6 +17,11 @@ if ( is_day() ) {
 } else if ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+	
+	//TODO: почему то сломался get_post_type()
+	if (post_type_archive_title( '', false ) == 'Фото') {
+		array_unshift( $templates, 'archive-gallery.twig' );
+	}
 }
 $context['posts'] = new Timber\PostQuery();
 
