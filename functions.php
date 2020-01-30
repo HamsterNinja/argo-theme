@@ -158,6 +158,13 @@ if ( class_exists( 'Timber' ) ){
             $context['menu_header'] = new TimberMenu('menu_header');  
             $context['menu_footer'] = new TimberMenu('menu_footer');  
             $context['site'] = $this;
+
+            $context['facebook'] = get_field('facebook', 'options');
+            $context['vk'] = get_field('vk', 'options');
+            $context['ok'] = get_field('ok', 'options');
+            $context['email'] = get_field('email', 'options');
+            $context['phone_1'] = get_field('phone_1', 'options');
+            $context['phone_2'] = get_field('phone_2', 'options');
                 
             return $context;
         }
