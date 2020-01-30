@@ -53,7 +53,7 @@
 			<div class="footer-content-right">
 				<div class="footer-text">Доставка еды из ресторана в г. Ликино-Дулево</div>
 				<div class="footer-callback">
-					<a href="">Заказать звонок</a>
+					<a href="#" v-on:click.prevent="showModal('modal-window--callback')">Заказать звонок</a>
 				</div>
 			</div>
 		</div>
@@ -65,10 +65,11 @@
 			</div>
 			<div class="copyright">© 1998 - 2019 АРГО</div>
 			<div class="under-footer-link">
-				<a target="_blank" rel="noopener" href="https://is-art.ru/"> Сайт разработан студией IS ART</a>
+				<a target="_blank" rel="noopener" href="https://is-art.ru/">Сайт разработан студией IS ART</a>
 			</div>
 		</div>
 	</div>
+	{% include "partials/modals.twig" %}
 </footer>
 </div>
 </body>

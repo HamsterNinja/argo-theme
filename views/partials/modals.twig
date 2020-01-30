@@ -1,0 +1,23 @@
+<div class="overlay" v-on:click="closeModal"></div>
+
+<div class="dialogs">
+
+    <div class="modal-window modal-window--callback" role="dialog" aria-modal="true">
+        <div class="modal-window-container">
+            <button class="modal-window__close" v-on:click="closeModal"></button>
+            <div class="modal-window__content">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-window modal-window--thank" role="dialog" aria-modal="true">
+        <div class="modal-window-container">
+            <button class="modal-window__close" v-on:click="closeModal"></button>
+            <div class="modal-window__content">
+                <span class="text-thank">Спасибо за заявку</span>
+            </div>
+        </div>
+    </div>
+
+</div>

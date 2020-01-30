@@ -49,11 +49,13 @@
                     </a>
                 </div>
                 <div class="main-header-contacts">
-                <div class="main-header-phones">
-                        <div class="main-header-phone"><a href="tel:{{ phone_1|striptags|replace({' ': ''}) }}">{{ phone_1 }}</a></div>
-                        <div class="main-header-phone"><a href="tel:{{ phone_2|striptags|replace({' ': ''}) }}">{{ phone_2 }}</a></div>
-                </div>
-                <div class="main-header-callback"><a href="">Обратный звонок</a></div>
+                    <div class="main-header-phones">
+                            <div class="main-header-phone"><a href="tel:{{ phone_1|striptags|replace({' ': ''}) }}">{{ phone_1 }}</a></div>
+                            <div class="main-header-phone"><a href="tel:{{ phone_2|striptags|replace({' ': ''}) }}">{{ phone_2 }}</a></div>
+                    </div>
+                    <div class="main-header-callback">
+                        <a href="#" v-on:click.prevent="showModal('modal-window--callback')">Обратный звонок</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,7 +102,9 @@
                     <div class="main-header-phone"><a href="tel:{{ phone_1|striptags|replace({' ': ''}) }}">{{ phone_1 }}</a></div>
                     <div class="main-header-phone"><a href="tel:{{ phone_2|striptags|replace({' ': ''}) }}">{{ phone_2 }}</a></div>
                 </div>
-                <div class="main-header-callback"><a href="">Обратный звонок</a></div>
+                <div class="main-header-callback">
+                    <a href="#" v-on:click.prevent="showModal('modal-window--callback')">Обратный звонок</a>
+                </div>
                 </div>
                 <div class="user-controls">
                     {% do action('header_action_mobile') %}

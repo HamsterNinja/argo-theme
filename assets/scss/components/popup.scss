@@ -1,0 +1,84 @@
+.overlay.overlay--show {
+    display: block;
+    -webkit-animation: showModal 250ms ease-in-out;
+    animation: showModal 250ms ease-in-out;
+}
+
+.overlay {
+    z-index: 70;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.modal-window.modal--show {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    animation: showModal 250ms ease-in-out;
+}
+
+.modal-window {
+    opacity: 0;
+    position: relative;
+    z-index: 200;
+    display: none;
+}
+
+.modal-window__close {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDguMzMzIiBoZWlnaHQ9IjM0OC4zMzQiPjxwYXRoIGQ9Ik0zMzYuNTU5IDY4LjYxMUwyMzEuMDE2IDE3NC4xNjVsMTA1LjU0MyAxMDUuNTQ5YzE1LjY5OSAxNS43MDUgMTUuNjk5IDQxLjE0NSAwIDU2Ljg1LTcuODQ0IDcuODQ0LTE4LjEyOCAxMS43NjktMjguNDA3IDExLjc2OS0xMC4yOTYgMC0yMC41ODEtMy45MTktMjguNDE5LTExLjc2OUwxNzQuMTY3IDIzMS4wMDMgNjguNjA5IDMzNi41NjNjLTcuODQzIDcuODQ0LTE4LjEyOCAxMS43NjktMjguNDE2IDExLjc2OS0xMC4yODUgMC0yMC41NjMtMy45MTktMjguNDEzLTExLjc2OS0xNS42OTktMTUuNjk4LTE1LjY5OS00MS4xMzkgMC01Ni44NWwxMDUuNTQtMTA1LjU0OUwxMS43NzQgNjguNjExYy0xNS42OTktMTUuNjk5LTE1LjY5OS00MS4xNDUgMC01Ni44NDQgMTUuNjk2LTE1LjY4NyA0MS4xMjctMTUuNjg3IDU2LjgyOSAwbDEwNS41NjMgMTA1LjU1NEwyNzkuNzIxIDExLjc2N2MxNS43MDUtMTUuNjg3IDQxLjEzOS0xNS42ODcgNTYuODMyIDAgMTUuNzA1IDE1LjY5OSAxNS43MDUgNDEuMTQ1LjAwNiA1Ni44NDR6Ii8+PC9zdmc+);
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 110;
+}
+
+.modal-window__content {
+    padding: 30px 50px;
+    background: #fff;
+}
+
+.modal-window-container {
+    width: 100%;
+    max-width: 610px;
+    height: auto;
+    position: relative;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.6);
+}
+
+.text-thank {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+}
+
+.modal-login-error {
+    text-align: center;
+    padding: 15px 0px;
+    color: #e22020;
+}

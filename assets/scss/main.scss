@@ -1,6 +1,6 @@
 @import 'base/normalize';
-@import 'vendors/slick.scss';
-@import 'vendors/slick-theme.scss';
+@import 'vendors/slick';
+@import 'vendors/slick-theme';
 
 html {
     box-sizing: border-box;
@@ -2383,6 +2383,7 @@ a.add-address {
 
 @import 'pages/home';
 @import 'components/buttons';
+@import 'components/popup';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'media-requests';
