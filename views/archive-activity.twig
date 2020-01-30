@@ -1,0 +1,34 @@
+{% include "partials/header.twig" %}
+<main class='main-content page'>
+	<div class="page-header">
+		<div class="container">
+			{{ function('woocommerce_breadcrumb') }}
+			<div class="all-page-title"><h1>МЕРОПРИЯТИЯ</h1></div>
+		</div>
+	</div>
+	<div class="activity-block">
+	<div class="container">
+		<div class="activity-block-slick">
+			{% if posts is not empty  %}
+				{% for post in posts %}					
+					<div class="activity-item">
+						{% if post.thumbnail %}
+                            <img src="{{ post.thumbnail.src|resize(363, 547) }}" alt="{{ post.title }}">
+                        {% else %}
+                            <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+                        {% endif %}
+						<div class="activity-hidden-block">
+							<div class="activity-hidden-block-title">{{ post.title }}</div>
+							<!-- TODO: удалить неразравные пробелы -->
+							<div class="activity-hidden-block-text">{{ post.preview.length(50).read_more('') }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="not-content">Категория пуста</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+</main>
+{% include "partials/footer.twig" %}

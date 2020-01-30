@@ -32,11 +32,9 @@ header.main-header {
     transform: translate(37px, 0px);
 }
 
-.main-header-logo a {}
-
-.main-header-logo a svg {}
-
-.main-header-logo a svg path {}
+.main-header-logo a {
+    display: inline-block;
+}
 
 .main-header-contacts {
     display: flex;
@@ -78,8 +76,6 @@ header.main-header {
     color: #FFC844;
 }
 
-.main-header-callback {}
-
 .main-header-callback a {
     font-size: 14px;
     line-height: 18px;
@@ -116,8 +112,6 @@ header.main-header {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
-.main-header-menu {}
 
 .main-header-menu-container ul {
     padding: 0;
@@ -165,7 +159,3 @@ header.main-header {
     flex-wrap: wrap;
     text-decoration: none;
 }
-
-.count-prod {}
-
-.main-header-lk {}

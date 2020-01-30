@@ -23,51 +23,37 @@
 		</div>
 	</div>
 </div>
+
+{% if activities is not empty  %}
 <div class="activity-block">
 	<div class="container">
 		<div class="main-page-title">Мероприятия</div>
 		<div class="activity-block-slick">
-			<div class="activity-item">
-				<img src="{{ site.theme.link }}/assets/images/merop-1.jpg" alt="">
-				<div class="activity-hidden-block">
-					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
+			{% for activity in activities %}			
+				<div class="activity-item">
+					{% if activity.thumbnail %}
+						<img src="{{ activity.thumbnail.src|resize(363, 547) }}" alt="{{ activity.title }}">
+					{% else %}
+						<img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+					{% endif %}
+					<div class="activity-hidden-block">
+						<div class="activity-hidden-block-title">{{ activity.title }}</div>
+						<!-- TODO: удалить неразравные пробелы -->
+						<div class="activity-hidden-block-text">{{ activity.preview.length(50).read_more('') }}</div>
+					</div>
 				</div>
-			</div>
-			<div class="activity-item">
-				<img src="{{ site.theme.link }}/assets/images/merop-2.jpg" alt="">
-				<div class="activity-hidden-block">
-					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
-				</div>
-			</div>
-			<div class="activity-item">
-				<img src="{{ site.theme.link }}/assets/images/merop-3.jpg" alt="">
-				<div class="activity-hidden-block">
-					<div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-					<div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
-				</div>
-			</div>
+			{% endfor %}	
 		</div>
 	</div>
 </div>
+{% endif %}
+
 <div class="popular-dishes">
 	<div class="container">
 		<div class="all-page-title">Популярные блюда</div>
 		<div class="popular-slick">
-			{% for item in 0..4 %}
-				<div class="popular-slick-content">				
-					<div class="popular-item">
-						<div class="popular-item-img"><img src="{{ site.theme.link }}/assets/images/product.png" alt=""></div>
-						<div class="popular-item-inner">
-							<div class="popular-item-name">Хинкали жареные «Традиционные»</div>
-							<div class="popular-item-info">
-								<div class="popular-item-price">350 р.</div>
-								<button class="popular-item-button add-to-cart">В корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
+			{% for post in popular_products %}
+				{% include "partials/product-item.twig" %}
 			{% endfor %}
 		</div>
 	</div>

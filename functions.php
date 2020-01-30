@@ -6,17 +6,19 @@ if ( class_exists( 'Timber' ) ){
     Timber::$cache = false;
 }
 
-include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/WooCommerce.php');
-include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/ProductsIterator.php');
-include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/Product.php');
+if ( class_exists( 'Timber' ) ){
+    include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/WooCommerce.php');
+    include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/ProductsIterator.php');
+    include_once(get_template_directory() .'/include/Timber/Integrations/WooCommerce/Product.php');
+    if ( class_exists( 'WooCommerce' ) ) {
+        Timber\Integrations\WooCommerce\WooCommerce::init();
+    }
+}
 
 add_action( 'after_setup_theme', function() {
     add_theme_support( 'woocommerce' );
 } );
 
-if ( class_exists( 'WooCommerce' ) ) {
-    Timber\Integrations\WooCommerce\WooCommerce::init();
-}
 
 add_filter('the_generator', '__return_empty_string');
 
@@ -139,33 +141,35 @@ function add_styles() {
 }
 add_action('wp_print_styles', 'add_styles');
 
-Timber::$dirname = array('templates', 'views');
-class StarterSite extends TimberSite {
-	function __construct() {
-		add_theme_support( 'post-formats' );
-        add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'woocommerce' );
-        add_theme_support( 'menus' );
-        add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-        parent::__construct();
+if ( class_exists( 'Timber' ) ){
+    Timber::$dirname = array('templates', 'views');
+    class StarterSite extends TimberSite {
+        function __construct() {
+            add_theme_support( 'post-formats' );
+            add_theme_support( 'post-thumbnails' );
+            add_theme_support( 'woocommerce' );
+            add_theme_support( 'menus' );
+            add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+            add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+            parent::__construct();
+        }
+        
+        function add_to_context( $context ) {
+            $context['menu_header'] = new TimberMenu('menu_header');  
+            $context['menu_footer'] = new TimberMenu('menu_footer');  
+            $context['site'] = $this;
+                
+            return $context;
+        }
     }
-    
-    function add_to_context( $context ) {
-        $context['menu_header'] = new TimberMenu('menu_header');  
-        $context['menu_footer'] = new TimberMenu('menu_footer');  
-        $context['site'] = $this;
-            
-		return $context;
-	}
-}
-new StarterSite();
+    new StarterSite();
 
-function timber_set_product( $post ) {
-    global $product;
-    
-    if ( is_woocommerce() || is_home() || is_page('filter') ) {
-        $product = wc_get_product( $post->ID );
+    function timber_set_product( $post ) {
+        global $product;
+        
+        if ( is_woocommerce() || is_home() || is_page('filter') ) {
+            $product = wc_get_product( $post->ID );
+        }
     }
 }
 

@@ -22,6 +22,10 @@ if ( is_day() ) {
 	if (post_type_archive_title( '', false ) == 'Фото') {
 		array_unshift( $templates, 'archive-gallery.twig' );
 	}
+	
+	if (post_type_archive_title( '', false ) == 'Мероприятия') {
+		array_unshift( $templates, 'archive-activity.twig' );
+	}
 }
 $context['posts'] = new Timber\PostQuery();
 
