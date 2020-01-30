@@ -7,6 +7,12 @@ Vue.use(mapState);
 Vue.use(mapGetters);
 import store from './store';
 
+import contactsMap from './contacts-map';
+
+document.addEventListener('DOMContentLoaded', () => {
+    contactsMap.init();
+});
+
 $('.btn-hamburger').click(function () {
     $('.mobile-menu').addClass('active');
 });

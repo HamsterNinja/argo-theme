@@ -109,6 +109,8 @@ function add_scripts() {
     time_enqueuer('slick', '/assets/js/vendors/slick.js', 'script', true);
     time_enqueuer('app', '/assets/js/main.bundle.js', 'script', true);
     
+    wp_enqueue_script('yandex-map-api', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Map,Placemark#asyncload'); 
+    
     wp_localize_script( 'app', 'SITEDATA', array(
         'url' => get_site_url(),
         'themepath' => get_template_directory_uri(),
