@@ -2381,6 +2381,40 @@ a.add-address {
     font-size: 18px;
 }
 
+//float placeholder
+.form-group-float-placeholder {
+    position: relative;
+    max-width: 333px;
+    width: 100%;
+    margin: 0 auto 10px;
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: -5px;
+    padding: 10px 0 0 15px;
+    transition: all 200ms;
+    opacity: 0;
+    left: 0;
+    display: block;
+}
+
+.form-group-float-placeholder .form-control:valid+.form-control-placeholder {
+    font-size: 75%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+}
+
+.form-group-float-placeholder .form-control:focus+.form-control-placeholder {
+    font-size: 75%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+}
+
+.form-group-float-placeholder .form-control:focus::placeholder {
+    color: transparent;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';

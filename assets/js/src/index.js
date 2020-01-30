@@ -100,6 +100,9 @@ $('.choice-button').click(function (event) {
     }
 });
 
+import callbackModal from './components/callbackModal.vue';
+Vue.component('callback-modal', callbackModal);
+
 import MaskedInput from 'vue-masked-input';
 
 import numeral from 'numeral';
