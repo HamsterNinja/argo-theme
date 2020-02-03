@@ -8,7 +8,7 @@
                         <div class="reservation-form-column">
                             <div class="reservation-form-column-name">Зал</div>
                             <div class="reservation-form-column-value">
-                                <select name="" id="">
+                                <select name="">
                                     <option value="1">1</option>
                                 </select>
                             </div>
@@ -16,7 +16,7 @@
                         <div class="reservation-form-column">
                             <div class="reservation-form-column-name">Стол</div>
                             <div class="reservation-form-column-value">
-                                <select name="" id="">
+                                <select name="">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -31,15 +31,7 @@
                         </div>
                         <div class="reservation-form-column">
                             <div class="reservation-form-column-name">Количество гостей</div>
-                            <div class="person-quantity">
-                                <button>
-                                    <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
-                                </button>
-                                <input type="number" min="1" value="1" class="inputNumber">
-                                <button>
-                                    <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
-                                </button>
-                            </div>
+                            <quantity-button count='1'/>
                         </div>
                     </div>
                     <div class="reservation-form-row">
@@ -69,20 +61,17 @@
                 </form>
             </div>
             <div class="reservation-right">
-                <div class="scheme-buttons">
-                    <div class="scheme-button active" data-id="s1">1 зал</div>
-                    <div class="scheme-button" data-id="s2">2 зал</div>
-                    <div class="scheme-button" data-id="s3">3 зал</div>
-                </div>
-                <div class="scheme-content">
-                    <div class="scheme-content-inner" id="s1">
+                <tabs>
+                    <tab name="1 зал" :selected="true">
                         <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
-                    </div>
-                    <div class="scheme-content-inner" id="s2">
-                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-2.svg`">Ваш браузер не поддерживает SVG</object>
-                    </div>
-                    <div class="scheme-content-inner" id="s3"></div>
-                </div>
+                    </tab>
+                    <tab name="2 зал">
+                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
+                    </tab>
+                    <tab name="3 зал">
+                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
+                    </tab>
+                </tabs>
             </div>
         </div>
     </div>
@@ -90,19 +79,10 @@
 
 <script>
 export default {
+    components: {},
     data: () => ({
         template_url: SITEDATA.themepath,
-        halls: [
-            {
-                name: 'Зал 1',
-            },
-            {
-                name: 'Зал 2',
-            },
-            {
-                name: 'Зал 3',
-            }
-        ],
+        halls: '1',
     }),
 }
 </script>

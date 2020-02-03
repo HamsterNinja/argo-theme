@@ -11,100 +11,113 @@ import contactsMap from './contacts-map';
 
 document.addEventListener('DOMContentLoaded', () => {
     contactsMap.init();
-});
-
-$('.btn-hamburger').click(function () {
-    $('.mobile-menu').addClass('active');
-});
-$('.btn-hamburger.active').click(function () {
-    $('.mobile-menu').removeClass('active');
-});
 
 
-$('.activity-block-slick').slick({
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    arrows: false,
-    dots: true,
-    responsive: [{
-            breakpoint: 950,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                arrows: false,
-                dots: true
+    //TODO: переписать
+    $('.btn-hamburger').click(function () {
+        $('.mobile-menu').addClass('active');
+    });
+    $('.btn-hamburger.active').click(function () {
+        $('.mobile-menu').removeClass('active');
+    });
+    
+    
+    $('.activity-block-slick').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: true,
+        responsive: [{
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    arrows: false,
+                    dots: true
+                }
+            }, {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: false,
+                    dots: true
+                }
             }
-        }, {
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                arrows: false,
-                dots: true
+        ]
+    });
+    
+    
+    $('.popular-slick').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: true,
+        responsive: [{
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    arrows: false,
+                    dots: true
+                }
+            }, {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: false,
+                    dots: true
+                }
             }
-        }
-    ]
-});
-
-
-$('.popular-slick').slick({
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    arrows: false,
-    dots: true,
-    responsive: [{
-            breakpoint: 950,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                infinite: true,
-                arrows: false,
-                dots: true
-            }
-        }, {
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                arrows: false,
-                dots: true
-            }
-        }
-    ]
-});
-
-$('.menu-slick').not('.slick-initialized').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-});
-
-$('.choice-button').click(function (event) {
-    event.preventDefault();
-    $('.choice-button').removeClass('active');
-    $(this).addClass('active');
-
-    var id = $(this).attr('data-id');
-    if (id) {
-        $('.single_menu-tabs-content:visible').fadeOut(0, function () {
-            $('.single_menu-tabs').find('#' + id).fadeIn('slow', function () {
-                $('.menu-slick').slick('reinit');
+        ]
+    });
+    
+    $('.menu-slick').not('.slick-initialized').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+    });
+    
+    $('.choice-button').click(function (event) {
+        event.preventDefault();
+        $('.choice-button').removeClass('active');
+        $(this).addClass('active');
+    
+        var id = $(this).attr('data-id');
+        if (id) {
+            $('.single_menu-tabs-content:visible').fadeOut(0, function () {
+                $('.single_menu-tabs').find('#' + id).fadeIn('slow', function () {
+                    $('.menu-slick').slick('reinit');
+                });
             });
-        });
-    }
+        }
+    });
 });
+
+
 
 import callbackModal from './components/callbackModal.vue';
 Vue.component('callback-modal', callbackModal);
 
 import Reservation from './components/Reservation.vue';
 Vue.component('reservation', Reservation);
+
+import QuantityButton from './components/QuantityButton.vue';
+Vue.component('quantity-button', QuantityButton);
+
+import Tabs from './components/Tabs.vue';
+Vue.component('tabs', Tabs);
+
+import Tab from './components/Tab.vue';
+Vue.component('tab', Tab);
 
 import MaskedInput from 'vue-masked-input';
 

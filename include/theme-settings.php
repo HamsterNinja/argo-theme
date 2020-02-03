@@ -34,7 +34,17 @@ function create_my_post_types() {
             'rest_controller_class' => 'WP_REST_Posts_Controller',
             'public' => true, 
         ) 
-    );  
+    );
+    register_post_type(
+        'record',
+         array(
+            'labels' => array( 'name' => __( 'Бронирование' ),
+            'singular_name' => __( 'Бронирование' ) ),
+            'supports'      => array( 'title'),
+            'has_archive' => true,
+            'show_in_rest' => true,
+            'rest_controller_class' => 'WP_REST_Posts_Controller',
+            'public' => true, ) );     
 }
 
 //Корзина вверху

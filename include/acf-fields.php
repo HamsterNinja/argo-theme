@@ -103,4 +103,76 @@ if (function_exists('acf_add_local_field_group')):
         'description' => ''
     ));
 
+    acf_add_local_field_group(array(
+        'key' => 'group_5e37e3e54008d',
+        'title' => 'Бронирование',
+        'fields' => array(
+            array(
+                'key' => 'field_5e37e3f807271',
+                'label' => 'Зал',
+                'name' => 'hall',
+                'type' => 'number',
+            ),
+            array(
+                'key' => 'field_5e37e41007272',
+                'label' => 'Стол',
+                'name' => 'table',
+                'type' => 'number',
+            ),
+            array(
+                'key' => 'field_5e37e42607273',
+                'label' => 'Время',
+                'name' => 'time',
+                'type' => 'time_picker',
+                'display_format' => 'H:i:s',
+                'return_format' => 'H:i:s',
+            ),
+            array(
+                'key' => 'field_5e37e47707274',
+                'label' => 'Дата',
+                'name' => 'date',
+                'type' => 'date_picker',
+                'display_format' => 'd/m/Y',
+                'return_format' => 'd/m/Y',
+                'first_day' => 1,
+            ),
+            array(
+                'key' => 'field_5e37e4fd07275',
+                'label' => 'Имя',
+                'name' => 'name',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_5e37e51307276',
+                'label' => 'Телефон',
+                'name' => 'phone',
+                'type' => 'text',
+                'instructions' => '',
+            ),
+            array(
+                'key' => 'field_5e37e54807277',
+                'label' => 'Пожелания',
+                'name' => 'description',
+                'type' => 'text',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'record',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
 endif;
