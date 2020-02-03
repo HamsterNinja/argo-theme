@@ -103,6 +103,9 @@ $('.choice-button').click(function (event) {
 import callbackModal from './components/callbackModal.vue';
 Vue.component('callback-modal', callbackModal);
 
+import Reservation from './components/Reservation.vue';
+Vue.component('reservation', Reservation);
+
 import MaskedInput from 'vue-masked-input';
 
 import numeral from 'numeral';
