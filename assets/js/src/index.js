@@ -148,15 +148,67 @@ Vue.filter("formatNumber", function (value) {
     return numeral(value).format(); 
 });
 
+import { required, email, minLength } from "vuelidate/lib/validators";
+
 const app = new Vue({
     el: "#app",
     store,
     delimiters: ["((", "))"],
-    data: {},
+    data: {
+        cart:{
+            delivery: 'courier',
+        },
+        checkout: {
+            submitted: false,
+            submitStatus: '',
+            first_name: '',
+            phone: '',
+            address: '',
+            city: '',
+            street: '',
+            house: '',
+            apartment: '',
+            intercom: '',
+            porch: '',
+            floor: '',
+            comment: '',
+            payment: 'bank_card_payment',
+        }
+    },
+    validations: {
+        checkout: {
+            phone: {
+                required
+            },
+            city: {
+                required
+            },
+            street: {
+                required
+            },
+            house: {
+                required
+            }   
+        }
+    },
     components: {
         'masked-input': MaskedInput,
     },
-    computed: {},
+    computed: {
+        ...mapState([
+            'pageNum',
+            'cartSubtotal',
+        ]),
+        cartTotal: function () {
+            let subtototal = this.cartSubtotal;
+            subtototal = subtototal + this.shippingPrice;
+            return subtototal;
+        },
+        shippingPrice: function(){
+            let shippingPrice = 0;
+            return shippingPrice;
+        },
+    },
     methods: {
         async addCart(ID) {
             this.adding = true;
@@ -195,6 +247,64 @@ const app = new Vue({
                 modal.classList.remove('modal--show');
                 overlay.classList.remove('overlay--show');
             });
+        },
+
+        async orderProducts() {
+            this.errors = [];
+            if (!this.billing_first_name) {
+                this.errors.push('Требуется указать имя.');
+            }
+
+            if (!this.billing_email) {
+                this.errors.push("Укажите электронную почту.");
+            } else if (!this.validEmail(this.billing_email)) {
+                this.errors.push("Укажите корректный адрес электронной почты.");
+            }
+
+            if (!this.billing_phone) {
+                this.errors.push("Укажите номер телефона.");
+            } else if (!this.validRussianPhone(this.billing_phone)) {
+                this.errors.push("Укажите корректный номер телефона.");
+            }
+
+            if (!this.billing_city) {
+                this.errors.push('Требуется указать город.');
+            }
+            if (!this.billing_street) {
+                this.errors.push('Требуется указать адрес.');
+            }
+
+            setTimeout(()=>{
+                this.errors = [];
+            }, 4000);
+
+            if (!this.errors.length) {
+                let bodyFormData = new FormData();
+                bodyFormData.append('payment_method', 'ppec_paypal');
+                bodyFormData.append('billing_first_name', this.billing_first_name);
+                bodyFormData.append('billing_email', this.billing_email);
+                bodyFormData.append('billing_phone', this.billing_phone);
+                bodyFormData.append('billing_country', this.billing_country);
+                bodyFormData.append('billing_city', this.billing_city);
+                bodyFormData.append('billing_street', this.billing_street);
+                bodyFormData.append('billing_index', this.billing_index);
+                
+                let fetchData = {
+                    method: "POST",
+                    body: bodyFormData
+                };
+                let response = await fetch(`${SITEDATA.ajax_url}?action=create_order`, fetchData);
+                let jsonResponse = await response.json();
+                if (jsonResponse.data.result == 'fail') {
+                    console.log(jsonResponse);
+                    this.openModal(".modal-window--error-checkout");
+                } else if(jsonResponse.data.result == 'success'){
+                    app.clearOrderForm();
+                    this.openModal(".modal-window--thanks");
+                    document.location = jsonResponse.data.redirect;
+                }
+            }
+
         },
         
     },

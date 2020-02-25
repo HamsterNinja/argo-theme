@@ -115,10 +115,55 @@ function add_scripts() {
         wp_enqueue_script('yandex-map-api', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Map,Placemark#asyncload'); 
     }
 
+    $queried_object = get_queried_object();
+    if ($queried_object) {
+        $term_id = $queried_object->term_id;
+        $term = get_term( $term_id, 'product_cat' );
+        $category_slug = $term->slug;
+    }
+    if($_GET && $category_slug == null){
+        if ($_GET['product-cat']) {
+            $category_slug = $_GET['product-cat'];
+        }
+    }
+
+    if (is_product()) {
+        $post_params = Timber::get_post();
+        $product_params = wc_get_product( $post_params->ID );
+        $regular_price = $product_params->get_regular_price();
+        $sale_price = $product_params->get_sale_price();
+    }
+    else{
+        $regular_price = 0;
+        $sale_price = 0;
+    }
+
+    $user = get_userdata(get_current_user_id());
+    if ($user) {
+        $user_url = $user->get('user_url');
+    }
+
     wp_localize_script( 'app', 'SITEDATA', array(
         'url' => get_site_url(),
         'themepath' => get_template_directory_uri(),
         'ajax_url' => admin_url('admin-ajax.php'),
+        'product_id' => get_the_ID(),
+        'is_home' => is_home() ? 'true' : 'false',
+        'is_product' => is_product() ? 'true' : 'false',
+        'is_filter' => is_page('filter') ? 'true' : 'false',
+        'is_cart' => is_cart() ? 'true' : 'false',
+        'is_search' => is_search() ? 'true' : 'false',
+        'search_query' => get_search_query() ? get_search_query() : '',
+        'category_slug' => $category_slug,
+        'is_shop' => is_shop() ? 'true' : 'false',
+        'current_user_id' => get_current_user_id(),
+        'user_url' => $user_url,
+        'regular_price' => $regular_price,
+        'sale_price' => $sale_price ,
+        'paged' => $paged ,
+        'nonce_like' => $nonce_like ,
+        'cart_subtotal' => WC()->cart->subtotal,
+        'ajax_noncy_nonce' =>  wp_create_nonce( 'noncy_nonce' ),
     ));
 }
 

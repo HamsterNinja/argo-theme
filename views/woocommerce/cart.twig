@@ -35,15 +35,7 @@
             	            </td>
             	            <td>{{ product.price }}</td>
             	            <td>
-            	                <div class="person-quantity">
-            	                    <button onclick="$(this).next()[0].stepDown();">
-            	                        <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
-            	                    </button>
-            	                    <input type="number" min="1" value="{{ product.quantity.value }}" class="inputNumber">
-            	                    <button onclick="$(this).prev()[0].stepUp();">
-            	                        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
-            	                    </button>
-            	                </div>
+								<quantity-button count='{{ product.quantity.value }}'/>
             	            </td>
             	            <td>{{ product.subtotal }}</td>
             	            <td>
@@ -58,31 +50,29 @@
             	<div class="cart-table mobile">
             	    <div class="cart-table-item">
             	    	<div class="cart-table-item-header">
-            	    		<div class="cart-table-item-name">Хинкали с бараниной</div>
-            	    		<div class="cart-table-item-del"><a class="delete-product" href=""><img src="{{ site.theme.link }}/assets/images/close.svg" alt=""></a></div>
+            	    		<div class="cart-table-item-name">{{ product.title }}</div>
+            	    		<div class="cart-table-item-del">
+								<a class="delete-product" href="{{ product.remove_url }}">
+									<img src="{{ site.theme.link }}/assets/images/close.svg" alt="">
+								</a>
+							</div>
             	    	</div>
             	    	<div class="cart-table-item-content">
-            	    		<div class="cart-table-item-img"><img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt=""></div>
+            	    		<div class="cart-table-item-img">
+								<img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt="">
+							</div>
 							<div class="cart-table-item-info">
 								<div class="cart-table-item-price">
 									<div class="cart-table-item-info-name">цена</div>
-									<div class="cart-table-item-price-value">100 р.</div>
+									<div class="cart-table-item-price-value">{{ product.price }}.</div>
 								</div>
 								<div class="cart-table-item-quantity">
 									<div class="cart-table-item-info-name">количество</div>
-									<div class="person-quantity">
-            	                    	<button onclick="$(this).next()[0].stepDown();">
-            	                    	    <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
-            	                    	</button>
-            	                    	<input type="number" min="1" value="1" class="inputNumber">
-            	                    	<button onclick="$(this).prev()[0].stepUp();">
-            	                    	    <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
-            	                    	</button>
-            	                	</div>
+									<quantity-button count='{{ product.quantity.value }}'/>
 								</div>
 								<div class="cart-table-item-total">
 									<div class="cart-table-item-info-name">Итого:</div>
-									<div class="cart-table-item-price-total-value">100 р.</div>
+									<div class="cart-table-item-price-total-value">{{ product.subtotal }}</div>
 								</div>
 							</div>
             	    	</div>
@@ -95,18 +85,18 @@
             	<div class="cart-right-delivery">
             		<label class="control control-radio">
                         Доставка курьером
-                        <input type="radio" name="deliv">
+                        <input type="radio" value="courier" name="delivery" v-model="cart.delivery">
                         <div class="control_indicator"></div>
                     </label>
                     <label class="control control-radio">
                         Самовывоз
-                        <input type="radio" name="deliv">
+                        <input type="radio" value="pickup" name="delivery" v-model="cart.delivery">
                         <div class="control_indicator"></div>
                     </label>
             	</div>
             	<div class="cart-total-price">
             		<div class="cart-total-price-name">Итого</div>
-            		<div class="cart-total-price-value">{{ cart_total }}₽</div>
+            		<div class="cart-total-price-value" v-cloak>(( cartTotal | formatNumber ))₽</div>
             	</div>
 				<a class="checkout-btn" href="{{ checkout_url }}">Оформить заказ</a>
             </div>

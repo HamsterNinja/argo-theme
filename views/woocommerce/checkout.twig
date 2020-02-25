@@ -18,54 +18,58 @@
                     <div class="checkout-form-content">
                         <label for="">
                             <p class="checkout-label">Имя</p>
-                            <input type="text">
+                            <input name="name" type="text" v-model="checkout.first_name">
                         </label>
-                        <label for="">
+                        <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.phone.$error }">
                             <p class="checkout-label">Телефон *</p>
-                            <input type="text">
+                            <masked-input name="phone" type="phone" v-model="checkout.phone" mask="\+\7 (111) 111-11-11"/>
+                            <div class="error" v-if="checkout.submitted && $v.checkout.phone.$error">Телефон обязателен</div>
                         </label>
                         <label for="">
                             <p class="checkout-label">Выберите или введите адрес доставки  *</p>
-                            <select name="" id="">
-                                <option value="">Иван Иванов ул. Киевская, д.5, кв.4 Ликино-Дулево</option>
+                            <select name="address" v-model="checkout.address">
+                                <option value="">Не выбрано</option>
                                 <option value="">Иван Иванов ул. Киевская, д.5, кв.4 Ликино-Дулево</option>
                             </select>
                         </label>
                         <div class="checkout-form-row">
-                            <label for="">
+                            <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.city.$error }">
                                 <p class="checkout-label">Город *</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.city">
+                                <div class="error" v-if="checkout.submitted && $v.checkout.city.$error">Город обязателен</div>
                             </label>
-                            <label for="">
+                            <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.street.$error }">
                                 <p class="checkout-label">Улица *</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.street">
+                                <div class="error" v-if="checkout.submitted && $v.checkout.street.$error">Город обязателен</div>
                             </label>
                         </div>
                         <div class="checkout-form-row">
-                            <label class="check" for="">
+                            <label class="check" for="" :class="{ 'input--error': checkout.submitted && $v.checkout.house.$error }">
                                 <p class="checkout-label">Дом *</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.house">
+                                <div class="error" v-if="checkout.submitted && $v.checkout.house.$error">Дом обязателен</div>
                             </label>
                             <label for="">
                                 <p class="checkout-label">Кв./офис</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.apartment">
                             </label>
                             <label for="">
                                 <p class="checkout-label">Домофон (необязательно)</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.intercom">
                             </label>
                         </div>
                         <div class="checkout-form-row">
                             <label for="">
                                 <p class="checkout-label">Подъезд (необязательно)</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.porch">
                             </label>
                             <label for="">
                                 <p class="checkout-label">Этаж (необязательно)</p>
-                                <input type="text">
+                                <input type="text" v-model="checkout.floor">
                             </label>
                         </div>
-                        <textarea name=""></textarea>
+                        <textarea v-model="checkout.comment"></textarea>
                     </div>
                     <div class="checkout-form-content">
                         <div class="checkout-form-name">ВАШ ЗАКАЗ</div>
@@ -76,17 +80,15 @@
                                         <td>ТОВАР</td>
                                         <td>ИТОГО</td>
                                     </tr>
-                                    <tr>
-                                        <td>Говяжий язык с пикантным соусом × 2</td>
-                                        <td>1200 р.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Говяжий язык с пикантным соусом × 2</td>
-                                        <td>1200 р.</td>
-                                    </tr>
+                                    {% for product in cart_products %}
+                                        <tr>
+                                            <td>{{ product.title }} × {{ product.quantity.value }}</td>
+                                            <td>{{ product.subtotal }}</td>
+                                        </tr>
+                                    {% endfor %}
                                     <tr>
                                         <td>Итого</td>
-                                        <td>10000 р.</td>
+                                        <td>(( cartTotal | formatNumber ))₽</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -95,22 +97,22 @@
                     <div class="cart-right-delivery">
                             <label class="control control-radio">
                                 Оплата картой банка
-                                <input type="radio" name="pay">
+                                <input type="radio" value="bank_card_payment" name="pay" v-model="checkout.payment">
                                 <div class="control_indicator"></div>
                             </label>
                             <label class="control control-radio">
                                 Оплата терминалом
-                                <input type="radio" name="pay">
+                                <input type="radio" value="payment_by_terminal" name="pay" v-model="checkout.payment">
                                 <div class="control_indicator"></div>
                             </label>
                             <label class="control control-radio">
                                 Наличными при получении
-                                <input type="radio" name="pay">
+                                <input type="radio" value="cash_upon_receipt" name="pay" v-model="checkout.payment">
                                 <div class="control_indicator"></div>
                             </label>
                         </div>
-                        <p class="policy_text">Подтверждая заказ, вы соглашаетесь с <a href="">политикой конфиденциальности</a>.</p>
-                        <button class="checkout-btn">Подтвердить заказ</button>
+                        <p class="policy_text">Подтверждая заказ, вы соглашаетесь с <a target="_blank" rel="noopener" href="{{ site.link }}/privacy-policy">политикой конфиденциальности</a>.</p>
+                        <button class="checkout-btn" v-on:click.prevent="orderProducts">Подтвердить заказ</button>
                         
                 </form>
             </div>
