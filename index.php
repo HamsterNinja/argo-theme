@@ -4,11 +4,7 @@ $templates = ['index.twig'];
 if ( is_home() ) {    
 	array_unshift( $templates, 'home.twig' );
 	
-	$args_activities = [
-		'post_type' => 'activity',
-		'posts_per_page' => 3,
-	];
-	$context['activities'] = Timber::get_posts( $args_activities );
+	
 
 	$popular_args = [
 		'post_type' => 'product',

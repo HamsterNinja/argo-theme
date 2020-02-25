@@ -1,12 +1,12 @@
 {{ fn('timber_set_product', post) }}
 <div class="popular-item">
-    <div class="popular-item-img">
+    <a href="{{ post.link }}" class="popular-item-img">
         {% if post.thumbnail %}
             <img src="{{ post.thumbnail.src('medium_large') }}" alt="{{ post.title }}">
         {% else %}
             <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
         {% endif %}
-    </div>
+    </a>
     <div class="popular-item-inner">
         <a href="{{ post.link }}" class="popular-item-name">{{ post.title }}</a>
         <div class="popular-item-info">

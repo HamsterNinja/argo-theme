@@ -1,5 +1,6 @@
 <template>
     <div class="reservation-content">
+        <div class="new-block-fone-white pad-50">
         <div class="container">
             <div class="reservation-left">
                 <div class="reservation-left-title">Забронировать стол</div>
@@ -73,6 +74,7 @@
                     </tab>
                 </tabs>
             </div>
+        </div>
         </div>
     </div>
 </template>

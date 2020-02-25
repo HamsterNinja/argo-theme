@@ -2,13 +2,15 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
+            
             <div class="all-page-title">
                 <h1>МЕНЮ ДОСТАВКИ</h1>
+                {{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
     <div class="product_single-page">
+        <div class="new-block-fone-white pad-50">
         <div class="container">
             <div class="product-content-top">
                 <div class="product-content-img"><img src="{{ site.theme.link }}/assets/images/product_full.png" alt=""></div>
@@ -58,6 +60,8 @@
                 {% endfor %}
                 </div>
             </div>
+        </div>
+    </div>
         </div>
     </div>
 </main>

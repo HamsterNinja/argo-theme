@@ -2,15 +2,18 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
+            
             <div class="all-page-title">
                 <h1>Меню</h1>
+                {{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
     <div class="page_menu-content">
         <img class="page_menu-decore_lt" src="{{ site.theme.link }}/assets/images/menu-decore_lt.png" alt="">
         <img class="page_menu-decore_rt" src="{{ site.theme.link }}/assets/images/menu-decore_rt.png" alt="">
+
+        <div class="new-block-fone-white">
         <div class="container">
             <a href="{{ site.link }}/delivery-menu" class="page_menu-item">
                 <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_del.png" alt=""></div>
@@ -28,6 +31,7 @@
                 <div class="page_menu-item-img"><img src="{{ site.theme.link }}/assets/images/menu_funeral.png" alt=""></div>
                 <div class="page_menu-item-name">Поминальное меню</div>
             </a>
+        </div>
         </div>
         <img class="page_menu-decore_lb" src="{{ site.theme.link }}/assets/images/menu-decore_lb.png" alt="">
         <img class="page_menu-decore_rb" src="{{ site.theme.link }}/assets/images/menu-decore_rb.png" alt="">

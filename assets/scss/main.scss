@@ -143,10 +143,20 @@ p {
     height: 20px;
     top: 100%;
     position: absolute;
+    background-position: 50% 100%
+}
+
+.volna-after:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    top: 100%;
+    z-index: 999;
+    position: absolute;
     background-image: url(../images/header-decore.png);
     background-position: 50% 100%;
 }
-
 .all-page-title,
 .all-page-title h1 {
     font-weight: bold;
@@ -166,9 +176,50 @@ p {
     padding: 0 15px;
     margin: 0 auto;
 }
+.new-block-fone {
+    background-color: #F4EFDF;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0px 4px 50px #000000;
+}
 
-.main-page-tiggers {
+.new-block-fone-big {
     background-color: #fff;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0px 4px 50px #000000;
+}
+
+.new-block-fone-white {
+    background-color: #fff;
+    max-width: 1230px;
+    width: 100%;
+    margin: 30px auto;
+    border-radius: 30px;
+    border: 1px solid #dad6c6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.footer-black-fone {
+background: rgba(36, 25, 14, 0.7);
+    border: 1px solid #E9D2A6;
+    max-width: 1300px;
+    width: 100%;
+    margin: 40px auto -1px;
+    border-radius: 30px 30px 0px 0px;
+}
+
+
+.pad-top-30{
+    padding-top: 30px;
+}
+.main-page-tiggers {
     padding: 45px 0;
 }
 
@@ -206,12 +257,11 @@ p {
 }
 
 .activity-block {
-    background-color: #fff;
-    padding: 15px 0 50px;
+    padding: 15px 0 50px
 }
 
 .page .activity-block {
-    padding: 50px 0 100px;
+    padding: 50px 0 100px
 }
 
 .main-page-title {
@@ -280,7 +330,9 @@ p {
 .popular-dishes {
     padding: 25px 0 80px;
 }
-
+.popular-slick .slick-slide {
+    text-align: center;
+}
 .popular-item {
     max-width: 332px;
     margin: 0 auto;
@@ -362,18 +414,19 @@ button.popular-item-button.add-to-cart {
 }
 
 .delivery-menu {
-    background-color: #fff;
     padding: 50px 0 25px;
 }
-
 .delivery-menu-content {
     display: grid;
     display: -ms-flexbox;
     -ms-flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
-    grid-gap: 33px 50px;
     justify-content: center;
     -ms-flex-pack: start;
+}
+
+.pad-50{
+    padding: 50px;
 }
 
 a.delivery-menu-item {
@@ -387,11 +440,11 @@ a.delivery-menu-item {
     text-decoration: none;
     min-width: 145px;
     max-width: 200px;
-    width: 100%;
+    width: 100%
 }
 
 a.delivery-menu-item:nth-child(2n) {
-    background-color: #F5F5F5;
+    background-color: #f4efdf;
 }
 
 .delivery-menu-item-name {
@@ -402,9 +455,8 @@ a.delivery-menu-item:nth-child(2n) {
 }
 
 .contacts-block {
-    background-color: #fff;
     padding: 25px 0 50px;
-    position: relative;
+    position: relative
 }
 
 .contacts-block .container {
@@ -484,7 +536,6 @@ a.delivery-menu-item:nth-child(2n) {
 }
 
 .about-content {
-    background-color: #fff;
     padding-top: 50px;
 }
 
@@ -542,7 +593,6 @@ a.delivery-menu-item:nth-child(2n) {
 }
 
 .page_menu-content {
-    background-image: url(../images/page_menu-bg.jpg);
     position: relative;
     padding: 15px 0 35px;
 }
@@ -758,7 +808,6 @@ a.page-numbers {
 }
 
 .product_single-page {
-    background-color: #fff;
     padding: 50px 0;
 }
 
@@ -882,20 +931,20 @@ a.page-numbers {
 }
 
 .contacts-content {
-    background-color: #fff;
-    padding: 20px 0 50px;
+    padding: 20px 0 50px
 }
 
 .contacts-content-top {
-    background-color: #FFC844;
-    padding: 20px 0;
+    background-color: #ffc844;
+    padding: 30px 0;
+    border-radius: 20px;
     margin-bottom: 14px;
 }
 
 .contacts-content-top .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .contacts-content-top-item-name {
@@ -903,25 +952,25 @@ a.page-numbers {
     font-size: 16px;
     line-height: 21px;
     text-transform: uppercase;
-    color: #000000;
-    margin-bottom: 15px;
+    color: #000;
+    margin-bottom: 15px
 }
 
 .contacts-content-top-item-value {
     font-size: 16px;
     line-height: 21px;
-    color: #000000;
+    color: #000
 }
 
 .contacts-content-bottom-info {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 35px;
+    margin-bottom: 35px
 }
 
 .contacts-content-bottom-info-item {
     width: 188px;
-    margin-right: 26.7%;
+    margin-right: 26.7%
 }
 
 .contacts-info-item-name {
@@ -930,7 +979,7 @@ a.page-numbers {
     font-size: 16px;
     line-height: 21px;
     text-transform: uppercase;
-    color: #000000;
+    color: #000
 }
 
 .social-item {
@@ -960,8 +1009,7 @@ a.page-numbers {
 }
 
 .delivery-area-content {
-    background-color: #fff;
-    padding: 40px 0 20px;
+    padding: 0px 0 20px;
 }
 
 .delivery-area-list {
@@ -1051,7 +1099,6 @@ a.page-numbers {
 }
 
 .reservation-content {
-    background-color: #fff;
     padding: 20px 0 50px;
 }
 

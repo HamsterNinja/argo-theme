@@ -2,13 +2,15 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
+            
             <div class="all-page-title">
                 <h1>О ресторане</h1>
+                {{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
     <div class="about-content">
+        <div class="new-block-fone-white pad-50">
         <div class="container">
             <div class="about-content-inner">
                 <div class="about-content-row">
@@ -39,34 +41,30 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="activity-block">
-        <div class="container">
-        	<div class="about-content-name">Мероприятия</div>
-            <div class="activity-block-inner">
-                <div class="activity-item">
-                    <img src="{{ site.theme.link }}/assets/images/merop-1.jpg" alt="">
-                    <div class="activity-hidden-block">
-                        <div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-                        <div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <img src="{{ site.theme.link }}/assets/images/merop-2.jpg" alt="">
-                    <div class="activity-hidden-block">
-                        <div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-                        <div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <img src="{{ site.theme.link }}/assets/images/merop-3.jpg" alt="">
-                    <div class="activity-hidden-block">
-                        <div class="activity-hidden-block-title">Morbi commodo ornare luctus.</div>
-                        <div class="activity-hidden-block-text">Morbi commodo ornare luctus. Cras placerat, diam nec auctor feugiat, sem ligula feugiat elit, vitae faucibus felis ante id dui. In iaculis suscipit tincidunt. Ut at risus congue, congue lectus eu, facilisis augue. In et varius dolor, sit amet viverra magna. Praesent id ante in sapien gravida finibus. Donec id enim vel arcu dictum pretium.</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+    {% if activities is not empty  %}
+<div class="activity-block">
+    <div class="container">
+        <div class="main-page-title">Мероприятия</div>
+        <div class="activity-block-slick">
+            {% for activity in activities %}            
+                <div class="activity-item">
+                    {% if activity.thumbnail %}
+                        <img src="{{ activity.thumbnail.src|resize(363, 547) }}" alt="{{ activity.title }}">
+                    {% else %}
+                        <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+                    {% endif %}
+                    <div class="activity-hidden-block">
+                        <div class="activity-hidden-block-title">{{ activity.title }}</div>
+                        <!-- TODO: удалить неразравные пробелы -->
+                        <div class="activity-hidden-block-text">{{ activity.preview.length(50).read_more('') }}</div>
+                    </div>
+                </div>
+            {% endfor %}    
+        </div>
+    </div>
+</div>
+{% endif %}
 </main>
 {% include "partials/footer.twig" %}

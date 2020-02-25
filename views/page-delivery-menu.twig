@@ -2,11 +2,14 @@
 <main class='main-content page'>
 	<div class="page-header">
 		<div class="container">
-			{{ function('woocommerce_breadcrumb') }}
-			<div class="all-page-title"><h1>МЕНЮ ДОСТАВКИ</h1></div>
+			<div class="all-page-title">
+				<h1>МЕНЮ ДОСТАВКИ</h1>
+				{{ function('woocommerce_breadcrumb') }}
+			</div>
 		</div>
 	</div>
 	<div class="delivery-menu">
+		<div class="new-block-fone-white pad-50">
 	<div class="container">
 		<div class="delivery-menu-content">
 			<a href="{{ site.link }}/product-category/menyu-dostavki/xinkali/" class="delivery-menu-item">
@@ -55,6 +58,7 @@
 			</a>
 		</div>
 	</div>
+</div>
 </div>
 </main>
 {% include "partials/footer.twig" %}

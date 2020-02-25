@@ -165,6 +165,11 @@ if ( class_exists( 'Timber' ) ){
             $context['email'] = get_field('email', 'options');
             $context['phone_1'] = get_field('phone_1', 'options');
             $context['phone_2'] = get_field('phone_2', 'options');
+            $args_activities = [
+                'post_type' => 'activity',
+                'posts_per_page' => 3,
+            ];
+            $context['activities'] = Timber::get_posts( $args_activities );
                 
             return $context;
         }

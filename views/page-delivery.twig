@@ -2,13 +2,15 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
+            
             <div class="all-page-title">
-                <h1>Доставка</h1>
+				<h1>Доставка</h1>
+				{{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
     <div class="delivery-area-content">
+		<div class="new-block-fone-white pad-50">
         <div class="container">
             <div class="delivery-area-list">
 				 <div class="delivery-area-list-title">ЗОНА ДОСТАВКИ</div>
@@ -49,7 +51,8 @@
             	<h2>Оплата</h2>
             	<p>Оплата осуществляется в момент заказа (или самовывоза) наличными или банковской картой курьеру.</p>
             </div>
-        </div>
+		</div>
+	</div>
     </div>
 </main>
 {% include "partials/footer.twig" %}
