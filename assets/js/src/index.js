@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+import PageLoginForm from './components/PageLoginForm.vue';
+Vue.component('page-login-form', PageLoginForm);
 
 import callbackModal from './components/callbackModal.vue';
 Vue.component('callback-modal', callbackModal);

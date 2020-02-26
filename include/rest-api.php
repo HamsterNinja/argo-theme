@@ -21,3 +21,34 @@ function add_one_product() {
 }
 add_action('wp_ajax_add_one_product', 'add_one_product');
 add_action('wp_ajax_nopriv_add_one_product', 'add_one_product');
+
+
+function ajax_login_init(){
+    add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
+}
+if (!is_user_logged_in()) {
+    add_action('init', 'ajax_login_init');
+}
+function ajax_login(){
+    $info = [];
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        echo json_encode(
+            [
+                'loggedin'=>false,
+                'message'=>__('Неверное имя пользователя или пароль')
+            ]
+        );
+    } else {
+        echo json_encode(
+            [
+                'loggedin'=> true,
+                'message'=>__('Авторизация успешна')
+            ]
+        );
+    }
+    die();
+}
