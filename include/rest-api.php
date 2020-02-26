@@ -74,3 +74,128 @@ add_action( 'rest_api_init', function () {
           'callback' => 'changePassword',
       ) );
 });
+
+class customUser{
+    public $user_id;
+    public $email;
+    public $personal_site;
+    public $first_name;
+    public $last_name;
+    public $country;
+    public $city;
+    public $address;
+    public $patronym;
+    public $phone;
+    public $username;
+    public $password;
+
+    public function setUsername($username){
+        $this->username = $username;
+        return $this;
+    }
+
+    public function setPassword($password){
+        $this->password = $password;
+        return $this;
+    }
+  
+    public function setUserID($user_id){
+        $this->user_id = $user_id;
+        return $this;
+    }
+
+    public function setEmail($email){
+        $this->email = $email;
+        return $this;
+    }
+
+    public function setFirstName($first_name){
+        $this->first_name = $first_name;
+        return $this;
+    }
+
+    public function setLastName($last_name){
+        $this->last_name = $last_name;
+        return $this;
+    }
+
+    public function setCountry($country){
+        $this->country = $country;
+        return $this;
+    }
+
+    public function setCity($city){
+        $this->city = $city;
+        return $this;
+    }
+
+    public function setAddress($address){
+        $this->address = $address;
+        return $this;
+    }
+
+    public function setPatronym($patronym){
+        $this->patronym = $patronym;
+        return $this;
+    }
+
+    public function setPassport($passport){
+        $this->passport = $passport;
+        return $this;
+    }
+
+    public function setPhone($phone){
+        $this->phone = $phone;
+        return $this;
+    }
+
+}
+
+function createUpdatedUser($POST){
+    $user_id = sanitize_text_field( $_POST['user_id'] );
+    $email = sanitize_email( $_POST['email'] );
+    $first_name = sanitize_text_field( $_POST['first_name'] );
+    $last_name = sanitize_text_field( $_POST['last_name'] );
+    $city = sanitize_text_field( $_POST['city'] );
+    $country = sanitize_text_field($_POST['country']);
+    $address = sanitize_text_field( $_POST['address'] );
+    $patronym = sanitize_text_field( $_POST['last_name'] );
+    $passport = sanitize_text_field( $_POST['passport'] );
+    $phone = sanitize_text_field( $_POST['phone'] );
+   
+    $updatedUser = new customUser();
+    $updatedUser->setUserID($user_id)
+    ->setEmail($email)
+    ->setFirstName($first_name)
+    ->setLastName($last_name)
+    ->setCountry($country)
+    ->setCity($city)
+    ->setAddress($address)
+    ->setPatronym($patronym)
+    ->setPhone($phone);
+    
+    return $updatedUser;
+}
+
+
+function updateUser(WP_REST_Request $request){
+    $updatedUser = createUpdatedUser($_POST);
+    complete_update($updatedUser);
+}
+
+function complete_update($updatedUser){
+        $userdata = [
+            'ID' => $updatedUser->user_id,
+            'user_email' => $updatedUser->email,
+            'user_url' => $updatedUser->personal_site,
+        ];
+        $user = wp_update_user( $userdata ) ;
+        update_usermeta($user, 'first_name', $updatedUser->first_name);
+        update_usermeta($user, 'last_name', $updatedUser->last_name);
+        update_usermeta($user, 'country', $updatedUser->country);
+        update_usermeta($user, 'city', $updatedUser->city);
+        update_usermeta($user, 'address', $updatedUser->address);
+        update_usermeta($user, 'patronym', $updatedUser->patronym);
+        update_usermeta($user, 'phone', $updatedUser->phone);
+        wp_send_json_success();
+}

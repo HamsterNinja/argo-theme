@@ -1,52 +1,57 @@
 <div class="account-right-name">История заказов</div>
 <div class="history-content">
-    <p>Вы еще не совершали покупок!</p>
-    
-    <div class="history-content-inner desktop">
-        <table>
-            <tr>
-                <td></td>
-                <td>Заказ</td>
-                <td>Стоимость</td>
-                <td>Статус</td>
-                <td>Операции</td>
-            </tr>
-            {% for item in 0..1 %}
-            <tr>
-                <td>28.12.2019</td>
-                <td>№ 83a85995-df</td>
-                <td>504 руб.</td>
-                <td>Готов</td>
-                <td><a href="">Повторить заказ</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
 
-    <div class="history-content-inner mobile">
-        {% for item in 0..1 %}
-        <div class="history-content-item">
-            <div class="history-date">28.12.2019</div>
-            <div class="history-content-item-info">
-                <div class="history-content-item-column">
-                    <div class="history-content-item-name">Заказ</div>
-                    <div class="history-content-item-value">№ 83a85995-df</div>
-                </div>
-                <div class="history-content-item-column">
-                    <div class="history-content-item-name">Стоимость</div>
-                    <div class="history-content-item-value">504 руб.</div>
-                </div>
-                <div class="history-content-item-column">
-                    <div class="history-content-item-name">Статус</div>
-                    <div class="history-content-item-value">Готов</div>
-                </div>
-            </div>
-            <div class="history-content-item-operations">
-                <div class="history-content-item-name">Операции</div>
-                <div class="history-content-item-value"><a href="">Повторить заказ</a></div>
-            </div>
+    {% if has_orders %}
+        <div class="history-content-inner desktop">
+            <table>
+                <tr>
+                    <td></td>
+                    <td>Заказ</td>
+                    <td>Стоимость</td>
+                    <td>Статус</td>
+                    <td>Операции</td>
+                </tr>
+                {% for item in 0..1 %}
+                <tr>
+                    <td>28.12.2019</td>
+                    <td>№ 83a85995-df</td>
+                    <td>504 руб.</td>
+                    <td>Готов</td>
+                    <td><a href="">Повторить заказ</a></td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
-        {% endfor %}
-    </div>
+
+        <div class="history-content-inner mobile">
+            {% for item in 0..1 %}
+            <div class="history-content-item">
+                <div class="history-date">28.12.2019</div>
+                <div class="history-content-item-info">
+                    <div class="history-content-item-column">
+                        <div class="history-content-item-name">Заказ</div>
+                        <div class="history-content-item-value">№ 83a85995-df</div>
+                    </div>
+                    <div class="history-content-item-column">
+                        <div class="history-content-item-name">Стоимость</div>
+                        <div class="history-content-item-value">504 руб.</div>
+                    </div>
+                    <div class="history-content-item-column">
+                        <div class="history-content-item-name">Статус</div>
+                        <div class="history-content-item-value">Готов</div>
+                    </div>
+                </div>
+                <div class="history-content-item-operations">
+                    <div class="history-content-item-name">Операции</div>
+                    <div class="history-content-item-value"><a href="">Повторить заказ</a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Вы еще не совершали покупок!</p>
+    {% endif %}
+    
+    
     
 </div>
