@@ -5545,17 +5545,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__contacts_map__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__contacts_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__contacts_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_PageLoginForm_vue__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_callbackModal_vue__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Reservation_vue__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_QuantityButton_vue__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Tabs_vue__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Tab_vue__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_vue_masked_input__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_numeral__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_numeral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_numeral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vuelidate__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_ChangePassword_vue__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_PageLoginForm_vue__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_callbackModal_vue__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Reservation_vue__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_QuantityButton_vue__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Tabs_vue__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_Tab_vue__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_masked_input__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_numeral__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_numeral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_numeral__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -5658,20 +5661,24 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('page-login-form', __WEBPACK_IMPORTED_MODULE_5__components_PageLoginForm_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuelidate___default.a);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('callback-modal', __WEBPACK_IMPORTED_MODULE_6__components_callbackModal_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('change-password', __WEBPACK_IMPORTED_MODULE_6__components_ChangePassword_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('reservation', __WEBPACK_IMPORTED_MODULE_7__components_Reservation_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('page-login-form', __WEBPACK_IMPORTED_MODULE_7__components_PageLoginForm_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('quantity-button', __WEBPACK_IMPORTED_MODULE_8__components_QuantityButton_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('callback-modal', __WEBPACK_IMPORTED_MODULE_8__components_callbackModal_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs', __WEBPACK_IMPORTED_MODULE_9__components_Tabs_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('reservation', __WEBPACK_IMPORTED_MODULE_9__components_Reservation_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab', __WEBPACK_IMPORTED_MODULE_10__components_Tab_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('quantity-button', __WEBPACK_IMPORTED_MODULE_10__components_QuantityButton_vue__["a" /* default */]);
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs', __WEBPACK_IMPORTED_MODULE_11__components_Tabs_vue__["a" /* default */]);
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab', __WEBPACK_IMPORTED_MODULE_12__components_Tab_vue__["a" /* default */]);
 
 
-__WEBPACK_IMPORTED_MODULE_12_numeral___default.a.register('locale', 'ru', {
+__WEBPACK_IMPORTED_MODULE_14_numeral___default.a.register('locale', 'ru', {
   delimiters: {
     thousands: ' ',
     decimal: ','
@@ -5689,9 +5696,9 @@ __WEBPACK_IMPORTED_MODULE_12_numeral___default.a.register('locale', 'ru', {
     symbol: 'руб.'
   }
 });
-__WEBPACK_IMPORTED_MODULE_12_numeral___default.a.locale('ru');
+__WEBPACK_IMPORTED_MODULE_14_numeral___default.a.locale('ru');
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.filter("formatNumber", function (value) {
-  return __WEBPACK_IMPORTED_MODULE_12_numeral___default()(value).format();
+  return __WEBPACK_IMPORTED_MODULE_14_numeral___default()(value).format();
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
@@ -5722,21 +5729,21 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   validations: {
     checkout: {
       phone: {
-        required: __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__["required"]
       },
       city: {
-        required: __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__["required"]
       },
       street: {
-        required: __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__["required"]
       },
       house: {
-        required: __WEBPACK_IMPORTED_MODULE_13_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_15_vuelidate_lib_validators__["required"]
       }
     }
   },
   components: {
-    'masked-input': __WEBPACK_IMPORTED_MODULE_11_vue_masked_input__["a" /* default */]
+    'masked-input': __WEBPACK_IMPORTED_MODULE_13_vue_masked_input__["a" /* default */]
   },
   computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['pageNum', 'cartSubtotal']), {
     cartTotal: function cartTotal() {
@@ -27836,6 +27843,1198 @@ var staticRenderFns = [
 render._withStripped = true
 
 
+
+/***/ }),
+/* 403 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_script_lang_js___ = __webpack_require__(404);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_script_lang_js___["a" /* default */]); 
+
+/***/ }),
+/* 404 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__);
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: {
+    user_id: {
+      type: String
+    }
+  },
+  data: function data() {
+    return {
+      submitted: false,
+      submitStatus: '',
+      template_url: SITEDATA.themepath,
+      old_password: '',
+      new_password: '',
+      errors: ''
+    };
+  },
+  validations: {
+    old_password: {
+      required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+    },
+    new_password: {
+      required: __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["required"]
+    }
+  },
+  methods: {
+    submitChangeForm: function () {
+      var _submitChangeForm = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        var _this = this;
+
+        var formReg, fetchData, sendURL, response, responseData;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.submitted = true;
+                this.$v.$touch();
+                formReg = new FormData();
+                formReg.append("user_id", this.user_id);
+                formReg.append("old_password", this.old_password);
+                formReg.append("new_password", this.new_password);
+                fetchData = {
+                  method: "POST",
+                  body: formReg
+                };
+
+                if (!this.$v.$invalid) {
+                  _context.next = 12;
+                  break;
+                }
+
+                this.submitStatus = 'ERROR';
+                setTimeout(function () {
+                  _this.submitStatus = '';
+                }, 1000);
+                _context.next = 21;
+                break;
+
+              case 12:
+                this.submitStatus = 'PENDING';
+                sendURL = "".concat(SITEDATA.url, "/wp-json/amadreh/v1/change-password");
+                _context.next = 16;
+                return fetch(sendURL, fetchData);
+
+              case 16:
+                response = _context.sent;
+                _context.next = 19;
+                return response.json();
+
+              case 19:
+                responseData = _context.sent;
+
+                if (responseData.data.status == 'success') {
+                  this.submitStatus = 'SUCCESS';
+                  this.clearForm();
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                  setTimeout(function () {
+                    _this.showModal('modal-window--changed');
+                  }, 1500);
+                } else {
+                  this.submitStatus = 'ERROR';
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                }
+
+              case 21:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function submitChangeForm() {
+        return _submitChangeForm.apply(this, arguments);
+      }
+
+      return submitChangeForm;
+    }(),
+    showModal: function showModal(modalName) {
+      var currentModal = document.querySelector(".".concat(modalName));
+      var overlay = document.querySelector('.overlay');
+
+      if (currentModal) {
+        currentModal.classList.add('modal--show');
+        overlay.classList.add('overlay--show');
+      }
+    },
+    closeModal: function closeModal() {
+      var overlay = document.querySelector('.overlay');
+      var modals = document.querySelectorAll('.modal-window');
+      modals.forEach(function (modal) {
+        modal.classList.remove('modal--show');
+        overlay.classList.remove('overlay--show');
+      });
+    },
+    clearForm: function clearForm() {
+      this.submitted = false;
+      this.old_password = "";
+      this.new_password = "";
+    }
+  }
+});
+
+/***/ }),
+/* 405 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ChangePassword_vue_vue_type_template_id_8fc15b3e___ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ChangePassword_vue_vue_type_script_lang_js___ = __webpack_require__(403);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(54);
+
+
+
+
+
+/* normalize component */
+
+var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__ChangePassword_vue_vue_type_script_lang_js___["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__ChangePassword_vue_vue_type_template_id_8fc15b3e___["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__ChangePassword_vue_vue_type_template_id_8fc15b3e___["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("C:\\xampp\\htdocs\\argo\\wp-content\\themes\\argo-theme\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('8fc15b3e')) {
+      api.createRecord('8fc15b3e', component.options)
+    } else {
+      api.reload('8fc15b3e', component.options)
+    }
+    module.hot.accept("./ChangePassword.vue?vue&type=template&id=8fc15b3e&", function () {
+      api.rerender('8fc15b3e', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "assets/js/src/components/ChangePassword.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 406 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_8fc15b3e___ = __webpack_require__(407);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_8fc15b3e___["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangePassword_vue_vue_type_template_id_8fc15b3e___["b"]; });
+
+
+/***/ }),
+/* 407 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submitChangeForm($event)
+        }
+      }
+    },
+    [
+      _c(
+        "label",
+        {
+          class: {
+            "input--error": _vm.submitted && _vm.$v.old_password.$error
+          },
+          attrs: { for: "old_password" }
+        },
+        [
+          _c("p", [_vm._v("Текущий пароль *")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.old_password,
+                expression: "old_password"
+              }
+            ],
+            attrs: {
+              "aria-label": "Текущий пароль",
+              type: "password",
+              id: "old_password",
+              required: ""
+            },
+            domProps: { value: _vm.old_password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.old_password = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.old_password.required
+            ? _c("div", { staticClass: "error" }, [
+                _vm._v("Текущий пароль обязателен")
+              ])
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "label",
+        {
+          class: {
+            "input--error": _vm.submitted && _vm.$v.new_password.$error
+          },
+          attrs: { for: "new_password" }
+        },
+        [
+          _c("p", [_vm._v("Новый пароль *")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.new_password,
+                expression: "new_password"
+              }
+            ],
+            attrs: {
+              "aria-label": "Новый пароль",
+              type: "password",
+              id: "new_password",
+              required: ""
+            },
+            domProps: { value: _vm.new_password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.new_password = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.new_password.required
+            ? _c("div", { staticClass: "error" }, [
+                _vm._v("Новый пароль обязателен")
+              ])
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c("button", { staticClass: "acoount-submit" }, [_vm._v("ПОДТВЕРДИТЬ")])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 408 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Vuelidate = Vuelidate;
+Object.defineProperty(exports, "withParams", {
+  enumerable: true,
+  get: function get() {
+    return _params.withParams;
+  }
+});
+exports.default = exports.validationMixin = void 0;
+
+var _vval = __webpack_require__(409);
+
+var _params = __webpack_require__(377);
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var NIL = function NIL() {
+  return null;
+};
+
+var buildFromKeys = function buildFromKeys(keys, fn, keyFn) {
+  return keys.reduce(function (build, key) {
+    build[keyFn ? keyFn(key) : key] = fn(key);
+    return build;
+  }, {});
+};
+
+function isFunction(val) {
+  return typeof val === 'function';
+}
+
+function isObject(val) {
+  return val !== null && (_typeof(val) === 'object' || isFunction(val));
+}
+
+function isPromise(object) {
+  return isObject(object) && isFunction(object.then);
+}
+
+var getPath = function getPath(ctx, obj, path, fallback) {
+  if (typeof path === 'function') {
+    return path.call(ctx, obj, fallback);
+  }
+
+  path = Array.isArray(path) ? path : path.split('.');
+
+  for (var i = 0; i < path.length; i++) {
+    if (obj && _typeof(obj) === 'object') {
+      obj = obj[path[i]];
+    } else {
+      return fallback;
+    }
+  }
+
+  return typeof obj === 'undefined' ? fallback : obj;
+};
+
+var __isVuelidateAsyncVm = '__isVuelidateAsyncVm';
+
+function makePendingAsyncVm(Vue, promise) {
+  var asyncVm = new Vue({
+    data: {
+      p: true,
+      v: false
+    }
+  });
+  promise.then(function (value) {
+    asyncVm.p = false;
+    asyncVm.v = value;
+  }, function (error) {
+    asyncVm.p = false;
+    asyncVm.v = false;
+    throw error;
+  });
+  asyncVm[__isVuelidateAsyncVm] = true;
+  return asyncVm;
+}
+
+var validationGetters = {
+  $invalid: function $invalid() {
+    var _this = this;
+
+    var proxy = this.proxy;
+    return this.nestedKeys.some(function (nested) {
+      return _this.refProxy(nested).$invalid;
+    }) || this.ruleKeys.some(function (rule) {
+      return !proxy[rule];
+    });
+  },
+  $dirty: function $dirty() {
+    var _this2 = this;
+
+    if (this.dirty) {
+      return true;
+    }
+
+    if (this.nestedKeys.length === 0) {
+      return false;
+    }
+
+    return this.nestedKeys.every(function (key) {
+      return _this2.refProxy(key).$dirty;
+    });
+  },
+  $anyDirty: function $anyDirty() {
+    var _this3 = this;
+
+    if (this.dirty) {
+      return true;
+    }
+
+    if (this.nestedKeys.length === 0) {
+      return false;
+    }
+
+    return this.nestedKeys.some(function (key) {
+      return _this3.refProxy(key).$anyDirty;
+    });
+  },
+  $error: function $error() {
+    return this.$dirty && !this.$pending && this.$invalid;
+  },
+  $anyError: function $anyError() {
+    var _this4 = this;
+
+    if (this.$error) return true;
+    return this.nestedKeys.some(function (key) {
+      return _this4.refProxy(key).$anyError;
+    });
+  },
+  $pending: function $pending() {
+    var _this5 = this;
+
+    return this.ruleKeys.some(function (key) {
+      return _this5.getRef(key).$pending;
+    }) || this.nestedKeys.some(function (key) {
+      return _this5.refProxy(key).$pending;
+    });
+  },
+  $params: function $params() {
+    var _this6 = this;
+
+    var vals = this.validations;
+    return _objectSpread({}, buildFromKeys(this.nestedKeys, function (key) {
+      return vals[key] && vals[key].$params || null;
+    }), {}, buildFromKeys(this.ruleKeys, function (key) {
+      return _this6.getRef(key).$params;
+    }));
+  }
+};
+
+function setDirtyRecursive(newState) {
+  this.dirty = newState;
+  var proxy = this.proxy;
+  var method = newState ? '$touch' : '$reset';
+  this.nestedKeys.forEach(function (key) {
+    proxy[key][method]();
+  });
+}
+
+var validationMethods = {
+  $touch: function $touch() {
+    setDirtyRecursive.call(this, true);
+  },
+  $reset: function $reset() {
+    setDirtyRecursive.call(this, false);
+  },
+  $flattenParams: function $flattenParams() {
+    var proxy = this.proxy;
+    var params = [];
+
+    for (var key in this.$params) {
+      if (this.isNested(key)) {
+        var childParams = proxy[key].$flattenParams();
+
+        for (var j = 0; j < childParams.length; j++) {
+          childParams[j].path.unshift(key);
+        }
+
+        params = params.concat(childParams);
+      } else {
+        params.push({
+          path: [],
+          name: key,
+          params: this.$params[key]
+        });
+      }
+    }
+
+    return params;
+  }
+};
+var getterNames = Object.keys(validationGetters);
+var methodNames = Object.keys(validationMethods);
+var _cachedComponent = null;
+
+var getComponent = function getComponent(Vue) {
+  if (_cachedComponent) {
+    return _cachedComponent;
+  }
+
+  var VBase = Vue.extend({
+    computed: {
+      refs: function refs() {
+        var oldVval = this._vval;
+        this._vval = this.children;
+        (0, _vval.patchChildren)(oldVval, this._vval);
+        var refs = {};
+
+        this._vval.forEach(function (c) {
+          refs[c.key] = c.vm;
+        });
+
+        return refs;
+      }
+    },
+    beforeCreate: function beforeCreate() {
+      this._vval = null;
+    },
+    beforeDestroy: function beforeDestroy() {
+      if (this._vval) {
+        (0, _vval.patchChildren)(this._vval);
+        this._vval = null;
+      }
+    },
+    methods: {
+      getModel: function getModel() {
+        return this.lazyModel ? this.lazyModel(this.prop) : this.model;
+      },
+      getModelKey: function getModelKey(key) {
+        var model = this.getModel();
+
+        if (model) {
+          return model[key];
+        }
+      },
+      hasIter: function hasIter() {
+        return false;
+      }
+    }
+  });
+  var ValidationRule = VBase.extend({
+    data: function data() {
+      return {
+        rule: null,
+        lazyModel: null,
+        model: null,
+        lazyParentModel: null,
+        rootModel: null
+      };
+    },
+    methods: {
+      runRule: function runRule(parent) {
+        var model = this.getModel();
+        (0, _params.pushParams)();
+        var rawOutput = this.rule.call(this.rootModel, model, parent);
+        var output = isPromise(rawOutput) ? makePendingAsyncVm(Vue, rawOutput) : rawOutput;
+        var rawParams = (0, _params.popParams)();
+        var params = rawParams && rawParams.$sub ? rawParams.$sub.length > 1 ? rawParams : rawParams.$sub[0] : null;
+        return {
+          output: output,
+          params: params
+        };
+      }
+    },
+    computed: {
+      run: function run() {
+        var _this7 = this;
+
+        var parent = this.lazyParentModel();
+
+        var isArrayDependant = Array.isArray(parent) && parent.__ob__;
+
+        if (isArrayDependant) {
+          var arrayDep = parent.__ob__.dep;
+          arrayDep.depend();
+          var target = arrayDep.constructor.target;
+
+          if (!this._indirectWatcher) {
+            var Watcher = target.constructor;
+            this._indirectWatcher = new Watcher(this, function () {
+              return _this7.runRule(parent);
+            }, null, {
+              lazy: true
+            });
+          }
+
+          var model = this.getModel();
+
+          if (!this._indirectWatcher.dirty && this._lastModel === model) {
+            this._indirectWatcher.depend();
+
+            return target.value;
+          }
+
+          this._lastModel = model;
+
+          this._indirectWatcher.evaluate();
+
+          this._indirectWatcher.depend();
+        } else if (this._indirectWatcher) {
+          this._indirectWatcher.teardown();
+
+          this._indirectWatcher = null;
+        }
+
+        return this._indirectWatcher ? this._indirectWatcher.value : this.runRule(parent);
+      },
+      $params: function $params() {
+        return this.run.params;
+      },
+      proxy: function proxy() {
+        var output = this.run.output;
+
+        if (output[__isVuelidateAsyncVm]) {
+          return !!output.v;
+        }
+
+        return !!output;
+      },
+      $pending: function $pending() {
+        var output = this.run.output;
+
+        if (output[__isVuelidateAsyncVm]) {
+          return output.p;
+        }
+
+        return false;
+      }
+    },
+    destroyed: function destroyed() {
+      if (this._indirectWatcher) {
+        this._indirectWatcher.teardown();
+
+        this._indirectWatcher = null;
+      }
+    }
+  });
+  var Validation = VBase.extend({
+    data: function data() {
+      return {
+        dirty: false,
+        validations: null,
+        lazyModel: null,
+        model: null,
+        prop: null,
+        lazyParentModel: null,
+        rootModel: null
+      };
+    },
+    methods: _objectSpread({}, validationMethods, {
+      refProxy: function refProxy(key) {
+        return this.getRef(key).proxy;
+      },
+      getRef: function getRef(key) {
+        return this.refs[key];
+      },
+      isNested: function isNested(key) {
+        return typeof this.validations[key] !== 'function';
+      }
+    }),
+    computed: _objectSpread({}, validationGetters, {
+      nestedKeys: function nestedKeys() {
+        return this.keys.filter(this.isNested);
+      },
+      ruleKeys: function ruleKeys() {
+        var _this8 = this;
+
+        return this.keys.filter(function (k) {
+          return !_this8.isNested(k);
+        });
+      },
+      keys: function keys() {
+        return Object.keys(this.validations).filter(function (k) {
+          return k !== '$params';
+        });
+      },
+      proxy: function proxy() {
+        var _this9 = this;
+
+        var keyDefs = buildFromKeys(this.keys, function (key) {
+          return {
+            enumerable: true,
+            configurable: true,
+            get: function get() {
+              return _this9.refProxy(key);
+            }
+          };
+        });
+        var getterDefs = buildFromKeys(getterNames, function (key) {
+          return {
+            enumerable: true,
+            configurable: true,
+            get: function get() {
+              return _this9[key];
+            }
+          };
+        });
+        var methodDefs = buildFromKeys(methodNames, function (key) {
+          return {
+            enumerable: false,
+            configurable: true,
+            get: function get() {
+              return _this9[key];
+            }
+          };
+        });
+        var iterDefs = this.hasIter() ? {
+          $iter: {
+            enumerable: true,
+            value: Object.defineProperties({}, _objectSpread({}, keyDefs))
+          }
+        } : {};
+        return Object.defineProperties({}, _objectSpread({}, keyDefs, {}, iterDefs, {
+          $model: {
+            enumerable: true,
+            get: function get() {
+              var parent = _this9.lazyParentModel();
+
+              if (parent != null) {
+                return parent[_this9.prop];
+              } else {
+                return null;
+              }
+            },
+            set: function set(value) {
+              var parent = _this9.lazyParentModel();
+
+              if (parent != null) {
+                parent[_this9.prop] = value;
+
+                _this9.$touch();
+              }
+            }
+          }
+        }, getterDefs, {}, methodDefs));
+      },
+      children: function children() {
+        var _this10 = this;
+
+        return [].concat(_toConsumableArray(this.nestedKeys.map(function (key) {
+          return renderNested(_this10, key);
+        })), _toConsumableArray(this.ruleKeys.map(function (key) {
+          return renderRule(_this10, key);
+        }))).filter(Boolean);
+      }
+    })
+  });
+  var GroupValidation = Validation.extend({
+    methods: {
+      isNested: function isNested(key) {
+        return typeof this.validations[key]() !== 'undefined';
+      },
+      getRef: function getRef(key) {
+        var vm = this;
+        return {
+          get proxy() {
+            return vm.validations[key]() || false;
+          }
+
+        };
+      }
+    }
+  });
+  var EachValidation = Validation.extend({
+    computed: {
+      keys: function keys() {
+        var model = this.getModel();
+
+        if (isObject(model)) {
+          return Object.keys(model);
+        } else {
+          return [];
+        }
+      },
+      tracker: function tracker() {
+        var _this11 = this;
+
+        var trackBy = this.validations.$trackBy;
+        return trackBy ? function (key) {
+          return "".concat(getPath(_this11.rootModel, _this11.getModelKey(key), trackBy));
+        } : function (x) {
+          return "".concat(x);
+        };
+      },
+      getModelLazy: function getModelLazy() {
+        var _this12 = this;
+
+        return function () {
+          return _this12.getModel();
+        };
+      },
+      children: function children() {
+        var _this13 = this;
+
+        var def = this.validations;
+        var model = this.getModel();
+
+        var validations = _objectSpread({}, def);
+
+        delete validations['$trackBy'];
+        var usedTracks = {};
+        return this.keys.map(function (key) {
+          var track = _this13.tracker(key);
+
+          if (usedTracks.hasOwnProperty(track)) {
+            return null;
+          }
+
+          usedTracks[track] = true;
+          return (0, _vval.h)(Validation, track, {
+            validations: validations,
+            prop: key,
+            lazyParentModel: _this13.getModelLazy,
+            model: model[key],
+            rootModel: _this13.rootModel
+          });
+        }).filter(Boolean);
+      }
+    },
+    methods: {
+      isNested: function isNested() {
+        return true;
+      },
+      getRef: function getRef(key) {
+        return this.refs[this.tracker(key)];
+      },
+      hasIter: function hasIter() {
+        return true;
+      }
+    }
+  });
+
+  var renderNested = function renderNested(vm, key) {
+    if (key === '$each') {
+      return (0, _vval.h)(EachValidation, key, {
+        validations: vm.validations[key],
+        lazyParentModel: vm.lazyParentModel,
+        prop: key,
+        lazyModel: vm.getModel,
+        rootModel: vm.rootModel
+      });
+    }
+
+    var validations = vm.validations[key];
+
+    if (Array.isArray(validations)) {
+      var root = vm.rootModel;
+      var refVals = buildFromKeys(validations, function (path) {
+        return function () {
+          return getPath(root, root.$v, path);
+        };
+      }, function (v) {
+        return Array.isArray(v) ? v.join('.') : v;
+      });
+      return (0, _vval.h)(GroupValidation, key, {
+        validations: refVals,
+        lazyParentModel: NIL,
+        prop: key,
+        lazyModel: NIL,
+        rootModel: root
+      });
+    }
+
+    return (0, _vval.h)(Validation, key, {
+      validations: validations,
+      lazyParentModel: vm.getModel,
+      prop: key,
+      lazyModel: vm.getModelKey,
+      rootModel: vm.rootModel
+    });
+  };
+
+  var renderRule = function renderRule(vm, key) {
+    return (0, _vval.h)(ValidationRule, key, {
+      rule: vm.validations[key],
+      lazyParentModel: vm.lazyParentModel,
+      lazyModel: vm.getModel,
+      rootModel: vm.rootModel
+    });
+  };
+
+  _cachedComponent = {
+    VBase: VBase,
+    Validation: Validation
+  };
+  return _cachedComponent;
+};
+
+var _cachedVue = null;
+
+function getVue(rootVm) {
+  if (_cachedVue) return _cachedVue;
+  var Vue = rootVm.constructor;
+
+  while (Vue.super) {
+    Vue = Vue.super;
+  }
+
+  _cachedVue = Vue;
+  return Vue;
+}
+
+var validateModel = function validateModel(model, validations) {
+  var Vue = getVue(model);
+
+  var _getComponent = getComponent(Vue),
+      Validation = _getComponent.Validation,
+      VBase = _getComponent.VBase;
+
+  var root = new VBase({
+    computed: {
+      children: function children() {
+        var vals = typeof validations === 'function' ? validations.call(model) : validations;
+        return [(0, _vval.h)(Validation, '$v', {
+          validations: vals,
+          lazyParentModel: NIL,
+          prop: '$v',
+          model: model,
+          rootModel: model
+        })];
+      }
+    }
+  });
+  return root;
+};
+
+var validationMixin = {
+  data: function data() {
+    var vals = this.$options.validations;
+
+    if (vals) {
+      this._vuelidate = validateModel(this, vals);
+    }
+
+    return {};
+  },
+  beforeCreate: function beforeCreate() {
+    var options = this.$options;
+    var vals = options.validations;
+    if (!vals) return;
+    if (!options.computed) options.computed = {};
+    if (options.computed.$v) return;
+
+    options.computed.$v = function () {
+      return this._vuelidate ? this._vuelidate.refs.$v.proxy : null;
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this._vuelidate) {
+      this._vuelidate.$destroy();
+
+      this._vuelidate = null;
+    }
+  }
+};
+exports.validationMixin = validationMixin;
+
+function Vuelidate(Vue) {
+  Vue.mixin(validationMixin);
+}
+
+var _default = Vuelidate;
+exports.default = _default;
+
+/***/ }),
+/* 409 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.patchChildren = patchChildren;
+exports.h = h;
+
+function isUndef(v) {
+  return v === null || v === undefined;
+}
+
+function isDef(v) {
+  return v !== null && v !== undefined;
+}
+
+function sameVval(oldVval, vval) {
+  return vval.tag === oldVval.tag && vval.key === oldVval.key;
+}
+
+function createVm(vval) {
+  var Vm = vval.tag;
+  vval.vm = new Vm({
+    data: vval.args
+  });
+}
+
+function updateVval(vval) {
+  var keys = Object.keys(vval.args);
+
+  for (var i = 0; i < keys.length; i++) {
+    keys.forEach(function (k) {
+      vval.vm[k] = vval.args[k];
+    });
+  }
+}
+
+function createKeyToOldIdx(children, beginIdx, endIdx) {
+  var i, key;
+  var map = {};
+
+  for (i = beginIdx; i <= endIdx; ++i) {
+    key = children[i].key;
+    if (isDef(key)) map[key] = i;
+  }
+
+  return map;
+}
+
+function updateChildren(oldCh, newCh) {
+  var oldStartIdx = 0;
+  var newStartIdx = 0;
+  var oldEndIdx = oldCh.length - 1;
+  var oldStartVval = oldCh[0];
+  var oldEndVval = oldCh[oldEndIdx];
+  var newEndIdx = newCh.length - 1;
+  var newStartVval = newCh[0];
+  var newEndVval = newCh[newEndIdx];
+  var oldKeyToIdx, idxInOld, elmToMove;
+
+  while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
+    if (isUndef(oldStartVval)) {
+      oldStartVval = oldCh[++oldStartIdx];
+    } else if (isUndef(oldEndVval)) {
+      oldEndVval = oldCh[--oldEndIdx];
+    } else if (sameVval(oldStartVval, newStartVval)) {
+      patchVval(oldStartVval, newStartVval);
+      oldStartVval = oldCh[++oldStartIdx];
+      newStartVval = newCh[++newStartIdx];
+    } else if (sameVval(oldEndVval, newEndVval)) {
+      patchVval(oldEndVval, newEndVval);
+      oldEndVval = oldCh[--oldEndIdx];
+      newEndVval = newCh[--newEndIdx];
+    } else if (sameVval(oldStartVval, newEndVval)) {
+      patchVval(oldStartVval, newEndVval);
+      oldStartVval = oldCh[++oldStartIdx];
+      newEndVval = newCh[--newEndIdx];
+    } else if (sameVval(oldEndVval, newStartVval)) {
+      patchVval(oldEndVval, newStartVval);
+      oldEndVval = oldCh[--oldEndIdx];
+      newStartVval = newCh[++newStartIdx];
+    } else {
+      if (isUndef(oldKeyToIdx)) oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
+      idxInOld = isDef(newStartVval.key) ? oldKeyToIdx[newStartVval.key] : null;
+
+      if (isUndef(idxInOld)) {
+        createVm(newStartVval);
+        newStartVval = newCh[++newStartIdx];
+      } else {
+        elmToMove = oldCh[idxInOld];
+
+        if (sameVval(elmToMove, newStartVval)) {
+          patchVval(elmToMove, newStartVval);
+          oldCh[idxInOld] = undefined;
+          newStartVval = newCh[++newStartIdx];
+        } else {
+          createVm(newStartVval);
+          newStartVval = newCh[++newStartIdx];
+        }
+      }
+    }
+  }
+
+  if (oldStartIdx > oldEndIdx) {
+    addVvals(newCh, newStartIdx, newEndIdx);
+  } else if (newStartIdx > newEndIdx) {
+    removeVvals(oldCh, oldStartIdx, oldEndIdx);
+  }
+}
+
+function addVvals(vvals, startIdx, endIdx) {
+  for (; startIdx <= endIdx; ++startIdx) {
+    createVm(vvals[startIdx]);
+  }
+}
+
+function removeVvals(vvals, startIdx, endIdx) {
+  for (; startIdx <= endIdx; ++startIdx) {
+    var ch = vvals[startIdx];
+
+    if (isDef(ch)) {
+      ch.vm.$destroy();
+      ch.vm = null;
+    }
+  }
+}
+
+function patchVval(oldVval, vval) {
+  if (oldVval === vval) {
+    return;
+  }
+
+  vval.vm = oldVval.vm;
+  updateVval(vval);
+}
+
+function patchChildren(oldCh, ch) {
+  if (isDef(oldCh) && isDef(ch)) {
+    if (oldCh !== ch) updateChildren(oldCh, ch);
+  } else if (isDef(ch)) {
+    addVvals(ch, 0, ch.length - 1);
+  } else if (isDef(oldCh)) {
+    removeVvals(oldCh, 0, oldCh.length - 1);
+  }
+}
+
+function h(tag, key, args) {
+  return {
+    tag: tag,
+    key: key,
+    args: args
+  };
+}
 
 /***/ })
 /******/ ]);

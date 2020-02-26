@@ -127,6 +127,11 @@ function add_scripts() {
         }
     }
 
+    $user_id = get_current_user_id();
+    if ($user_id) {
+        $user = get_userdata(get_current_user_id());
+    }
+
     if (is_product()) {
         $post_params = Timber::get_post();
         $product_params = wc_get_product( $post_params->ID );
@@ -203,6 +208,9 @@ if ( class_exists( 'Timber' ) ){
             $context['menu_header'] = new TimberMenu('menu_header');  
             $context['menu_footer'] = new TimberMenu('menu_footer');  
             $context['site'] = $this;
+
+            $user_id = get_current_user_id();
+            $context['user_id'] = $user_id;
 
             $context['facebook'] = get_field('facebook', 'options');
             $context['vk'] = get_field('vk', 'options');

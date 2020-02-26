@@ -52,3 +52,25 @@ function ajax_login(){
     }
     die();
 }
+
+function changePassword(WP_REST_Request $request){
+    $user_id = sanitize_text_field($_POST['user_id']);
+    $old_password = sanitize_text_field($_POST['old_password']);
+    $new_password = sanitize_text_field($_POST['new_password']);
+
+    if ($user_id && $old_password && $new_password) {
+        $data = ['status' => 'success'];
+        wp_set_password( $new_password, $user_id );
+    }
+    else {
+        $data = ['status' => 'fail'];
+    }
+    wp_send_json_success($data);
+}
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'amadreh/v1/', '/change-password/', array(
+          'methods' => WP_REST_Server::CREATABLE,
+          'callback' => 'changePassword',
+      ) );
+});

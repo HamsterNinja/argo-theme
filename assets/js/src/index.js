@@ -102,6 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+import Vuelidate from 'vuelidate';
+Vue.use(Vuelidate);
+
+import ChangePassword from './components/ChangePassword.vue';
+Vue.component('change-password', ChangePassword);
+
 import PageLoginForm from './components/PageLoginForm.vue';
 Vue.component('page-login-form', PageLoginForm);
 
