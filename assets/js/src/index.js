@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 
+import EditAccount from './components/EditAccount.vue';
+Vue.component('edit-account-form', EditAccount);
+
 import ChangePassword from './components/ChangePassword.vue';
 Vue.component('change-password', ChangePassword);
 

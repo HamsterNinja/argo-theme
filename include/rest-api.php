@@ -199,3 +199,10 @@ function complete_update($updatedUser){
         update_usermeta($user, 'phone', $updatedUser->phone);
         wp_send_json_success();
 }
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'amadreh/v1/', '/update-user/', array(
+          'methods' => WP_REST_Server::CREATABLE,
+          'callback' => 'updateUser',
+      ) );
+});
