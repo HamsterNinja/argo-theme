@@ -3,21 +3,11 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 $context['current_user'] = new Timber\User();
+$context['edit_account_link'] = esc_url(wc_get_endpoint_url('edit-account'));
+$context['edit_address_link'] = esc_url(wc_get_endpoint_url('edit-address'));
+$context['notifications_link'] = esc_url(wc_get_endpoint_url('notifications'));
+$context['change_password_link'] = esc_url(wc_get_endpoint_url('change_password'));
+$context['orders_link'] = esc_url(wc_get_endpoint_url('orders'));
+
 Timber::render( ['account/account.twig'], $context );
-
 ?>
-
-<!-- <div class="my-account-container">
-    <div class="my-account-sidebar">
-        <div class="my-account-sidebar__title"></div>
-		<?php do_action( 'woocommerce_account_navigation' ); ?>
-    </div>
-    <div class="my-account-content">
-        <div class="my-account-content-page">
-            <div class="my-account-content-page__title"><? the_title(); ?></div>
-            <div class="my-account-content-page__description">
-				<?php do_action( 'woocommerce_account_content' ); ?>
-            </div>
-        </div>
-    </div>
-</div> -->

@@ -86,3 +86,34 @@ function my_wc_cart_count_mobile() {
 <?php
 }
 add_action('header_action_mobile', 'my_wc_cart_count_mobile');
+
+add_action( 'init', 'add_endpoint' );
+function add_endpoint() {
+    add_rewrite_endpoint( 'notifications', EP_PAGES );
+    add_rewrite_endpoint( 'change_password', EP_PAGES );
+}
+
+//Страница Нотификация
+add_action( 'woocommerce_account_notifications_endpoint', 'account_endpoint_content_notifications' );
+function account_endpoint_content_notifications() {
+	$context = Timber::get_context();
+	Timber::render( ['account/notifications.twig'], $context );
+}
+
+add_action( 'woocommerce_account_change_password_endpoint', 'account_endpoint_content_change_password' );
+function account_endpoint_content_change_password() {
+	$context = Timber::get_context();
+	Timber::render( ['account/change_password.twig'], $context );
+}
+
+/* Redirects to the edit-account instead of Woocommerce My Account Dashboard */
+function wpmu_woocommerce_account_redirect() {
+    $current_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $dashboard_url = get_permalink( get_option('woocommerce_myaccount_page_id'));
+    if(is_user_logged_in() && $dashboard_url == $current_url){
+        $url = get_home_url() . '/my-account/edit-account';
+        wp_redirect( $url );
+        exit;
+    }
+}
+add_action('template_redirect', 'wpmu_woocommerce_account_redirect');

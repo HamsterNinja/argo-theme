@@ -2038,6 +2038,7 @@ p.policy_text a {
 .account-right {
     padding-left: 35px;
     width: calc(100% - 325px);
+    font-size: initial;
 }
 
 .account-right-name {
@@ -2498,6 +2499,10 @@ a.add-address {
 
 .tabs a:hover {
     border-color: #ffc844;
+}
+
+.account-left-mobile {
+    display: none;
 }
 
 @import 'pages/home';
