@@ -6057,6 +6057,13 @@ Object(__WEBPACK_IMPORTED_MODULE_1__ff_polyfill__["a" /* default */])();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(96);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6079,22 +6086,17 @@ Object(__WEBPACK_IMPORTED_MODULE_1__ff_polyfill__["a" /* default */])();
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
       account: {
         submitted: false,
-        submitStatus: '',
-        first_name: SITEDATA.user_first_name,
-        last_name: SITEDATA.user_last_name,
-        country: SITEDATA.user_country,
-        city: SITEDATA.user_city,
-        address: SITEDATA.user_address,
-        phone: SITEDATA.user_phone,
-        email: SITEDATA.user_email
+        submitStatus: ''
       }
     };
-  }
+  },
+  computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapState */])(['currentUser']))
 });
 
 /***/ }),
@@ -6301,6 +6303,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
@@ -6310,6 +6315,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       security: SITEDATA.security,
       errors: ''
     };
+  },
+  computed: {
+    login_failure: function login_failure() {
+      return this.errors.includes('Неверное имя пользователя или пароль');
+    }
   },
   methods: {
     submitLoginForm: function () {
@@ -25117,7 +25127,8 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     loadingProducts: false,
     product: {},
     products: [],
-    searchString: SITEDATA.search_query
+    searchString: SITEDATA.search_query,
+    currentUser: SITEDATA.user_data
   },
   getters: {
     getProductCount: function getProductCount(state) {
@@ -26271,7 +26282,7 @@ var render = function() {
                     expression: "$v.registration.password.$model"
                   }
                 ],
-                attrs: { type: "text" },
+                attrs: { type: "password" },
                 domProps: { value: _vm.$v.registration.password.$model },
                 on: {
                   input: function($event) {
@@ -26324,7 +26335,7 @@ var render = function() {
                     expression: "$v.registration.confirm_password.$model"
                   }
                 ],
-                attrs: { type: "text" },
+                attrs: { type: "password" },
                 domProps: {
                   value: _vm.$v.registration.confirm_password.$model
                 },
@@ -27686,44 +27697,111 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("form", { attrs: { action: "" } }, [
+    _c("label", { attrs: { for: "" } }, [
+      _c("p", [_vm._v("Имя")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.currentUser.first_name,
+            expression: "currentUser.first_name"
+          }
+        ],
+        attrs: { type: "text", placeholder: "Иван" },
+        domProps: { value: _vm.currentUser.first_name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.currentUser, "first_name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("label", { attrs: { for: "" } }, [
+      _c("p", [_vm._v("Фамилия")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.currentUser.last_name,
+            expression: "currentUser.last_name"
+          }
+        ],
+        attrs: { type: "text", placeholder: "Иванов" },
+        domProps: { value: _vm.currentUser.last_name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.currentUser, "last_name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("label", { attrs: { for: "" } }, [
+      _c("p", [_vm._v("E-Mail")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.currentUser.email,
+            expression: "currentUser.email"
+          }
+        ],
+        attrs: { type: "email", placeholder: "ivanov@mail.ru" },
+        domProps: { value: _vm.currentUser.email },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.currentUser, "email", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("label", { attrs: { for: "" } }, [
+      _c("p", [_vm._v("Телефон *")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.currentUser.phone,
+            expression: "currentUser.phone"
+          }
+        ],
+        attrs: { type: "phone", placeholder: "+7 (000) 000-00-00" },
+        domProps: { value: _vm.currentUser.phone },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.currentUser, "phone", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("button", { staticClass: "acoount-submit" }, [_vm._v("ПОДТВЕРДИТЬ")])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("form", { attrs: { action: "" } }, [
-      _c("label", { attrs: { for: "" } }, [
-        _c("p", [_vm._v("Имя")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", placeholder: "Иван" } })
-      ]),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "" } }, [
-        _c("p", [_vm._v("Фамилия")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", placeholder: "Иванов" } })
-      ]),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "" } }, [
-        _c("p", [_vm._v("E-Mail")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "email", placeholder: "ivanov@mail.ru" } })
-      ]),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "" } }, [
-        _c("p", [_vm._v("Телефон *")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "phone", placeholder: "+7 (000) 000-00-00" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "acoount-submit" }, [_vm._v("ПОДТВЕРДИТЬ")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -27992,55 +28070,75 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "registration-form-item" }, [
-          _c("label", { attrs: { for: "" } }, [
-            _c("p", [_vm._v("E-Mail или номер телефона")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.username,
-                  expression: "username"
-                }
-              ],
-              attrs: { type: "text", name: "email" },
-              domProps: { value: _vm.username },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "label",
+            {
+              staticClass: "form-group",
+              class: { "input--error": _vm.login_failure },
+              attrs: { for: "email" }
+            },
+            [
+              _c("p", [_vm._v("E-Mail или номер телефона")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.username,
+                    expression: "username"
                   }
-                  _vm.username = $event.target.value
+                ],
+                attrs: { id: "email", type: "text", name: "email" },
+                domProps: { value: _vm.username },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.username = $event.target.value
+                  }
                 }
-              }
-            })
-          ]),
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "errors-form" }, [
+                _vm.login_failure
+                  ? _c("div", { staticClass: "error" }, [
+                      _vm._v("Неверное имя пользователя или пароль")
+                    ])
+                  : _vm._e()
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _c("label", { attrs: { for: "" } }, [
-            _c("p", [_vm._v("Пароль")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password"
-                }
-              ],
-              attrs: { type: "password", name: "password" },
-              domProps: { value: _vm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "label",
+            { staticClass: "form-group", attrs: { for: "password" } },
+            [
+              _c("p", [_vm._v("Пароль")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.password,
+                    expression: "password"
                   }
-                  _vm.password = $event.target.value
+                ],
+                attrs: { id: "password", type: "password", name: "password" },
+                domProps: { value: _vm.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.password = $event.target.value
+                  }
                 }
-              }
-            })
-          ]),
+              })
+            ]
+          ),
           _vm._v(" "),
           _c(
             "a",

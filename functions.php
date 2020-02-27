@@ -1,4 +1,5 @@
 <?php
+include_once(get_template_directory() .'/include/models.php');
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 
@@ -132,6 +133,31 @@ function add_scripts() {
         $user = get_userdata(get_current_user_id());
     }
 
+    if ($user) {
+        $user_email = $user->get('user_email');
+        $user_email = !empty($user_email) ? $user_email : '';
+
+        $user_first_name = $user->get('first_name');
+        $user_first_name = !empty($user_first_name) ? $user_first_name : '';
+
+        $user_last_name  = $user->get('last_name');
+        $user_last_name = !empty($user_last_name) ? $user_last_name : '';
+
+        $user_city = get_field('city', 'user_'.$user_id);
+        $user_city = !empty($user_city) ? $user_city : '';
+
+        $user_phone = get_field('phone', 'user_'.$user_id);
+        $user_phone = !empty($user_phone) ? $user_phone : '';
+
+        $currentUser = new customUser();
+        $currentUser->setUserID($user_id)
+        ->setEmail($user_email)
+        ->setFirstName($user_first_name)
+        ->setLastName($user_last_name)
+        ->setCity($user_city)
+        ->setPhone($user_phone);
+    }
+
     if (is_product()) {
         $post_params = Timber::get_post();
         $product_params = wc_get_product( $post_params->ID );
@@ -141,11 +167,6 @@ function add_scripts() {
     else{
         $regular_price = 0;
         $sale_price = 0;
-    }
-
-    $user = get_userdata(get_current_user_id());
-    if ($user) {
-        $user_url = $user->get('user_url');
     }
 
     wp_localize_script( 'app', 'SITEDATA', array(
@@ -169,6 +190,7 @@ function add_scripts() {
         'nonce_like' => $nonce_like ,
         'cart_subtotal' => WC()->cart->subtotal,
         'ajax_noncy_nonce' =>  wp_create_nonce( 'noncy_nonce' ),
+        'user_data' => $currentUser
     ));
 }
 
@@ -213,6 +235,15 @@ if ( class_exists( 'Timber' ) ){
 
             $user_id = get_current_user_id();
             $context['user_id'] = $user_id;
+
+            // TODO: вынести в функцию данные пользователя
+            $user_id = get_current_user_id();
+            if ($user_id) {
+                $user = get_userdata(get_current_user_id());
+            }
+            else{
+                $user = false;
+            }
 
             $context['facebook'] = get_field('facebook', 'options');
             $context['vk'] = get_field('vk', 'options');

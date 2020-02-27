@@ -18,6 +18,7 @@ const store = new Vuex.Store({
         product: {},
         products: [],
         searchString: SITEDATA.search_query,
+        currentUser: SITEDATA.user_data,
     },
     getters: {
         getProductCount: state => state.productCount,

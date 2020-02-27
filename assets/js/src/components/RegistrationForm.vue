@@ -21,7 +21,7 @@
                 <div class="errors-form">
                     <div class="error" v-if="!$v.registration.email.required">Почта обязательна</div>
                     <div class="error" v-if="!$v.registration.email.email">Должен быть действительный адрес электронной почты</div>
-                    <div class="error" v-if="used_email">Email уже используется</span></div>
+                    <div class="error" v-if="used_email">Email уже используется</div>
                 </div>
             </label>
         </div>
@@ -29,7 +29,7 @@
             <div class="registration-form-name">Ваш пароль</div>
             <label for="" class="form-group" :class="{ 'input--error': $v.registration.password.$error }">
                 <p>Пароль *</p>
-                <input type="text" v-model="$v.registration.password.$model">
+                <input type="password" v-model="$v.registration.password.$model">
                 <div class="errors-form">
                     <div class="error" v-if="!$v.registration.password.required">Пароль обязателен</div>
                     <div class="error" v-if="!$v.registration.password.minLength">Должно быть не менее 8 символов</div>
@@ -37,7 +37,7 @@
             </label>
             <label for="" class="form-group" :class="{ 'input--error': $v.registration.confirm_password.$error }">
                 <p>Подтвердите пароль *</p>
-                <input type="text" v-model="$v.registration.confirm_password.$model">
+                <input type="password" v-model="$v.registration.confirm_password.$model">
                 <div class="errors-form">
                     <div class="error" v-if="!$v.registration.confirm_password.required">Потверждение обязательно</div>
                     <div class="error" v-if="!$v.registration.confirm_password.sameAs">Должен совпадать с паролем</div>
