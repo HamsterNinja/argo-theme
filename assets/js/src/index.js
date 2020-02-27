@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 
+import RegistrationForm from './components/RegistrationForm.vue';
+Vue.component('registration-form', RegistrationForm);
+
 import EditAccount from './components/EditAccount.vue';
 Vue.component('edit-account-form', EditAccount);
 

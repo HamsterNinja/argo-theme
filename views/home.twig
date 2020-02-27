@@ -48,6 +48,7 @@
 					<div class="activity-hidden-block">
 						<div class="activity-hidden-block-title">{{ activity.title }}</div>
 						<!-- TODO: удалить неразравные пробелы -->
+						<!-- |replace({'&nbsp;': " "})|raw  -->
 						<div class="activity-hidden-block-text">{{ activity.preview.length(50).read_more('') }}</div>
 					</div>
 				</div>

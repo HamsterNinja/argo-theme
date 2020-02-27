@@ -2408,6 +2408,7 @@ a.add-address {
     line-height: 18px;
     color: #000000;
     margin-bottom: 10px;
+    padding-top: 4px;
 }
 
 .registration-form form input {
@@ -2502,6 +2503,26 @@ a.add-address {
 }
 
 .account-left-mobile {
+    display: none;
+}
+
+.form-group.input--error input {
+    border-color: #f03535;
+}
+
+.errors-form {
+    margin-top: -14px;
+}
+
+.input--error .errors-form .error {
+    display: block;
+}
+
+.errors-form .error {
+    display: block;
+    color: #f03535;
+    font-size: 11px;
+    text-align: left;
     display: none;
 }
 
