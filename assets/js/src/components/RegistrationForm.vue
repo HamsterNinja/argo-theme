@@ -15,15 +15,13 @@
                     <div class="error" v-if="!$v.registration.phone.correctPhone">Должен быть действительный телефон</div>
                 </div>
             </label>
-            <label for="" class="form-group" :class="{ 'input--error': $v.registration.email.$error }">
+            <label for="" class="form-group" :class="{ 'input--error': $v.registration.email.$error || used_email }">
                 <p>E-mail *</p>
                 <input type="text" v-model="$v.registration.email.$model">
                 <div class="errors-form">
                     <div class="error" v-if="!$v.registration.email.required">Почта обязательна</div>
                     <div class="error" v-if="!$v.registration.email.email">Должен быть действительный адрес электронной почты</div>
-                    <div class="error" v-for="error in errors">
-                        <span v-if="error == 'Email уже используется'">Email уже используется</span>
-                    </div>
+                    <div class="error" v-if="used_email">Email уже используется</span></div>
                 </div>
             </label>
         </div>
@@ -81,9 +79,14 @@ export default {
             email: '',
             password: '',
             confirm_password: '',
-            notice: '',
+            notice: [],
         }
     }),
+    computed: {
+        used_email(){
+            return this.errors.includes('Email уже используется')
+        }
+    },
     validations: {
         registration: {
             phone: {
@@ -136,8 +139,9 @@ export default {
                 if(responseData.success == true){
                     this.registration[button] = 'SUCCESS';
                     setTimeout(() => {this.registration[button] = ''}, 1000);
-                    // TODO: переход на главную
-                    // setTimeout(() => {this.redirectPayment(methodPayment)}, 2000);
+                    setTimeout(() => {
+                        document.location.href = SITEDATA.url;
+                    }, 1200);
                 }
                 else{
                     this.registration[button] = 'ERROR';

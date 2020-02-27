@@ -205,9 +205,11 @@ if ( class_exists( 'Timber' ) ){
         }
         
         function add_to_context( $context ) {
+            $context['site'] = $this;
             $context['menu_header'] = new TimberMenu('menu_header');  
             $context['menu_footer'] = new TimberMenu('menu_footer');  
-            $context['site'] = $this;
+
+            $context['wp_logout_url'] = wp_logout_url(get_permalink());  
 
             $user_id = get_current_user_id();
             $context['user_id'] = $user_id;
@@ -240,4 +242,5 @@ if ( class_exists( 'Timber' ) ){
 
 include_once(get_template_directory() .'/include/acf-fields.php');
 include_once(get_template_directory() .'/include/rest-api.php');
+include_once(get_template_directory() .'/include/create_user.php');
 include_once(get_template_directory() .'/include/theme-settings.php');
