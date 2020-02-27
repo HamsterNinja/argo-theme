@@ -30,7 +30,7 @@
                     <div class="reservation-form-row">
                         <div class="reservation-form-column-name">Дата и время визита</div>
                         <div class="reservation-form-calendar">
-                            <input type="date" name="calendar" v-model="date">
+                            <input type="date" name="calendar" v-model="date" :min="currentDate">
                         </div>
                         <div class="reservation-form-time">
                             <label class="control control-radio" v-for="(value, index) of timeRange" :key="`time-${index}`">
@@ -48,7 +48,7 @@
                             <textarea v-model="comment" name="description" placeholder="Пожелания (не обязательно)"></textarea>
                         </div>
                     </div>
-                    <button class="reservation-submit">ЗАБРОНИРОВАТЬ</button>
+                    <button class="reservation-submit" @click.prevent="addReservation">ЗАБРОНИРОВАТЬ</button>
                 </form>
             </div>
             <div class="reservation-right">
@@ -78,12 +78,25 @@ const moment = extendMoment(Moment);
 const range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + start);
 
 import {mapState, mapGetters} from 'vuex';
+import { modal } from "./mixins/modal";
+import { mapValues, groupBy } from 'lodash';
+
+const nest = function (seq, keys) {
+    if (!keys.length) {return seq}
+    let first = keys[0]
+    let rest = keys.slice(1)
+    return mapValues(groupBy(seq, first), value => nest(value, rest));
+};
+
 export default {
+    mixins: [modal],
     components: {},
     data: () => ({
         template_url: SITEDATA.themepath,
-        time: '',
-        date: '',
+        time: '9:00',
+        currentTime: moment().format('HH:mm'),
+        date: moment().format('YYYY-MM-DD'),
+        currentDate: moment().format('YYYY-MM-DD'),
         halls: 1,
         table: 1,
         guests: 1,
@@ -95,6 +108,9 @@ export default {
     }),
     computed: {
         ...mapState(['currentUser']),
+        orders(){
+            return this.$store.getters["orders"]
+        },
         timeRange(){
             let times = [];
             let hours = range(9, 21)
@@ -107,7 +123,54 @@ export default {
             })
 
             return times;
+        },
+        ordersByDateTime(){
+            let orderGroupByDateTime = nest(this.orders, ['date', 'time'])
+            let dateKey = moment(this.date).format('DD/MM/YYYY')
+            let timeKey = moment(this.time, "HH:mm").format('HH:mm:ss')
+            return orderGroupByDateTime[dateKey][timeKey]
+        },
+        orderedTime(){
+            let orderGroupByDate = nest(this.orders, ['date'])
+            let dateKey = moment(this.date).format('DD/MM/YYYY')
+            return orderGroupByDate[dateKey].map(item => item['time'].slice(0, 5))
+        },
+        orderedTables(){
+            return false
         }
-    } 
+    },
+    async mounted() {
+        if (this.$store.getters['orders'].length === 0) {
+            await this.$store.dispatch('fetchOrders')
+        }
+    },
+    methods: {
+        async addReservation() {
+            let formLogin = new FormData(); 
+            formLogin.append("name", this.name);
+            formLogin.append("phone", this.phone);
+            formLogin.append("comment", this.comment);
+            formLogin.append("date", this.date);
+            formLogin.append("time", this.time);
+            formLogin.append("guests", this.guests);
+            formLogin.append("halls", this.halls);
+            formLogin.append("table", this.table);
+
+            const sendURL = `${SITEDATA.url}/wp-json/amadreh/v1/add-reservation/`;
+            
+            let fetchData = {
+                method: "POST",
+                body: formLogin
+            };
+
+            let response = await fetch(sendURL, fetchData);
+            let data = await response.json();
+            if (data.success) {
+                this.showModal("modal-window--thank");
+            }
+
+        },
+        
+    }
 }
 </script>

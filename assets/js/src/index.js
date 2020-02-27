@@ -162,11 +162,13 @@ Vue.filter("formatNumber", function (value) {
 });
 
 import { required, email, minLength } from "vuelidate/lib/validators";
+import { modal } from "./components/mixins/modal";
 
 const app = new Vue({
     el: "#app",
     store,
     delimiters: ["((", "))"],
+    mixins: [modal],
     data: {
         cart:{
             delivery: 'courier',
@@ -242,24 +244,6 @@ const app = new Vue({
                 // location = SITEDATA.url + "/cart/";
             }
             this.adding = false;
-        },
-
-        showModal: (modalName) => {
-            const currentModal = document.querySelector(`.${modalName}`);
-            const overlay = document.querySelector('.overlay');
-            if (currentModal) {
-                currentModal.classList.add('modal--show');
-                overlay.classList.add('overlay--show');
-            }
-        },
-
-        closeModal: () => {
-            const overlay = document.querySelector('.overlay');
-            const modals = document.querySelectorAll('.modal-window');
-            modals.forEach(modal => {
-                modal.classList.remove('modal--show');
-                overlay.classList.remove('overlay--show');
-            });
         },
 
         async orderProducts() {

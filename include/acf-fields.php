@@ -108,6 +108,25 @@ if (function_exists('acf_add_local_field_group')):
         'title' => 'Бронирование',
         'fields' => array(
             array(
+                'key' => 'field_5e37e4fd07275',
+                'label' => 'Имя',
+                'name' => 'name',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_5e37e51307276',
+                'label' => 'Телефон',
+                'name' => 'phone',
+                'type' => 'text',
+                'instructions' => '',
+            ),
+            array(
+                'key' => 'field_5e37e54807277',
+                'label' => 'Пожелания',
+                'name' => 'description',
+                'type' => 'text',
+            ),
+            array(
                 'key' => 'field_5e37e3f807271',
                 'label' => 'Зал',
                 'name' => 'hall',
@@ -117,6 +136,12 @@ if (function_exists('acf_add_local_field_group')):
                 'key' => 'field_5e37e41007272',
                 'label' => 'Стол',
                 'name' => 'table',
+                'type' => 'number',
+            ),
+            array(
+                'key' => 'field_5e37e410072_guests',
+                'label' => 'Гости',
+                'name' => 'guests',
                 'type' => 'number',
             ),
             array(
@@ -135,25 +160,6 @@ if (function_exists('acf_add_local_field_group')):
                 'display_format' => 'd/m/Y',
                 'return_format' => 'd/m/Y',
                 'first_day' => 1,
-            ),
-            array(
-                'key' => 'field_5e37e4fd07275',
-                'label' => 'Имя',
-                'name' => 'name',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_5e37e51307276',
-                'label' => 'Телефон',
-                'name' => 'phone',
-                'type' => 'text',
-                'instructions' => '',
-            ),
-            array(
-                'key' => 'field_5e37e54807277',
-                'label' => 'Пожелания',
-                'name' => 'description',
-                'type' => 'text',
             ),
         ),
         'location' => array(

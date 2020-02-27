@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import { modal } from "./mixins/modal";
 import { required, email, minLength } from "vuelidate/lib/validators";
 export default {
+    mixins: [modal],
     props: {
         user_id: {
             type: String,
@@ -74,22 +76,6 @@ export default {
                     setTimeout(() => {this.submitStatus = ''}, 1000);
                 }
             }
-        },
-        showModal: (modalName) => {
-            const currentModal = document.querySelector(`.${modalName}`);
-            const overlay = document.querySelector('.overlay');
-            if (currentModal) {
-                currentModal.classList.add('modal--show');
-                overlay.classList.add('overlay--show');
-            }
-        },
-        closeModal: () => {
-            const overlay = document.querySelector('.overlay');
-            const modals = document.querySelectorAll('.modal-window');
-            modals.forEach(modal => {
-                modal.classList.remove('modal--show');
-                overlay.classList.remove('overlay--show');
-            });
         },
         clearForm(){
             this.submitted =  false;

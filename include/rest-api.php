@@ -130,3 +130,108 @@ add_action( 'rest_api_init', function () {
           'callback' => 'updateUser',
       ) );
 });
+
+function addReservation(WP_REST_Request $request){
+    if(isset ($_REQUEST)){
+        
+        if (isset($_REQUEST['name'])) {
+            $name = $_REQUEST['name'];
+        } 
+
+        if (isset($_REQUEST['phone'])) {
+            $phone = $_REQUEST['phone'];
+        }
+        
+        if (isset($_REQUEST['comment'])) {
+            $comment = $_REQUEST['comment'];
+        }
+
+        if (isset($_REQUEST['date'])) {
+            $date = $_REQUEST['date'];
+        }
+
+        if (isset($_REQUEST['time'])) {
+            $time = $_REQUEST['time'];
+        }
+
+        if (isset($_REQUEST['guests'])) {
+            $guests = $_REQUEST['guests'];
+        }
+
+        if (isset($_REQUEST['halls'])) {
+            $halls = $_REQUEST['halls'];
+        }
+
+        if (isset($_REQUEST['table'])) {
+            $table = $_REQUEST['table'];
+        }
+
+        $title = 'Заказ столика '.$table.' в зале '.$halls.' на '.$date.' '.$time;
+     
+        $new_post = array(
+            'post_title'    => $title,
+            'post_content'  => '',
+            'post_status'   => 'publish',        
+            'post_type' => 'record',
+        );
+
+        $pid = wp_insert_post($new_post); 
+
+        update_field('field_5e37e4fd07275', $name, $pid);
+        update_field('field_5e37e51307276', $phone, $pid);
+        update_field('field_5e37e54807277', $comment, $pid);
+        update_field('field_5e37e47707274', $date, $pid);
+        update_field('field_5e37e42607273', $time, $pid);
+        update_field('field_5e37e410072_guests', $guests, $pid);
+        update_field('field_5e37e3f807271', $halls, $pid);
+        update_field('field_5e37e41007272', $table, $pid);
+ 
+                        
+        wp_send_json_success($orders);
+    }
+    wp_send_json_error($orders);
+}
+
+
+add_action( 'rest_api_init', function () {
+register_rest_route( 'amadreh/v1/', '/add-reservation/', array(
+      'methods' => WP_REST_Server::CREATABLE,
+      'callback' => 'addReservation',
+  ) );
+});
+
+
+function getOrders(WP_REST_Request $request){
+    $args_orders = [
+        'post_type' => 'record',
+        'fields' => 'ids',
+        'posts_per_page' => -1,
+    ];
+    $orders_ids = get_posts( $args_orders );
+    $orders = [];
+
+    foreach ($orders_ids as $id) {
+        $order = (object)[];
+        $order->name = get_field('name', $id);
+        $order->phone = get_field('phone', $id);
+        $order->comment = get_field('comment', $id);
+        $order->date = get_field('date', $id);
+        $order->time = get_field('time', $id);
+        $order->guests = get_field('guests', $id);
+        $order->halls = get_field('hall', $id);
+        $order->table = get_field('table', $id);
+        $orders[] = $order;
+    }
+    $response = (object)[];
+    $response->orders = $orders;
+    wp_send_json_success($response);
+}
+
+
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'amadreh/v1/', '/get-orders/', array(
+          'methods' => WP_REST_Server::READABLE,
+          'callback' => 'getOrders',
+      ));
+});
