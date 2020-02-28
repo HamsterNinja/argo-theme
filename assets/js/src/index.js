@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 
+import MapHall from './components/MapHall.vue';
+Vue.component('map-hall', MapHall);
+
 import RegistrationForm from './components/RegistrationForm.vue';
 Vue.component('registration-form', RegistrationForm);
 

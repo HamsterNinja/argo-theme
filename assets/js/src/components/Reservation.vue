@@ -65,6 +65,7 @@
             <div class="reservation-right">
                 <tabs>
                     <tab name="1 зал" :selected="true">
+                        <map-hall></map-hall>    
                         <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
                     </tab>
                     <tab name="2 зал">
@@ -205,8 +206,12 @@ export default {
             if (data.success) {
                 this.showModal("modal-window--thank");
             }
-
         },
+
+        setHall(num){
+            console.log(num)
+            this.halls = num
+        }
         
     }
 }
