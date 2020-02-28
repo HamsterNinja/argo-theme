@@ -1322,14 +1322,22 @@ a.page-numbers {
     justify-content: space-between;
 }
 
+.reservation-form-client-info .form-group{
+    width: calc(50% - 7px);
+    margin-bottom: 15px;
+}
+
+.reservation-form-client-info .form-group .errors-form{
+    margin-top: 0;
+}
+
 .reservation-form-client-info input {
     border: 1px solid #E3E3E3;
     font-size: 14px;
     line-height: 18px;
     color: #000000;
     padding: 5px 11px;
-    width: calc(50% - 7px);
-    margin-bottom: 15px;
+    width: 100%;
     outline: none;
 }
 

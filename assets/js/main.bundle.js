@@ -11120,10 +11120,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_range__ = __webpack_require__(540);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_range___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_range__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_modal__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(541);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_masked_input__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mixins_modal__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -11205,8 +11208,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
+
+
+var alpha = __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__["helpers"].regex('alpha', /[\u0000-~Ѐ-Ӿ]/);
 var moment = Object(__WEBPACK_IMPORTED_MODULE_1_moment_range__["extendMoment"])(__WEBPACK_IMPORTED_MODULE_0_moment___default.a);
 
 var range = function range(start, end) {
@@ -11228,14 +11245,27 @@ var nest = function nest(seq, keys) {
 
   var first = keys[0];
   var rest = keys.slice(1);
-  return Object(__WEBPACK_IMPORTED_MODULE_4_lodash__["mapValues"])(Object(__WEBPACK_IMPORTED_MODULE_4_lodash__["groupBy"])(seq, first), function (value) {
+  return Object(__WEBPACK_IMPORTED_MODULE_6_lodash__["mapValues"])(Object(__WEBPACK_IMPORTED_MODULE_6_lodash__["groupBy"])(seq, first), function (value) {
     return nest(value, rest);
   });
 };
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_modal__["a" /* modal */]],
-  components: {},
+  mixins: [__WEBPACK_IMPORTED_MODULE_5__mixins_modal__["a" /* modal */]],
+  components: {
+    'masked-input': __WEBPACK_IMPORTED_MODULE_3_vue_masked_input__["a" /* default */]
+  },
+  validations: {
+    name: {
+      required: __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__["required"]
+    },
+    phone: {
+      required: __WEBPACK_IMPORTED_MODULE_2_vuelidate_lib_validators__["required"],
+      correctPhone: function correctPhone(phone) {
+        return phone.replace(/[^\d\.]/g, '').length == 11;
+      }
+    }
+  },
   data: function data() {
     return {
       template_url: SITEDATA.themepath,
@@ -11253,17 +11283,21 @@ var nest = function nest(seq, keys) {
       comment: ''
     };
   },
-  computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapState */])(['currentUser']), {
+  computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["c" /* mapState */])(['currentUser']), {
     orders: function orders() {
       return this.$store.getters["orders"];
     },
     timeRange: function timeRange() {
+      var _this = this;
+
       var times = [];
       var hours = range(9, 21);
       var minutes = ["00", "30"];
       hours.forEach(function (hour) {
         minutes.forEach(function (minute) {
-          times.push(hour + ":" + minute);
+          if (!_this.orderedTime.includes(hour + ":" + minute)) {
+            times.push(hour + ":" + minute);
+          }
         });
       });
       return times;
@@ -11275,11 +11309,20 @@ var nest = function nest(seq, keys) {
       return orderGroupByDateTime[dateKey][timeKey];
     },
     orderedTime: function orderedTime() {
-      var orderGroupByDate = nest(this.orders, ['date']);
-      var dateKey = moment(this.date).format('DD/MM/YYYY');
-      return orderGroupByDate[dateKey].map(function (item) {
-        return item['time'].slice(0, 5);
-      });
+      var result = [];
+
+      try {
+        var orderGroupByDate = nest(this.orders, ['date', 'halls', 'table']);
+        var dateKey = moment(this.date).format('DD/MM/YYYY');
+        result = orderGroupByDate[dateKey][this.halls][this.table].map(function (item) {
+          return moment(item['time'], "HH:mm").format('H:mm');
+        });
+        return result;
+      } catch (e) {
+        console.log(e);
+      }
+
+      return result;
     },
     orderedTables: function orderedTables() {
       return false;
@@ -45660,51 +45703,95 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "reservation-form-client-info" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name"
-                    }
-                  ],
-                  attrs: { type: "text", name: "name", placeholder: "Имя" },
-                  domProps: { value: _vm.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.name = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.phone,
-                      expression: "phone"
-                    }
-                  ],
-                  attrs: {
-                    type: "phone",
-                    name: "phone",
-                    placeholder: "Телефон"
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: { "input--error": _vm.$v.name.$error }
                   },
-                  domProps: { value: _vm.phone },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.trim",
+                          value: _vm.$v.name.$model,
+                          expression: "$v.name.$model",
+                          modifiers: { trim: true }
+                        }
+                      ],
+                      attrs: { type: "text", name: "name", placeholder: "Имя" },
+                      domProps: { value: _vm.$v.name.$model },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.$v.name,
+                            "$model",
+                            $event.target.value.trim()
+                          )
+                        },
+                        blur: function($event) {
+                          return _vm.$forceUpdate()
+                        }
                       }
-                      _vm.phone = $event.target.value
-                    }
-                  }
-                }),
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "errors-form" }, [
+                      !_vm.$v.name.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Имя обязательно")
+                          ])
+                        : _vm._e()
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: { "input--error": _vm.$v.phone.$error }
+                  },
+                  [
+                    _c("masked-input", {
+                      attrs: {
+                        type: "phone",
+                        name: "phone",
+                        placeholder: "Телефон",
+                        mask: "\\+\\7 (111) 111-11-11"
+                      },
+                      model: {
+                        value: _vm.$v.phone.$model,
+                        callback: function($$v) {
+                          _vm.$set(
+                            _vm.$v.phone,
+                            "$model",
+                            typeof $$v === "string" ? $$v.trim() : $$v
+                          )
+                        },
+                        expression: "$v.phone.$model"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "errors-form" }, [
+                      !_vm.$v.phone.required
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Телефон обязателен")
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.$v.phone.correctPhone
+                        ? _c("div", { staticClass: "error" }, [
+                            _vm._v("Должен быть действительный телефон")
+                          ])
+                        : _vm._e()
+                    ])
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [

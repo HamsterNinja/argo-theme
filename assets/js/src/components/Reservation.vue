@@ -43,8 +43,19 @@
                     <div class="reservation-form-row">
                         <div class="reservation-form-column-name">Ваши данные</div>
                         <div class="reservation-form-client-info">
-                            <input v-model="name" type="text" name="name" placeholder="Имя">
-                            <input v-model="phone" type="phone" name="phone" placeholder="Телефон">
+                            <div class="form-group" :class="{ 'input--error': $v.name.$error }">
+                                <input v-model.trim="$v.name.$model" type="text" name="name" placeholder="Имя">
+                                <div class="errors-form">
+                                    <div class="error" v-if="!$v.name.required">Имя обязательно</div>
+                                </div>
+                            </div> 
+                            <div class="form-group" :class="{ 'input--error': $v.phone.$error }">
+                                <masked-input type="phone" name="phone" v-model.trim="$v.phone.$model" placeholder="Телефон" mask="\+\7 (111) 111-11-11"/>
+                                <div class="errors-form">
+                                    <div class="error" v-if="!$v.phone.required">Телефон обязателен</div>
+                                    <div class="error" v-if="!$v.phone.correctPhone">Должен быть действительный телефон</div>
+                                </div>
+                            </div>
                             <textarea v-model="comment" name="description" placeholder="Пожелания (не обязательно)"></textarea>
                         </div>
                     </div>
@@ -72,6 +83,9 @@
 <script>
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import { required,  email, helpers, sameAs, minLength } from 'vuelidate/lib/validators';
+import MaskedInput from 'vue-masked-input';
+const alpha = helpers.regex('alpha', /[\u0000-~Ѐ-Ӿ]/);
 
 const moment = extendMoment(Moment);
 
@@ -90,7 +104,20 @@ const nest = function (seq, keys) {
 
 export default {
     mixins: [modal],
-    components: {},
+    components: {
+        'masked-input': MaskedInput,
+    },
+    validations: {
+        name: {
+            required,
+        },
+        phone: {
+            required,
+            correctPhone: (phone) => { 
+                return phone.replace(/[^\d\.]/g, '').length == 11
+            }
+        },        
+    },
     data: () => ({
         template_url: SITEDATA.themepath,
         time: '9:00',
@@ -118,7 +145,9 @@ export default {
             
             hours.forEach(hour => {
                 minutes.forEach(minute => {
-                    times.push(hour + ":" + minute)
+                    if(!this.orderedTime.includes(hour + ":" + minute)){
+                        times.push(hour + ":" + minute)
+                    }
                 })
             })
 
@@ -131,9 +160,17 @@ export default {
             return orderGroupByDateTime[dateKey][timeKey]
         },
         orderedTime(){
-            let orderGroupByDate = nest(this.orders, ['date'])
-            let dateKey = moment(this.date).format('DD/MM/YYYY')
-            return orderGroupByDate[dateKey].map(item => item['time'].slice(0, 5))
+            let result = [];
+            try {
+                let orderGroupByDate = nest(this.orders, ['date', 'halls', 'table'])
+                let dateKey = moment(this.date).format('DD/MM/YYYY')
+                result = orderGroupByDate[dateKey][this.halls][this.table].map(item => moment(item['time'], "HH:mm").format('H:mm'))
+                return result
+            }
+            catch (e) {
+                console.log(e);
+            }
+            return result
         },
         orderedTables(){
             return false
