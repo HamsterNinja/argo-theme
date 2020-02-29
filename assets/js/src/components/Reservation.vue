@@ -49,11 +49,11 @@
                                     <div class="error" v-if="!$v.name.required">Имя обязательно</div>
                                 </div>
                             </div> 
-                            <div class="form-group" :class="{ 'input--error': $v.phone.$error }">
-                                <masked-input type="phone" name="phone" v-model.trim="$v.phone.$model" placeholder="Телефон" mask="\+\7 (111) 111-11-11"/>
+                            <div class="form-group" :class="{ 'input--error': focusPhone && $v.phone.$error }">
+                                <masked-input type="phone" name="phone" v-model.trim="$v.phone.$model" placeholder="Телефон" mask="\+\7 (111) 111-11-11" @focus.native="focusPhone = true"></masked-input>
                                 <div class="errors-form">
-                                    <div class="error" v-if="!$v.phone.required">Телефон обязателен</div>
-                                    <div class="error" v-if="!$v.phone.correctPhone">Должен быть действительный телефон</div>
+                                    <div class="error" v-if="focusPhone && !$v.phone.required">Телефон обязателен</div>
+                                    <div class="error" v-if="focusPhone && !$v.phone.correctPhone">Должен быть действительный телефон</div>
                                 </div>
                             </div>
                             <textarea v-model="comment" name="description" placeholder="Пожелания (не обязательно)"></textarea>
@@ -63,16 +63,15 @@
                 </form>
             </div>
             <div class="reservation-right">
-                <tabs>
+                <tabs @set_tab="setHall($event)">
                     <tab name="1 зал" :selected="true">
-                        <map-hall></map-hall>    
-                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
+                        <map-hall @set_table="setTable($event)"></map-hall>    
                     </tab>
                     <tab name="2 зал">
-                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
+                        <map-hall @set_table="setTable($event)"></map-hall>
                     </tab>
                     <tab name="3 зал">
-                        <object type="image/svg+xml" :data="template_url + `/assets/images/scheme-1.svg`">Ваш браузер не поддерживает SVG</object>
+                        <map-hall @set_table="setTable($event)"></map-hall>
                     </tab>
                 </tabs>
             </div>
@@ -132,6 +131,7 @@ export default {
         tablesRange: range(1, 10),
         name: '',
         phone: '',
+        focusPhone: false,
         comment: '',
     }),
     computed: {
@@ -155,10 +155,16 @@ export default {
             return times;
         },
         ordersByDateTime(){
-            let orderGroupByDateTime = nest(this.orders, ['date', 'time'])
-            let dateKey = moment(this.date).format('DD/MM/YYYY')
-            let timeKey = moment(this.time, "HH:mm").format('HH:mm:ss')
-            return orderGroupByDateTime[dateKey][timeKey]
+            let result = [];
+            try {
+                let orderGroupByDateTime = nest(this.orders, ['date', 'time'])
+                let dateKey = moment(this.date).format('DD/MM/YYYY')
+                let timeKey = moment(this.time, "HH:mm").format('HH:mm:ss')
+                result = orderGroupByDateTime[dateKey][timeKey]
+            } catch (e) {
+                console.log(e);
+            }
+            return result
         },
         orderedTime(){
             let result = [];
@@ -174,6 +180,7 @@ export default {
             return result
         },
         orderedTables(){
+
             return false
         }
     },
@@ -208,11 +215,13 @@ export default {
             }
         },
 
-        setHall(num){
-            console.log(num)
-            this.halls = num
-        }
+        setHall(tab){
+            this.halls = parseInt(tab)
+        },
         
+        setTable(number){
+            this.table = number
+        }
     }
 }
 </script>

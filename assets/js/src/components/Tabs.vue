@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     selectTab(selectedTab) {
+      this.$emit('set_tab', selectedTab.name)
       this.tabs.forEach(tab => {
         tab.isActive = tab.name == selectedTab.name;
       });
