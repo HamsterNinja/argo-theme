@@ -15197,16 +15197,14 @@ var nest = function nest(seq, keys) {
       return this.$store.getters["orders"];
     },
     timeRange: function timeRange() {
-      var _this = this;
-
       var times = [];
       var hours = range(9, 21);
       var minutes = ["00", "30"];
       hours.forEach(function (hour) {
         minutes.forEach(function (minute) {
-          if (!_this.orderedTime.includes(hour + ":" + minute)) {
-            times.push(hour + ":" + minute);
-          }
+          // TODO: скрывать забронированное время для столиков
+          // if(this.orderedTime.includes(hour + ":" + minute)){
+          times.push(hour + ":" + minute); // }
         });
       });
       return times;
@@ -15242,7 +15240,19 @@ var nest = function nest(seq, keys) {
       return result;
     },
     orderedTables: function orderedTables() {
-      return false;
+      var result = [];
+
+      try {
+        var tablesByHalls = nest(this.orders, ['date', 'time', 'halls']);
+        var dateKey = moment(this.date).format('DD/MM/YYYY');
+        var timeKey = moment(this.time, "HH:mm").format('HH:mm:ss');
+        result = tablesByHalls[dateKey][timeKey][this.halls];
+      } catch (e) {
+        console.log(e);
+      } // TODO: сгрупировать по столам
+
+
+      return result;
     }
   }),
   mounted: function () {
@@ -77043,7 +77053,7 @@ var render = function() {
                   { attrs: { name: "1 зал", selected: true } },
                   [
                     _c("map-hall", {
-                      attrs: { uid: "_1" },
+                      attrs: { uid: "_1", tables: _vm.orderedTables },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
@@ -77059,7 +77069,7 @@ var render = function() {
                   { attrs: { name: "2 зал" } },
                   [
                     _c("map-hall", {
-                      attrs: { uid: "_2" },
+                      attrs: { uid: "_2", tables: _vm.orderedTables },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
@@ -77075,7 +77085,7 @@ var render = function() {
                   { attrs: { name: "3 зал" } },
                   [
                     _c("map-hall", {
-                      attrs: { uid: "_3" },
+                      attrs: { uid: "_3", tables: _vm.orderedTables },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)

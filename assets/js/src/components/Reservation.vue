@@ -65,13 +65,13 @@
             <div class="reservation-right">
                 <tabs @set_tab="setHall($event)">
                     <tab name="1 зал" :selected="true">
-                        <map-hall @set_table="setTable($event)" uid="_1"></map-hall>    
+                        <map-hall @set_table="setTable($event)" uid="_1" :tables="orderedTables"></map-hall>    
                     </tab>
                     <tab name="2 зал">
-                        <map-hall @set_table="setTable($event)" uid="_2"></map-hall>
+                        <map-hall @set_table="setTable($event)" uid="_2" :tables="orderedTables"></map-hall>
                     </tab>
                     <tab name="3 зал">
-                        <map-hall @set_table="setTable($event)" uid="_3"></map-hall>
+                        <map-hall @set_table="setTable($event)" uid="_3" :tables="orderedTables"></map-hall>
                     </tab>
                 </tabs>
             </div>
@@ -146,9 +146,10 @@ export default {
             
             hours.forEach(hour => {
                 minutes.forEach(minute => {
-                    if(!this.orderedTime.includes(hour + ":" + minute)){
+                    // TODO: скрывать забронированное время для столиков
+                    // if(this.orderedTime.includes(hour + ":" + minute)){
                         times.push(hour + ":" + minute)
-                    }
+                    // }
                 })
             })
 
@@ -180,8 +181,18 @@ export default {
             return result
         },
         orderedTables(){
-
-            return false
+            let result = [];
+            try {
+                let tablesByHalls = nest(this.orders, ['date', 'time', 'halls'])
+                let dateKey = moment(this.date).format('DD/MM/YYYY')
+                let timeKey = moment(this.time, "HH:mm").format('HH:mm:ss')
+                result = tablesByHalls[dateKey][timeKey][this.halls]
+            }
+            catch (e) {
+                console.log(e);
+            }
+            // TODO: сгрупировать по столам
+            return result
         }
     },
     async mounted() {
