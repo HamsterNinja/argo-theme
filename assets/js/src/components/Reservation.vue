@@ -65,13 +65,13 @@
             <div class="reservation-right">
                 <tabs @set_tab="setHall($event)">
                     <tab name="1 зал" :selected="true">
-                        <map-hall @set_table="setTable($event)"></map-hall>    
+                        <map-hall @set_table="setTable($event)" uid="_1"></map-hall>    
                     </tab>
                     <tab name="2 зал">
-                        <map-hall @set_table="setTable($event)"></map-hall>
+                        <map-hall @set_table="setTable($event)" uid="_2"></map-hall>
                     </tab>
                     <tab name="3 зал">
-                        <map-hall @set_table="setTable($event)"></map-hall>
+                        <map-hall @set_table="setTable($event)" uid="_3"></map-hall>
                     </tab>
                 </tabs>
             </div>
