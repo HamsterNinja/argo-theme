@@ -67,12 +67,14 @@
                     <tab name="1 зал" :selected="true">
                         <map-hall @set_table="setTable($event)" uid="_1" :tables="orderedTables"></map-hall>    
                     </tab>
+                    <!-- TODO: поменять картинку зала -->
                     <tab name="2 зал">
                         <map-hall @set_table="setTable($event)" uid="_2" :tables="orderedTables"></map-hall>
                     </tab>
-                    <tab name="3 зал">
+                    <!-- TODO: временно отключить веранду -->
+                    <!-- <tab name="3 зал">
                         <map-hall @set_table="setTable($event)" uid="_3" :tables="orderedTables"></map-hall>
-                    </tab>
+                    </tab> -->
                 </tabs>
             </div>
         </div>
@@ -127,7 +129,7 @@ export default {
         halls: 1,
         table: 1,
         guests: 1,
-        hallsRange: range(1, 4),
+        hallsRange: range(1, 3),
         tablesRange: range(1, 10),
         name: '',
         phone: '',

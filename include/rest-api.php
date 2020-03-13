@@ -323,7 +323,8 @@ function set_item_from_cart_by_cart_id() {
     $cart_item_id = $cart->find_product_in_cart($cart_id);
     if($cart_item_id){
        $cart->set_quantity($cart_item_id, $product_quantity);
-       wp_send_json_success();
+       $result->total = $cart->cart_contents_total;
+       wp_send_json_success($result);
     } 
     wp_send_json_error();
 }

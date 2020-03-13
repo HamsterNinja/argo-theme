@@ -46,6 +46,7 @@ export default {
         },
         updateProductQuantityInCartByCartID(cartID, productQuantity) {
             //TODO: убрать jquery
+            const self = this;
             $.ajax({
                 type: "POST",
                 url: `${SITEDATA.url}/wp-admin/admin-ajax.php`,
@@ -65,6 +66,8 @@ export default {
                                 $(document.body).trigger('wc_fragments_refreshed');
                             }
                         });
+
+                        self.$store.commit('updateCartSubtotal', parseFloat(res.data.total))
                     }
                     else{
                         console.log('error update');

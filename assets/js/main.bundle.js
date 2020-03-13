@@ -15127,6 +15127,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -15184,7 +15186,7 @@ var nest = function nest(seq, keys) {
       halls: 1,
       table: 1,
       guests: 1,
-      hallsRange: range(1, 4),
+      hallsRange: range(1, 3),
       tablesRange: range(1, 10),
       name: '',
       phone: '',
@@ -27635,6 +27637,7 @@ module.exports = function(module) {
     },
     updateProductQuantityInCartByCartID: function updateProductQuantityInCartByCartID(cartID, productQuantity) {
       //TODO: убрать jquery
+      var self = this;
       $.ajax({
         type: "POST",
         url: "".concat(SITEDATA.url, "/wp-admin/admin-ajax.php"),
@@ -27654,6 +27657,7 @@ module.exports = function(module) {
                 $(document.body).trigger('wc_fragments_refreshed');
               }
             });
+            self.$store.commit('updateCartSubtotal', parseFloat(res.data.total));
           } else {
             console.log('error update');
           }
@@ -77142,22 +77146,6 @@ var render = function() {
                   [
                     _c("map-hall", {
                       attrs: { uid: "_2", tables: _vm.orderedTables },
-                      on: {
-                        set_table: function($event) {
-                          return _vm.setTable($event)
-                        }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "tab",
-                  { attrs: { name: "3 зал" } },
-                  [
-                    _c("map-hall", {
-                      attrs: { uid: "_3", tables: _vm.orderedTables },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
