@@ -314,3 +314,18 @@ function ajax_create_order() {
 }
 add_action( 'wp_ajax_create_order', 'ajax_create_order' );
 add_action( 'wp_ajax_nopriv_create_order', 'ajax_create_order');
+
+//установка количества продукта в корзине по cart id
+function set_item_from_cart_by_cart_id() {
+    $cart = WC()->instance()->cart;
+    $cart_id = $_POST['cart_id'];
+    $product_quantity = $_POST['product_quantity'];
+    $cart_item_id = $cart->find_product_in_cart($cart_id);
+    if($cart_item_id){
+       $cart->set_quantity($cart_item_id, $product_quantity);
+       wp_send_json_success();
+    } 
+    wp_send_json_error();
+}
+add_action('wp_ajax_set_item_from_cart_by_cart_id', 'set_item_from_cart_by_cart_id');
+add_action('wp_ajax_nopriv_set_item_from_cart_by_cart_id', 'set_item_from_cart_by_cart_id');

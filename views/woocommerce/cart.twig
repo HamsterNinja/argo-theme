@@ -35,7 +35,7 @@
             	            </td>
             	            <td>{{ product.price }}</td>
             	            <td>
-								<quantity-button count='{{ product.quantity.value }}'/>
+								<quantity-button count='{{ product.quantity.value }}' cart_id='{{ product.cart_item_key }}'>
             	            </td>
             	            <td>{{ product.subtotal }}</td>
             	            <td>

@@ -27602,7 +27602,9 @@ module.exports = function(module) {
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: {
     // TODO: добавить v-model поддежку
-    props: ['value'],
+    cart_id: {
+      type: Number | String
+    },
     count: {
       type: Number | String,
       "default": 1
@@ -27626,6 +27628,37 @@ module.exports = function(module) {
     },
     updateValue: function updateValue() {
       this.$emit('input', this.countComponent);
+
+      if (SITEDATA.is_cart == 'true') {
+        this.updateProductQuantityInCartByCartID(this.cart_id, this.countComponent);
+      }
+    },
+    updateProductQuantityInCartByCartID: function updateProductQuantityInCartByCartID(cartID, productQuantity) {
+      //TODO: убрать jquery
+      $.ajax({
+        type: "POST",
+        url: "".concat(SITEDATA.url, "/wp-admin/admin-ajax.php"),
+        data: {
+          'action': 'set_item_from_cart_by_cart_id',
+          'cart_id': cartID,
+          'product_quantity': productQuantity
+        },
+        success: function success(res) {
+          // TODO: обновление остатков можно в mixin запихнуть
+          if (res.success) {
+            $.post(wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'get_refreshed_fragments'), function (data) {
+              if (data && data.fragments) {
+                $.each(data.fragments, function (key, value) {
+                  $(key).replaceWith(value);
+                });
+                $(document.body).trigger('wc_fragments_refreshed');
+              }
+            });
+          } else {
+            console.log('error update');
+          }
+        }
+      });
     }
   }
 });
