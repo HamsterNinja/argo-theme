@@ -181,4 +181,142 @@ if (function_exists('acf_add_local_field_group')):
         'description' => '',
     ));
 
+    acf_add_local_field_group(array(
+        'key' => 'group_5e6baee236d1b',
+        'title' => 'Основное меню',
+        'fields' => array(
+            array(
+                'key' => 'field_5e6baefb948a9',
+                'label' => 'Подменю',
+                'name' => 'submenu_main',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_5e6baf1b948aa',
+                        'label' => 'Название',
+                        'name' => 'name',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_5e6baf28948ab',
+                        'label' => 'Изображения',
+                        'name' => 'images',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                        'preview_size' => 'medium',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'options',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_5e6baee236d1b_banket',
+        'title' => 'Банкетное меню',
+        'fields' => array(
+            array(
+                'key' => 'field_5e6baefb948a9_banket',
+                'label' => 'Подменю',
+                'name' => 'submenu_banket',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_5e6baf1b948aa_banket',
+                        'label' => 'Название',
+                        'name' => 'name',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_5e6baf28948ab_banket',
+                        'label' => 'Изображения',
+                        'name' => 'images',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                        'preview_size' => 'medium',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'options',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_5e6baee236d1b_pomin',
+        'title' => 'Поминальное меню',
+        'fields' => array(
+            array(
+                'key' => 'field_5e6baefb948a9_pomin',
+                'label' => 'Подменю',
+                'name' => 'submenu_pomin',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_5e6baf1b948aa_pomin',
+                        'label' => 'Название',
+                        'name' => 'name',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_5e6baf28948ab_pomin',
+                        'label' => 'Изображения',
+                        'name' => 'images',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                        'preview_size' => 'medium',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'options',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
 endif;

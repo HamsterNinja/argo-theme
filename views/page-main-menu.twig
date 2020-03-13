@@ -11,37 +11,22 @@
     <div class="single_menu-content">
         <div class="container">
             <div class="single_menu-buttons">
-                <div class="choice-button active" data-id="t1">Хинкали</div>
-                <div class="choice-button" data-id="t2">Салаты</div>
-                <div class="choice-button" data-id="t3">Холодные закуски</div>
-                <div class="choice-button" data-id="t4">Горячие закуски</div>
-                <div class="choice-button" data-id="t5">Супы</div>
-                <div class="choice-button" data-id="t6">Шашлыки</div>
-                <div class="choice-button" data-id="t7">Гарниры</div>
-                <div class="choice-button" data-id="t8">Выпечка</div>
-                <div class="choice-button" data-id="t9">Десерты</div>
-                <div class="choice-button" data-id="t10">Фрукты</div>
-                <div class="choice-button" data-id="t11">Напитки</div>
+                {% for submenu in menu_option %}
+                    <div class="choice-button {{ loop.first ? 'active' }}" data-id="t{{ loop.index }}">{{ submenu.name }}</div>
+                {% endfor %}
             </div>
             <div class="single_menu-tabs">
-                <div class="single_menu-tabs-content" id="t1">
-                    <div class="menu-slick">
-                        <div class="menu-slick-content">
-                            <img src="{{ site.theme.link }}/assets/images/menu-cold.png" alt="">
-                        </div>
-                        <div class="menu-slick-content">
-                            <img src="{{ site.theme.link }}/assets/images/menu-cold.png" alt="">
-                        </div>
-                        <div class="menu-slick-content">
-                            <img src="{{ site.theme.link }}/assets/images/menu-cold.png" alt="">
+                {% for submenu in menu_option %}
+                    <div class="single_menu-tabs-content" id="t{{ loop.index }}">
+                        <div class="menu-slick">
+                            {% for image in submenu.images %}
+                                <div class="menu-slick-content">
+                                    <img src="{{ Image(image) }}" alt="">
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                </div>
-                <div class="single_menu-tabs-content" id="t2">
-                    <div class="menu-slick">
-                       
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
