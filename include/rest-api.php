@@ -236,3 +236,81 @@ add_action( 'rest_api_init', function () {
           'callback' => 'getOrders',
       ));
 });
+
+function ajax_create_order() {
+	// Получить корзину
+    $cart = WC()->cart;
+    
+	$payment_method = esc_attr( trim( $_REQUEST['payment_method'] ) );
+	$name = esc_attr( trim( $_REQUEST['first_name'] ) );
+	$billing_email = esc_attr( trim( $_REQUEST['email'] ) );
+	$phone = esc_attr( trim( $_REQUEST['phone'] ) );
+    $shipping_city = esc_attr( trim( $_REQUEST['city'] ) );
+    $shipping_street = esc_attr( trim( $_REQUEST['street'] ) );
+    $billing_house = esc_attr( trim( $_REQUEST['house'] ) );
+	  
+	$address = [
+		'first_name' => $name,
+		'billing_email' => $billing_email,
+		'email' => $email,
+		'phone' => $phone,
+		'city' => $shipping_city,
+		'street' => $shipping_street,
+		'address_1'  => $shipping_street,
+		'billing_house' => $billing_house,
+	];
+    $order = wc_create_order();
+    
+	// Информация о покупателе
+	$order->set_address( $address, 'billing' );
+    $order->set_address( $address, 'shipping' );
+    
+    //Установить тип оплаты
+	$order->set_payment_method($payment_method);
+	
+	// Товары из корзины
+	foreach( $cart->get_cart() as $cart_item_key => $cart_item ) {
+		$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+		$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+		$order->add_product( $_product, $cart_item['quantity'], [
+			'variation' => $cart_item['variation'],
+			'totals'    => [
+				'subtotal'     => $cart_item['line_subtotal'],
+				'subtotal_tax' => $cart_item['line_subtotal_tax'],
+				'total'        => $cart_item['line_total'],
+				'tax'          => $cart_item['line_tax'],
+				'tax_data'     => $cart_item['line_tax_data']
+			]
+		]);
+    }
+    
+	// Добавить купоны
+	foreach ( $cart->get_coupons() as $code => $coupon ) {
+		$order->add_coupon( $code, $cart->get_coupon_discount_amount( $code ), $cart->get_coupon_discount_tax_amount( $code ) );
+	}
+    $order->calculate_totals();
+    
+	// Отправить письмо юзеру
+	$mailer = WC()->mailer();
+	$email = $mailer->emails['WC_Email_Customer_Processing_Order'];
+    $email->trigger( $order->get_id() );
+    
+	// Отправить письмо админу
+	$email = $mailer->emails['WC_Email_New_Order'];
+    $email->trigger( $order->get_id() );
+
+	// // Очистить корзину
+	$cart->empty_cart();
+
+	// // Process Payment
+    $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+    $result = $available_gateways[ $payment_method ]->process_payment( $order->get_id() );
+
+    // //Redirect to success/confirmation/payment page
+    if ( $result['result'] == 'success' ) {
+        $result = apply_filters( 'woocommerce_payment_successful_result', $result, $order->get_id() );
+    }
+	wp_send_json_success( $result );
+}
+add_action( 'wp_ajax_create_order', 'ajax_create_order' );
+add_action( 'wp_ajax_nopriv_create_order', 'ajax_create_order');

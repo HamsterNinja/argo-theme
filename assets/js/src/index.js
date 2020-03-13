@@ -182,6 +182,7 @@ const app = new Vue({
             submitStatus: '',
             first_name: '',
             phone: '',
+            email: '',
             address: '',
             city: '',
             street: '',
@@ -248,6 +249,7 @@ const app = new Vue({
                 // location = SITEDATA.url + "/cart/";
             }
             if ( jsonResponse.fragments ) {
+                // TODO: переписать
                 Array.from(jsonResponse.fragments).forEach(element => {
                     element.classList.add('updating');
                 });
@@ -261,46 +263,44 @@ const app = new Vue({
         },
 
         async orderProducts() {
+            // TODO: валидация без popup
             this.errors = [];
-            if (!this.billing_first_name) {
+            if (!this.checkout.first_name) {
                 this.errors.push('Требуется указать имя.');
             }
 
-            if (!this.billing_email) {
-                this.errors.push("Укажите электронную почту.");
-            } else if (!this.validEmail(this.billing_email)) {
-                this.errors.push("Укажите корректный адрес электронной почты.");
-            }
-
-            if (!this.billing_phone) {
+            if (!this.checkout.phone) {
                 this.errors.push("Укажите номер телефона.");
-            } else if (!this.validRussianPhone(this.billing_phone)) {
+            } else if (!this.validRussianPhone(this.checkout.phone)) {
                 this.errors.push("Укажите корректный номер телефона.");
             }
 
-            if (!this.billing_city) {
+            if (!this.checkout.city) {
                 this.errors.push('Требуется указать город.');
             }
-            if (!this.billing_street) {
+            if (!this.checkout.street) {
                 this.errors.push('Требуется указать адрес.');
+            }
+
+            if (!this.checkout.house) {
+                this.errors.push('Требуется указать дом.');
             }
 
             setTimeout(()=>{
                 this.errors = [];
             }, 4000);
 
-            console.log(this.errors);
-
             if (!this.errors.length) {
                 let bodyFormData = new FormData();
-                bodyFormData.append('payment_method', 'ppec_paypal');
-                bodyFormData.append('billing_first_name', this.billing_first_name);
-                bodyFormData.append('billing_email', this.billing_email);
-                bodyFormData.append('billing_phone', this.billing_phone);
-                bodyFormData.append('billing_country', this.billing_country);
-                bodyFormData.append('billing_city', this.billing_city);
-                bodyFormData.append('billing_street', this.billing_street);
-                bodyFormData.append('billing_index', this.billing_index);
+                // bodyFormData.append('payment_method', this.checkout.payment);
+                // TODO: добавить методы оплаты 
+                bodyFormData.append('payment_method', 'cod');
+                bodyFormData.append('billing_first_name', this.checkout.first_name);
+                bodyFormData.append('billing_email', this.checkout.email);
+                bodyFormData.append('billing_phone', this.checkout.phone);
+                bodyFormData.append('billing_city', this.checkout.city);
+                bodyFormData.append('billing_street', this.checkout.street);
+                bodyFormData.append('billing_house', this.checkout.house);
                 
                 let fetchData = {
                     method: "POST",
@@ -310,10 +310,10 @@ const app = new Vue({
                 let jsonResponse = await response.json();
                 if (jsonResponse.data.result == 'fail') {
                     console.log(jsonResponse);
-                    this.openModal(".modal-window--error-checkout");
+                    this.showModal("modal-window--error-checkout");
                 } else if(jsonResponse.data.result == 'success'){
                     app.clearOrderForm();
-                    this.openModal(".modal-window--thanks");
+                    this.showModal("modal-window--thanks");
                     document.location = jsonResponse.data.redirect;
                 }
             }
@@ -322,6 +322,32 @@ const app = new Vue({
 
         onCloseErrors() {
             this.errors = []
+        },
+
+        clearOrderForm() {
+            this.checkout.first_name = '';
+            this.checkout.email = '';
+            this.checkout.phone = '';
+            this.checkout.address = '';
+            this.checkout.city = '';
+            this.checkout.street = '';
+            this.checkout.house = '';
+            this.checkout.apartment = '';
+            this.checkout.intercom = '';
+            this.checkout.porch = '';
+            this.checkout.floor = '';
+            this.checkout.comment = '';
+            this.checkout.comment = '';
+        },
+        
+        validEmail: function (email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+
+        validRussianPhone: function (phone) {
+            const re = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+            return re.test(phone);
         },
         
     },

@@ -1,7 +1,24 @@
 <div class="overlay" v-on:click="closeModal"></div>
 
 <div class="dialogs">
+    <div class="modal-window modal-window--thanks" role="dialog" aria-modal="true">
+        <div class="modal-window-container">
+            <button class="modal-window__close" v-on:click="closeModal"></button>
+            <div class="modal-window__content">
+                <div class="thanktext">Заявка отправлена</div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal-window modal-window--error-checkout" role="dialog" aria-modal="true">
+        <div class="modal-window-container">
+            <button class="modal-window__close" v-on:click="closeModal"></button>
+            <div class="modal-window__content">
+                <div class="thanktext">Ошибка при оплате</div>
+            </div>
+        </div>
+    </div>
+    
     <div class="modal-window modal-window--callback" role="dialog" aria-modal="true">
         <div class="modal-window-container">
             <button class="modal-window__close" v-on:click="closeModal"></button>

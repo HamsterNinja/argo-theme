@@ -27917,6 +27917,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       submitStatus: '',
       first_name: '',
       phone: '',
+      email: '',
       address: '',
       city: '',
       street: '',
@@ -27995,6 +27996,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }
 
                 if (jsonResponse.fragments) {
+                  // TODO: переписать
                   Array.from(jsonResponse.fragments).forEach(function (element) {
                     element.classList.add('updating');
                   });
@@ -28031,76 +28033,75 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                // TODO: валидация без popup
                 this.errors = [];
 
-                if (!this.billing_first_name) {
+                if (!this.checkout.first_name) {
                   this.errors.push('Требуется указать имя.');
                 }
 
-                if (!this.billing_email) {
-                  this.errors.push("Укажите электронную почту.");
-                } else if (!this.validEmail(this.billing_email)) {
-                  this.errors.push("Укажите корректный адрес электронной почты.");
-                }
-
-                if (!this.billing_phone) {
+                if (!this.checkout.phone) {
                   this.errors.push("Укажите номер телефона.");
-                } else if (!this.validRussianPhone(this.billing_phone)) {
+                } else if (!this.validRussianPhone(this.checkout.phone)) {
                   this.errors.push("Укажите корректный номер телефона.");
                 }
 
-                if (!this.billing_city) {
+                if (!this.checkout.city) {
                   this.errors.push('Требуется указать город.');
                 }
 
-                if (!this.billing_street) {
+                if (!this.checkout.street) {
                   this.errors.push('Требуется указать адрес.');
+                }
+
+                if (!this.checkout.house) {
+                  this.errors.push('Требуется указать дом.');
                 }
 
                 setTimeout(function () {
                   _this.errors = [];
                 }, 4000);
-                console.log(this.errors);
 
                 if (this.errors.length) {
-                  _context2.next = 26;
+                  _context2.next = 24;
                   break;
                 }
 
-                bodyFormData = new FormData();
-                bodyFormData.append('payment_method', 'ppec_paypal');
-                bodyFormData.append('billing_first_name', this.billing_first_name);
-                bodyFormData.append('billing_email', this.billing_email);
-                bodyFormData.append('billing_phone', this.billing_phone);
-                bodyFormData.append('billing_country', this.billing_country);
-                bodyFormData.append('billing_city', this.billing_city);
-                bodyFormData.append('billing_street', this.billing_street);
-                bodyFormData.append('billing_index', this.billing_index);
+                bodyFormData = new FormData(); // bodyFormData.append('payment_method', this.checkout.payment);
+                // TODO: добавить методы оплаты 
+
+                bodyFormData.append('payment_method', 'cod');
+                bodyFormData.append('billing_first_name', this.checkout.first_name);
+                bodyFormData.append('billing_email', this.checkout.email);
+                bodyFormData.append('billing_phone', this.checkout.phone);
+                bodyFormData.append('billing_city', this.checkout.city);
+                bodyFormData.append('billing_street', this.checkout.street);
+                bodyFormData.append('billing_house', this.checkout.house);
                 fetchData = {
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 21;
+                _context2.next = 19;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 21:
+              case 19:
                 response = _context2.sent;
-                _context2.next = 24;
+                _context2.next = 22;
                 return response.json();
 
-              case 24:
+              case 22:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
                   console.log(jsonResponse);
-                  this.openModal(".modal-window--error-checkout");
+                  this.showModal("modal-window--error-checkout");
                 } else if (jsonResponse.data.result == 'success') {
                   app.clearOrderForm();
-                  this.openModal(".modal-window--thanks");
+                  this.showModal("modal-window--thanks");
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 26:
+              case 24:
               case "end":
                 return _context2.stop();
             }
@@ -28116,6 +28117,29 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     }(),
     onCloseErrors: function onCloseErrors() {
       this.errors = [];
+    },
+    clearOrderForm: function clearOrderForm() {
+      this.checkout.first_name = '';
+      this.checkout.email = '';
+      this.checkout.phone = '';
+      this.checkout.address = '';
+      this.checkout.city = '';
+      this.checkout.street = '';
+      this.checkout.house = '';
+      this.checkout.apartment = '';
+      this.checkout.intercom = '';
+      this.checkout.porch = '';
+      this.checkout.floor = '';
+      this.checkout.comment = '';
+      this.checkout.comment = '';
+    },
+    validEmail: function validEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validRussianPhone: function validRussianPhone(phone) {
+      var re = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+      return re.test(phone);
     }
   }
 });
