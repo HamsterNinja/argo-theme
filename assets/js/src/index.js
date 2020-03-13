@@ -246,6 +246,16 @@ const app = new Vue({
             } else if (jsonResponse.success) {
                 // location = SITEDATA.url + "/cart/";
             }
+            if ( jsonResponse.fragments ) {
+                Array.from(jsonResponse.fragments).forEach(element => {
+                    element.classList.add('updating');
+                });
+
+                $.each( jsonResponse.fragments, function( key, value ) {
+                    $( key ).replaceWith( value );
+                    $( key ).stop( true ).css( 'opacity', '1' );
+                });
+            }
             this.adding = false;
         },
 

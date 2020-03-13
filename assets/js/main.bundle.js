@@ -27993,9 +27993,19 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 } else if (jsonResponse.success) {// location = SITEDATA.url + "/cart/";
                 }
 
+                if (jsonResponse.fragments) {
+                  Array.from(jsonResponse.fragments).forEach(function (element) {
+                    element.classList.add('updating');
+                  });
+                  $.each(jsonResponse.fragments, function (key, value) {
+                    $(key).replaceWith(value);
+                    $(key).stop(true).css('opacity', '1');
+                  });
+                }
+
                 this.adding = false;
 
-              case 14:
+              case 15:
               case "end":
                 return _context.stop();
             }
