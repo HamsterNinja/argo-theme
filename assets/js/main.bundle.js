@@ -27908,6 +27908,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   delimiters: ["((", "))"],
   mixins: [__WEBPACK_IMPORTED_MODULE_19__components_mixins_modal__["a" /* modal */]],
   data: {
+    errors: [],
     cart: {
       delivery: 'courier'
     },
@@ -28059,9 +28060,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 setTimeout(function () {
                   _this.errors = [];
                 }, 4000);
+                console.log(this.errors);
 
                 if (this.errors.length) {
-                  _context2.next = 25;
+                  _context2.next = 26;
                   break;
                 }
 
@@ -28078,15 +28080,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 20;
+                _context2.next = 21;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 20:
+              case 21:
                 response = _context2.sent;
-                _context2.next = 23;
+                _context2.next = 24;
                 return response.json();
 
-              case 23:
+              case 24:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
@@ -28098,7 +28100,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 25:
+              case 26:
               case "end":
                 return _context2.stop();
             }
@@ -28111,7 +28113,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       }
 
       return orderProducts;
-    }()
+    }(),
+    onCloseErrors: function onCloseErrors() {
+      this.errors = [];
+    }
   }
 });
 

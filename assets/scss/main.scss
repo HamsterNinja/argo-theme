@@ -2534,6 +2534,54 @@ a.add-address {
     display: none;
 }
 
+.errors-message {
+    background-color: #e66464;
+    color: #fff;
+    max-width: 980px;
+    padding: 10px 10px;
+    margin: 10px auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 11;
+}
+
+button.close-error {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    background-image: url(../images/cancel.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active до версии 2.1.8 */
+    {
+    opacity: 0;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';

@@ -118,4 +118,14 @@
             </div>
         </div>
     </div>
+    
+    <transition name="fade">
+        <div class="errors-message" v-if="errors.length" v-cloak>
+            <button class="button close-error" @click="onCloseErrors"></button>
+            <b>Пожалуйста исправьте указанные ошибки:</b>
+            <ul>
+                <li v-for="error in errors">(( error ))</li>
+            </ul>
+        </div>
+    </transition>
 </main>

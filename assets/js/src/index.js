@@ -173,6 +173,7 @@ const app = new Vue({
     delimiters: ["((", "))"],
     mixins: [modal],
     data: {
+        errors: [],
         cart:{
             delivery: 'courier',
         },
@@ -288,6 +289,8 @@ const app = new Vue({
                 this.errors = [];
             }, 4000);
 
+            console.log(this.errors);
+
             if (!this.errors.length) {
                 let bodyFormData = new FormData();
                 bodyFormData.append('payment_method', 'ppec_paypal');
@@ -315,6 +318,10 @@ const app = new Vue({
                 }
             }
 
+        },
+
+        onCloseErrors() {
+            this.errors = []
         },
         
     },
