@@ -20,7 +20,7 @@
             	            <td>Товар</td>
             	            <td>Цена</td>
             	            <td>Количество</td>
-            	            <td>Итого</td>
+            	            <!-- <td>Итого</td> -->
             	            <td></td>
             	        </tr>
             	        {% for product in cart_products  %}
@@ -36,8 +36,9 @@
             	            <td>{{ product.price }}</td>
             	            <td>
 								<quantity-button count='{{ product.quantity.value }}' cart_id='{{ product.cart_item_key }}'>
-            	            </td>
-            	            <td>{{ product.subtotal }}</td>
+							</td>
+							<!-- TODO: вернуть итого с пересчетом -->
+            	            <!-- <td>{{ product.subtotal }}</td> -->
             	            <td>
 								<a class="delete-product" href="{{ product.remove_url }}">
 									<img src="{{ site.theme.link }}/assets/images/close.svg" alt="">
