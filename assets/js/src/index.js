@@ -192,7 +192,7 @@ const app = new Vue({
             porch: '',
             floor: '',
             comment: '',
-            payment: 'bank_card_payment',
+            payment: 'cod',
         }
     },
     validations: {
@@ -292,9 +292,7 @@ const app = new Vue({
 
             if (!this.errors.length) {
                 let bodyFormData = new FormData();
-                // bodyFormData.append('payment_method', this.checkout.payment);
-                // TODO: добавить методы оплаты 
-                bodyFormData.append('payment_method', 'cod');
+                bodyFormData.append('payment_method', this.checkout.payment);
                 bodyFormData.append('billing_first_name', this.checkout.first_name);
                 bodyFormData.append('billing_email', this.checkout.email);
                 bodyFormData.append('billing_phone', this.checkout.phone);

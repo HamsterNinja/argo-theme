@@ -27964,7 +27964,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       porch: '',
       floor: '',
       comment: '',
-      payment: 'bank_card_payment'
+      payment: 'cod'
     }
   },
   validations: {
@@ -28104,10 +28104,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   break;
                 }
 
-                bodyFormData = new FormData(); // bodyFormData.append('payment_method', this.checkout.payment);
-                // TODO: добавить методы оплаты 
-
-                bodyFormData.append('payment_method', 'cod');
+                bodyFormData = new FormData();
+                bodyFormData.append('payment_method', this.checkout.payment);
                 bodyFormData.append('billing_first_name', this.checkout.first_name);
                 bodyFormData.append('billing_email', this.checkout.email);
                 bodyFormData.append('billing_phone', this.checkout.phone);
