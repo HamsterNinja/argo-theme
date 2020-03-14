@@ -46,8 +46,10 @@
             	        </tr>
             	        {% endfor %}
             	    </table>
-            	</div>
+				</div>
+				
             	<div class="cart-table mobile">
+					{% for product in cart_products  %}
             	    <div class="cart-table-item">
             	    	<div class="cart-table-item-header">
             	    		<div class="cart-table-item-name">{{ product.title }}</div>
@@ -59,7 +61,11 @@
             	    	</div>
             	    	<div class="cart-table-item-content">
             	    		<div class="cart-table-item-img">
-								<img class="cart-product-img" src="{{ site.theme.link }}/assets/images/menu_del.png" alt="">
+								{% if product.thumbnail %}
+									<img class="cart-product-img" src="{{ product.thumbnail }}" alt="">
+								{% else %}
+									<img class="cart-product-img" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+								{% endif %}
 							</div>
 							<div class="cart-table-item-info">
 								<div class="cart-table-item-price">
@@ -68,7 +74,7 @@
 								</div>
 								<div class="cart-table-item-quantity">
 									<div class="cart-table-item-info-name">количество</div>
-									<quantity-button count='{{ product.quantity.value }}'/>
+									<quantity-button count='{{ product.quantity.value }}' cart_id='{{ product.cart_item_key }}'>
 								</div>
 								<div class="cart-table-item-total">
 									<div class="cart-table-item-info-name">Итого:</div>
@@ -76,8 +82,10 @@
 								</div>
 							</div>
             	    	</div>
-            	    </div>
-            	</div>
+					</div>
+					{% endfor %}
+				</div>
+				
             	<a href="" class="refresh-cart">Обновить корзину</a>
             </div>
             <div class="cart-right">
