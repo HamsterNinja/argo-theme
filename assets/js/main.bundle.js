@@ -28005,11 +28005,40 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       var _addCart = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee(ID) {
-        var formProduct, fetchData, response, jsonResponse;
+        var targetButton, cart, imgtodrag, imgclone, formProduct, fetchData, response, jsonResponse;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                // TODO: убрать jquery
+                targetButton = event.target;
+                cart = $('.main-header-cart');
+                imgtodrag = $(event.target).parents('.popular-item').find(".popular-item-img img").eq(0);
+
+                if (imgtodrag) {
+                  imgclone = imgtodrag.clone().offset({
+                    top: imgtodrag.offset().top,
+                    left: imgtodrag.offset().left
+                  }).css({
+                    'opacity': '0.5',
+                    'position': 'absolute',
+                    'height': '150px',
+                    'width': '150px',
+                    'z-index': '100'
+                  }).appendTo($('body')).animate({
+                    'top': cart.offset().top + 10,
+                    'left': cart.offset().left + 10,
+                    'width': 75,
+                    'height': 75
+                  }, 1000);
+                  imgclone.animate({
+                    'width': 0,
+                    'height': 0
+                  }, function () {
+                    $(this).detach();
+                  });
+                }
+
                 this.adding = true;
                 formProduct = new FormData();
                 formProduct.append('action', 'add_one_product');
@@ -28019,15 +28048,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   method: "POST",
                   body: formProduct
                 };
-                _context.next = 8;
+                _context.next = 12;
                 return fetch(wc_add_to_cart_params.ajax_url, fetchData);
 
-              case 8:
+              case 12:
                 response = _context.sent;
-                _context.next = 11;
+                _context.next = 15;
                 return response.json();
 
-              case 11:
+              case 15:
                 jsonResponse = _context.sent;
 
                 if (jsonResponse.error != 'undefined' && jsonResponse.error) {
@@ -28048,7 +28077,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
 
                 this.adding = false;
 
-              case 15:
+              case 19:
               case "end":
                 return _context.stop();
             }
