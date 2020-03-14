@@ -23,16 +23,8 @@
                     </div>
                     <div class="popular-item-price">{{ product.get_price_html }}</div>
                     <div class="product-content-info-add-to-cart">
-                        <div class="product-quantity">
-                            <button onclick="$(this).next()[0].stepDown();">
-                                <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
-                            </button>
-                            <input type="number" min="1" value="1" class="inputNumber">
-                            <button onclick="$(this).prev()[0].stepUp();">
-                                <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
-                            </button>
-                        </div>
-                        <button class="popular-item-button add-to-cart">В корзину</button>
+                        <quantity-button class="product-quantity" count='1'></quantity-button>
+                        <button class="popular-item-button add-to-cart" v-on:click="addCart({{ post.id }})">В корзину</button>
                     </div>
                 </div>
             </div>

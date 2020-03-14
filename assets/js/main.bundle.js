@@ -28015,7 +28015,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 cart = $('.main-header-cart');
                 imgtodrag = $(event.target).parents('.popular-item').find(".popular-item-img img").eq(0);
 
-                if (imgtodrag) {
+                if (imgtodrag.length !== 0) {
                   imgclone = imgtodrag.clone().offset({
                     top: imgtodrag.offset().top,
                     left: imgtodrag.offset().left

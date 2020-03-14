@@ -238,7 +238,7 @@ const app = new Vue({
             let targetButton = event.target;
             var cart = $('.main-header-cart');
             let imgtodrag = $(event.target).parents('.popular-item').find(".popular-item-img img").eq(0);
-            if (imgtodrag) {
+            if (imgtodrag.length !== 0) {
                 var imgclone = imgtodrag.clone()
                     .offset({
                     top: imgtodrag.offset().top,
