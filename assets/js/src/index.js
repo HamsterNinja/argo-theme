@@ -311,6 +311,7 @@ const app = new Vue({
         async orderProducts() {
             // TODO: валидация без popup
             this.errors = [];
+
             if (!this.checkout.first_name) {
                 this.errors.push('Требуется указать имя.');
             }
@@ -321,17 +322,19 @@ const app = new Vue({
                 this.errors.push("Укажите корректный номер телефона.");
             }
 
-            if (!this.checkout.city) {
-                this.errors.push('Требуется указать город.');
+            if(this.delivery == 'courier'){
+                if (!this.checkout.city) {
+                    this.errors.push('Требуется указать город.');
+                }
+                if (!this.checkout.street) {
+                    this.errors.push('Требуется указать адрес.');
+                }
+    
+                if (!this.checkout.house) {
+                    this.errors.push('Требуется указать дом.');
+                }
             }
-            if (!this.checkout.street) {
-                this.errors.push('Требуется указать адрес.');
-            }
-
-            if (!this.checkout.house) {
-                this.errors.push('Требуется указать дом.');
-            }
-
+            
             setTimeout(()=>{
                 this.errors = [];
             }, 4000);

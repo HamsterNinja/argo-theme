@@ -20,20 +20,23 @@
                             <p class="checkout-label">Имя</p>
                             <input name="name" type="text" v-model="checkout.first_name">
                         </label>
+
                         <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.phone.$error }">
                             <p class="checkout-label">Телефон *</p>
                             <masked-input name="phone" type="phone" v-model="checkout.phone" mask="\+\7 (111) 111-11-11"/>
                             <div class="error" v-if="checkout.submitted && $v.checkout.phone.$error">Телефон обязателен</div>
                         </label>
-                        <label for="">
+
+                        <label for="" v-if="delivery == 'courier'">
                             <p class="checkout-label">Выберите или введите адрес доставки  *</p>
                             <select name="address" v-model="checkout.address">
                                 <option value="">Не выбрано</option>
                                 <option value="">Иван Иванов ул. Киевская, д.5, кв.4 Ликино-Дулево</option>
                             </select>
                         </label>
-                        <div class="checkout-form-row">
-                            <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.city.$error }">
+
+                        <div class="checkout-form-row" v-if="delivery == 'courier'">
+                            <label  for="" :class="{ 'input--error': checkout.submitted && $v.checkout.city.$error }">
                                 <p class="checkout-label">Город *</p>
                                 <input type="text" v-model="checkout.city">
                                 <div class="error" v-if="checkout.submitted && $v.checkout.city.$error">Город обязателен</div>
@@ -44,7 +47,8 @@
                                 <div class="error" v-if="checkout.submitted && $v.checkout.street.$error">Город обязателен</div>
                             </label>
                         </div>
-                        <div class="checkout-form-row">
+
+                        <div class="checkout-form-row" v-if="delivery == 'courier'">
                             <label class="check" for="" :class="{ 'input--error': checkout.submitted && $v.checkout.house.$error }">
                                 <p class="checkout-label">Дом *</p>
                                 <input type="text" v-model="checkout.house">
@@ -59,7 +63,8 @@
                                 <input type="text" v-model="checkout.intercom">
                             </label>
                         </div>
-                        <div class="checkout-form-row">
+                        
+                        <div class="checkout-form-row" v-if="delivery == 'courier'">
                             <label for="">
                                 <p class="checkout-label">Подъезд (необязательно)</p>
                                 <input type="text" v-model="checkout.porch">
@@ -69,7 +74,9 @@
                                 <input type="text" v-model="checkout.floor">
                             </label>
                         </div>
+
                         <textarea v-model="checkout.comment"></textarea>
+
                     </div>
                     <div class="checkout-form-content">
                         <div class="checkout-form-name">ВАШ ЗАКАЗ</div>

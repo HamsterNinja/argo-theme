@@ -32277,16 +32277,18 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   this.errors.push("Укажите корректный номер телефона.");
                 }
 
-                if (!this.checkout.city) {
-                  this.errors.push('Требуется указать город.');
-                }
+                if (this.delivery == 'courier') {
+                  if (!this.checkout.city) {
+                    this.errors.push('Требуется указать город.');
+                  }
 
-                if (!this.checkout.street) {
-                  this.errors.push('Требуется указать адрес.');
-                }
+                  if (!this.checkout.street) {
+                    this.errors.push('Требуется указать адрес.');
+                  }
 
-                if (!this.checkout.house) {
-                  this.errors.push('Требуется указать дом.');
+                  if (!this.checkout.house) {
+                    this.errors.push('Требуется указать дом.');
+                  }
                 }
 
                 setTimeout(function () {
@@ -32294,7 +32296,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }, 4000);
 
                 if (this.errors.length) {
-                  _context2.next = 24;
+                  _context2.next = 22;
                   break;
                 }
 
@@ -32310,15 +32312,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 19;
+                _context2.next = 17;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 19:
+              case 17:
                 response = _context2.sent;
-                _context2.next = 22;
+                _context2.next = 20;
                 return response.json();
 
-              case 22:
+              case 20:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
@@ -32330,7 +32332,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 24:
+              case 22:
               case "end":
                 return _context2.stop();
             }
