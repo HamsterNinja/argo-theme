@@ -29,18 +29,15 @@
                 </div>
             </div>
             <div class="product-content-bottom">
-                <div class="choose-buttons">
-                    <div class="choose-button active">Описание</div>
-                    <div class="choose-button">Состав</div>
-                </div>
-                <div class="tab-content">
-                    <div class="tab-content-inner" id="a1">
-                        {{ post.get_content|shortcodes }}
-                    </div>
-                    <div class="tab-content-inner" id="a2">
+                <tabs>
+                    <tab class="tab-content-inner" name="Описание" :selected="true">
+                        {{ post.get_content|shortcodes }} 
+                    </tab>
+                    <tab class="tab-content-inner" name="Состав">
                         {{ post.get_field('composition') }}
-                    </div>
-                </div>
+                    </tab>
+                </tabs>
+
             </div>
             <div class="relative-products">
                 <div class="relative-products-title">ПОХОЖИЕ ТОВАРЫ</div>

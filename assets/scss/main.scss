@@ -2612,6 +2612,28 @@ button.close-error {
     width: 89px;
 }
 
+.product-content-bottom .tabs a {
+    font-size: 22px;
+    line-height: 29px;
+    color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+    text-transform: initial;
+}
+
+.product-content-bottom .tabs a:hover {
+    border-color: #000;
+}
+.product-content-bottom .tabs .is-active a {
+    border-color: #000;
+}
+
+.product-content-bottom .tabs>div:first-child a {
+    margin-right: 70px;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
