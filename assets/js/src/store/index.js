@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import createPersistedState from 'vuex-persistedstate';
+import createPersistedState from 'vuex-persistedstate';
 Vue.use(Vuex);
 
 const set = key => (state, val) => {
@@ -20,7 +20,13 @@ const store = new Vuex.Store({
         product: {},
         products: [],
         orders: [],
+        delivery: 'courier'
     },
+    plugins: [createPersistedState({
+        reducer: state => ({
+            delivery: state.delivery,
+        })
+    })],
     getters: {
         getProductCount: state => state.productCount,
         orders: state => state.orders,
@@ -29,6 +35,7 @@ const store = new Vuex.Store({
         updateProductCount: set('productCount'),
         updateCartSubtotal: set('cartSubtotal'),
         updateOrders: set('orders'),
+        updateDelivery: set('delivery'),
     },
     actions: {
         async fetchOrders({commit}) {

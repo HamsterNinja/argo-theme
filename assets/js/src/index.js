@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {mapState, mapGetters} from 'vuex';
+import {mapState, mapGetters, mapMutations} from 'vuex';
 Vue.use(Vuex);
 Vue.use(mapState);
 Vue.use(mapGetters);
+Vue.use(mapMutations);
 import store from './store';
 
 import contactsMap from './contacts-map';
@@ -178,7 +179,7 @@ const app = new Vue({
     data: {
         errors: [],
         cart:{
-            delivery: 'courier',
+ 
         },
         checkout: {
             submitted: false,
@@ -222,6 +223,14 @@ const app = new Vue({
             'pageNum',
             'cartSubtotal',
         ]),
+        delivery:{
+            get() {
+                return this.$store.state.delivery 
+            },
+            set(value) {
+                this.$store.commit('updateDelivery', value);
+            }
+        },
         cartTotal: function () {
             let subtototal = this.cartSubtotal;
             subtototal = subtototal + this.shippingPrice;
