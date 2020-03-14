@@ -69,7 +69,7 @@
                     </tab>
                     <!-- TODO: поменять картинку зала -->
                     <tab name="2 зал">
-                        <map-hall @set_table="setTable($event)" uid="_2" :tables="orderedTables"></map-hall>
+                        <map-hall-2 @set_table="setTable($event)" uid="_2" :tables="orderedTables"></map-hall-2>
                     </tab>
                     <!-- TODO: временно отключить веранду -->
                     <!-- <tab name="3 зал">

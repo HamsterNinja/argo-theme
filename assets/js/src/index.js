@@ -108,6 +108,9 @@ Vue.use(Vuelidate);
 import MapHall from './components/MapHall.vue';
 Vue.component('map-hall', MapHall);
 
+import MapHall2 from './components/MapHall2.vue';
+Vue.component('map-hall-2', MapHall2);
+
 import RegistrationForm from './components/RegistrationForm.vue';
 Vue.component('registration-form', RegistrationForm);
 
