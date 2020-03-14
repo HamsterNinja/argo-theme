@@ -1,3 +1,5 @@
 {% include "partials/header.twig" %}
-    {{ post.get_content|shortcodes }}
+    <div class="woo-content">
+        {{ post.get_content|shortcodes }}
+    </div>
 {% include "partials/footer.twig" %}

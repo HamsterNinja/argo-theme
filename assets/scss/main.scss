@@ -2582,6 +2582,27 @@ button.close-error {
     opacity: 0;
 }
 
+.woocommerce-cart .woo-content{
+    padding-top: 20px;
+    color: #fff;   
+}
+
+.woocommerce-cart .woo-content a{
+    color: #fff; 
+}
+
+.woocommerce-order-pay .woo-content {
+    max-width: 1230px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    color: #ccc;
+}
+
+.woocommerce-order-pay .woo-content a{
+    color: #ccc;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
