@@ -15128,10 +15128,12 @@ var nest = function nest(seq, keys) {
         var dateKey = moment(this.date).format('DD/MM/YYYY');
         var timeKey = moment(this.time, "HH:mm").format('HH:mm:ss');
         result = tablesByHalls[dateKey][timeKey][this.halls];
+        result = result.map(function (item) {
+          return item.table;
+        });
       } catch (e) {
         console.log(e);
-      } // TODO: сгрупировать по столам
-
+      }
 
       return result;
     }
@@ -50222,7 +50224,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 1 },
+        class: {
+          active: _vm.currentTable == 1,
+          disabled: _vm.tables.includes("1")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50240,7 +50245,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 4 },
+        class: {
+          active: _vm.currentTable == 4,
+          disabled: _vm.tables.includes("4")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50258,7 +50266,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 2 },
+        class: {
+          active: _vm.currentTable == 2,
+          disabled: _vm.tables.includes("2")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50276,7 +50287,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 5 },
+        class: {
+          active: _vm.currentTable == 5,
+          disabled: _vm.tables.includes("5")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50294,7 +50308,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 3 },
+        class: {
+          active: _vm.currentTable == 3,
+          disabled: _vm.tables.includes("3")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50312,7 +50329,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 6 },
+        class: {
+          active: _vm.currentTable == 6,
+          disabled: _vm.tables.includes("6")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50330,7 +50350,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 7 },
+        class: {
+          active: _vm.currentTable == 7,
+          disabled: _vm.tables.includes("7")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50348,7 +50371,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 8 },
+        class: {
+          active: _vm.currentTable == 8,
+          disabled: _vm.tables.includes("8")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50366,7 +50392,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 9 },
+        class: {
+          active: _vm.currentTable == 9,
+          disabled: _vm.tables.includes("9")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -59815,7 +59844,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 1 },
+        class: {
+          active: _vm.currentTable == 1,
+          disabled: _vm.tables.includes("1")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60044,7 +60076,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 2 },
+        class: {
+          active: _vm.currentTable == 2,
+          disabled: _vm.tables.includes("2")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60273,7 +60308,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 10 },
+        class: {
+          active: _vm.currentTable == 10,
+          disabled: _vm.tables.includes("10")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60502,7 +60540,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 11 },
+        class: {
+          active: _vm.currentTable == 11,
+          disabled: _vm.tables.includes("11")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60731,7 +60772,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 3 },
+        class: {
+          active: _vm.currentTable == 3,
+          disabled: _vm.tables.includes("3")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60749,7 +60793,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 7 },
+        class: {
+          active: _vm.currentTable == 7,
+          disabled: _vm.tables.includes("7")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60767,7 +60814,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 5 },
+        class: {
+          active: _vm.currentTable == 5,
+          disabled: _vm.tables.includes("5")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60785,7 +60835,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 8 },
+        class: {
+          active: _vm.currentTable == 8,
+          disabled: _vm.tables.includes("8")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60803,7 +60856,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 6 },
+        class: {
+          active: _vm.currentTable == 6,
+          disabled: _vm.tables.includes("6")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60821,7 +60877,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 9 },
+        class: {
+          active: _vm.currentTable == 9,
+          disabled: _vm.tables.includes("9")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60839,7 +60898,10 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
-        class: { active: _vm.currentTable == 4 },
+        class: {
+          active: _vm.currentTable == 4,
+          disabled: _vm.tables.includes("4")
+        },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
