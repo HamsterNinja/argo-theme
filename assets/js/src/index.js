@@ -80,11 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
     
-    $('.menu-slick').not('.slick-initialized').slick({
+    $('.menu-slick').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
+        speed: 500,
+        fade: true,
         cssEase: 'linear'
     });
     

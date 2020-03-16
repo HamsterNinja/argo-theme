@@ -32027,11 +32027,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }]
   });
-  $('.menu-slick').not('.slick-initialized').slick({
+  $('.menu-slick').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    speed: 500,
+    fade: true,
     cssEase: 'linear'
   });
   $('.choice-button').click(function (event) {
