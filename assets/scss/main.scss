@@ -1228,6 +1228,7 @@ a.page-numbers {
     outline: none;
     font-family: 'Roboto Slab', serif;
     outline: none;
+    border-radius: 0;
 }
 
 .person-quantity input::-webkit-outer-spin-button,
@@ -1242,12 +1243,14 @@ a.page-numbers {
     width: 26px;
     border: none;
     background-color: #fff;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     position: relative;
     cursor: pointer;
     outline: none;
     transition: 0.3s ease;
+    justify-items: center;
+    justify-content: center;
 }
 .person-quantity button:hover {
     background-color: #ffc844;
@@ -2717,6 +2720,8 @@ button.close-error {
 
 .person-quantity.product-quantity {
     width: 89px;
+    font-size: 0;
+    display: inline-flex;
 }
 
 .product-content-bottom .tabs a {
