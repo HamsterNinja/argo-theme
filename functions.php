@@ -110,8 +110,8 @@ add_action('wp_footer', 'add_scripts');
 function add_scripts() {
     time_enqueuer('jquerylatest', '/assets/js/vendors/jquery-3.4.1.min.js', 'script', true);
     time_enqueuer('slick', '/assets/js/vendors/slick.js', 'script', true);
+    time_enqueuer('mansoryjs', '/assets/js/vendors/masonry.pkgd.min.js', 'script', true);
     time_enqueuer('app', '/assets/js/main.bundle.js', 'script', true);
-    
     if (is_page('contacts') || is_home() ) {
         wp_enqueue_script('yandex-map-api', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Map,Placemark#asyncload'); 
     }

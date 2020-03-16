@@ -30710,6 +30710,13 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     }
   }
 });
+$('.photo-gallery_content-inner').masonry({
+  // options
+  itemSelector: '.gallery-item',
+  percentPosition: true,
+  gutter: 10,
+  columnWidth: '.gallery-item'
+});
 
 /***/ }),
 /* 294 */

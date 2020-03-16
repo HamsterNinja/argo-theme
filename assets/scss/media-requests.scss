@@ -549,6 +549,9 @@
     .account-right-form label input {
         width: 100%;
     }
+    .gallery-item {
+        width: calc(50% - 10px);
+    }
 }
 
 @media(max-width: 460px) {

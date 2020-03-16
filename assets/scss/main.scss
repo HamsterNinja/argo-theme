@@ -1492,30 +1492,15 @@ a.page-numbers {
     padding: 50px 0;
 }
 
-.photo-gallery_content .container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
 
-.photo-gallery_content-inner {
-    flex: 100%;
-    max-width: 100%;
-    padding: 0 5px
-}
 
 .gallery-item {
-    margin-top: 8px;
-    display: inline-block;
-    overflow: hidden;
-    height: 200px;
-    vertical-align: middle;
-    width: 33%
+    display: block;
+    width: calc(33.333% - 10px);
+    margin-bottom: 10px;
 }
 
-.gallery-item img {
-    width: 100%;
-}
+
 
 .cart .page-header {
     padding: 70px 0 40px;

@@ -10,15 +10,15 @@
     </div>
     <div class="photo-gallery_content">
         <div class="container">
-            {% for row in gallery_chunks %}
+
                 <div class="photo-gallery_content-inner">
-                    {% for image in row %}
+                    {% for image in gallery %}
                         <a data-fancybox="g1" class="gallery-item" href="{{ Image(image) }}">
                             <img src="{{ Image(image) }}" />
                         </a>
                     {% endfor %}
                 </div>
-            {% endfor %}
+   
         </div>
     </div>
 </main>
