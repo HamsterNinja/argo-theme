@@ -27705,12 +27705,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_QuantityButton_vue__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_Tabs_vue__ = __webpack_require__(565);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_Tab_vue__ = __webpack_require__(568);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_vue_masked_input__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_numeral__ = __webpack_require__(571);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_numeral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_numeral__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_mixins_modal__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_TabsTable_vue__ = __webpack_require__(576);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_TabTable_vue__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_vue_masked_input__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_numeral__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_numeral___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_numeral__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_mixins_modal__ = __webpack_require__(100);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -27838,8 +27840,12 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs', __WEBPACK_IMPORTED
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab', __WEBPACK_IMPORTED_MODULE_16__components_Tab_vue__["a" /* default */]);
 
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs-table', __WEBPACK_IMPORTED_MODULE_17__components_TabsTable_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_18_numeral___default.a.register('locale', 'ru', {
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab-table', __WEBPACK_IMPORTED_MODULE_18__components_TabTable_vue__["a" /* default */]);
+
+
+__WEBPACK_IMPORTED_MODULE_20_numeral___default.a.register('locale', 'ru', {
   delimiters: {
     thousands: ' ',
     decimal: ','
@@ -27857,9 +27863,9 @@ __WEBPACK_IMPORTED_MODULE_18_numeral___default.a.register('locale', 'ru', {
     symbol: 'руб.'
   }
 });
-__WEBPACK_IMPORTED_MODULE_18_numeral___default.a.locale('ru');
+__WEBPACK_IMPORTED_MODULE_20_numeral___default.a.locale('ru');
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.filter("formatNumber", function (value) {
-  return __WEBPACK_IMPORTED_MODULE_18_numeral___default()(value).format();
+  return __WEBPACK_IMPORTED_MODULE_20_numeral___default()(value).format();
 });
 
 
@@ -27867,7 +27873,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   el: "#app",
   store: __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */],
   delimiters: ["((", "))"],
-  mixins: [__WEBPACK_IMPORTED_MODULE_20__components_mixins_modal__["a" /* modal */]],
+  mixins: [__WEBPACK_IMPORTED_MODULE_22__components_mixins_modal__["a" /* modal */]],
   data: {
     errors: [],
     cart: {},
@@ -27892,21 +27898,21 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   validations: {
     checkout: {
       phone: {
-        required: __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__["required"]
       },
       city: {
-        required: __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__["required"]
       },
       street: {
-        required: __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__["required"]
       },
       house: {
-        required: __WEBPACK_IMPORTED_MODULE_19_vuelidate_lib_validators__["required"]
+        required: __WEBPACK_IMPORTED_MODULE_21_vuelidate_lib_validators__["required"]
       }
     }
   },
   components: {
-    'masked-input': __WEBPACK_IMPORTED_MODULE_17_vue_masked_input__["a" /* default */]
+    'masked-input': __WEBPACK_IMPORTED_MODULE_19_vue_masked_input__["a" /* default */]
   },
   computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["d" /* mapState */])(['pageNum', 'cartSubtotal']), {
     delivery: {
@@ -72914,7 +72920,7 @@ var render = function() {
           { staticClass: "reservation-right" },
           [
             _c(
-              "tabs",
+              "tabs-table",
               {
                 on: {
                   set_tab: function($event) {
@@ -72924,8 +72930,13 @@ var render = function() {
               },
               [
                 _c(
-                  "tab",
-                  { attrs: { name: "1 зал", selected: true } },
+                  "tab-table",
+                  {
+                    attrs: {
+                      name: "1 зал",
+                      selected: _vm.halls == 1 ? true : false
+                    }
+                  },
                   [
                     _c("map-hall", {
                       attrs: {
@@ -72944,8 +72955,13 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c(
-                  "tab",
-                  { attrs: { name: "2 зал" } },
+                  "tab-table",
+                  {
+                    attrs: {
+                      name: "2 зал",
+                      selected: _vm.halls == 2 ? true : false
+                    }
+                  },
                   [
                     _c("map-hall-2", {
                       attrs: {
@@ -91729,6 +91745,289 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! @preserve
 
 return numeral;
 }));
+
+
+/***/ }),
+/* 572 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsTable_vue_vue_type_script_lang_js___ = __webpack_require__(573);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsTable_vue_vue_type_script_lang_js___["a" /* default */]); 
+
+/***/ }),
+/* 573 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      tabs: []
+    };
+  },
+  created: function created() {
+    this.tabs = this.$children;
+  },
+  methods: {
+    selectTab: function selectTab(selectedTab) {
+      this.$emit('set_tab', selectedTab.name);
+      this.tabs.forEach(function (tab) {
+        tab.isActive = tab.name == selectedTab.name;
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 574 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabTable_vue_vue_type_script_lang_js___ = __webpack_require__(575);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_ref_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TabTable_vue_vue_type_script_lang_js___["a" /* default */]); 
+
+/***/ }),
+/* 575 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: {
+    name: {
+      required: true
+    },
+    selected: {
+      "default": false
+    }
+  },
+  data: function data() {
+    return {// isActive: false
+    };
+  },
+  computed: {
+    href: function href() {
+      return "#" + this.name.toLowerCase().replace(/ /g, "-");
+    },
+    isActive: function isActive() {
+      return this.selected;
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+/* 576 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TabsTable_vue_vue_type_template_id_4ecb982c___ = __webpack_require__(577);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__TabsTable_vue_vue_type_script_lang_js___ = __webpack_require__(572);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(25);
+
+
+
+
+
+/* normalize component */
+
+var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__TabsTable_vue_vue_type_script_lang_js___["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__TabsTable_vue_vue_type_template_id_4ecb982c___["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__TabsTable_vue_vue_type_template_id_4ecb982c___["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("C:\\xampp\\htdocs\\argo\\wp-content\\themes\\argo-theme\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('4ecb982c')) {
+      api.createRecord('4ecb982c', component.options)
+    } else {
+      api.reload('4ecb982c', component.options)
+    }
+    module.hot.accept("./TabsTable.vue?vue&type=template&id=4ecb982c&", function () {
+      api.rerender('4ecb982c', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "assets/js/src/components/TabsTable.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 577 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsTable_vue_vue_type_template_id_4ecb982c___ = __webpack_require__(578);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsTable_vue_vue_type_template_id_4ecb982c___["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsTable_vue_vue_type_template_id_4ecb982c___["b"]; });
+
+
+/***/ }),
+/* 578 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "tabs" },
+      _vm._l(_vm.tabs, function(tab, index) {
+        return _c("div", { key: index, class: { "is-active": tab.isActive } }, [
+          _c(
+            "a",
+            {
+              attrs: { href: tab.href },
+              on: {
+                click: function($event) {
+                  return _vm.selectTab(tab)
+                }
+              }
+            },
+            [_vm._v(_vm._s(tab.name))]
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "tabs-details" }, [_vm._t("default")], 2)
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 579 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TabTable_vue_vue_type_template_id_b23e8ea2___ = __webpack_require__(580);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__TabTable_vue_vue_type_script_lang_js___ = __webpack_require__(574);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(25);
+
+
+
+
+
+/* normalize component */
+
+var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__TabTable_vue_vue_type_script_lang_js___["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__TabTable_vue_vue_type_template_id_b23e8ea2___["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__TabTable_vue_vue_type_template_id_b23e8ea2___["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("C:\\xampp\\htdocs\\argo\\wp-content\\themes\\argo-theme\\node_modules\\vue-hot-reload-api\\dist\\index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('b23e8ea2')) {
+      api.createRecord('b23e8ea2', component.options)
+    } else {
+      api.reload('b23e8ea2', component.options)
+    }
+    module.hot.accept("./TabTable.vue?vue&type=template&id=b23e8ea2&", function () {
+      api.rerender('b23e8ea2', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "assets/js/src/components/TabTable.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 580 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabTable_vue_vue_type_template_id_b23e8ea2___ = __webpack_require__(581);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabTable_vue_vue_type_template_id_b23e8ea2___["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabTable_vue_vue_type_template_id_b23e8ea2___["b"]; });
+
+
+/***/ }),
+/* 581 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isActive,
+          expression: "isActive"
+        }
+      ]
+    },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ })

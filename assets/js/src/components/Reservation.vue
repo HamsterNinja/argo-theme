@@ -69,19 +69,19 @@
                 </form>
             </div>
             <div class="reservation-right">
-                <tabs @set_tab="setHall($event)">
-                    <tab name="1 зал" :selected="true">
+                <tabs-table @set_tab="setHall($event)">
+                    <tab-table name="1 зал" :selected="halls == 1 ? true : false">
                         <map-hall @set_table="setTable($event)" uid="_1" :tables="orderedTables" :current-table="table"></map-hall>    
-                    </tab>
+                    </tab-table>
                     <!-- TODO: поменять картинку зала -->
-                    <tab name="2 зал">
+                    <tab-table name="2 зал" :selected="halls == 2 ? true : false">
                         <map-hall-2 @set_table="setTable($event)" uid="_2" :tables="orderedTables" :current-table="table"></map-hall-2>
-                    </tab>
+                    </tab-table>
                     <!-- TODO: временно отключить веранду -->
                     <!-- <tab name="3 зал">
                         <map-hall @set_table="setTable($event)" uid="_3" :tables="orderedTables"></map-hall>
                     </tab> -->
-                </tabs>
+                </tabs-table>
             </div>
         </div>
         </div>

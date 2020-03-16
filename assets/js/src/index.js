@@ -139,6 +139,12 @@ Vue.component('tabs', Tabs);
 import Tab from './components/Tab.vue';
 Vue.component('tab', Tab);
 
+import TabsTable from './components/TabsTable.vue';
+Vue.component('tabs-table', TabsTable);
+
+import TabTable from './components/TabTable.vue';
+Vue.component('tab-table', TabTable);
+
 import MaskedInput from 'vue-masked-input';
 
 import numeral from 'numeral';
