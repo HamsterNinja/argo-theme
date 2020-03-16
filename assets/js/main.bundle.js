@@ -11712,6 +11712,9 @@ function withParams(paramsOrClosure, maybeValidator) {
     },
     uid: {
       type: String
+    },
+    currentTable: {
+      type: Number
     }
   },
   data: function data() {
@@ -11719,6 +11722,7 @@ function withParams(paramsOrClosure, maybeValidator) {
   },
   methods: {
     setTable: function setTable(number) {
+      this.currentTable = number;
       this.$emit('set_table', number);
     }
   }
@@ -14202,6 +14206,9 @@ function applyToTag (styleElement, obj) {
     },
     uid: {
       type: String
+    },
+    currentTable: {
+      type: Number
     }
   },
   data: function data() {
@@ -14209,6 +14216,7 @@ function applyToTag (styleElement, obj) {
   },
   methods: {
     setTable: function setTable(number) {
+      this.currentTable = number;
       this.$emit('set_table', number);
     }
   }
@@ -15058,7 +15066,7 @@ var nest = function nest(seq, keys) {
       table: 1,
       guests: 1,
       hallsRange: range(1, 3),
-      tablesRange: range(1, 10),
+      tablesRange: range(1, 12),
       name: '',
       phone: '',
       focusPhone: false,
@@ -50214,6 +50222,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 1 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50231,6 +50240,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 4 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50248,6 +50258,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 2 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50265,6 +50276,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 5 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50282,6 +50294,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 3 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50299,6 +50312,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 6 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50316,6 +50330,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 7 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50333,6 +50348,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 8 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -50350,6 +50366,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 9 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -55733,7 +55750,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer;fill:red}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{outline:5px solid #4caf50}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
@@ -59798,6 +59815,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 1 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -59805,6 +59823,11 @@ var render = function() {
             "M262 343H313V416H262V343ZM242 353.38H247.34H247.34H258.91V378.3H247.34H247.34H242V353.38ZM242 383.64H247.34H247.34H258.91V408.56H247.34H247.34H242V383.64ZM331.89 408.56H326.55H326.55H314.98L314.98 383.64H326.55H326.55H331.89V408.56ZM331.89 378.3H326.55H326.55H314.98L314.98 353.38L326.55 353.38H331.89V378.3Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(1)
+          }
         }
       }),
       _vm._v(" "),
@@ -60021,6 +60044,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 2 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60028,6 +60052,11 @@ var render = function() {
             "M160 342H211V415H160V342ZM140 352.38H145.34H145.34H156.91V377.3H145.34H145.34H140V352.38ZM140 382.64H145.34H145.34H156.91V407.56H145.34H145.34H140V382.64ZM229.89 407.56H224.55H224.55H212.98L212.98 382.64H224.55H224.55H229.89V407.56ZM229.89 377.3H224.55H224.55H212.98L212.98 352.38L224.55 352.38H229.89V377.3Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(2)
+          }
         }
       }),
       _vm._v(" "),
@@ -60244,6 +60273,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 10 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60251,6 +60281,11 @@ var render = function() {
             "M583 343H634V416H583V343ZM563 353.38H568.34H568.34H579.91V378.3H568.34H568.34H563V353.38ZM563 383.64H568.34H568.34H579.91V408.56H568.34H568.34H563V383.64ZM652.89 408.56H647.55H647.55H635.98L635.98 383.64H647.55H647.55H652.89V408.56ZM652.89 378.3H647.55H647.55H635.98L635.98 353.38L647.55 353.38H652.89V378.3Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(10)
+          }
         }
       }),
       _vm._v(" "),
@@ -60467,6 +60502,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 11 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60474,6 +60510,11 @@ var render = function() {
             "M475 343H526V416H475V343ZM455 353.38H460.34H460.34H471.91V378.3H460.34H460.34H455V353.38ZM455 383.64H460.34H460.34H471.91V408.56H460.34H460.34H455V383.64ZM544.89 408.56H539.55H539.55H527.98L527.98 383.64H539.55H539.55H544.89V408.56ZM544.89 378.3H539.55H539.55H527.98L527.98 353.38L539.55 353.38H544.89V378.3Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(11)
+          }
         }
       }),
       _vm._v(" "),
@@ -60690,6 +60731,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 3 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60697,11 +60739,17 @@ var render = function() {
             "M52 341H103V414H52V341ZM32 351.38H37.3398H37.34H48.9098V376.3H37.34H37.3398H32V351.38ZM32 381.64H37.3398H37.34H48.9098V406.56H37.34H37.3398H32V381.64ZM121.89 406.56H116.55H116.55H104.98L104.98 381.64H116.55H116.55H121.89V406.56ZM121.89 376.3H116.55H116.55H104.98L104.98 351.38L116.55 351.38H121.89V376.3Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(3)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 7 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60709,11 +60757,17 @@ var render = function() {
             "M368.58 17H420.2V116.68H368.58V17ZM349 24.12H354.34H365.91V49.04H354.34H349V24.12ZM349 54.38H354.34H365.91V79.3H354.34H349V54.38ZM349 84.64H354.34H365.91V109.56H354.34H349V84.64ZM438.89 109.56H433.55H421.98L421.98 84.64H433.55H438.89V109.56ZM438.89 79.3H433.55H421.98L421.98 54.38H433.55H438.89V79.3ZM438.89 49.04H433.55H421.98L421.98 24.12L433.55 24.12L438.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(7)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 5 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60721,11 +60775,17 @@ var render = function() {
             "M158.58 17H210.2V116.68H158.58V17ZM139 24.12H144.34H155.91V49.04H144.34H139V24.12ZM139 54.38H144.34H155.91V79.3H144.34H139V54.38ZM139 84.64H144.34H155.91V109.56H144.34H139V84.64ZM228.89 109.56H223.55H211.98L211.98 84.64H223.55H228.89V109.56ZM228.89 79.3H223.55H211.98L211.98 54.38H223.55H228.89V79.3ZM228.89 49.04H223.55H211.98L211.98 24.12L223.55 24.12L228.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(5)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 8 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60733,11 +60793,17 @@ var render = function() {
             "M473.58 17H525.2V116.68H473.58V17ZM454 24.12H459.34H470.91V49.04H459.34H454V24.12ZM454 54.38H459.34H470.91V79.3H459.34H454V54.38ZM454 84.64H459.34H470.91V109.56H459.34H454V84.64ZM543.89 109.56H538.55H526.98L526.98 84.64H538.55H543.89V109.56ZM543.89 79.3H538.55H526.98L526.98 54.38H538.55H543.89V79.3ZM543.89 49.04H538.55H526.98L526.98 24.12L538.55 24.12L543.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(8)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 6 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60745,11 +60811,17 @@ var render = function() {
             "M263.58 17H315.2V116.68H263.58V17ZM244 24.12H249.34H260.91V49.04H249.34H244V24.12ZM244 54.38H249.34H260.91V79.3H249.34H244V54.38ZM244 84.64H249.34H260.91V109.56H249.34H244V84.64ZM333.89 109.56H328.55H316.98L316.98 84.64H328.55H333.89V109.56ZM333.89 79.3H328.55H316.98L316.98 54.38H328.55H333.89V79.3ZM333.89 49.04H328.55H316.98L316.98 24.12L328.55 24.12L333.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(6)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 9 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60757,11 +60829,17 @@ var render = function() {
             "M578.58 17H630.2V116.68H578.58V17ZM559 24.12H564.34H575.91V49.04H564.34H559V24.12ZM559 54.38H564.34H575.91V79.3H564.34H559V54.38ZM559 84.64H564.34H575.91V109.56H564.34H559V84.64ZM648.89 109.56H643.55H631.98L631.98 84.64H643.55H648.89V109.56ZM648.89 79.3H643.55H631.98L631.98 54.38H643.55H648.89V79.3ZM648.89 49.04H643.55H631.98L631.98 24.12L643.55 24.12L648.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(9)
+          }
         }
       }),
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 4 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60769,6 +60847,11 @@ var render = function() {
             "M54.58 17H106.2V116.68H54.58V17ZM35 24.12H40.34H51.91V49.04H40.34H35V24.12ZM35 54.38H40.34H51.91V79.3H40.34H35V54.38ZM35 84.64H40.34H51.91V109.56H40.34H35V84.64ZM124.89 109.56H119.55H107.98L107.98 84.64H119.55H124.89V109.56ZM124.89 79.3H119.55H107.98L107.98 54.38H119.55H124.89V79.3ZM124.89 49.04H119.55H107.98L107.98 24.12L119.55 24.12L124.89 24.12V49.04Z",
           fill: "#C4C4C4",
           "fill-opacity": "0.1"
+        },
+        on: {
+          click: function($event) {
+            return _vm.setTable(4)
+          }
         }
       }),
       _vm._v(" "),
@@ -69996,7 +70079,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer;fill:red}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{outline:5px solid #4caf50}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
@@ -72736,7 +72819,11 @@ var render = function() {
                   { attrs: { name: "1 зал", selected: true } },
                   [
                     _c("map-hall", {
-                      attrs: { uid: "_1", tables: _vm.orderedTables },
+                      attrs: {
+                        uid: "_1",
+                        tables: _vm.orderedTables,
+                        "current-table": _vm.table
+                      },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
@@ -72752,7 +72839,11 @@ var render = function() {
                   { attrs: { name: "2 зал" } },
                   [
                     _c("map-hall-2", {
-                      attrs: { uid: "_2", tables: _vm.orderedTables },
+                      attrs: {
+                        uid: "_2",
+                        tables: _vm.orderedTables,
+                        "current-table": _vm.table
+                      },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
