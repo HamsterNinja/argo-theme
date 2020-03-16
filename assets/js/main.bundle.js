@@ -15070,7 +15070,8 @@ var nest = function nest(seq, keys) {
       name: '',
       phone: '',
       focusPhone: false,
-      comment: ''
+      comment: '',
+      submitted: false
     };
   },
   computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["d" /* mapState */])(['currentUser']), {
@@ -15178,6 +15179,9 @@ var nest = function nest(seq, keys) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                this.errors = [];
+                this.submitted = true;
+                this.$v.$touch();
                 formLogin = new FormData();
                 formLogin.append("name", this.name);
                 formLogin.append("phone", this.phone);
@@ -15192,22 +15196,32 @@ var nest = function nest(seq, keys) {
                   method: "POST",
                   body: formLogin
                 };
-                _context2.next = 13;
+
+                if (!this.$v.registration.$invalid) {
+                  _context2.next = 17;
+                  break;
+                }
+
+                _context2.next = 24;
+                break;
+
+              case 17:
+                _context2.next = 19;
                 return fetch(sendURL, fetchData);
 
-              case 13:
+              case 19:
                 response = _context2.sent;
-                _context2.next = 16;
+                _context2.next = 22;
                 return response.json();
 
-              case 16:
+              case 22:
                 data = _context2.sent;
 
                 if (data.success) {
                   this.showModal("modal-window--thank");
                 }
 
-              case 18:
+              case 24:
               case "end":
                 return _context2.stop();
             }
@@ -55779,7 +55793,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5;pointer-events:none}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
@@ -70141,7 +70155,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5;pointer-events:none}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
