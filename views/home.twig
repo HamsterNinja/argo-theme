@@ -144,7 +144,7 @@
 				<div class="contacts-block-item-name">Электронная почта:</div>
 				<div class="contacts-block-item-value"><a href="{{ email }}">{{ email }}</a></div>
 			</div>
-			<div class="contacts-block-callback"><a href="">Заказать звонок</a></div>
+			<div class="contacts-block-callback"><a href="#" v-on:click.prevent="showModal('modal-window--callback')">Заказать звонок</a></div>
 		</div>
 		<div class="contacts-block-map">
 			<div id="map" style="width: 100%; height: 409px;"></div>

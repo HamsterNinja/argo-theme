@@ -153,6 +153,7 @@
         display: flex;
         align-items: center;
         width: 200px;
+        text-decoration: none;
     }
 
     a.main-header-lk span {
@@ -453,6 +454,9 @@
         height: 147px;
         padding: 15px 5px;
     }
+    .single-product .pad-50 {
+    padding: 10px 0 20px;
+}
 
 }
 
@@ -618,7 +622,7 @@
     }
 
     .mobile-menu {
-        top: 52px;
+        top: 0;
     }
 }
 

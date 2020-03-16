@@ -22,8 +22,17 @@
     line-height: 32px;
     color: #FFFFFF;
     text-decoration: none;
+    background: linear-gradient(to right, #ffc844, #ffc844 50%, #fff 50%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
-
+.footer-phone a:hover{
+    background-position: 0 100%;
+}
 .social-name {
     font-size: 18px;
     line-height: 24px;
@@ -127,8 +136,12 @@
     text-decoration: none;
     display: inline-block;
     padding: 10px 22px;
+    transition: 0.3s ease;
 }
-
+.footer-callback a:hover{
+    background-color: #ffc845;
+    border-color: #ffc845;
+}
 .under-footer {
     background-color: #fff;
     padding: 5px 0 20px;
@@ -158,7 +171,9 @@
     color: #391E25;
     text-decoration: none;
 }
-
+.under-footer-link a:hover{
+    text-decoration: underline;
+}
 .copyright {
     font-size: 12px;
     line-height: 25px;

@@ -471,9 +471,18 @@ a.delivery-menu-item:nth-child(2n) {
     font-weight: bold;
     font-size: 18px;
     line-height: 24px;
-    color: #391E25;
+    color: #391e25;
+    background: linear-gradient(to top, #d29100, #d29100 50%, #000 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position: 200% 175%;
+    transition: background-position 275ms ease;
 }
-
+a.delivery-menu-item:hover .delivery-menu-item-name {
+    background-position: 0 100%;
+}
 .contacts-block {
     padding: 25px 0 50px;
     position: relative
@@ -538,8 +547,11 @@ a.delivery-menu-item:nth-child(2n) {
     width: 204px;
     margin: 0 auto;
     padding: 6px 5px;
+    transition: 0.3s ease;
 }
-
+.contacts-block-callback a:hover {
+    color: #000;
+}
 .page-header {
     padding: 45px 0 10px
 }
@@ -672,8 +684,11 @@ a.page_menu-item {
     width: 325px;
     text-align: center;
     padding: 8px 0;
+    transition: 0.3s ease;
 }
-
+a.page_menu-item:hover .page_menu-item-name {
+    background-color: #ffc845;
+}
 .single_menu-content .container {
     max-width: 800px;
 }
@@ -1228,8 +1243,11 @@ a.page-numbers {
     position: relative;
     cursor: pointer;
     outline: none;
+    transition: 0.3s ease;
 }
-
+.person-quantity button:hover {
+    background-color: #ffc844;
+}
 .reservation-form-calendar {
     margin-bottom: 20px;
 }
@@ -2463,7 +2481,7 @@ a.add-address {
     font-size: 18px;
 }
 
-//float placeholder
+
 .form-group-float-placeholder {
     position: relative;
     max-width: 333px;
@@ -2479,6 +2497,11 @@ a.add-address {
     opacity: 0;
     left: 0;
     display: block;
+}
+.form-group-float-placeholder input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
 }
 
 .form-group-float-placeholder .form-control:valid+.form-control-placeholder {
@@ -2496,7 +2519,27 @@ a.add-address {
 .form-group-float-placeholder .form-control:focus::placeholder {
     color: transparent;
 }
-
+.modal-callback button {
+    max-width: 333px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    background-color: #ffc844;
+    border: 1px solid #ffc844;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    transform: translate(-5px, -5px);
+}
+.modal-callback button:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+    transform: translate(0px, 0px);
+}
+.modal-window__close:hover {
+    transform: rotate(1440deg);
+}
 .tabs {
     display: flex;
     justify-content: flex-start;

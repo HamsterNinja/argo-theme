@@ -55,8 +55,11 @@
     background-repeat: no-repeat;
     background-position: 50%;
     z-index: 110;
+    transition: 2.5s ease;
 }
-
+.modal-window__close:hover{
+    transform: rotate(1440deg);
+}
 .modal-window__content {
     padding: 30px 50px;
     background: #fff;
@@ -89,5 +92,5 @@
     line-height: 40px;
     color: #193d3b;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }

@@ -89,8 +89,12 @@ header.main-header {
     padding: 7px 11px;
     width: 170px;
     text-align: center;
+    box-shadow: 0 0 15px rgba(255, 200, 68, 0);
+    transition: 0.3s ease;
 }
-
+.main-header-callback a:hover {
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
 .main-header-bottom {
     position: relative;
     padding: 7px 0 11px;
@@ -131,9 +135,18 @@ header.main-header {
     font-size: 15px;
     line-height: 20px;
     color: #000;
-    text-decoration: none
+    text-decoration: none;
+    background: linear-gradient(to right, #ffc844, #ffc844 50%, #000 50%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
-
+.main-header-menu-container ul li a:hover{
+    background-position: 0 100%;
+}
 .main-header-menu-container ul li:nth-child(2),
 .main-header-menu-container ul li:nth-child(3) {
     margin-right: 22px
@@ -142,7 +155,8 @@ header.main-header {
 .main-header-menu-container ul li.current-menu-item a {
     padding: 4px 7px;
     background: #ffc844;
-    border-radius: 50px
+    border-radius: 50px;
+    -webkit-text-fill-color: #000;
 }
 
 .user-controls {
