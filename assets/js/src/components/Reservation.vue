@@ -189,11 +189,11 @@ export default {
                 let dateKey = moment(this.date).format('DD/MM/YYYY')
                 let timeKey = moment(this.time, "HH:mm").format('HH:mm:ss')
                 result = tablesByHalls[dateKey][timeKey][this.halls]
+                result = result.map(item => item.table);
             }
             catch (e) {
                 console.log(e);
             }
-            // TODO: сгрупировать по столам
             return result
         }
     },
