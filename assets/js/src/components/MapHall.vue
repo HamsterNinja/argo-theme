@@ -1236,16 +1236,17 @@ export default {
 		uid: {
 			type: String
 		},
+		currentTable: {
+			type: Number
+		}
   	},
   	data() {
-    	return {
-			currentTable: 1
-		}
+    	return {}
   	},
   	methods: {
     	setTable(number){
 			this.currentTable = number
-			  this.$emit('set_table', number)
+			this.$emit('set_table', number)
     	}
   	}
 }
@@ -1254,7 +1255,6 @@ export default {
 <style lang="scss">
     .path-effect{
 		cursor: pointer;
-		transition: fill 0.3s;
 	}
 	.path-effect.active{
 		fill: #4caf50;
@@ -1265,7 +1265,8 @@ export default {
 		fill-opacity: 0.5;
 	}
 	.path-effect:hover{
-		outline: 5px solid #4caf50;
+		fill: #4caf50;
+		fill-opacity: 0.5;
 	}
 	.path-effect.active:hover,
 	.path-effect.disabled:hover{

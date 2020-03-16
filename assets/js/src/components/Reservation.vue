@@ -65,11 +65,11 @@
             <div class="reservation-right">
                 <tabs @set_tab="setHall($event)">
                     <tab name="1 зал" :selected="true">
-                        <map-hall @set_table="setTable($event)" uid="_1" :tables="orderedTables"></map-hall>    
+                        <map-hall @set_table="setTable($event)" uid="_1" :tables="orderedTables" :current-table="table"></map-hall>    
                     </tab>
                     <!-- TODO: поменять картинку зала -->
                     <tab name="2 зал">
-                        <map-hall-2 @set_table="setTable($event)" uid="_2" :tables="orderedTables"></map-hall-2>
+                        <map-hall-2 @set_table="setTable($event)" uid="_2" :tables="orderedTables" :current-table="table"></map-hall-2>
                     </tab>
                     <!-- TODO: временно отключить веранду -->
                     <!-- <tab name="3 зал">

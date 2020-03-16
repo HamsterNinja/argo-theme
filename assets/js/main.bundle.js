@@ -11712,12 +11712,13 @@ function withParams(paramsOrClosure, maybeValidator) {
     },
     uid: {
       type: String
+    },
+    currentTable: {
+      type: Number
     }
   },
   data: function data() {
-    return {
-      currentTable: 1
-    };
+    return {};
   },
   methods: {
     setTable: function setTable(number) {
@@ -14205,12 +14206,13 @@ function applyToTag (styleElement, obj) {
     },
     uid: {
       type: String
+    },
+    currentTable: {
+      type: Number
     }
   },
   data: function data() {
-    return {
-      currentTable: 1
-    };
+    return {};
   },
   methods: {
     setTable: function setTable(number) {
@@ -55748,7 +55750,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer;transition:fill 0.3s}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{outline:5px solid #4caf50}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
@@ -59813,6 +59815,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 1 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60041,6 +60044,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 2 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60269,6 +60273,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 10 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60497,6 +60502,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 11 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60725,6 +60731,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 3 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60742,6 +60749,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 7 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60759,6 +60767,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 5 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60776,6 +60785,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 8 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60793,6 +60803,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 6 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60810,6 +60821,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 9 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -60827,6 +60839,7 @@ var render = function() {
       _vm._v(" "),
       _c("path", {
         staticClass: "path-effect",
+        class: { active: _vm.currentTable == 4 },
         attrs: {
           "fill-rule": "evenodd",
           "clip-rule": "evenodd",
@@ -70066,7 +70079,7 @@ render._withStripped = true
 
 exports = module.exports = __webpack_require__(142)(false);
 // Module
-exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{outline:5px solid #4caf50}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
+exports.push([module.i, ".path-effect{cursor:pointer}.path-effect.active{fill:#4caf50;fill-opacity:0.5}.path-effect.disabled{fill:red;fill-opacity:0.5}.path-effect:hover{fill:#4caf50;fill-opacity:0.5}.path-effect.active:hover,.path-effect.disabled:hover{outline:none}\n", ""]);
 
 
 
@@ -72806,7 +72819,11 @@ var render = function() {
                   { attrs: { name: "1 зал", selected: true } },
                   [
                     _c("map-hall", {
-                      attrs: { uid: "_1", tables: _vm.orderedTables },
+                      attrs: {
+                        uid: "_1",
+                        tables: _vm.orderedTables,
+                        "current-table": _vm.table
+                      },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
@@ -72822,7 +72839,11 @@ var render = function() {
                   { attrs: { name: "2 зал" } },
                   [
                     _c("map-hall-2", {
-                      attrs: { uid: "_2", tables: _vm.orderedTables },
+                      attrs: {
+                        uid: "_2",
+                        tables: _vm.orderedTables,
+                        "current-table": _vm.table
+                      },
                       on: {
                         set_table: function($event) {
                           return _vm.setTable($event)
