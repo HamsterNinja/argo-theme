@@ -1415,6 +1415,7 @@ a.page-numbers {
     width: 100%;
     padding: 11px 5px;
     margin-top: 30px;
+    position: relative;
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -2756,6 +2757,100 @@ button.close-error {
 
 .product-content-bottom .tabs>div:first-child a {
     margin-right: 70px;
+}
+
+.state-button {
+    transition: all .33s ease-in-out;
+}
+
+.state-button--pending:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    border: 3px solid rgba(255, 255, 255, 0.33);
+    border-top-color: #173c3a;
+    border-radius: 50%;
+    -webkit-animation: loading-btn--fade-in .33s ease, loading-btn--rotation .66s linear 0s infinite;
+    animation: loading-btn--fade-in .33s ease, loading-btn--rotation .66s linear 0s infinite;
+}
+
+.state-button--pending .state-button__text,
+.state-button--success .state-button__text,
+.state-button--fail .state-button__text {
+    opacity: 0;
+}
+
+.state-button--pending,
+.state-button--success,
+.state-button--fail {
+    pointer-events: none;
+    cursor: default;
+}
+
+.state-button--success:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    height: 15px;
+    width: 30px;
+    border: 3px solid #fff;
+    border-top-width: 0;
+    border-right-width: 0;
+    -webkit-transform: translate(-50%, -75%) rotate(-45deg);
+    transform: translate(-50%, -75%) rotate(-45deg);
+    -webkit-animation: loading-btn--fade-in .6s ease;
+    animation: loading-btn--fade-in .6s ease;
+}
+
+.state-button--success,
+.state-button--success:hover {
+    background: #8bc34a;
+}
+
+.state-button--fail,
+.state-button--fail:hover {
+    background: #ff5722;
+}
+
+.state-button--fail:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: linear-gradient(to bottom, transparent 44%, #fff 44%, #fff 56%, transparent 56%), linear-gradient(to right, transparent 44%, #fff 44%, #fff 56%, transparent 56%);
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    -webkit-animation: loading-btn--fade-in .6s ease;
+    animation: loading-btn--fade-in .6s ease;
+}
+
+@keyframes loading-btn--fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes loading-btn--rotation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 @import 'pages/home';

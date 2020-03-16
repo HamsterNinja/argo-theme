@@ -15008,6 +15008,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -15071,7 +15077,8 @@ var nest = function nest(seq, keys) {
       phone: '',
       focusPhone: false,
       comment: '',
-      submitted: false
+      submitted: false,
+      submitStatus: ''
     };
   },
   computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_4_vuex__["d" /* mapState */])(['currentUser']), {
@@ -15174,6 +15181,8 @@ var nest = function nest(seq, keys) {
       var _addReservation = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee2() {
+        var _this = this;
+
         var formLogin, sendURL, fetchData, response, data;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
@@ -15181,6 +15190,7 @@ var nest = function nest(seq, keys) {
               case 0:
                 this.errors = [];
                 this.submitted = true;
+                this.focusPhone = true;
                 this.$v.$touch();
                 formLogin = new FormData();
                 formLogin.append("name", this.name);
@@ -15197,31 +15207,45 @@ var nest = function nest(seq, keys) {
                   body: formLogin
                 };
 
-                if (!this.$v.registration.$invalid) {
-                  _context2.next = 17;
+                if (!this.$v.$invalid) {
+                  _context2.next = 20;
                   break;
                 }
 
-                _context2.next = 24;
+                this.submitStatus = 'ERROR';
+                setTimeout(function () {
+                  _this.submitStatus = '';
+                }, 1000);
+                _context2.next = 28;
                 break;
 
-              case 17:
-                _context2.next = 19;
+              case 20:
+                this.submitStatus = 'PENDING';
+                _context2.next = 23;
                 return fetch(sendURL, fetchData);
 
-              case 19:
+              case 23:
                 response = _context2.sent;
-                _context2.next = 22;
+                _context2.next = 26;
                 return response.json();
 
-              case 22:
+              case 26:
                 data = _context2.sent;
 
                 if (data.success) {
+                  this.submitStatus = 'SUCCESS';
                   this.showModal("modal-window--thank");
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                } else {
+                  this.submitStatus = 'ERROR';
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
                 }
 
-              case 24:
+              case 28:
               case "end":
                 return _context2.stop();
             }
@@ -72698,9 +72722,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            " +
+                        "\n                                " +
                           _vm._s(value) +
-                          "\n                            "
+                          "\n                                "
                       ),
                       _c("input", {
                         directives: [
@@ -72863,7 +72887,12 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "reservation-submit",
+                staticClass: "reservation-submit state-button",
+                class: {
+                  "state-button--pending": _vm.submitStatus == "PENDING",
+                  "state-button--success": _vm.submitStatus == "SUCCESS",
+                  "state-button--fail": _vm.submitStatus == "ERROR"
+                },
                 on: {
                   click: function($event) {
                     $event.preventDefault()
@@ -72871,7 +72900,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("ЗАБРОНИРОВАТЬ")]
+              [
+                _c("span", { staticClass: "state-button__text" }, [
+                  _vm._v("ЗАБРОНИРОВАТЬ")
+                ])
+              ]
             )
           ])
         ]),

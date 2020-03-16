@@ -59,7 +59,13 @@
                             <textarea v-model="comment" name="description" placeholder="Пожелания (не обязательно)"></textarea>
                         </div>
                     </div>
-                    <button class="reservation-submit" @click.prevent="addReservation">ЗАБРОНИРОВАТЬ</button>
+                    <button class="reservation-submit state-button"
+                    :class="{ 
+                        'state-button--pending': submitStatus == 'PENDING', 
+                        'state-button--success': submitStatus == 'SUCCESS',
+                        'state-button--fail': submitStatus == 'ERROR',
+				    }"
+                    @click.prevent="addReservation"><span class="state-button__text">ЗАБРОНИРОВАТЬ</span></button>
                 </form>
             </div>
             <div class="reservation-right">
@@ -135,7 +141,8 @@ export default {
         phone: '',
         focusPhone: false,
         comment: '',
-        submitted: false
+        submitted: false,
+        submitStatus: ''
     }),
     computed: {
         ...mapState(['currentUser']),
@@ -207,6 +214,7 @@ export default {
         async addReservation() {
             this.errors = [];
             this.submitted = true;
+            this.focusPhone = true;
             this.$v.$touch()
 
             let formLogin = new FormData(); 
@@ -226,13 +234,21 @@ export default {
                 body: formLogin
             };
 
-            if (this.$v.registration.$invalid) {
-
+            if (this.$v.$invalid) {
+                this.submitStatus = 'ERROR';
+                setTimeout(() => {this.submitStatus = ''}, 1000);
             } else {
+                this.submitStatus = 'PENDING'
                 let response = await fetch(sendURL, fetchData);
                 let data = await response.json();
                 if (data.success) {
+                    this.submitStatus = 'SUCCESS';
                     this.showModal("modal-window--thank");
+                    setTimeout(() => {this.submitStatus = ''}, 1000);
+                }
+                else{
+                    this.submitStatus = 'ERROR';
+                    setTimeout(() => {this.submitStatus = ''}, 1000);
                 }
             }
         },
