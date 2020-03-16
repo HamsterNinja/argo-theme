@@ -331,6 +331,9 @@
         text-align: center;
         width: 234px;
     }
+    .pad-50 {
+    padding: 10px 0 20px;
+}
 }
 
 @media(max-width: 765px) {
@@ -454,10 +457,10 @@
         height: 147px;
         padding: 15px 5px;
     }
-    .single-product .pad-50 {
-    padding: 10px 0 20px;
+    
+.delivery-menu-content {
+    grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
 }
-
 }
 
 @media(max-width: 540px) {
