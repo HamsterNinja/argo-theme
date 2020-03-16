@@ -703,13 +703,16 @@ a.page_menu-item {
 }
 
 .single_menu-tabs-content {
-    display: none;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
 }
 
-.single_menu-tabs-content:first-child {
-    display: block;
+.single_menu-tabs-content.visible {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
 }
-
 .menu-slick-content {
     outline: none;
 }
@@ -837,7 +840,11 @@ a.page-numbers {
 .product-content-img {
     width: 390px;
 }
-
+.product-content-img img{
+    width: 100%;
+    object-fit: content;
+    object-position: 50%;
+}
 .product-content-top-info {
     background-color: #F5E7C2;
     padding: 15px 33px 25px;

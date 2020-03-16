@@ -18,7 +18,7 @@
             </div>
             <div class="single_menu-tabs">
                 {% for submenu in menu_option %}
-                    <div class="single_menu-tabs-content" id="t{{ loop.index }}">
+                    <div class="single_menu-tabs-content {{ loop.first ? 'visible' }}" id="t{{ loop.index }}">
                         <div class="menu-slick">
                             {% for image in submenu.images %}
                                 <div class="menu-slick-content">

@@ -42,7 +42,20 @@
 .socials a {
     margin: 0 13px;
 }
-
+.socials a.facebook svg path,
+.socials a.vk svg path,
+.socials a.ok svg path{
+    transition: 0.3s ease;
+}
+.socials a.facebook:hover svg path{
+    fill: #4267b2;
+}
+.socials a.vk:hover svg path{
+    fill: #4a76a8;
+}
+.socials a.ok:hover svg path:first-child{
+    fill: #e47d08;
+}
 .footer-content-center {
     text-align: center;
     width: calc(100% - 260px - 206px);
@@ -75,8 +88,17 @@
     line-height: 20px;
     color: #FFFFFF;
     text-decoration: none;
+    background: linear-gradient(to right, #ffc844, #ffc844 50%, #fff 50%);
+    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
-
+.footer-menu-container ul li a:hover{
+    background-position: 0 100%;
+}
 .footer-content-right {
     width: 260px;
     margin-bottom: 20px;

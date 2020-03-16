@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
+        cssEase: 'linear'
     });
     
     $('.choice-button').click(function (event) {
@@ -94,11 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
         var id = $(this).attr('data-id');
         if (id) {
-            $('.single_menu-tabs-content:visible').fadeOut(0, function () {
-                $('.single_menu-tabs').find('#' + id).fadeIn('slow', function () {
-                    $('.menu-slick').slick('reinit');
-                });
-            });
+            $('.single_menu-tabs-content:visible').removeClass('visible');
+            $('.single_menu-tabs').find('#' + id).addClass('visible');
         }
     });
 });
