@@ -135,6 +135,7 @@ export default {
         phone: '',
         focusPhone: false,
         comment: '',
+        submitted: false
     }),
     computed: {
         ...mapState(['currentUser']),
@@ -204,6 +205,10 @@ export default {
     },
     methods: {
         async addReservation() {
+            this.errors = [];
+            this.submitted = true;
+            this.$v.$touch()
+
             let formLogin = new FormData(); 
             formLogin.append("name", this.name);
             formLogin.append("phone", this.phone);
@@ -221,10 +226,14 @@ export default {
                 body: formLogin
             };
 
-            let response = await fetch(sendURL, fetchData);
-            let data = await response.json();
-            if (data.success) {
-                this.showModal("modal-window--thank");
+            if (this.$v.registration.$invalid) {
+
+            } else {
+                let response = await fetch(sendURL, fetchData);
+                let data = await response.json();
+                if (data.success) {
+                    this.showModal("modal-window--thank");
+                }
             }
         },
 

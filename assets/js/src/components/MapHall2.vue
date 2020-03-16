@@ -2141,6 +2141,7 @@ export default {
 	.path-effect.disabled{
 		fill: red;
 		fill-opacity: 0.5;
+		pointer-events: none;
 	}
 	.path-effect:hover{
 		fill: #4caf50;
