@@ -126,7 +126,15 @@ if ( is_singular( 'product' ) ) {
         $context['category_count'] = $term->count;
         $context['title'] = single_term_title( '', false );
         array_unshift( $templates, 'taxonomy-product_cat-' . $term->slug . '.twig' );
+
+        if($queried_object->name == 'Меню доставки'){
+            $queried_object = get_queried_object();
+            array_unshift( $templates, 'page-delivery-menu.twig' );
+        }
     }
+
+    
+
 
     Timber::render( $templates, $context );
 }
