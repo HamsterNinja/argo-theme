@@ -138,11 +138,11 @@ header.main-header {
     text-decoration: none;
     background: linear-gradient(to right, #ffc844, #ffc844 50%, #000 50%);
     background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-  transition: background-position 275ms ease;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 202% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
 }
 .main-header-menu-container ul li a:hover{
     background-position: 0 100%;
