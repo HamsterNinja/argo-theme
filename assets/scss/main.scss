@@ -1812,8 +1812,11 @@ p.cart-product-name {
     text-transform: uppercase;
     padding: 5px 15px;
     width: 100%;
+    transition: 0.3s ease;
 }
-
+.woocommerce-cart .woo-content a.checkout-btn:hover {
+    color: #000;
+}
 .cart-table-item {
     border-bottom: 1px solid #E3E3E3;
     padding: 14px 0;
@@ -2030,8 +2033,8 @@ p.policy_text a {
 .checkout-btn {
     font-size: 18px;
     line-height: 24px;
-    color: #000000;
-    background: #FFC844;
+    color: #000;
+    background: #ffc844;
     border-radius: 50px;
     border: 1px solid #ffc844;
     text-transform: uppercase;
@@ -2042,8 +2045,12 @@ p.policy_text a {
     display: block;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
+    outline: none;
 }
-
+ .checkout-btn:hover{
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
 .page_thanks-content {
     text-align: center;
     background-color: #fff;
