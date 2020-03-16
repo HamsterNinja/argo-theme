@@ -18,7 +18,9 @@ html {
     display: none;
 }
 
-[v-cloak] > * { display:none }
+[v-cloak]>* {
+    display: none
+}
 
 body {
     font-family: 'Roboto Slab', serif;
@@ -162,6 +164,7 @@ p {
     background-image: url(../images/header-decore.png);
     background-position: 50% 100%;
 }
+
 .all-page-title,
 .all-page-title h1 {
     font-weight: bold;
@@ -181,6 +184,7 @@ p {
     padding: 0 15px;
     margin: 0 auto;
 }
+
 .new-block-fone {
     background-color: #F4EFDF;
     max-width: 1300px;
@@ -212,7 +216,7 @@ p {
 }
 
 .footer-black-fone {
-background: rgba(36, 25, 14, 0.7);
+    background: rgba(36, 25, 14, 0.7);
     border: 1px solid #E9D2A6;
     max-width: 1300px;
     width: 100%;
@@ -221,9 +225,10 @@ background: rgba(36, 25, 14, 0.7);
 }
 
 
-.pad-top-30{
+.pad-top-30 {
     padding-top: 30px;
 }
+
 .main-page-tiggers {
     padding: 45px 0;
 }
@@ -335,9 +340,11 @@ background: rgba(36, 25, 14, 0.7);
 .popular-dishes {
     padding: 25px 0 80px;
 }
+
 .popular-slick .slick-slide {
     text-align: center;
 }
+
 .popular-item {
     max-width: 332px;
     margin: 0 auto;
@@ -420,12 +427,15 @@ button.popular-item-button.add-to-cart {
 }
 
 button.popular-item-button.add-to-cart:hover {
-    box-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25)
+    background-color: #ffe097;
+    border: 1px solid #ffe097;
+    box-shadow: 1px 4px 24px rgba(0, 0, 0, 0.25)
 }
 
 .delivery-menu {
-    padding: 50px 0 25px;
+    padding: 0px 0 25px
 }
+
 .delivery-menu-content {
     display: grid;
     display: -ms-flexbox;
@@ -435,7 +445,7 @@ button.popular-item-button.add-to-cart:hover {
     -ms-flex-pack: start;
 }
 
-.pad-50{
+.pad-50 {
     padding: 50px;
 }
 
@@ -531,7 +541,7 @@ a.delivery-menu-item:nth-child(2n) {
 }
 
 .page-header {
-    padding: 25px 0 30px;
+    padding: 45px 0 10px
 }
 
 .woocommerce-breadcrumb {
@@ -543,10 +553,6 @@ a.delivery-menu-item:nth-child(2n) {
 .woocommerce-breadcrumb a {
     color: rgba(255, 255, 255, 0.57);
     text-decoration: none;
-}
-
-.about-content {
-    padding-top: 50px;
 }
 
 .about-content-inner {
@@ -634,7 +640,7 @@ img.page_menu-decore_rb {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 880px;
+    max-width: 1110px;
     position: relative;
     z-index: 1;
 }
@@ -675,7 +681,7 @@ a.page_menu-item {
 .single_menu-buttons {
     max-width: 765px;
     text-align: center;
-    margin: 0 auto 60px;
+    margin: 0 auto 10px
 }
 
 .choice-button {
@@ -818,7 +824,7 @@ a.page-numbers {
 }
 
 .product_single-page {
-    padding: 50px 0;
+    padding: 0px 0
 }
 
 .product-content-top {
@@ -941,7 +947,7 @@ a.page-numbers {
 }
 
 .contacts-content {
-    padding: 20px 0 50px
+    padding: 0px 0 50px
 }
 
 .contacts-content-top {
@@ -1109,7 +1115,7 @@ a.page-numbers {
 }
 
 .reservation-content {
-    padding: 20px 0 50px;
+    padding: 0px 0 50px
 }
 
 .reservation-content .container {
@@ -1327,12 +1333,12 @@ a.page-numbers {
     justify-content: space-between;
 }
 
-.reservation-form-client-info .form-group{
+.reservation-form-client-info .form-group {
     width: calc(50% - 7px);
     margin-bottom: 15px;
 }
 
-.reservation-form-client-info .form-group .errors-form{
+.reservation-form-client-info .form-group .errors-form {
     margin-top: 0;
 }
 
@@ -1468,16 +1474,18 @@ a.page-numbers {
 }
 
 .photo-gallery_content-inner {
-    flex: 33.333%;
-    max-width: 33.333%;
-    padding: 0 5px;
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 5px
 }
 
 .gallery-item {
     margin-top: 8px;
     display: inline-block;
+    overflow: hidden;
+    height: 200px;
     vertical-align: middle;
-    width: 100%;
+    width: 33%
 }
 
 .gallery-item img {
@@ -2587,13 +2595,13 @@ button.close-error {
     opacity: 0;
 }
 
-.woocommerce-cart .woo-content{
+.woocommerce-cart .woo-content {
     padding-top: 20px;
-    color: #fff;   
+    color: #fff;
 }
 
-.woocommerce-cart .woo-content a{
-    color: #fff; 
+.woocommerce-cart .woo-content a {
+    color: #fff;
 }
 
 .woocommerce-order-pay .woo-content {
@@ -2604,7 +2612,7 @@ button.close-error {
     color: #ccc;
 }
 
-.woocommerce-order-pay .woo-content a{
+.woocommerce-order-pay .woo-content a {
     color: #ccc;
 }
 
@@ -2626,6 +2634,7 @@ button.close-error {
 .product-content-bottom .tabs a:hover {
     border-color: #000;
 }
+
 .product-content-bottom .tabs .is-active a {
     border-color: #000;
 }
