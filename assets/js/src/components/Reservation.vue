@@ -130,7 +130,7 @@ export default {
         table: 1,
         guests: 1,
         hallsRange: range(1, 3),
-        tablesRange: range(1, 10),
+        tablesRange: range(1, 12),
         name: '',
         phone: '',
         focusPhone: false,
