@@ -31785,6 +31785,7 @@ module.exports = function(module) {
     },
     updateValue: function updateValue() {
       this.$emit('input', this.countComponent);
+      this.$store.commit('updateProductCount', this.countComponent);
 
       if (SITEDATA.is_cart == 'true') {
         this.updateProductQuantityInCartByCartID(this.cart_id, this.countComponent);
