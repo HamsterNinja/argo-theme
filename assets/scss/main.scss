@@ -1492,15 +1492,75 @@ a.page-numbers {
     padding: 50px 0;
 }
 
-
+.photo-gallery_content-inner {
+    font-size: 0;
+}
 
 .gallery-item {
     display: block;
     width: calc(33.333% - 10px);
     margin-bottom: 10px;
+    background-color: #000;
 }
-
-
+.gallery-item img{
+    transition: 0.3s ease;
+}
+.gallery-item div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gallery-item div::before,
+.gallery-item div::after {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  content: "";
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  pointer-events: none;
+}
+.gallery-item div::before {
+  border-top: 2px solid #ffc844;
+  border-bottom: 2px solid #ffc844;
+  transform: scale(0, 1);
+}
+.gallery-item div::after {
+  border-right: 2px solid #ffc844;
+  border-left: 2px solid #ffc844;
+  transform: scale(1, 0);
+}
+.gallery-item:hover div::before,
+.gallery-item:hover div::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.gallery-item div img{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -24px;
+  margin-left: -24px;
+  width: 48px;
+  height: 48px;
+  transition: transform 0.5s ease 0s;
+  transform: scale(0);
+  font-size: 48px;
+  color: #fff;
+  opacity: 0;
+}
+.gallery-item:hover img{
+    opacity: 0.5;
+}
+.gallery-item:hover div img {
+  transform: scale(1);
+  opacity: 1;
+}
 
 .cart .page-header {
     padding: 70px 0 40px;

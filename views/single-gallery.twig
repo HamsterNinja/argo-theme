@@ -15,6 +15,9 @@
                     {% for image in gallery %}
                         <a data-fancybox="g1" class="gallery-item" href="{{ Image(image) }}">
                             <img src="{{ Image(image) }}" />
+                            <div>
+                                <img src="{{ site.theme.link }}/assets/images/zoom.png" alt="" />
+                            </div>
                         </a>
                     {% endfor %}
                 </div>
