@@ -28,10 +28,11 @@
                         </label>
 
                         <label for="" v-if="delivery == 'courier'">
-                            <p class="checkout-label">Выберите или введите адрес доставки  *</p>
-                            <select name="address" v-model="checkout.address">
+                            <p class="checkout-label">Введите адрес доставки *</p>
+                            <!-- TODO: временно скрыл -->
+                            <!-- <select name="address" v-model="checkout.address">
                                 <option value="">Не выбрано</option>
-                            </select>
+                            </select> -->
                         </label>
 
                         <div class="checkout-form-row" v-if="delivery == 'courier'">

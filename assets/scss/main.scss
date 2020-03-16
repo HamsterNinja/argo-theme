@@ -2853,6 +2853,11 @@ button.close-error {
     }
 }
 
+.non-address {
+    display: block;
+    width: 100%;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
