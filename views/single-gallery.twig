@@ -2,14 +2,15 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
+            
             <div class="all-page-title">
                 <h1>{{ post.title }}</h1>
+                {{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
     <div class="photo-gallery_content">
-        <div class="container">
+        <div class="new-block-fone-white pad-50 container">
 
                 <div class="photo-gallery_content-inner">
                     {% for image in gallery %}
