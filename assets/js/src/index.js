@@ -414,10 +414,11 @@ const app = new Vue({
         
     },
 });
-
+$(document).ready(function (){
 $('.photo-gallery_content-inner').masonry({
   // options
   itemSelector: '.gallery-item',
   percentPosition: true,
   columnWidth: '.gallery-item'
+});
 });
