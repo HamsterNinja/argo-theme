@@ -7,33 +7,35 @@
 					<div class="footer-phone"><a href="tel:{{ phone_1|striptags|replace({' ': ''}) }}">{{ phone_1 }}</a></div>
 					<div class="footer-phone"><a href="tel:{{ phone_2|striptags|replace({' ': ''}) }}">{{ phone_2 }}</a></div>
 				</div>
+				{% if facebook or vk or ok  %}
 				<div class="footer-socials">
 					<div class="social-name">Социальные сети</div>
 					<div class="socials">
 						{% if facebook %}
-							<a class="facebook" href="{{ facebook }}">
+							<a target="_blank" rel="noopener" class="facebook" href="{{ facebook }}">
 								<svg width="12" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.458 24.443v-12.02h3.317l.44-4.141H7.458l.005-2.073c0-1.08.103-1.66 1.654-1.66h2.075V.408H7.873c-3.986 0-5.388 2.01-5.388 5.389v2.486H0v4.142h2.485v12.02h4.973z" fill="#fff"/></svg>
 							</a>
 						{% endif %}
 
 						{% if vk %}
-							<a class="vk" href="{{ vk }}">
+							<a target="_blank" rel="noopener" class="vk" href="{{ vk }}">
 								<svg width="24" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.372 13.704s.425-.046.643-.276c.2-.21.193-.608.193-.608s-.027-1.854.85-2.128c.865-.27 1.975 1.793 3.153 2.586.89.6 1.565.469 1.565.469l3.148-.043s1.645-.1.865-1.37c-.065-.104-.455-.94-2.34-2.658-1.974-1.798-1.709-1.507.668-4.617 1.447-1.894 2.026-3.05 1.845-3.544-.172-.473-1.237-.348-1.237-.348l-3.543.022s-.263-.035-.457.079c-.19.112-.314.373-.314.373s-.56 1.465-1.308 2.712c-1.578 2.63-2.208 2.769-2.467 2.606-.6-.382-.45-1.53-.45-2.346 0-2.549.394-3.611-.767-3.886-.385-.092-.668-.151-1.654-.162-1.264-.012-2.334.005-2.94.296-.403.193-.714.625-.524.65.234.03.764.14 1.045.516.363.485.35 1.574.35 1.574s.21 3-.487 3.372c-.477.256-1.132-.266-2.54-2.652C5.95 3.1 5.407 1.75 5.407 1.75s-.105-.253-.293-.388c-.227-.164-.544-.215-.544-.215l-3.367.021s-.506.014-.691.23c-.165.191-.013.588-.013.588S3.134 8.04 6.119 11.09c2.737 2.797 5.845 2.614 5.845 2.614h1.408z" fill="#fff"/></svg>
 							</a>
 						{% endif %}
 
 						{% if ok %}
-							<a class="ok" href="{{ ok }}">
+							<a target="_blank" rel="noopener" class="ok" href="{{ ok }}">
 								<svg width="14" height="23" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.357 11.808c3.258 0 5.906-2.557 5.906-5.7 0-3.143-2.648-5.7-5.906-5.7-3.257 0-5.906 2.557-5.906 5.7 0 3.143 2.65 5.7 5.906 5.7zM9.762 16.461a11.288 11.288 0 003.43-1.37c.808-.492 1.051-1.524.542-2.304-.509-.782-1.576-1.017-2.386-.525a7.728 7.728 0 01-7.952 0c-.81-.492-1.877-.257-2.385.525-.51.781-.266 1.811.542 2.303a11.305 11.305 0 003.43 1.371L1.68 19.65a1.63 1.63 0 00.001 2.361c.338.326.78.49 1.223.49a1.76 1.76 0 001.224-.49l3.244-3.132 3.246 3.132c.675.653 1.77.653 2.445 0a1.628 1.628 0 000-2.361L9.762 16.46z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7.357 3.749c1.349 0 2.445 1.058 2.445 2.36 0 1.3-1.096 2.36-2.445 2.36-1.347 0-2.445-1.06-2.445-2.36 0-1.302 1.098-2.36 2.445-2.36z" fill="#311E13"/></svg>
 							</a>
 						{% endif %}
 
 					</div>
 				</div>
+				{% endif %}
 			</div>
 			<div class="footer-content-center">
 				<div class="footer-logo">
-					<a href="">
+					<a href="{{ site.link }}">
 						<img src="{{ site.theme.link }}/assets/images/logo-footer.svg" alt="">
 					</a>
 				</div>
@@ -76,5 +78,4 @@
 </div>
 </body>
 {{ function('wp_footer') }}
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </html>

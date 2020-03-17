@@ -6,7 +6,8 @@ $templates = ['page-' . $post->post_name . '.twig', 'page.twig'];
 
 
 if (is_cart() || is_checkout() || is_account_page()) {
-    Timber::render( ['page-woo.twig'], $context );
+    array_unshift($templates, 'page-woo.twig');
+    Timber::render($templates, $context);
 }
 else{
     $menu_pages = ["main-menu", "banket-menu", "pomin-menu"];
@@ -25,5 +26,5 @@ else{
         array_unshift( $templates, 'page-main-menu.twig' );
     }
     
-    Timber::render($templates, $context );
+    Timber::render($templates, $context);
 }
