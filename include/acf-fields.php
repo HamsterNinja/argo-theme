@@ -319,4 +319,98 @@ if (function_exists('acf_add_local_field_group')):
         'description' => '',
     ));
 
+    acf_add_local_field_group(array(
+        'key' => 'group_5e709b929a1e8',
+        'title' => 'О ресторане',
+        'fields' => array(
+            array(
+                'key' => 'field_5d653c7a46d8c_block_1_title',
+                'label' => 'Блок 1 заголовок',
+                'name' => 'block_1_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_5e709b9f15245',
+                'label' => 'Блок 1 текст',
+                'name' => 'block_1_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_5e709bc915246',
+                'label' => 'Блок 1 изображение',
+                'name' => 'block_1_images',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ),
+            array(
+                'key' => 'field_5d653c7a46d8c_block_2_title',
+                'label' => 'Блок 2 заголовок',
+                'name' => 'block_2_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_5e709be815247',
+                'label' => 'Блок 2 текст',
+                'name' => 'block_2_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_5e709bfc15248',
+                'label' => 'Блок 2 изображение',
+                'name' => 'block_2_images',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ),
+            array(
+                'key' => 'field_5e709c5791a00',
+                'label' => 'Наши партнеры',
+                'name' => 'our_partners',
+                'type' => 'repeater',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'table',
+                'button_label' => '',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_5e709c7f91a01',
+                        'label' => 'Лого',
+                        'name' => 'logo',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                        'preview_size' => 'medium',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page',
+                    'operator' => '==',
+                    'value' => '34',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
 endif;
