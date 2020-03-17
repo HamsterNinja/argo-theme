@@ -258,8 +258,18 @@ function ajax_create_order() {
 		'street' => $shipping_street,
 		'address_1'  => $shipping_street,
 		'billing_house' => $billing_house,
-	];
-    $order = wc_create_order();
+    ];
+    
+    $default_password = wp_generate_password();
+    // TODO: заменить на телефон
+    if(!$email){
+        $email = $default_password.'@user.ru';
+        $email = 'studio@is-art.ru';
+    }
+    
+    if (!$user = get_user_by('login', $email)) $user = wp_create_user( $email, $default_password, $email );
+
+    $order = wc_create_order(['customer_id' => $user->id]);
     
 	// Информация о покупателе
 	$order->set_address( $address, 'billing' );
