@@ -14798,6 +14798,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_modal__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_masked_input__ = __webpack_require__(99);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -14826,7 +14830,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
+  mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_modal__["a" /* modal */]],
+  components: {
+    'masked-input': __WEBPACK_IMPORTED_MODULE_2_vue_masked_input__["a" /* default */]
+  },
   data: function data() {
     return {
       site_url: SITEDATA.url,
@@ -14834,21 +14851,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       name: '',
       phone: '',
       security: SITEDATA.security,
-      errors: ''
+      errors: '',
+      submitStatus: '',
+      focusPhone: false,
+      submitted: false
     };
+  },
+  validations: {
+    phone: {
+      required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"],
+      correctPhone: function correctPhone(phone) {
+        return phone.replace(/[^\d\.]/g, '').length == 11;
+      }
+    },
+    name: {
+      required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"]
+    }
   },
   methods: {
     submitCallbackForm: function () {
       var _submitCallbackForm = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee() {
-        var formCallback, fetchData, response, jsonResponse;
+        var _this = this;
+
+        var formCallback, fetchData, sendURL, response, responseData;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.submitted = true;
+                this.focusPhone = true;
+                this.$v.$touch();
                 formCallback = new FormData();
-                formCallback.append("action", "ajaxlogin");
                 formCallback.append("name", this.name);
                 formCallback.append("phone", this.phone);
                 formCallback.append("security", this.security);
@@ -14856,23 +14891,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   method: "POST",
                   body: formCallback
                 };
-                _context.next = 8;
-                return fetch(SITEDATA.ajax_url, fetchData);
 
-              case 8:
-                response = _context.sent;
-                _context.next = 11;
-                return response.json();
-
-              case 11:
-                jsonResponse = _context.sent;
-
-                if (jsonResponse.loggedin == false) {
-                  this.errors = jsonResponse.message;
-                } else {// document.location.reload();
+                if (!this.$v.$invalid) {
+                  _context.next = 13;
+                  break;
                 }
 
+                this.submitStatus = 'ERROR';
+                setTimeout(function () {
+                  _this.submitStatus = '';
+                }, 1000);
+                _context.next = 22;
+                break;
+
               case 13:
+                this.submitStatus = 'PENDING';
+                sendURL = "".concat(SITEDATA.themepath, "/email-send.php");
+                _context.next = 17;
+                return fetch(sendURL, fetchData);
+
+              case 17:
+                response = _context.sent;
+                _context.next = 20;
+                return response.json();
+
+              case 20:
+                responseData = _context.sent;
+
+                if (responseData.status == 'success') {
+                  this.submitStatus = 'SUCCESS';
+                  this.clearForm();
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                  setTimeout(function () {
+                    _this.showModal("modal-window--thank");
+                  }, 1500);
+                } else {
+                  this.submitStatus = 'ERROR';
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                }
+
+              case 22:
               case "end":
                 return _context.stop();
             }
@@ -14885,7 +14947,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return submitCallbackForm;
-    }()
+    }(),
+    clearForm: function clearForm() {
+      this.name = "";
+      this.phone = "";
+    }
   }
 });
 
@@ -72505,81 +72571,122 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "form-group-float-placeholder" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.name,
-                  expression: "name"
-                }
-              ],
-              staticClass: "modal-login__input form-control",
-              attrs: {
-                type: "text",
-                id: "callback_name",
-                placeholder: "Имя",
-                required: ""
-              },
-              domProps: { value: _vm.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group-float-placeholder form-group",
+              class: { "input--error": _vm.$v.name.$error }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.name.$model,
+                    expression: "$v.name.$model",
+                    modifiers: { trim: true }
                   }
-                  _vm.name = $event.target.value
+                ],
+                staticClass: "modal-login__input form-control",
+                attrs: {
+                  id: "callback_name",
+                  type: "text",
+                  name: "name",
+                  placeholder: "Имя"
+                },
+                domProps: { value: _vm.$v.name.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.$v.name, "$model", $event.target.value.trim())
+                  },
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "form-control-placeholder",
-                attrs: { for: "callback_name" }
-              },
-              [_vm._v("Имя")]
-            )
-          ]),
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "errors-form" }, [
+                !_vm.$v.name.required
+                  ? _c("div", { staticClass: "error" }, [
+                      _vm._v("Имя обязательно")
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control-placeholder",
+                  attrs: { for: "callback_name" }
+                },
+                [_vm._v("Имя")]
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group-float-placeholder" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.phone,
-                  expression: "phone"
-                }
-              ],
-              staticClass: "modal-login__input form-control",
-              attrs: {
-                type: "text",
-                id: "callback_phone",
-                placeholder: "Номер",
-                required: ""
-              },
-              domProps: { value: _vm.phone },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c(
+            "div",
+            {
+              staticClass: "form-group-float-placeholder form-group",
+              class: { "input--error": _vm.focusPhone && _vm.$v.phone.$error }
+            },
+            [
+              _c("masked-input", {
+                staticClass: "modal-login__input form-control",
+                attrs: {
+                  id: "callback_phone",
+                  type: "phone",
+                  name: "phone",
+                  placeholder: "Номер",
+                  mask: "\\+\\7 (111) 111-11-11"
+                },
+                nativeOn: {
+                  focus: function($event) {
+                    _vm.focusPhone = true
                   }
-                  _vm.phone = $event.target.value
+                },
+                model: {
+                  value: _vm.$v.phone.$model,
+                  callback: function($$v) {
+                    _vm.$set(
+                      _vm.$v.phone,
+                      "$model",
+                      typeof $$v === "string" ? $$v.trim() : $$v
+                    )
+                  },
+                  expression: "$v.phone.$model"
                 }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "form-control-placeholder",
-                attrs: { for: "callback_phone" }
-              },
-              [_vm._v("Номер")]
-            )
-          ]),
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "errors-form" }, [
+                _vm.focusPhone && !_vm.$v.phone.required
+                  ? _c("div", { staticClass: "error" }, [
+                      _vm._v("Телефон обязателен")
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.focusPhone && !_vm.$v.phone.correctPhone
+                  ? _c("div", { staticClass: "error" }, [
+                      _vm._v("Должен быть действительный телефон")
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control-placeholder",
+                  attrs: { for: "callback_phone" }
+                },
+                [_vm._v("Номер")]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("button", { staticClass: "button" }, [_vm._v("Отправить")])
         ]

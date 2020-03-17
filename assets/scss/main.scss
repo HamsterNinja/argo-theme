@@ -2888,6 +2888,10 @@ button.close-error {
     width: 100%;
 }
 
+.modal-callback input {
+    border: 1px solid #ccc;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
