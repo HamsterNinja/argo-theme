@@ -3037,7 +3037,7 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     color: #000;
 }
 .woocommerce-address-fields__field-wrapper input {
-    width: calc(100% - 130px);
+    width: 100%;
     font-size: 14px;
     line-height: 18px;
     color: #000;
@@ -3046,6 +3046,34 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     display: block;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+.woocommerce-address-fields__field-wrapper span.select2-selection.select2-selection--single {
+    font-size: 14px;
+    color: #000;
+    border: 1px solid #e3e3e3;
+    padding: 4px 15px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.woocommerce-address-fields button.button {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+    background: #ffc844;
+    border: 1px solid #ffc844;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 11px;
+    width: 170px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 200, 68, 0);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.woocommerce-address-fields button.button:hover {
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
 @import 'pages/home';
 @import 'components/buttons';
