@@ -15,28 +15,34 @@
             <div class="about-content-inner">
                 <div class="about-content-row">
                     <div class="about-content-info">
-                        <div class="about-content-title">О НАШЕМ РЕСТОРАНЕ</div>
+                        <div class="about-content-title">{{ post.meta('block_1_title') }}</div>
                         <div class="about-content-text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet augue vestibulum, commodo arcu et, gravida neque. Cras finibus diam non sapien scelerisque rhoncus. Nunc facilisis aliquam iaculis. Nulla volutpat id nisl id rutrum. Nullam quis bibendum tortor. Aliquam non finibus dui, eget iaculis metus. In efficitur, justo sed tristique sodales, urna urna volutpat orci, eget scelerisque nulla tortor et ligula. Aliquam ligula purus, accumsan non ipsum a, ultricies euismod est. Donec tempus mollis gravida. Integer varius sollicitudin congue. Integer nec volutpat arcu. Curabitur auctor augue vitae luctus vehicula. Nullam quam magna, ultricies at est vitae, finibus varius ligula. Nulla in est nisl. Integer pharetra, nulla et tincidunt eleifend, sem erat iaculis turpis, ut efficitur orci magna non ligula. Quisque rutrum tristique velit eu ultricies.Aliquam ligula purus, accumsan non ipsum a, ultricies euismod est. Donec tempus mollis gravida. Integer varius sollicitudin congue. Integer nec volutpat arcu. Curabitur auctor augue vitae luctus vehicula. Nullam quam magna, ultricies at est vitae, finibus varius ligula. Nulla in est nisl. Integer pharetra, nulla et tincidunt eleifend, sem erat iaculis turpis, ut efficitur orci magna non ligula.</p>
+                            <p>{{ post.meta('block_1_text') }}</p>
                         </div>
                     </div>
-                    <div class="about-content-image"><img src="{{ site.theme.link }}/assets/images/about1.jpg" alt=""></div>
+                    <div class="about-content-image">
+                        <img src="{{ post.meta('block_1_images') }}" alt="">
+                    </div>
                 </div>
                 <div class="about-content-row">
                     <div class="about-content-info">
-                        <div class="about-content-title">О НАШЕМ РЕСТОРАНЕ</div>
+                        <div class="about-content-title">{{ post.meta('block_2_title') }}</div>
                         <div class="about-content-text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet augue vestibulum, commodo arcu et, gravida neque. Cras finibus diam non sapien scelerisque rhoncus. Nunc facilisis aliquam iaculis. Nulla volutpat id nisl id rutrum. Nullam quis bibendum tortor. Aliquam non finibus dui, eget iaculis metus. In efficitur, justo sed tristique sodales, urna urna volutpat orci, eget scelerisque nulla tortor et ligula. Aliquam ligula purus, accumsan non ipsum a, ultricies euismod est. Donec tempus mollis gravida. Integer varius sollicitudin congue. Integer nec volutpat arcu. Curabitur auctor augue vitae luctus vehicula. Nullam quam magna, ultricies at est vitae, finibus varius ligula. Nulla in est nisl. Integer pharetra, nulla et tincidunt eleifend, sem erat iaculis turpis, ut efficitur orci magna non ligula. Quisque rutrum tristique velit eu ultricies.Aliquam ligula purus, accumsan non ipsum a, ultricies euismod est. Donec tempus mollis gravida. Integer varius sollicitudin congue. Integer nec volutpat arcu. Curabitur auctor augue vitae luctus vehicula. Nullam quam magna, ultricies at est vitae, finibus varius ligula. Nulla in est nisl. Integer pharetra, nulla et tincidunt eleifend, sem erat iaculis turpis, ut efficitur orci magna non ligula.</p>
+                            <p>{{ post.meta('block_2_text') }}</p>
                         </div>
                     </div>
-                    <div class="about-content-image"><img src="{{ site.theme.link }}/assets/images/about2.jpg" alt=""></div>
+                    <div class="about-content-image">
+                        <img src="{{ post.meta('block_2_images') }}" alt="">
+                    </div>
                 </div>
             </div>
             <div class="about-content-partners">
             	<div class="about-content-name">Наши партнеры</div>
             	<div class="about-content-partners-content">
-                {% for item in 0..2 %}
-                    <div class="about-partners-item"><img src="{{ site.theme.link }}/assets/images/partner.jpg" alt=""></div>
+                {% for item in post.meta('our_partners') %}
+                    <div class="about-partners-item">
+                        <img src="{{ item.logo }}" alt="">
+                    </div>
                 {% endfor %}
                 </div>
             </div>
