@@ -16,7 +16,7 @@
                     {% for image in gallery %}
                         {% if image.type == 'video' %}
                         <a data-fancybox="g1" class="gallery-item" href="{{ image.url }}">
-                            <img src="{{ Image(image) }}" />
+                            <img src="{{ site.theme.link }}/assets/images/video-thmb.jpg" alt="" />
                             <div>
                                 <img src="{{ site.theme.link }}/assets/images/play.png" alt="" />
                             </div>
