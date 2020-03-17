@@ -419,6 +419,5 @@ $('.photo-gallery_content-inner').masonry({
   // options
   itemSelector: '.gallery-item',
   percentPosition: true,
-  gutter: 10,
   columnWidth: '.gallery-item'
 });
