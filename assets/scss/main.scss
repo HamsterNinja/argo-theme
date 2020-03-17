@@ -2979,7 +2979,40 @@ button.close-error {
 .modal-callback input {
     border: 1px solid #ccc;
 }
-
+form.woocommerce-ResetPassword.lost_reset_password p {
+    margin-bottom: 30px;
+}
+form.woocommerce-ResetPassword.lost_reset_password p label {
+    font-size: 12px;
+}
+form.woocommerce-ResetPassword.lost_reset_password p.woocommerce-form-row.woocommerce-form-row--first.form-row.form-row-first input {
+    display: block;
+    margin-top: 5px;
+    max-width: 350px;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    padding: 10px;
+    outline: none;
+}
+form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.button {
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+    background: #ffc844;
+    border: 1px solid #ffc844;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 11px;
+    width: 170px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 200, 68, 0);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.button:hover {
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
