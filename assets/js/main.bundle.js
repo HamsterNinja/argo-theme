@@ -15304,6 +15304,7 @@ var nest = function nest(seq, keys) {
                   setTimeout(function () {
                     _this.submitStatus = '';
                   }, 1000);
+                  this.$store.dispatch('fetchOrders');
                 } else {
                   this.submitStatus = 'ERROR';
                   setTimeout(function () {

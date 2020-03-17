@@ -235,20 +235,21 @@ export default {
             };
 
             if (this.$v.$invalid) {
-                this.submitStatus = 'ERROR';
-                setTimeout(() => {this.submitStatus = ''}, 1000);
+                this.submitStatus = 'ERROR'
+                setTimeout(() => {this.submitStatus = ''}, 1000)
             } else {
                 this.submitStatus = 'PENDING'
-                let response = await fetch(sendURL, fetchData);
-                let data = await response.json();
+                let response = await fetch(sendURL, fetchData)
+                let data = await response.json()
                 if (data.success) {
-                    this.submitStatus = 'SUCCESS';
-                    this.showModal("modal-window--thank");
-                    setTimeout(() => {this.submitStatus = ''}, 1000);
+                    this.submitStatus = 'SUCCESS'
+                    this.showModal("modal-window--thank")
+                    setTimeout(() => {this.submitStatus = ''}, 1000)
+                    this.$store.dispatch('fetchOrders')
                 }
                 else{
-                    this.submitStatus = 'ERROR';
-                    setTimeout(() => {this.submitStatus = ''}, 1000);
+                    this.submitStatus = 'ERROR'
+                    setTimeout(() => {this.submitStatus = ''}, 1000)
                 }
             }
         },
