@@ -14,12 +14,20 @@
 
                 <div class="photo-gallery_content-inner">
                     {% for image in gallery %}
+                        {% if image.type == 'video' %}
+                        <a data-fancybox="g1" class="gallery-item" href="{{ image.url }}">
+                            <video>
+                                <source src="{{ image.url }}" type="{{ image.mime_type }}">
+                            </video>
+                        </a>
+                        {% else %}
                         <a data-fancybox="g1" class="gallery-item" href="{{ Image(image) }}">
                             <img src="{{ Image(image) }}" />
                             <div>
                                 <img src="{{ site.theme.link }}/assets/images/zoom.png" alt="" />
                             </div>
                         </a>
+                        {% endif %}
                     {% endfor %}
                 </div>
    
