@@ -7,6 +7,9 @@ $templates = ['page-' . $post->post_name . '.twig', 'page.twig'];
 
 if (is_cart() || is_checkout() || is_account_page()) {
     array_unshift($templates, 'page-woo.twig');
+    if(is_lost_password_page()){
+        array_unshift($templates, 'page.twig');
+    }
     Timber::render($templates, $context);
 }
 else{

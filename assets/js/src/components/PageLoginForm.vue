@@ -13,7 +13,7 @@
                     <p>Пароль</p>
                     <input id="password" v-model="password" type="password" name="password"/>
                 </label>
-                <a :href="template_url + '/my-account/lost-password/'" class="forgot-password">Забыли пароль?</a>
+                <a :href="site_url + '/my-account/lost-password/'" class="forgot-password">Забыли пароль?</a>
             </div>
             <div class="account-right-form notice">                                               
                 <button class="acoount-submit">Войти</button>
@@ -26,6 +26,7 @@
 export default {
     data() {
         return {
+            site_url: SITEDATA.url,
             template_url: SITEDATA.themepath,
             username: '',
             password: '',

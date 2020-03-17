@@ -36,7 +36,7 @@
             	<div class="about-content-name">Наши партнеры</div>
             	<div class="about-content-partners-content">
                 {% for item in 0..2 %}
-                <div class="about-partners-item"><img src="{{ site.theme.link }}/assets/images/partner.jpg" alt=""></div>
+                    <div class="about-partners-item"><img src="{{ site.theme.link }}/assets/images/partner.jpg" alt=""></div>
                 {% endfor %}
                 </div>
             </div>
@@ -44,27 +44,27 @@
         </div>
     </div>
     {% if activities is not empty  %}
-<div class="activity-block">
-    <div class="container">
-        <div class="main-page-title">Мероприятия</div>
-        <div class="activity-block-slick">
-            {% for activity in activities %}            
-                <div class="activity-item">
-                    {% if activity.thumbnail %}
-                        <img src="{{ activity.thumbnail.src|resize(363, 547) }}" alt="{{ activity.title }}">
-                    {% else %}
-                        <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
-                    {% endif %}
-                    <div class="activity-hidden-block">
-                        <div class="activity-hidden-block-title">{{ activity.title }}</div>
-                        <!-- TODO: удалить неразравные пробелы -->
-                        <div class="activity-hidden-block-text">{{ activity.preview.length(50).read_more('') }}</div>
-                    </div>
+        <div class="activity-block">
+            <div class="container">
+                <div class="main-page-title">Мероприятия</div>
+                <div class="activity-block-slick">
+                    {% for activity in activities %}            
+                        <div class="activity-item">
+                            {% if activity.thumbnail %}
+                                <img src="{{ activity.thumbnail.src|resize(363, 547) }}" alt="{{ activity.title }}">
+                            {% else %}
+                                <img class="" src="{{ site.theme.link }}/assets/images/placeholder-images.webp" alt="">
+                            {% endif %}
+                            <div class="activity-hidden-block">
+                                <div class="activity-hidden-block-title">{{ activity.title }}</div>
+                                <!-- TODO: удалить неразравные пробелы -->
+                                <div class="activity-hidden-block-text">{{ activity.preview.length(50).read_more('') }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}    
                 </div>
-            {% endfor %}    
+            </div>
         </div>
-    </div>
-</div>
-{% endif %}
+    {% endif %}
 </main>
 {% include "partials/footer.twig" %}
