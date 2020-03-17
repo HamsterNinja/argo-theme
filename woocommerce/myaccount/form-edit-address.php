@@ -4,11 +4,41 @@ defined( 'ABSPATH' ) || exit;
 
 $page_title = ( 'billing' === $load_address ) ? esc_html__( 'Billing address', 'woocommerce' ) : esc_html__( 'Shipping address', 'woocommerce' );
 
-do_action( 'woocommerce_before_edit_account_address_form' ); ?>
-
+do_action( 'woocommerce_before_edit_account_address_form' ); 
+?>
 <?php if ( ! $load_address ) : ?>
     <?php 
+        $customer_id = get_current_user_id();
+        if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
+            $get_addresses = apply_filters(
+                'woocommerce_my_account_get_addresses',
+                array(
+                    'billing'  => __( 'Billing address', 'woocommerce' ),
+                    'shipping' => __( 'Shipping address', 'woocommerce' ),
+                ),
+                $customer_id
+            );
+        } else {
+            $get_addresses = apply_filters(
+                'woocommerce_my_account_get_addresses',
+                array(
+                    'billing' => __( 'Billing address', 'woocommerce' ),
+                ),
+                $customer_id
+            );
+        }
+
+        $array_address = [];
+        foreach ( $get_addresses as $name => $address_title ){
+            $address = wc_get_account_formatted_address( $name );
+            $address_item = (object)[];
+            $address_item->address_title = esc_html( $address_title );
+            $address_item->edit_address = esc_url( wc_get_endpoint_url( 'edit-address', $name ) );
+            $address_item->address = $address ? $address : esc_html__( 'You have not set up this type of address yet.', 'woocommerce' );
+            $array_address[] = $address_item;
+        }
         $context = Timber::get_context();
+        $context['addresses'] = $array_address;
         Timber::render( ['account/edit-address.twig'], $context );
     ?>
 <?php else : ?>
