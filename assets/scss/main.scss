@@ -403,28 +403,31 @@ textarea {
 .popular-dishes {
     padding: 25px 0 80px;
 }
-
+.popular-dishes .new-block-fone {
+    padding-bottom: 1px;
+}
+.popular-dishes .all-page-title{
+    margin-bottom: 20px;
+}
 .popular-slick .slick-slide {
     text-align: center;
 }
-
+.popular-slick .slick-dots {
+    bottom: -75px;
+}
 .popular-slick button.slick-prev.slick-arrow {
-    background: url(../images/arrow-lslide.svg) no-repeat 50%, linear-gradient(114.16deg, #a57a43 -22.36%, #a57a43 -17.41%, #a57a43 -1.12%, #a57a43 -1.1%, #a57a43 15.87%, #f3f0d1 46.67%, #a57a43 93.41%, #c3a068 139.08%, #c3a068 150.76%, #c3a068 181.56%), #f4eedf;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.89);
-    border-radius: 20px;
-    width: 64px;
-    height: 311px;
-    left: -64px;
+    background: url(../images/arrow-lslide.svg) no-repeat 50%;
+    width: 50px;
+    height: 50px;
+    left: -17px;
     transition: 0.3s ease;
 }
 
 .popular-slick button.slick-next.slick-arrow {
-    background: url(../images/arrow-rslide.svg) no-repeat 50%, linear-gradient(114.16deg, #a57a43 -22.36%, #a57a43 -17.41%, #a57a43 -1.12%, #a57a43 -1.1%, #a57a43 15.87%, #f3f0d1 46.67%, #a57a43 93.41%, #c3a068 139.08%, #c3a068 150.76%, #c3a068 181.56%), #f4eedf;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.89);
-    border-radius: 20px;
-    width: 64px;
-    height: 311px;
-    right: -64px;
+    background: url(../images/arrow-rslide.svg) no-repeat 50%;
+    width: 50px;
+    height: 50px;
+    right: -17px;
     transition: 0.3s ease;
 }
 
