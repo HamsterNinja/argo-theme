@@ -26,6 +26,7 @@ body {
     font-family: 'Roboto Slab', serif;
     background-image: url(../images/menu-bg.jpg);
     background-position: 50% 0%;
+    height: 100%
 }
 
 img {
@@ -2328,13 +2329,18 @@ p.policy_text a {
 button.acoount-submit {
     font-size: 18px;
     line-height: 24px;
-    color: #000000;
-    background: #FFC844;
+    color: #000;
+    background: #ffc844;
     border-radius: 50px;
-    border: 1px solid #FFC844;
+    border: 1px solid #ffc844;
     padding: 5px 27px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline: none;
 }
-
+button.acoount-submit:hover {
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
 .addresses-content {
     max-width: 535px;
     width: 100%;
@@ -2411,8 +2417,11 @@ a.add-address {
     padding: 7px 20px;
     margin-top: 10px;
     margin-right: 20px;
+    transition: 0.3s ease;
 }
-
+a.add-address:hover {
+    box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
 .history-content p {
     font-size: 18px;
     line-height: 24px;
@@ -2826,10 +2835,15 @@ button.close-error {
     {
     opacity: 0;
 }
-
+div#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 .woocommerce-cart .woo-content {
     padding-top: 20px;
     color: #fff;
+    flex: 1 0 auto;
 }
 
 .woocommerce-cart .woo-content a {
