@@ -2,13 +2,13 @@
 <main class='main-content page'>
     <div class="page-header">
         <div class="container">
-            {{ function('woocommerce_breadcrumb') }}
             <div class="all-page-title">
                 <h1>{{ post.title }}</h1>
+                {{ function('woocommerce_breadcrumb') }}
             </div>
         </div>
     </div>
-    <div class="page-content container">
+    <div class="page-content container new-block-fone-white pad-50">
         {{ post.get_content|shortcodes }}
     </div>
 </main>

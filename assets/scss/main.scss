@@ -39,10 +39,65 @@ h1 {
 p {
     margin: 0;
 }
-input,button,select,textarea{
+
+img.lazy.loaded {
+    opacity: 1;
+}
+
+img.alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+picture.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+picture.alignright {
+    float: right;
+    margin: 26px 0 1em 3em;
+}
+
+picture.alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignright {
+    float: right;
+}
+
+.alignleft {
+    float: left;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input,
+button,
+select,
+textarea {
     -moz-appearance: none;
     -webkit-appearance: none;
 }
+
 .slick-dots {
     bottom: -35px;
 }
@@ -351,6 +406,7 @@ input,button,select,textarea{
 .popular-slick .slick-slide {
     text-align: center;
 }
+
 .popular-slick button.slick-prev.slick-arrow {
     background: url(../images/arrow-lslide.svg) no-repeat 50%, linear-gradient(114.16deg, #a57a43 -22.36%, #a57a43 -17.41%, #a57a43 -1.12%, #a57a43 -1.1%, #a57a43 15.87%, #f3f0d1 46.67%, #a57a43 93.41%, #c3a068 139.08%, #c3a068 150.76%, #c3a068 181.56%), #f4eedf;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.89);
@@ -370,14 +426,18 @@ input,button,select,textarea{
     right: -64px;
     transition: 0.3s ease;
 }
+
 .popular-slick button.slick-prev.slick-arrow:hover,
-.popular-slick button.slick-next.slick-arrow:hover{
+.popular-slick button.slick-next.slick-arrow:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.89);
 }
-.popular-slick .slick-prev:before, .popular-slick .slick-next:before{
+
+.popular-slick .slick-prev:before,
+.popular-slick .slick-next:before {
     content: "";
     display: none;
 }
+
 .popular-item {
     max-width: 332px;
     margin: 0 auto;
@@ -513,9 +573,11 @@ a.delivery-menu-item:nth-child(2n) {
     background-position: 200% 187%;
     transition: background-position 275ms ease;
 }
+
 a.delivery-menu-item:hover .delivery-menu-item-name {
     background-position: 0 100%;
 }
+
 .contacts-block {
     padding: 25px 0 50px;
     position: relative
@@ -582,9 +644,11 @@ a.delivery-menu-item:hover .delivery-menu-item-name {
     padding: 6px 5px;
     transition: 0.3s ease;
 }
+
 .contacts-block-callback a:hover {
     color: #000;
 }
+
 .page-header {
     padding: 45px 0 10px
 }
@@ -719,9 +783,11 @@ a.page_menu-item {
     padding: 8px 0;
     transition: 0.3s ease;
 }
+
 a.page_menu-item:hover .page_menu-item-name {
     background-color: #ffc845;
 }
+
 .single_menu-content .container {
     max-width: 800px;
 }
@@ -761,6 +827,7 @@ a.page_menu-item:hover .page_menu-item-name {
     height: auto;
     opacity: 1;
 }
+
 .menu-slick-content {
     outline: none;
 }
@@ -889,11 +956,13 @@ a.page-numbers {
 .product-content-img {
     width: 390px;
 }
-.product-content-img img{
+
+.product-content-img img {
     width: 100%;
     object-fit: content;
     object-position: 50%;
 }
+
 .product-content-top-info {
     background-color: #F5E7C2;
     padding: 15px 33px 25px;
@@ -1282,9 +1351,11 @@ a.page-numbers {
     justify-items: center;
     justify-content: center;
 }
+
 .person-quantity button:hover {
     background-color: #ffc844;
 }
+
 .reservation-form-calendar {
     margin-bottom: 20px;
 }
@@ -1449,9 +1520,11 @@ a.page-numbers {
     cursor: pointer;
     transition: 0.3s ease;
 }
+
 button.reservation-submit:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
+
 .scheme-button {
     font-size: 24px;
     line-height: 32px;
@@ -1540,64 +1613,73 @@ button.reservation-submit:hover {
     margin-bottom: 10px;
     background-color: #000;
 }
-.gallery-item img{
+
+.gallery-item img {
     transition: 0.3s ease;
 }
+
 .gallery-item div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
+
 .gallery-item div::before,
 .gallery-item div::after {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
-  content: "";
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
-  pointer-events: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    content: "";
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
 }
+
 .gallery-item div::before {
-  border-top: 2px solid #ffc844;
-  border-bottom: 2px solid #ffc844;
-  transform: scale(0, 1);
+    border-top: 2px solid #ffc844;
+    border-bottom: 2px solid #ffc844;
+    transform: scale(0, 1);
 }
+
 .gallery-item div::after {
-  border-right: 2px solid #ffc844;
-  border-left: 2px solid #ffc844;
-  transform: scale(1, 0);
+    border-right: 2px solid #ffc844;
+    border-left: 2px solid #ffc844;
+    transform: scale(1, 0);
 }
+
 .gallery-item:hover div::before,
 .gallery-item:hover div::after {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }
-.gallery-item div img{
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -24px;
-  margin-left: -24px;
-  width: 48px;
-  height: 48px;
-  transition: transform 0.5s ease 0s;
-  transform: scale(0);
-  font-size: 48px;
-  color: #fff;
-  opacity: 0;
+
+.gallery-item div img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -24px;
+    width: 48px;
+    height: 48px;
+    transition: transform 0.5s ease 0s;
+    transform: scale(0);
+    font-size: 48px;
+    color: #fff;
+    opacity: 0;
 }
-.gallery-item:hover img{
+
+.gallery-item:hover img {
     opacity: 0.5;
 }
+
 .gallery-item:hover div img {
-  transform: scale(1);
-  opacity: 1;
+    transform: scale(1);
+    opacity: 1;
 }
 
 .cart .page-header {
@@ -1845,9 +1927,11 @@ p.cart-product-name {
     width: 100%;
     transition: 0.3s ease;
 }
+
 .woocommerce-cart .woo-content a.checkout-btn:hover {
     color: #000;
 }
+
 .cart-table-item {
     border-bottom: 1px solid #E3E3E3;
     padding: 14px 0;
@@ -2079,9 +2163,11 @@ p.policy_text a {
     cursor: pointer;
     outline: none;
 }
- .checkout-btn:hover{
+
+.checkout-btn:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
+
 .page_thanks-content {
     text-align: center;
     background-color: #fff;
@@ -2588,6 +2674,7 @@ a.add-address {
     left: 0;
     display: block;
 }
+
 .form-group-float-placeholder input {
     width: 100%;
     padding: 10px 15px;
@@ -2609,6 +2696,7 @@ a.add-address {
 .form-group-float-placeholder .form-control:focus::placeholder {
     color: transparent;
 }
+
 .modal-callback button {
     max-width: 333px;
     width: 100%;
@@ -2623,13 +2711,16 @@ a.add-address {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     transform: translate(-5px, -5px);
 }
+
 .modal-callback button:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
     transform: translate(0px, 0px);
 }
+
 .modal-window__close:hover {
     transform: rotate(1440deg);
 }
+
 .tabs {
     display: flex;
     justify-content: flex-start;
