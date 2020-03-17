@@ -56,9 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3,
-        arrows: false,
+        arrows: true,
         dots: true,
         responsive: [{
+                breakpoint: 1350,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    arrows: false,
+                    dots: true
+                }
+            },{
                 breakpoint: 950,
                 settings: {
                     slidesToShow: 2,
