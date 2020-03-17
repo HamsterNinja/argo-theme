@@ -340,6 +340,10 @@ input,button,select,textarea{
     margin: 0 auto;
 }
 
+.activity-hidden-block-text p {
+    word-break: break-word;
+}
+
 .popular-dishes {
     padding: 25px 0 80px;
 }
