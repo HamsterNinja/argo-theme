@@ -819,7 +819,7 @@ a.page_menu-item:hover .page_menu-item-name {
 .choice-button.active {
     border-color: #FFC844;
 }
-.single_menu-tabs {
+.single_menu-content {
     overflow: hidden;
 }
 .single_menu-tabs-content {
@@ -3031,6 +3031,21 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
 }
 form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.button:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
+}
+.woocommerce-address-fields__field-wrapper label{
+    font-size: 14px;
+    color: #000;
+}
+.woocommerce-address-fields__field-wrapper input {
+    width: calc(100% - 130px);
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+    border: 1px solid #e3e3e3;
+    padding: 4px 15px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 @import 'pages/home';
 @import 'components/buttons';
