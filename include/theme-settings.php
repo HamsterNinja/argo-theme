@@ -126,3 +126,17 @@ function change_existing_currency_symbol( $currency_symbol, $currency ) {
     return $currency_symbol;
 }
 add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+
+// Check and validate the mobile phone
+add_action( 'woocommerce_save_account_details_errors','billing_mobile_phone_field_validation', 20, 1 );
+function billing_mobile_phone_field_validation( $args ){
+    if ( isset($_POST['billing_mobile_phone']) && empty($_POST['billing_mobile_phone']) )
+        $args->add( 'error', __( 'Please fill in your Mobile phone', 'woocommerce' ),'');
+}
+
+// Save the mobile phone value to user data
+add_action( 'woocommerce_save_account_details', 'my_account_saving_billing_mobile_phone', 20, 1 );
+function my_account_saving_billing_mobile_phone( $user_id ) {
+    if( isset($_POST['billing_mobile_phone']) && ! empty($_POST['billing_mobile_phone']) )
+        update_user_meta( $user_id, 'billing_mobile_phone', sanitize_text_field($_POST['billing_mobile_phone']) );
+}

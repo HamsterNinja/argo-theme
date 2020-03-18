@@ -124,9 +124,6 @@ Vue.component('map-hall-2', MapHall2);
 import RegistrationForm from './components/RegistrationForm.vue';
 Vue.component('registration-form', RegistrationForm);
 
-import EditAccount from './components/EditAccount.vue';
-Vue.component('edit-account-form', EditAccount);
-
 import ChangePassword from './components/ChangePassword.vue';
 Vue.component('change-password', ChangePassword);
 
