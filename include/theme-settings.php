@@ -96,7 +96,21 @@ function add_endpoint() {
 //Страница Нотификация
 add_action( 'woocommerce_account_notifications_endpoint', 'account_endpoint_content_notifications' );
 function account_endpoint_content_notifications() {
-	$context = Timber::get_context();
+    global $current_user;
+    wp_get_current_user();
+    $context = Timber::get_context();
+    if ( is_user_logged_in()){          
+        $value_notice_email = $_POST['notice_email'] && $_POST['notice_email'] == 'on' ? true : false;
+        $value_notice_sms = $_POST['notice_sms'] && $_POST['notice_sms'] == 'on' ? true : false;
+        update_user_meta($current_user->ID, 'notice_email', $value_notice_email);
+        update_user_meta($current_user->ID, 'notice_sms', $value_notice_sms);
+        
+        $notice_email = get_user_meta($current_user->ID, 'notice_email', true);
+        $notice_sms = get_user_meta($current_user->ID, 'notice_sms', true);
+        $context['notice_email'] = $notice_email;
+        $context['notice_sms'] = $notice_sms;
+    }
+	
 	Timber::render( ['account/notifications.twig'], $context );
 }
 
