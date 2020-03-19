@@ -55,7 +55,13 @@
                 <input id="notice" type="checkbox" value="email" v-model="registration.notice">
                 <div class="control_indicator"></div>
             </label>
-            <button class="acoount-submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+            <button class="acoount-submit state-button"
+            :class="{ 
+                'state-button--pending': registration.submitStatus == 'PENDING', 
+                'state-button--success': registration.submitStatus == 'SUCCESS',
+                'state-button--fail': registration.submitStatus == 'ERROR',
+			}"
+            ><span class="state-button__text">ЗАРЕГИСТРИРОВАТЬСЯ</span></button>
         </div>
     </form>
 </div>
@@ -80,6 +86,8 @@ export default {
             password: '',
             confirm_password: '',
             notice: [],
+            submitted: false,
+            submitStatus: '', 
         }
     }),
     computed: {
@@ -129,24 +137,24 @@ export default {
             };
             
             if (this.$v.registration.$invalid) {
-                this.registration[button] = 'ERROR';
-                setTimeout(() => {this.registration[button] = ''}, 1000);
+                this.registration.submitStatus = 'ERROR';
+                setTimeout(() => {this.registration.submitStatus = ''}, 1000);
             } else {
-                this.registration[button] = 'PENDING'
+                this.registration.submitStatus = 'PENDING'
                 const sendURL = `${SITEDATA.url}/wp-json/amadreh/v1/add-user`;
                 let response = await fetch(sendURL, fetchData);
                 let responseData = await response.json();
                 if(responseData.success == true){
-                    this.registration[button] = 'SUCCESS';
-                    setTimeout(() => {this.registration[button] = ''}, 1000);
+                    this.registration.submitStatus = 'SUCCESS';
+                    setTimeout(() => {this.registration.submitStatus = ''}, 1000);
                     setTimeout(() => {
                         document.location.href = SITEDATA.url;
                     }, 1200);
                 }
                 else{
-                    this.registration[button] = 'ERROR';
+                    this.registration.submitStatus = 'ERROR';
                     this.errors.push(responseData.data);
-                    setTimeout(() => {this.registration[button] = ''}, 1000);
+                    setTimeout(() => {this.registration.submitStatus = ''}, 1000);
                 }
             }
         },

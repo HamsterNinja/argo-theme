@@ -2332,7 +2332,7 @@ p.policy_text a {
     padding: 4px 15px;
 }
 
-button.acoount-submit {
+.acoount-submit {
     font-size: 18px;
     line-height: 24px;
     color: #000;
@@ -2667,6 +2667,7 @@ a.add-address:hover {
 .registration-form form button {
     margin: 40px auto 0;
     display: block;
+    position: relative;
 }
 
 .not-content {

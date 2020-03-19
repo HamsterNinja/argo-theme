@@ -14333,6 +14333,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var alpha = __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["helpers"].regex('alpha', /[\u0000-~Ѐ-Ӿ]/);
@@ -14350,7 +14356,9 @@ var alpha = __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["helpers"].re
         email: '',
         password: '',
         confirm_password: '',
-        notice: []
+        notice: [],
+        submitted: false,
+        submitStatus: ''
       }
     };
   },
@@ -14413,15 +14421,15 @@ var alpha = __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["helpers"].re
                   break;
                 }
 
-                this.registration[button] = 'ERROR';
+                this.registration.submitStatus = 'ERROR';
                 setTimeout(function () {
-                  _this.registration[button] = '';
+                  _this.registration.submitStatus = '';
                 }, 1000);
                 _context.next = 25;
                 break;
 
               case 16:
-                this.registration[button] = 'PENDING';
+                this.registration.submitStatus = 'PENDING';
                 sendURL = "".concat(SITEDATA.url, "/wp-json/amadreh/v1/add-user");
                 _context.next = 20;
                 return fetch(sendURL, fetchData);
@@ -14435,18 +14443,18 @@ var alpha = __WEBPACK_IMPORTED_MODULE_0_vuelidate_lib_validators__["helpers"].re
                 responseData = _context.sent;
 
                 if (responseData.success == true) {
-                  this.registration[button] = 'SUCCESS';
+                  this.registration.submitStatus = 'SUCCESS';
                   setTimeout(function () {
-                    _this.registration[button] = '';
+                    _this.registration.submitStatus = '';
                   }, 1000);
                   setTimeout(function () {
                     document.location.href = SITEDATA.url;
                   }, 1200);
                 } else {
-                  this.registration[button] = 'ERROR';
+                  this.registration.submitStatus = 'ERROR';
                   this.errors.push(responseData.data);
                   setTimeout(function () {
-                    _this.registration[button] = '';
+                    _this.registration.submitStatus = '';
                   }, 1000);
                 }
 
@@ -27984,6 +27992,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   delimiters: ["((", "))"],
   mixins: [__WEBPACK_IMPORTED_MODULE_21__components_mixins_modal__["a" /* modal */]],
   data: {
+    user: SITEDATA.user_data,
     errors: [],
     cart: {},
     checkout: {
@@ -28042,6 +28051,13 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       return shippingPrice;
     }
   }),
+  mounted: function mounted() {
+    this.checkout.first_name = this.user.first_name;
+    this.checkout.phone = this.user.phone;
+    this.checkout.city = this.user.city;
+    this.checkout.street = this.user.street;
+    this.checkout.house = this.user.house;
+  },
   methods: {
     addCart: function () {
       var _addCart = _asyncToGenerator(
@@ -70724,9 +70740,24 @@ var render = function() {
             _c("div", { staticClass: "control_indicator" })
           ]),
           _vm._v(" "),
-          _c("button", { staticClass: "acoount-submit" }, [
-            _vm._v("ЗАРЕГИСТРИРОВАТЬСЯ")
-          ])
+          _c(
+            "button",
+            {
+              staticClass: "acoount-submit state-button",
+              class: {
+                "state-button--pending":
+                  _vm.registration.submitStatus == "PENDING",
+                "state-button--success":
+                  _vm.registration.submitStatus == "SUCCESS",
+                "state-button--fail": _vm.registration.submitStatus == "ERROR"
+              }
+            },
+            [
+              _c("span", { staticClass: "state-button__text" }, [
+                _vm._v("ЗАРЕГИСТРИРОВАТЬСЯ")
+              ])
+            ]
+          )
         ])
       ])
     ]

@@ -18,6 +18,8 @@ function createNewUser($POST, $FILES){
     $first_name = sanitize_text_field( $_POST['first_name'] );
     $last_name = sanitize_text_field( $_POST['last_name'] );
     $phone = sanitize_text_field( $_POST['phone'] );
+    $notice_sms = sanitize_text_field( $_POST['notice_sms'] );
+    $notice_email = sanitize_text_field( $_POST['notice_email'] );
 
     $newUser = new customUser();
     $newUser->setUsername($username)
@@ -25,7 +27,9 @@ function createNewUser($POST, $FILES){
     ->setEmail($email)
     ->setFirstName($first_name)
     ->setLastName($last_name)
-    ->setPhone($phone);
+    ->setPhone($phone)
+    ->setNoticeSms($notice_sms)
+    ->setNoticeEmail($notice_email);
 
     return $newUser;
 }
@@ -83,7 +87,9 @@ function complete_registration($newUser) {
         update_usermeta($user, 'first_name', $newUser->first_name);
         update_usermeta($user, 'last_name', $newUser->last_name);
         update_usermeta($user, 'phone', $newUser->phone);
-        // update_usermeta($user, 'public', +filter_var($newUser->public, FILTER_VALIDATE_BOOLEAN));
+        update_usermeta($user, 'billing_mobile_phone', $newUser->phone);
+        update_usermeta($user, 'notice_sms', +filter_var($newUser->notice_sms, FILTER_VALIDATE_BOOLEAN));
+        update_usermeta($user, 'notice_email', +filter_var($newUser->notice_email, FILTER_VALIDATE_BOOLEAN));
 
         userLogin($newUser->username, $newUser->password);
         wp_new_user_notification( $user, null, 'both' );

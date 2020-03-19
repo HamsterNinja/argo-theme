@@ -189,6 +189,7 @@ const app = new Vue({
     delimiters: ["((", "))"],
     mixins: [modal],
     data: {
+        user: SITEDATA.user_data,
         errors: [],
         cart:{
  
@@ -252,6 +253,13 @@ const app = new Vue({
             let shippingPrice = 0;
             return shippingPrice;
         },
+    },
+    mounted(){
+        this.checkout.first_name = this.user.first_name;
+        this.checkout.phone = this.user.phone;
+        this.checkout.city = this.user.city;
+        this.checkout.street = this.user.street;
+        this.checkout.house = this.user.house;
     },
     methods: {
         async addCart(ID) {

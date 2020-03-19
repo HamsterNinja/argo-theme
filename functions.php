@@ -146,18 +146,30 @@ function add_scripts() {
         $user_last_name  = $user->get('last_name');
         $user_last_name = !empty($user_last_name) ? $user_last_name : '';
 
-        $user_city = get_field('city', 'user_'.$user_id);
+        $user_city = get_field('shipping_city', 'user_'.$user_id);
         $user_city = !empty($user_city) ? $user_city : '';
 
         $user_phone = get_field('phone', 'user_'.$user_id);
         $user_phone = !empty($user_phone) ? $user_phone : '';
 
+        $user_street = get_field('shipping_address_1', 'user_'.$user_id);
+        $user_street = !empty($user_street) ? $user_street : '';
+
+        $user_house = get_field('shipping_address_2', 'user_'.$user_id);
+        $user_house = !empty($user_house) ? $user_house : '';
+
+        $user_apartment = get_field('apartment', 'user_'.$user_id);
+        $user_apartment = !empty($user_apartment) ? $user_apartment : '';
+        
         $currentUser = new customUser();
         $currentUser->setUserID($user_id)
         ->setEmail($user_email)
         ->setFirstName($user_first_name)
         ->setLastName($user_last_name)
         ->setCity($user_city)
+        ->setStreet($user_street)
+        ->setHouse($user_house)
+        ->setApartment($user_apartment)
         ->setPhone($user_phone);
     }
 

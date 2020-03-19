@@ -4,13 +4,21 @@ class customUser{
     public $email;
     public $first_name;
     public $last_name;
+    public $patronym;
     public $country;
     public $city;
     public $address;
-    public $patronym;
+    public $street;
+    public $house;
     public $phone;
     public $username;
     public $password;
+    public $notice_sms;
+    public $notice_email;
+    public $apartment;
+    public $intercom;
+    public $porch;
+    public $floor;
 
     public function setUsername($username){
         $this->username = $username;
@@ -72,5 +80,44 @@ class customUser{
         return $this;
     }
 
+    public function setNoticeSms($notice_sms){
+        $this->notice_sms = $notice_sms;
+        return $this;
+    }
+
+    public function setNoticeEmail($notice_email){
+        $this->notice_email = $notice_email;
+        return $this;
+    }
+
+    public function setStreet($street){
+        $this->street = $street;
+        return $this;
+    }
+
+    public function setHouse($house){
+        $this->house = $house;
+        return $this;
+    }
+
+    public function setApartment($apartment){
+        $this->apartment = $apartment;
+        return $this;
+    }
+
+    public function setIntercom($intercom){
+        $this->intercom = $intercom;
+        return $this;
+    }
+
+    public function setPorch($porch){
+        $this->porch = $porch;
+        return $this;
+    }
+
+    public function setFloor($floor){
+        $this->floor = $floor;
+        return $this;
+    }
 }
 ?>
