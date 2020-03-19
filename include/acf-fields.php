@@ -83,6 +83,12 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'ok',
                 'type' => 'text'
             ),
+            array(
+                'key' => 'field_5c99f95645927_map_frame',
+                'label' => 'map_frame',
+                'name' => 'map_frame',
+                'type' => 'text'
+            ),
         ),
         'location' => array(
             array(

@@ -10,6 +10,9 @@ if (is_cart() || is_checkout() || is_account_page()) {
     if(is_lost_password_page()){
         array_unshift($templates, 'page.twig');
     }
+    if ( is_cart() &&  WC()->cart->get_cart_contents_count() == 0 ) {
+        array_unshift($templates, 'page.twig');
+    }
     Timber::render($templates, $context);
 }
 else{
