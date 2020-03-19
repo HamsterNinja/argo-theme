@@ -17,7 +17,9 @@
                     <td>№ {{order_item.number}}</td>
                     <td>{{order_item.total}}</td>
                     <td>{{order_item.status}}</td>
-                    <td><a href="{{order_item.url}}">Повторить заказ</a></td>
+                    <td>
+                        <a href="javascript:void(0);" class="ced_my_account_reorder" href="{{order_item.url}}" data-order_id="{{ order_item.id }}">Повторить заказ</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
@@ -43,7 +45,9 @@
                 </div>
                 <div class="history-content-item-operations">
                     <div class="history-content-item-name">Операции</div>
-                    <div class="history-content-item-value"><a href="{{order_item.url}}">Повторить заказ</a></div>
+                    <div class="history-content-item-value">
+                        <a href="javascript:void(0);" class="ced_my_account_reorder" href="{{order_item.url}}" data-order_id="{{ order_item.id }}">Повторить заказ</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}

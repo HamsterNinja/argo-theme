@@ -19,6 +19,7 @@ foreach ( $customer_orders as $customer_order ) {
     $order      = wc_get_order( $customer_order ); 
 	$item_count = $order->get_item_count();
 	$order_item = (object)[];
+	$order_item->id = $order->get_order_number();
 	$order_item->url = esc_url( $order->get_view_order_url() );
 	$order_item->number = $order->get_order_number();
 	$order_item->date = esc_html( wc_format_datetime( $order->get_date_created() ) );
