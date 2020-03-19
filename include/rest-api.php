@@ -35,6 +35,17 @@ function ajax_login(){
     $info['user_login'] = $_POST['username'];
     $info['user_password'] = $_POST['password'];
     $info['remember'] = true;
+
+    // $matchingUsers = get_users(array(
+    //     'meta_key'     => 'billing_phone',
+    //     'meta_value'   => $_POST['username'],
+    //     'meta_compare' => 'LIKE'
+    // ));
+
+    // if (is_array($matchingUsers)) {
+    //     $info['user_login'] = $matchingUsers[0]->user_login;
+    // }
+
     $user_signon = wp_signon( $info, false );
     if ( is_wp_error($user_signon) ){
         echo json_encode(

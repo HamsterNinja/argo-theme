@@ -77,7 +77,7 @@ function complete_registration($newUser) {
     if ( count( $reg_errors->get_error_messages() ) < 1 ) {
                 
         $userdata = array(
-            'user_login' => $newUser->username,
+            'user_login' => $newUser->email,
             'nickname' => $newUser->username,
             'user_pass' => $newUser->password,
             'user_email' => $newUser->email,
