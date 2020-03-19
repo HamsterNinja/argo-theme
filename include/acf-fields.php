@@ -85,7 +85,7 @@ if (function_exists('acf_add_local_field_group')):
             ),
             array(
                 'key' => 'field_5c99f95645927_map_frame',
-                'label' => 'map_frame',
+                'label' => 'Карта в доставке',
                 'name' => 'map_frame',
                 'type' => 'text'
             ),
