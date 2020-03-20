@@ -16,7 +16,15 @@
                 <a :href="site_url + '/my-account/lost-password/'" class="forgot-password">Забыли пароль?</a>
             </div>
             <div class="account-right-form notice">                                               
-                <button class="acoount-submit">Войти</button>
+                <button class="acoount-submit state-button"
+                :class="{ 
+                'state-button--pending': submitStatus == 'PENDING', 
+                'state-button--success': submitStatus == 'SUCCESS',
+                'state-button--fail': submitStatus == 'ERROR',
+			    }"
+                >
+                <span class="state-button__text">Войти</span>
+                </button>
             </div>
         </form>
     </div>
@@ -31,7 +39,9 @@ export default {
             username: '',
             password: '',
             security: SITEDATA.security,
-            errors: ''
+            errors: '',
+            submitted: false,
+            submitStatus: '', 
         };
     },
     computed: {
@@ -41,6 +51,7 @@ export default {
     },
     methods: {
         async submitLoginForm() {
+            this.submitStatus = 'PENDING'
             let formLogin = new FormData(); 
             formLogin.append("action", "ajaxlogin");
             formLogin.append("username", this.username);
@@ -55,9 +66,15 @@ export default {
             let jsonResponse = await response.json();
             if (jsonResponse.loggedin == false) {
                 this.errors = jsonResponse.message;
+                this.submitStatus = 'ERROR';
+                setTimeout(() => {this.submitStatus = ''}, 1000);
             }
             else{
-                document.location.reload();
+                console.log(jsonResponse.loggedin);
+                console.log(jsonResponse.loggedin === false);
+                this.submitStatus = 'SUCCESS';
+                setTimeout(() => {this.submitStatus = ''}, 1000);
+                setTimeout(() => { document.location.reload() }, 1200);
             }
         }
     }

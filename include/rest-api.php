@@ -36,29 +36,31 @@ function ajax_login(){
     $info['user_password'] = $_POST['password'];
     $info['remember'] = true;
 
-    // $matchingUsers = get_users(array(
-    //     'meta_key'     => 'billing_phone',
-    //     'meta_value'   => $_POST['username'],
-    //     'meta_compare' => 'LIKE'
-    // ));
+    $matchingUsers = get_users(array(
+        'meta_key'     => 'billing_mobile_phone',
+        'meta_value'   => $_POST['username'],
+        'meta_compare' => 'LIKE'
+    ));
 
-    // if (is_array($matchingUsers)) {
-    //     $info['user_login'] = $matchingUsers[0]->user_login;
-    // }
-
+    if(is_array($matchingUsers) && !empty($matchingUsers)) {
+        $info['user_login'] = $matchingUsers[0]->user_login;
+    }
+    
     $user_signon = wp_signon( $info, false );
     if ( is_wp_error($user_signon) ){
         echo json_encode(
             [
-                'loggedin'=>false,
-                'message'=>__('Неверное имя пользователя или пароль')
+                'loggedin' => false,
+                'user_login' => $info['user_login'],
+                'message' => __('Неверное имя пользователя или пароль')
             ]
         );
     } else {
         echo json_encode(
             [
-                'loggedin'=> true,
-                'message'=>__('Авторизация успешна')
+                'loggedin' => true,
+                'user_login' => $info['user_login'],
+                'message' => __('Авторизация успешна')
             ]
         );
     }

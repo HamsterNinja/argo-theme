@@ -14668,6 +14668,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
@@ -14676,7 +14684,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       username: '',
       password: '',
       security: SITEDATA.security,
-      errors: ''
+      errors: '',
+      submitted: false,
+      submitStatus: ''
     };
   },
   computed: {
@@ -14689,11 +14699,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _submitLoginForm = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee() {
+        var _this = this;
+
         var formLogin, fetchData, response, jsonResponse;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.submitStatus = 'PENDING';
                 formLogin = new FormData();
                 formLogin.append("action", "ajaxlogin");
                 formLogin.append("username", this.username);
@@ -14703,24 +14716,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   method: "POST",
                   body: formLogin
                 };
-                _context.next = 8;
+                _context.next = 9;
                 return fetch(SITEDATA.ajax_url, fetchData);
 
-              case 8:
+              case 9:
                 response = _context.sent;
-                _context.next = 11;
+                _context.next = 12;
                 return response.json();
 
-              case 11:
+              case 12:
                 jsonResponse = _context.sent;
 
                 if (jsonResponse.loggedin == false) {
                   this.errors = jsonResponse.message;
+                  this.submitStatus = 'ERROR';
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
                 } else {
-                  document.location.reload();
+                  console.log(jsonResponse.loggedin);
+                  console.log(jsonResponse.loggedin === false);
+                  this.submitStatus = 'SUCCESS';
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 1000);
+                  setTimeout(function () {
+                    document.location.reload();
+                  }, 1200);
                 }
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
@@ -72261,21 +72286,29 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "account-right-form notice" }, [
+          _c(
+            "button",
+            {
+              staticClass: "acoount-submit state-button",
+              class: {
+                "state-button--pending": _vm.submitStatus == "PENDING",
+                "state-button--success": _vm.submitStatus == "SUCCESS",
+                "state-button--fail": _vm.submitStatus == "ERROR"
+              }
+            },
+            [
+              _c("span", { staticClass: "state-button__text" }, [
+                _vm._v("Войти")
+              ])
+            ]
+          )
+        ])
       ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "account-right-form notice" }, [
-      _c("button", { staticClass: "acoount-submit" }, [_vm._v("Войти")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
