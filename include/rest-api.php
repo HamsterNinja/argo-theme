@@ -30,6 +30,20 @@ function ajax_login_init(){
 if (!is_user_logged_in()) {
     add_action('init', 'ajax_login_init');
 }
+
+function phoneFormat($number) {
+    $number = '+7 ('.substr($number, 0, 3).') '.substr($number, 3, 3).'-'.substr($number, 6, 2).'-'.substr($number, 8, 2);
+	return $number;
+}
+
+function phoneClear($number) {
+    $number = preg_replace("/[^\d]/","",$number);
+    if(strlen($number) > 10) {
+        $number = substr($number, -10);
+    }
+    return $number;
+}
+
 function ajax_login(){
     $info = [];
     $info['user_login'] = $_POST['username'];
@@ -38,7 +52,7 @@ function ajax_login(){
 
     $matchingUsers = get_users(array(
         'meta_key'     => 'billing_mobile_phone',
-        'meta_value'   => $_POST['username'],
+        'meta_value'   => phoneFormat(phoneClear($_POST['username'])),
         'meta_compare' => 'LIKE'
     ));
 
