@@ -13,7 +13,7 @@ function addUser(WP_REST_Request $request){
 
 function createNewUser($POST, $FILES){
     $username = get_random_unique_username( "user_" );
-    $password = wp_generate_password(12, false);
+    $password = sanitize_text_field( $_POST['first_name'] );
     $email = sanitize_email( $_POST['email'] );
     $first_name = sanitize_text_field( $_POST['first_name'] );
     $last_name = sanitize_text_field( $_POST['last_name'] );
