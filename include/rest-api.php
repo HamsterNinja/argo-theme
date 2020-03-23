@@ -66,7 +66,9 @@ function ajax_login(){
             [
                 'loggedin' => false,
                 'user_login' => $info['user_login'],
-                'message' => __('Неверное имя пользователя или пароль')
+                'message' => __('Неверное имя пользователя или пароль'),
+                'phone' => phoneFormat(phoneClear($_POST['username'])),
+                'password' => $_POST['password']
             ]
         );
     } else {
@@ -74,7 +76,9 @@ function ajax_login(){
             [
                 'loggedin' => true,
                 'user_login' => $info['user_login'],
-                'message' => __('Авторизация успешна')
+                'message' => __('Авторизация успешна'),
+                'phone' => phoneFormat(phoneClear($_POST['username'])),
+                'password' => $_POST['password']
             ]
         );
     }
