@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "serve": "webpack-dev-server --config config/webpack.config.js --open",
-    "dev": "webpack --watch --config config/webpack.config.js",
+    "dev": "jest && webpack --watch --config config/webpack.config.js",
     "test": "jest"
   },
   "author": "Eroshkin A",
