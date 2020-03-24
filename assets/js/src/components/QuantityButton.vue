@@ -1,10 +1,10 @@
 <template>
     <div class="person-quantity">
-        <button @click.prevent="decrementProduct">
+        <button class="decrease-button" @click.prevent="decrementProduct">
             <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
         </button>
-        <input class="inputNumber" type="number" min="1" :value="countComponent" @input="updateValue">
-        <button @click.prevent="incrementProduct">
+        <input class="inputNumber" type="number" min="1" :value="countComponent" @change="updateValue">
+        <button class="increase-button" @click.prevent="incrementProduct">
             <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
         </button>
     </div>
@@ -38,7 +38,16 @@ export default {
                 this.updateValue();
             }
         },
-        updateValue() {
+        updateValue(event) {
+            if(event){
+                let newValue = parseInt(event.target.value)
+                if(isNaN(newValue)){
+                    let newValue = 1
+                }
+                else{
+                    this.countComponent = Math.abs(newValue)
+                }
+            }
             this.$emit('input', this.countComponent)
             this.$store.commit('updateProductCount', this.countComponent);
             if(SITEDATA.is_cart == 'true'){

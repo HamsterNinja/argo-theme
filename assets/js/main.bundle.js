@@ -27592,7 +27592,17 @@ module.exports = function(module) {
         this.updateValue();
       }
     },
-    updateValue: function updateValue() {
+    updateValue: function updateValue(event) {
+      if (event) {
+        var newValue = parseInt(event.target.value);
+
+        if (isNaN(newValue)) {
+          var _newValue = 1;
+        } else {
+          this.countComponent = Math.abs(newValue);
+        }
+      }
+
       this.$emit('input', this.countComponent);
       this.$store.commit('updateProductCount', this.countComponent);
 
@@ -90506,6 +90516,7 @@ var render = function() {
     _c(
       "button",
       {
+        staticClass: "decrease-button",
         on: {
           click: function($event) {
             $event.preventDefault()
@@ -90533,12 +90544,13 @@ var render = function() {
       staticClass: "inputNumber",
       attrs: { type: "number", min: "1" },
       domProps: { value: _vm.countComponent },
-      on: { input: _vm.updateValue }
+      on: { change: _vm.updateValue }
     }),
     _vm._v(" "),
     _c(
       "button",
       {
+        staticClass: "increase-button",
         on: {
           click: function($event) {
             $event.preventDefault()
