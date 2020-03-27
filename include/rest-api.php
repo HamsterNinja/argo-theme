@@ -312,7 +312,24 @@ function ajax_create_order() {
     
     if (!$user = get_user_by('login', $email)) $user = wp_create_user( $email, $default_password, $email );
 
-    $order = wc_create_order(['customer_id' => $user->id]);
+    $order = wc_create_order(
+        [
+            'customer_id' => $user->id,
+            'first_name' => $extra_first_name,
+            'phone' => $extra_phone,
+            'city' => $extra_city,
+            'street' => $extra_street,
+            'house' => $extra_house,
+            'apartment' => $extra_apartment,
+            'intercom' => $extra_intercom,
+            'porch' => $extra_porch,
+            'floor' => $extra_floor,
+            'comment' => $extra_comment,
+            'payment' => $extra_payment,
+        ]
+    );
+
+    update_post_meta($order->id, '_customer_user', get_current_user_id() );
     
 	// Информация о покупателе
 	$order->set_address( $address, 'billing' );
