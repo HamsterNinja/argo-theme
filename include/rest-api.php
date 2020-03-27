@@ -329,8 +329,19 @@ function ajax_create_order() {
         ]
     );
 
-    update_post_meta($order->id, '_customer_user', get_current_user_id() );
-    
+    $order->update_meta_data( 'first_name', $extra_first_name );
+    $order->update_meta_data( 'phone', $extra_phone );
+    $order->update_meta_data( 'city', $extra_city );
+    $order->update_meta_data( 'street', $extra_street );
+    $order->update_meta_data( 'house', $extra_house );
+    $order->update_meta_data( 'apartment', $extra_apartment );
+    $order->update_meta_data( 'intercom', $extra_intercom );
+    $order->update_meta_data( 'porch', $extra_porch );
+    $order->update_meta_data( 'floor', $extra_floor );
+    $order->update_meta_data( 'comment', $extra_comment );
+    $order->update_meta_data( 'payment', $extra_payment );
+    $order->save();
+
 	// Информация о покупателе
 	$order->set_address( $address, 'billing' );
     $order->set_address( $address, 'shipping' );

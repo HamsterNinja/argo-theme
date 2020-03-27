@@ -24,6 +24,9 @@ $address    = $order->get_formatted_billing_address();
 $shipping   = $order->get_formatted_shipping_address();
 $order_data = $order->get_data(); 
 
+$order_id = $order->get_id();
+$order_meta = get_post_meta($order_id);
+
 ?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
 	<tr>
 		<td style="text-align:<?php echo esc_attr( $text_align ); ?>; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; border:0; padding:12px;" valign="top" width="50%">
@@ -32,7 +35,7 @@ $order_data = $order->get_data();
 				<p style="font-weight: bold; margin: 10px 0 5px;">Имя:</p>
 				<?php echo esc_html( $order->get_billing_first_name() ); ?> <?php echo esc_html( $order->get_billing_last_name() ); ?>
 				<p style="font-weight: bold; margin: 10px 0 5px;">Адрес:</p>
-				<?php echo json_encode($order_data); ?>
+				<?php echo json_encode($order_meta); ?>
 
 				<p style="font-weight: bold; margin: 10px 0 5px;">Контактные данные:</p>
 			
