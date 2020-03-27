@@ -272,6 +272,10 @@ if ( class_exists( 'Timber' ) ){
                 'posts_per_page' => 3,
             ];
             $context['activities'] = Timber::get_posts( $args_activities );
+
+            $context['worktime_delivery'] = get_field('worktime_delivery', 'options');
+            $context['worktime_restaurant'] = get_field('worktime_restaurant', 'options');
+            $context['address'] = get_field('address', 'options');
                 
             return $context;
         }

@@ -279,7 +279,19 @@ function ajax_create_order() {
     $shipping_city = esc_attr( trim( $_REQUEST['city'] ) );
     $shipping_street = esc_attr( trim( $_REQUEST['street'] ) );
     $billing_house = esc_attr( trim( $_REQUEST['house'] ) );
-	  
+
+    $extra_first_name = sanitize_text_field( $_POST['first_name']);
+    $extra_phone = sanitize_text_field( $_POST['phone']);
+    $extra_city = sanitize_text_field( $_POST['city']);
+    $extra_street = sanitize_text_field( $_POST['street']);
+    $extra_house = sanitize_text_field( $_POST['house']);
+    $extra_apartment = sanitize_text_field( $_POST['apartment']);
+    $extra_intercom = sanitize_text_field( $_POST['intercom']);
+    $extra_porch = sanitize_text_field( $_POST['porch']);
+    $extra_floor = sanitize_text_field( $_POST['floor']);
+    $extra_comment = sanitize_text_field( $_POST['comment']);
+    $extra_payment = sanitize_text_field( $_POST['payment']);
+      
 	$address = [
 		'first_name' => $name,
 		'billing_email' => $billing_email,

@@ -84,6 +84,24 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'text'
             ),
             array(
+                'key' => 'field_5c99f95645927_worktime_restaurant',
+                'label' => 'Время работы ресторана',
+                'name' => 'worktime_restaurant',
+                'type' => 'text'
+            ),
+            array(
+                'key' => 'field_5c99f95645927_worktime_delivery',
+                'label' => 'Время работы доставки',
+                'name' => 'worktime_delivery',
+                'type' => 'text'
+            ),
+            array(
+                'key' => 'field_5c99f95645927_address',
+                'label' => 'Адрес',
+                'name' => 'address',
+                'type' => 'text'
+            ),
+            array(
                 'key' => 'field_5c99f95645927_map_frame',
                 'label' => 'Карта в доставке',
                 'name' => 'map_frame',
