@@ -169,3 +169,181 @@ function my_backdoor() {
 		}
 	}
 }
+
+//Дополнительные параметры товара
+function save_extra_options( $cart_item_data, $product_id ) {
+     
+    if(isset($_POST['first_name'])){
+        $cart_item_data["first_name"] = $_POST['first_name'];     
+    }
+
+    if(isset($_POST['phone'])){
+        $cart_item_data["phone"] = $_POST['phone'];     
+    }
+
+    if(isset($_POST['email'])){
+        $cart_item_data["email"] = $_POST['email'];     
+    }
+
+    if(isset($_POST['address'])){
+        $cart_item_data["address"] = $_POST['address'];     
+    }
+
+    if(isset($_POST['city'])){
+        $cart_item_data["city"] = $_POST['city'];     
+    }
+
+    if(isset($_POST['street'])){
+        $cart_item_data["street"] = $_POST['street'];     
+    }
+
+    if(isset($_POST['house'])){
+        $cart_item_data["house"] = $_POST['house'];     
+    }
+
+    if(isset($_POST['apartment'])){
+        $cart_item_data["apartment"] = $_POST['apartment'];     
+    }
+
+    if(isset($_POST['intercom'])){
+        $cart_item_data["intercom"] = $_POST['intercom'];     
+    }
+
+    if(isset($_POST['porch'])){
+        $cart_item_data["porch"] = $_POST['porch'];     
+    }
+
+    if(isset($_POST['floor'])){
+        $cart_item_data["floor"] = $_POST['floor'];     
+    }
+
+    if(isset($_POST['comment'])){
+        $cart_item_data["comment"] = $_POST['comment'];     
+    }
+
+    if(isset($_POST['payment'])){
+        $cart_item_data["payment"] = $_POST['payment'];     
+    }
+
+    return $cart_item_data;     
+}
+add_filter( 'woocommerce_add_cart_item_data', 'save_extra_options', 99, 2 );
+
+function add_info_to_order_items( $item, $cart_item_key, $values, $order ) {
+    $object = json_decode(json_encode($values), FALSE);
+
+    if ( !empty( $object->{'first_name'} ) ) {
+        $item->add_meta_data( 'Имя', $object->{'first_name'} );
+    }
+
+    if ( !empty( $object->{'phone'} ) ) {
+        $item->add_meta_data( 'Телефон', $object->{'phone'} );
+    }
+
+    if ( !empty( $object->{'city'} ) ) {
+        $item->add_meta_data( 'Город', $object->{'city'} );
+    }
+
+    if ( !empty( $object->{'street'} ) ) {
+        $item->add_meta_data( 'Улица', $object->{'street'} );
+    }
+
+    if ( !empty( $object->{'house'} ) ) {
+        $item->add_meta_data( 'Дом', $object->{'house'} );
+    }
+
+    if ( !empty( $object->{'apartment'} ) ) {
+        $item->add_meta_data( 'Кв./офис', $object->{'apartment'} );
+    }
+ 
+    if ( !empty( $object->{'intercom'} ) ) {
+        $item->add_meta_data( 'Домофон', $object->{'intercom'} );
+    }
+
+    if ( !empty( $object->{'porch'} ) ) {
+        $item->add_meta_data( 'Подъезд', $object->{'porch'} );
+    }
+    
+    if ( !empty( $object->{'floor'} ) ) {
+        $item->add_meta_data( 'Этаж', $object->{'floor'} );
+    }
+
+    if ( !empty( $object->{'comment'} ) ) {
+        $item->add_meta_data( 'Комментарий', $object->{'comment'} );
+    }
+
+    if ( !empty( $object->{'payment'} ) ) {
+        $item->add_meta_data( 'Оплата', $object->{'payment'} );
+    }
+}
+
+add_action( 'woocommerce_checkout_create_order_line_item', 'add_info_to_order_items', 10, 4 );
+
+// Функция для изменения имени отправителя
+function devise_sender_name( $original_email_from ) {
+	return 'Argo';
+}
+add_filter( 'wp_mail_from_name', 'devise_sender_name' );
+
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta($order){
+    echo '<p><strong>Имя:</strong> <br/>' . get_post_meta( $order->get_id(), 'first_name', true ) . '</p>';
+    echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
+    echo '<p><strong>Город:</strong> <br/>' . get_post_meta( $order->get_id(), 'city', true ) . '</p>';
+    echo '<p><strong>Улица:</strong> <br/>' . get_post_meta( $order->get_id(), 'street', true ) . '</p>';
+    echo '<p><strong>Дом:</strong> <br/>' . get_post_meta( $order->get_id(), 'house', true ) . '</p>';
+    echo '<p><strong>Кв./офис:</strong> <br/>' . get_post_meta( $order->get_id(), 'apartment', true ) . '</p>';
+    echo '<p><strong>Домофон:</strong> <br/>' . get_post_meta( $order->get_id(), 'intercom', true ) . '</p>';
+    echo '<p><strong>Подъезд:</strong> <br/>' . get_post_meta( $order->get_id(), 'porch', true ) . '</p>';
+    echo '<p><strong>Этаж:</strong> <br/>' . get_post_meta( $order->get_id(), 'floor', true ) . '</p>';
+    echo '<p><strong>Комментарий:</strong> <br/>' . get_post_meta( $order->get_id(), 'comment', true ) . '</p>';
+    echo '<p><strong>Оплата:</strong> <br/>' . get_post_meta( $order->get_id(), 'payment', true ) . '</p>';
+}
+
+add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+    if ( ! empty( $_POST['first_name'] ) ) {
+        update_post_meta( $order_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
+    }
+
+    if ( ! empty( $_POST['phone'] ) ) {
+        update_post_meta( $order_id, 'phone', sanitize_text_field( $_POST['phone'] ) );
+    }
+
+    if ( ! empty( $_POST['city'] ) ) {
+        update_post_meta( $order_id, 'city', sanitize_text_field( $_POST['city'] ) );
+    }
+
+    if ( ! empty( $_POST['street'] ) ) {
+        update_post_meta( $order_id, 'street', sanitize_text_field( $_POST['street'] ) );
+    }
+
+    if ( ! empty( $_POST['house'] ) ) {
+        update_post_meta( $order_id, 'house', sanitize_text_field( $_POST['house'] ) );
+    }
+
+    if ( ! empty( $_POST['apartment'] ) ) {
+        update_post_meta( $order_id, 'apartment', sanitize_text_field( $_POST['apartment'] ) );
+    }
+
+    if ( ! empty( $_POST['intercom'] ) ) {
+        update_post_meta( $order_id, 'intercom', sanitize_text_field( $_POST['intercom'] ) );
+    }
+
+    if ( ! empty( $_POST['porch'] ) ) {
+        update_post_meta( $order_id, 'porch', sanitize_text_field( $_POST['porch'] ) );
+    }
+
+    if ( ! empty( $_POST['floor'] ) ) {
+        update_post_meta( $order_id, 'floor', sanitize_text_field( $_POST['floor'] ) );
+    }
+
+    if ( ! empty( $_POST['comment'] ) ) {
+        update_post_meta( $order_id, 'comment', sanitize_text_field( $_POST['comment'] ) );
+    }
+
+    if ( ! empty( $_POST['payment'] ) ) {
+        update_post_meta( $order_id, 'payment', sanitize_text_field( $_POST['payment'] ) );
+    }
+}

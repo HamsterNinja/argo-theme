@@ -70682,7 +70682,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "account-right-form notice" }, [
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v("\r\n                SMS уведомление\r\n                "),
+            _vm._v("\n                SMS уведомление\n                "),
             _c("input", {
               directives: [
                 {
@@ -70728,9 +70728,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v(
-              "\r\n                E-mail уведомление\r\n                "
-            ),
+            _vm._v("\n                E-mail уведомление\n                "),
             _c("input", {
               directives: [
                 {
