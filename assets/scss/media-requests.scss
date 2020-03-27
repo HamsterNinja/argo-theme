@@ -362,10 +362,7 @@
     .main-header-contacts {
         position: relative;
         left: auto;
-    }
-
-    .main-header-bottom .main-header-phone:last-child {
-        display: none;
+        width: calc(100% - 45px);
     }
 
     .history-content-inner.desktop {
