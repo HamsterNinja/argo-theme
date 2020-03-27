@@ -35,7 +35,6 @@ $order_meta = get_post_meta($order_id);
 				<p style="font-weight: bold; margin: 10px 0 5px;">Данные заказа:</p>
 				<?
 				$meta_data = $order->get_meta_data();
-				echo '<p><strong>Имя:</strong> <br/>' . $meta_data['first_name'] . '</p>';
 				echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
 				echo '<p><strong>Город:</strong> <br/>' . get_post_meta( $order->get_id(), 'city', true ) . '</p>';
 				echo '<p><strong>Улица:</strong> <br/>' . get_post_meta( $order->get_id(), 'street', true ) . '</p>';
