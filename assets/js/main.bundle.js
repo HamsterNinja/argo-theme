@@ -27574,6 +27574,10 @@ module.exports = function(module) {
     count: {
       type: Number | String,
       "default": 1
+    },
+    maxCount: {
+      type: [Number, String],
+      "default": 100
     }
   },
   data: function data() {
@@ -27583,7 +27587,10 @@ module.exports = function(module) {
   },
   methods: {
     incrementProduct: function incrementProduct() {
-      this.countComponent++;
+      if (parseInt(this.maxCount) > this.countComponent) {
+        this.countComponent++;
+      }
+
       this.updateValue();
     },
     decrementProduct: function decrementProduct() {
@@ -27599,7 +27606,11 @@ module.exports = function(module) {
         if (isNaN(newValue)) {
           var _newValue = 1;
         } else {
-          this.countComponent = Math.abs(newValue);
+          if (parseInt(this.maxCount) > Math.abs(newValue)) {
+            this.countComponent = Math.abs(newValue);
+          } else {
+            this.countComponent = parseInt(this.maxCount);
+          }
         }
       }
 
@@ -28227,7 +28238,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }, 4000);
 
                 if (this.errors.length) {
-                  _context2.next = 29;
+                  _context2.next = 30;
                   break;
                 }
 
@@ -28246,19 +28257,20 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 bodyFormData.append('floor', this.checkout.floor);
                 bodyFormData.append('comment', this.checkout.comment);
                 bodyFormData.append('payment', this.checkout.payment);
+                bodyFormData.append('delivery', this.delivery);
                 fetchData = {
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 24;
+                _context2.next = 25;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 24:
+              case 25:
                 response = _context2.sent;
-                _context2.next = 27;
+                _context2.next = 28;
                 return response.json();
 
-              case 27:
+              case 28:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
@@ -28270,7 +28282,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 29:
+              case 30:
               case "end":
                 return _context2.stop();
             }
@@ -72722,6 +72734,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("quantity-button", {
+                    attrs: { "max-count": "6" },
                     model: {
                       value: _vm.guests,
                       callback: function($$v) {
@@ -90546,10 +90559,26 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.countComponent,
+          expression: "countComponent"
+        }
+      ],
       staticClass: "inputNumber",
       attrs: { type: "number", min: "1" },
       domProps: { value: _vm.countComponent },
-      on: { change: _vm.updateValue }
+      on: {
+        change: _vm.updateValue,
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.countComponent = $event.target.value
+        }
+      }
     }),
     _vm._v(" "),
     _c(

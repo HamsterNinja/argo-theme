@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="container">
             <div class="cart-steps">
-                <div class="cart-step">Корзина</div>
+                <div class="cart-step"><a href="{{ site.link }}/cart">Корзина</a></div>
                 <span class="next-step"><img src="{{ site.theme.link }}/assets/images/arrow-r.svg" alt=""></span>
                 <div class="cart-step active">Оформление заказа</div>
                 <span class="next-step"><img src="{{ site.theme.link }}/assets/images/arrow-r.svg" alt=""></span>
@@ -17,7 +17,7 @@
                 <form action="">
                     <div class="checkout-form-content">
                         <label for="">
-                            <p class="checkout-label">Имя</p>
+                            <p class="checkout-label">Имя *</p>
                             <input name="name" type="text" v-model="checkout.first_name">
                         </label>
 

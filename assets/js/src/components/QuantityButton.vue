@@ -3,7 +3,7 @@
         <button class="decrease-button" @click.prevent="decrementProduct">
             <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
         </button>
-        <input class="inputNumber" type="number" min="1" :value="countComponent" @change="updateValue">
+        <input class="inputNumber" type="number" min="1" v-model="countComponent" @change="updateValue">
         <button class="increase-button" @click.prevent="incrementProduct">
             <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
         </button>
@@ -21,6 +21,10 @@ export default {
             type: Number | String,
             default: 1
         },
+        maxCount: {
+            type: [Number, String],
+            default: 100
+        }
     }, 
     data() {
         return {
@@ -29,7 +33,9 @@ export default {
     },
     methods: {
         incrementProduct() {
-            this.countComponent++;
+            if (parseInt(this.maxCount) > this.countComponent) {
+                this.countComponent++;
+            }
             this.updateValue();
         },
         decrementProduct() {
@@ -45,7 +51,12 @@ export default {
                     let newValue = 1
                 }
                 else{
-                    this.countComponent = Math.abs(newValue)
+                    if(parseInt(this.maxCount) > Math.abs(newValue)){
+                        this.countComponent = Math.abs(newValue)
+                    }
+                    else{
+                        this.countComponent = parseInt(this.maxCount)
+                    }
                 }
             }
             this.$emit('input', this.countComponent)

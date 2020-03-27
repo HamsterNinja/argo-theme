@@ -24,7 +24,7 @@
                         </div>
                         <div class="reservation-form-column">
                             <div class="reservation-form-column-name">Количество гостей</div>
-                            <quantity-button v-model="guests"/>
+                            <quantity-button max-count="6" v-model="guests"/>
                         </div>
                     </div>
                     <div class="reservation-form-row">

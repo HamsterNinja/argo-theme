@@ -291,6 +291,7 @@ function ajax_create_order() {
     $extra_floor = esc_attr( $_REQUEST['floor']);
     $extra_comment = esc_attr( $_REQUEST['comment']);
     $extra_payment = esc_attr( $_REQUEST['payment']);
+    $extra_delivery = esc_attr( $_REQUEST['delivery']);
       
 	$address = [
 		'first_name' => $name,
@@ -340,6 +341,7 @@ function ajax_create_order() {
     $order->update_meta_data( 'floor', $extra_floor );
     $order->update_meta_data( 'comment', $extra_comment );
     $order->update_meta_data( 'payment', $extra_payment );
+    $order->update_meta_data( 'delivery', $extra_delivery );
     $order->save();
 
 	// Информация о покупателе

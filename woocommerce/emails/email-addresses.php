@@ -35,6 +35,8 @@ $order_meta = get_post_meta($order_id);
 				<p style="font-weight: bold; margin: 10px 0 5px;">Данные заказа:</p>
 				<?
 				$meta_data = $order->get_meta_data();
+				$delivery_method = get_post_meta( $order->get_id(), 'delivery', true );
+    			$delivery_method = $delivery_method == "courier" ? 'Курьер' : 'Самовывоз';
 				echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
 				echo '<p><strong>Город:</strong> <br/>' . get_post_meta( $order->get_id(), 'city', true ) . '</p>';
 				echo '<p><strong>Улица:</strong> <br/>' . get_post_meta( $order->get_id(), 'street', true ) . '</p>';
@@ -44,6 +46,7 @@ $order_meta = get_post_meta($order_id);
 				echo '<p><strong>Подъезд:</strong> <br/>' . get_post_meta( $order->get_id(), 'porch', true ) . '</p>';
 				echo '<p><strong>Этаж:</strong> <br/>' . get_post_meta( $order->get_id(), 'floor', true ) . '</p>';
 				echo '<p><strong>Комментарий:</strong> <br/>' . get_post_meta( $order->get_id(), 'comment', true ) . '</p>';
+				echo '<p><strong>Доставка:</strong> <br/>' . $delivery_method . '</p>';
 				?>
 			</address>
 		</td>

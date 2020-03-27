@@ -375,6 +375,7 @@ const app = new Vue({
                 bodyFormData.append('floor', this.checkout.floor);
                 bodyFormData.append('comment', this.checkout.comment);
                 bodyFormData.append('payment', this.checkout.payment);
+                bodyFormData.append('delivery', this.delivery);
                           
                 let fetchData = {
                     method: "POST",

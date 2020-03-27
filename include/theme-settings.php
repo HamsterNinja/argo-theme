@@ -289,6 +289,8 @@ add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_che
 
 function my_custom_checkout_field_display_admin_order_meta($order){
     $meta_data = $order->get_meta_data();
+    $delivery_method = get_post_meta( $order->get_id(), 'delivery', true );
+    $delivery_method = $delivery_method == "courier" ? 'Курьер' : 'Самовывоз';
 
     echo '<p><strong>Имя:</strong> <br/>' . $meta_data['first_name'] . '</p>';
     echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
@@ -300,6 +302,7 @@ function my_custom_checkout_field_display_admin_order_meta($order){
     echo '<p><strong>Подъезд:</strong> <br/>' . get_post_meta( $order->get_id(), 'porch', true ) . '</p>';
     echo '<p><strong>Этаж:</strong> <br/>' . get_post_meta( $order->get_id(), 'floor', true ) . '</p>';
     echo '<p><strong>Комментарий:</strong> <br/>' . get_post_meta( $order->get_id(), 'comment', true ) . '</p>';
+    echo '<p><strong>Доставка:</strong> <br/>' . $delivery_method . '</p>';
 }
 
 add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
