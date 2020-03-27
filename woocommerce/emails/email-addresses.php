@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $text_align = is_rtl() ? 'right' : 'left';
 $address    = $order->get_formatted_billing_address();
 $shipping   = $order->get_formatted_shipping_address();
+$order_data = $order->get_data(); 
 
 ?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
 	<tr>
@@ -31,19 +32,10 @@ $shipping   = $order->get_formatted_shipping_address();
 				<p style="font-weight: bold; margin: 10px 0 5px;">Имя:</p>
 				<?php echo esc_html( $order->get_billing_first_name() ); ?> <?php echo esc_html( $order->get_billing_last_name() ); ?>
 				<p style="font-weight: bold; margin: 10px 0 5px;">Адрес:</p>
-				<?php echo esc_html( $order->get_billing_country() ); ?>,
-				<?php echo esc_html( $order->get_shipping_postcode() ); ?>,
-				<?php echo esc_html( $order->get_shipping_state() ); ?>,
-				<?php echo esc_html( $order->get_billing_city() ); ?>,
-				<?php echo esc_html( $order->get_billing_address_1() ); ?>
+				<?php echo json_encode($order_data); ?>
 
 				<p style="font-weight: bold; margin: 10px 0 5px;">Контактные данные:</p>
-				<?php if ( $order->get_billing_phone() ) : ?>
-					<?php echo esc_html( $order->get_billing_phone() ); ?>
-				<?php endif; ?>
-				<?php if ( $order->get_billing_email() ) : ?>
-					<br/><?php echo esc_html( $order->get_billing_email() ); ?>
-				<?php endif; ?>
+			
 			</address>
 		</td>
 		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && $shipping ) : ?>
