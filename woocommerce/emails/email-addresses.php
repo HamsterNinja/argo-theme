@@ -22,10 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $text_align = is_rtl() ? 'right' : 'left';
 $address    = $order->get_formatted_billing_address();
 $shipping   = $order->get_formatted_shipping_address();
-$order_data = $order->get_data(); 
-
 $order_id = $order->get_id();
-$order_meta = get_post_meta($order_id);
+$order_meta = get_post_meta($order_id); 
 
 ?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
 	<tr>
