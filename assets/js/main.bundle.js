@@ -28227,31 +28227,38 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }, 4000);
 
                 if (this.errors.length) {
-                  _context2.next = 22;
+                  _context2.next = 29;
                   break;
                 }
 
                 bodyFormData = new FormData();
                 bodyFormData.append('payment_method', this.checkout.payment);
-                bodyFormData.append('billing_first_name', this.checkout.first_name);
-                bodyFormData.append('billing_email', this.checkout.email);
-                bodyFormData.append('billing_phone', this.checkout.phone);
-                bodyFormData.append('billing_city', this.checkout.city);
-                bodyFormData.append('billing_street', this.checkout.street);
-                bodyFormData.append('billing_house', this.checkout.house);
+                bodyFormData.append('first_name', this.checkout.first_name);
+                bodyFormData.append('email', this.checkout.email);
+                bodyFormData.append('phone', this.checkout.phone);
+                bodyFormData.append('address', this.checkout.address);
+                bodyFormData.append('city', this.checkout.city);
+                bodyFormData.append('street', this.checkout.street);
+                bodyFormData.append('house', this.checkout.house);
+                bodyFormData.append('apartment', this.checkout.apartment);
+                bodyFormData.append('intercom', this.checkout.intercom);
+                bodyFormData.append('porch', this.checkout.porch);
+                bodyFormData.append('floor', this.checkout.floor);
+                bodyFormData.append('comment', this.checkout.comment);
+                bodyFormData.append('payment', this.checkout.payment);
                 fetchData = {
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 17;
+                _context2.next = 24;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 17:
+              case 24:
                 response = _context2.sent;
-                _context2.next = 20;
+                _context2.next = 27;
                 return response.json();
 
-              case 20:
+              case 27:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
@@ -28263,7 +28270,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 22:
+              case 29:
               case "end":
                 return _context2.stop();
             }

@@ -32,11 +32,20 @@ $order_meta = get_post_meta($order_id);
 			<address class="address">
 				<p style="font-weight: bold; margin: 10px 0 5px;">Имя:</p>
 				<?php echo esc_html( $order->get_billing_first_name() ); ?> <?php echo esc_html( $order->get_billing_last_name() ); ?>
-				<p style="font-weight: bold; margin: 10px 0 5px;">Адрес:</p>
-				<?php echo json_encode($order_meta); ?>
-
-				<p style="font-weight: bold; margin: 10px 0 5px;">Контактные данные:</p>
-			
+				<p style="font-weight: bold; margin: 10px 0 5px;">Данные заказа:</p>
+				<?
+				$meta_data = $order->get_meta_data();
+				echo '<p><strong>Имя:</strong> <br/>' . $meta_data['first_name'] . '</p>';
+				echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
+				echo '<p><strong>Город:</strong> <br/>' . get_post_meta( $order->get_id(), 'city', true ) . '</p>';
+				echo '<p><strong>Улица:</strong> <br/>' . get_post_meta( $order->get_id(), 'street', true ) . '</p>';
+				echo '<p><strong>Дом:</strong> <br/>' . get_post_meta( $order->get_id(), 'house', true ) . '</p>';
+				echo '<p><strong>Кв./офис:</strong> <br/>' . get_post_meta( $order->get_id(), 'apartment', true ) . '</p>';
+				echo '<p><strong>Домофон:</strong> <br/>' . get_post_meta( $order->get_id(), 'intercom', true ) . '</p>';
+				echo '<p><strong>Подъезд:</strong> <br/>' . get_post_meta( $order->get_id(), 'porch', true ) . '</p>';
+				echo '<p><strong>Этаж:</strong> <br/>' . get_post_meta( $order->get_id(), 'floor', true ) . '</p>';
+				echo '<p><strong>Комментарий:</strong> <br/>' . get_post_meta( $order->get_id(), 'comment', true ) . '</p>';
+				?>
 			</address>
 		</td>
 		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && $shipping ) : ?>

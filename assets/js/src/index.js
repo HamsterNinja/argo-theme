@@ -362,13 +362,20 @@ const app = new Vue({
             if (!this.errors.length) {
                 let bodyFormData = new FormData();
                 bodyFormData.append('payment_method', this.checkout.payment);
-                bodyFormData.append('billing_first_name', this.checkout.first_name);
-                bodyFormData.append('billing_email', this.checkout.email);
-                bodyFormData.append('billing_phone', this.checkout.phone);
-                bodyFormData.append('billing_city', this.checkout.city);
-                bodyFormData.append('billing_street', this.checkout.street);
-                bodyFormData.append('billing_house', this.checkout.house);
-                
+                bodyFormData.append('first_name', this.checkout.first_name);
+                bodyFormData.append('email', this.checkout.email);
+                bodyFormData.append('phone', this.checkout.phone);
+                bodyFormData.append('address', this.checkout.address);
+                bodyFormData.append('city', this.checkout.city);
+                bodyFormData.append('street', this.checkout.street);
+                bodyFormData.append('house', this.checkout.house);
+                bodyFormData.append('apartment', this.checkout.apartment);
+                bodyFormData.append('intercom', this.checkout.intercom);
+                bodyFormData.append('porch', this.checkout.porch);
+                bodyFormData.append('floor', this.checkout.floor);
+                bodyFormData.append('comment', this.checkout.comment);
+                bodyFormData.append('payment', this.checkout.payment);
+                          
                 let fetchData = {
                     method: "POST",
                     body: bodyFormData

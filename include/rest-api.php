@@ -280,17 +280,17 @@ function ajax_create_order() {
     $shipping_street = esc_attr( trim( $_REQUEST['street'] ) );
     $billing_house = esc_attr( trim( $_REQUEST['house'] ) );
 
-    $extra_first_name = sanitize_text_field( $_POST['first_name']);
-    $extra_phone = sanitize_text_field( $_POST['phone']);
-    $extra_city = sanitize_text_field( $_POST['city']);
-    $extra_street = sanitize_text_field( $_POST['street']);
-    $extra_house = sanitize_text_field( $_POST['house']);
-    $extra_apartment = sanitize_text_field( $_POST['apartment']);
-    $extra_intercom = sanitize_text_field( $_POST['intercom']);
-    $extra_porch = sanitize_text_field( $_POST['porch']);
-    $extra_floor = sanitize_text_field( $_POST['floor']);
-    $extra_comment = sanitize_text_field( $_POST['comment']);
-    $extra_payment = sanitize_text_field( $_POST['payment']);
+    $extra_first_name = esc_attr( $_REQUEST['first_name']);
+    $extra_phone = esc_attr( $_REQUEST['phone']);
+    $extra_city = esc_attr( $_REQUEST['city']);
+    $extra_street = esc_attr( $_REQUEST['street']);
+    $extra_house = esc_attr( $_REQUEST['house']);
+    $extra_apartment = esc_attr( $_REQUEST['apartment']);
+    $extra_intercom = esc_attr( $_REQUEST['intercom']);
+    $extra_porch = esc_attr( $_REQUEST['porch']);
+    $extra_floor = esc_attr( $_REQUEST['floor']);
+    $extra_comment = esc_attr( $_REQUEST['comment']);
+    $extra_payment = esc_attr( $_REQUEST['payment']);
       
 	$address = [
 		'first_name' => $name,
