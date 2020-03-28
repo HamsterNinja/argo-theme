@@ -3,7 +3,7 @@
         <button class="decrease-button" @click.prevent="decrementProduct">
             <svg width="14" height="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1h13.5" stroke="#000"/></svg>
         </button>
-        <input class="inputNumber" type="number" min="1" v-model="countComponent" @change="updateValue">
+        <input :ref="'input_' + refhash" class="inputNumber" type="number" min="1" v-model="countComponent" @change="updateValue" v-on:keyup.enter="enterValue">
         <button class="increase-button" @click.prevent="incrementProduct">
             <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 7h13.5M7 0v13.5" stroke="#000"/></svg>
         </button>
@@ -28,10 +28,14 @@ export default {
     }, 
     data() {
         return {
-            countComponent: parseInt(this.count)
+            countComponent: parseInt(this.count),
+            refhash: Math.floor(Math.random() * Math.floor(1000))
         };
     },
     methods: {
+        enterValue(){
+            this.$refs['input_' + this.refhash].focus();
+        },
         incrementProduct() {
             if (parseInt(this.maxCount) > this.countComponent) {
                 this.countComponent++;

@@ -27609,10 +27609,14 @@ module.exports = function(module) {
   },
   data: function data() {
     return {
-      countComponent: parseInt(this.count)
+      countComponent: parseInt(this.count),
+      refhash: Math.floor(Math.random() * Math.floor(1000))
     };
   },
   methods: {
+    enterValue: function enterValue() {
+      this.$refs['input_' + this.refhash].focus();
+    },
     incrementProduct: function incrementProduct() {
       if (parseInt(this.maxCount) > this.countComponent) {
         this.countComponent++;
@@ -90609,11 +90613,21 @@ var render = function() {
           expression: "countComponent"
         }
       ],
+      ref: "input_" + _vm.refhash,
       staticClass: "inputNumber",
       attrs: { type: "number", min: "1" },
       domProps: { value: _vm.countComponent },
       on: {
         change: _vm.updateValue,
+        keyup: function($event) {
+          if (
+            !$event.type.indexOf("key") &&
+            _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+          ) {
+            return null
+          }
+          return _vm.enterValue($event)
+        },
         input: function($event) {
           if ($event.target.composing) {
             return

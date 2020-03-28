@@ -1,3 +1,9 @@
+@media(min-width: 2047px) {
+    body {
+        background-image: url(../images/large-bg.jpg);
+    }
+}
+
 @media(max-width: 1220px) {
     .main-header-menu-container ul li {
         margin-right: 17px;
