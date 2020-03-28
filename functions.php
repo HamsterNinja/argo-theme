@@ -160,6 +160,15 @@ function add_scripts() {
 
         $user_apartment = get_field('shipping_apartment', 'user_'.$user_id);
         $user_apartment = !empty($user_apartment) ? $user_apartment : '';
+
+        $user_intercom = get_field('shipping_intercom', 'user_'.$user_id);
+        $user_intercom = !empty($user_intercom) ? $user_intercom : '';
+
+        $user_floor = get_field('shipping_floor', 'user_'.$user_id);
+        $user_floor = !empty($user_floor) ? $user_floor : '';
+
+        $user_porch = get_field('shipping_porch', 'user_'.$user_id);
+        $user_porch = !empty($user_porch) ? $user_porch : '';
         
         $currentUser = new customUser();
         $currentUser->setUserID($user_id)
@@ -170,6 +179,9 @@ function add_scripts() {
         ->setStreet($user_street)
         ->setHouse($user_house)
         ->setApartment($user_apartment)
+        ->setIntercom($user_intercom)
+        ->setFloor($user_floor)
+        ->setPorch($user_porch)
         ->setPhone($user_phone);
     }
 

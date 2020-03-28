@@ -28139,6 +28139,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     this.checkout.street = this.user.street;
     this.checkout.house = this.user.house;
     this.checkout.email = this.user.email;
+    this.checkout.apartment = this.user.apartment;
+    this.checkout.intercom = this.user.intercom;
+    this.checkout.porch = this.user.porch;
+    this.checkout.floor = this.user.floor;
   },
   methods: {
     addCart: function () {

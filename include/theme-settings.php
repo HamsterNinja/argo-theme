@@ -354,10 +354,10 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
 
 function cs_woocommerce_remote_billing_fields( $fields ) {
 	unset( $fields['billing_company'] );
-	unset( $fields['billing_country'] );
-    unset( $fields['billing_postcode'] );
-    unset($fields['billing_address_2']);
-    unset($fields['billing_state']);
+	// unset( $fields['billing_country'] );
+    // unset( $fields['billing_postcode'] );
+    // unset($fields['billing_address_2']);
+    // unset($fields['billing_state']);
     
     $fields['billing_street'] = array(
         'label'     => 'Улица',
@@ -365,7 +365,6 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'required'  => false,
         'class'     => array('form-row-wide'),
         'clear'     => true,
-        'value' => get_user_meta( get_current_user_id(), 'billing_street', true )
      );
 
      $fields['billing_house'] = array(
@@ -374,7 +373,6 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'required'  => true,
         'class'     => array('form-row-wide'),
         'clear'     => true,
-        'value' => get_user_meta( get_current_user_id(), 'billing_house', true )
      );
      
      $fields['billing_floor'] = array(
@@ -383,7 +381,6 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'required'  => false,
         'class'     => array('form-row-wide'),
         'clear'     => true,
-        'value' => get_user_meta( get_current_user_id(), 'billing_floor', true )
      );
      $fields['billing_apartment'] = array(
         'label'     => 'Кв.',
@@ -391,7 +388,6 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'required'  => false,
         'class'     => array('form-row-wide'),
         'clear'     => true,
-        'value' => get_user_meta( get_current_user_id(), 'billing_apartment', true )
      );
 
      $fields['billing_entrance'] = array(
@@ -400,7 +396,22 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'required'  => false,
         'class'     => array('form-row-wide'),
         'clear'     => true,
-        'value' => get_user_meta( get_current_user_id(), 'billing_apartment', true )
+     );
+
+     $fields['billing_porch'] = array(
+        'label'     => 'Подъезд',
+        'placeholder'   => 'Подъезд',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+     );
+
+     $fields['billing_intercom'] = array(
+        'label'     => 'Домофон',
+        'placeholder'   => 'Домофон',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
      );
 
 	return $fields;
@@ -409,10 +420,10 @@ add_filter( 'woocommerce_billing_fields', 'cs_woocommerce_remote_billing_fields'
 
 function cs_woocommerce_remote_shipping_fields( $fields ) {
     unset( $fields['shipping_company'] );
-	unset( $fields['shipping_country'] );
-    unset( $fields['shipping_postcode'] );
-    unset($fields['shipping_address_2']);
-    unset($fields['shipping_state']);
+	// unset( $fields['shipping_country'] );
+    // unset( $fields['shipping_postcode'] );
+    // unset($fields['shipping_address_2']);
+    // unset($fields['shipping_state']);
 
     $fields['shipping_street'] = array(
         'label'     => 'Улица',
@@ -452,6 +463,23 @@ function cs_woocommerce_remote_shipping_fields( $fields ) {
         'class'     => array('form-row-wide'),
         'clear'     => true
      );
+
+     $fields['shipping_porch'] = array(
+        'label'     => 'Подъезд',
+        'placeholder'   => 'Подъезд',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+     );
+
+     $fields['shipping_intercom'] = array(
+        'label'     => 'Домофон',
+        'placeholder'   => 'Домофон',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+     );
+
     return $fields;
 }
 add_filter( 'woocommerce_shipping_fields', 'cs_woocommerce_remote_shipping_fields' );

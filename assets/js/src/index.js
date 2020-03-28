@@ -265,6 +265,10 @@ const app = new Vue({
         this.checkout.street = this.user.street;
         this.checkout.house = this.user.house;
         this.checkout.email = this.user.email;
+        this.checkout.apartment = this.user.apartment;
+        this.checkout.intercom = this.user.intercom;
+        this.checkout.porch = this.user.porch;
+        this.checkout.floor = this.user.floor;
     },
     methods: {
         async addCart(ID) {
