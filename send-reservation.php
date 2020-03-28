@@ -81,8 +81,7 @@ $bodytext .= "</div>
 </body>
 </html>";
 
-// $admin_email = 'info@argo.cafe';
-$admin_email = 'andreroshkin@gmail.com';
+$admin_email = 'info@argo.cafe';
 
 $email = new PHPMailer(true);
 try {

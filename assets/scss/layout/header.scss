@@ -68,13 +68,21 @@ header.main-header {
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
-    color: #000
+    color: #000;
+    position: relative;
+}
+
+.main-header-phone a span.upper {
+    font-size: 14px;
+    line-height: 14px;
+    color: #d29100;
+    top: -1px;
+    position: relative;
 }
 
 .main-header-phone a span {
-    font-size: 14px;
-    line-height: 14px;
-    color: #d29100
+    line-height: 1;
+    display: inline-block;
 }
 
 .main-header-callback a {
