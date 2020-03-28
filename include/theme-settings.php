@@ -390,14 +390,6 @@ function cs_woocommerce_remote_billing_fields( $fields ) {
         'clear'     => true,
      );
 
-     $fields['billing_entrance'] = array(
-        'label'     => 'Подъезд',
-        'placeholder'   => 'Подъезд',
-        'required'  => false,
-        'class'     => array('form-row-wide'),
-        'clear'     => true,
-     );
-
      $fields['billing_porch'] = array(
         'label'     => 'Подъезд',
         'placeholder'   => 'Подъезд',
@@ -451,14 +443,6 @@ function cs_woocommerce_remote_shipping_fields( $fields ) {
      $fields['shipping_apartment'] = array(
         'label'     => 'Кв.',
         'placeholder'   => 'Кв.',
-        'required'  => false,
-        'class'     => array('form-row-wide'),
-        'clear'     => true
-     );
-
-     $fields['shipping_entrance'] = array(
-        'label'     => 'Подъезд',
-        'placeholder'   => 'Подъезд',
         'required'  => false,
         'class'     => array('form-row-wide'),
         'clear'     => true
