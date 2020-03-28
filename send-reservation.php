@@ -16,14 +16,37 @@ $guests = $_POST['guests'];
 $halls = $_POST['halls'];
 $table = $_POST['table'];
 
-$bodytext = ""; 
+$bodytext = '<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>Email title</title>
+  <!--[if mso]>
+  <xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <style>
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+  </style>
+</head>
+<body class="body">
+  <div role="article" aria-roledescription="email" aria-label="email name" lang="en" style="font-size:1rem">'; 
 
 if ($first_name) {
   $bodytext .= "<p>Имя - ".$first_name."</p>";
-}
-
-if ($phone) {
-  $bodytext .= "<p>Телефон - ".$phone."</p>";
 }
 
 if ($phone) {
@@ -53,6 +76,10 @@ if ($table) {
 if ($message) {
   $bodytext .= "<p>Сообщение - ".$message."</p>";
 }
+
+$bodytext .= "</div>
+</body>
+</html>";
 
 // $admin_email = 'info@argo.cafe';
 $admin_email = 'andreroshkin@gmail.com';
