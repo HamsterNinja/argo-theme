@@ -351,3 +351,107 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
         update_post_meta( $order_id, 'payment', sanitize_text_field( $_POST['payment'] ) );
     }
 }
+
+function cs_woocommerce_remote_billing_fields( $fields ) {
+	unset( $fields['billing_company'] );
+	unset( $fields['billing_country'] );
+    unset( $fields['billing_postcode'] );
+    unset($fields['billing_address_2']);
+    unset($fields['billing_state']);
+    
+    $fields['billing_street'] = array(
+        'label'     => 'Улица',
+        'placeholder'   => 'Улица',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+        'value' => get_user_meta( get_current_user_id(), 'billing_street', true )
+     );
+
+     $fields['billing_house'] = array(
+        'label'     => 'Дом',
+        'placeholder'   => 'Дом',
+        'required'  => true,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+        'value' => get_user_meta( get_current_user_id(), 'billing_house', true )
+     );
+     
+     $fields['billing_floor'] = array(
+        'label'     => 'Этаж',
+        'placeholder'   => 'Этаж',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+        'value' => get_user_meta( get_current_user_id(), 'billing_floor', true )
+     );
+     $fields['billing_apartment'] = array(
+        'label'     => 'Кв.',
+        'placeholder'   => 'Кв.',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+        'value' => get_user_meta( get_current_user_id(), 'billing_apartment', true )
+     );
+
+     $fields['billing_entrance'] = array(
+        'label'     => 'Подъезд',
+        'placeholder'   => 'Подъезд',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true,
+        'value' => get_user_meta( get_current_user_id(), 'billing_apartment', true )
+     );
+
+	return $fields;
+}
+add_filter( 'woocommerce_billing_fields', 'cs_woocommerce_remote_billing_fields' );
+
+function cs_woocommerce_remote_shipping_fields( $fields ) {
+    unset( $fields['shipping_company'] );
+	unset( $fields['shipping_country'] );
+    unset( $fields['shipping_postcode'] );
+    unset($fields['shipping_address_2']);
+    unset($fields['shipping_state']);
+
+    $fields['shipping_street'] = array(
+        'label'     => 'Улица',
+        'placeholder'   => 'Улица',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true
+     );
+
+     $fields['shipping_house'] = array(
+        'label'     => 'Дом',
+        'placeholder'   => 'Дом',
+        'required'  => true,
+        'class'     => array('form-row-wide'),
+        'clear'     => true
+     );
+     
+     $fields['shipping_floor'] = array(
+        'label'     => 'Этаж',
+        'placeholder'   => 'Этаж',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true
+     );
+     $fields['shipping_apartment'] = array(
+        'label'     => 'Кв.',
+        'placeholder'   => 'Кв.',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true
+     );
+
+     $fields['shipping_entrance'] = array(
+        'label'     => 'Подъезд',
+        'placeholder'   => 'Подъезд',
+        'required'  => false,
+        'class'     => array('form-row-wide'),
+        'clear'     => true
+     );
+    return $fields;
+}
+add_filter( 'woocommerce_shipping_fields', 'cs_woocommerce_remote_shipping_fields' );

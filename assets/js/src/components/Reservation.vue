@@ -252,6 +252,24 @@ export default {
                     setTimeout(() => {this.submitStatus = ''}, 1000)
                 }
             }
+
+            let formNotification = new FormData(); 
+            formNotification.append("name", this.name);
+            formNotification.append("phone", this.phone);
+            formNotification.append("comment", this.comment);
+            formNotification.append("date", this.date);
+            formNotification.append("time", this.time);
+            formNotification.append("guests", this.guests);
+            formNotification.append("halls", this.halls);
+            formNotification.append("table", this.table);
+            let fetchDataNotification = {
+                method: "POST",
+                body: formNotification
+            };
+            const sendURLNotification = `${SITEDATA.themepath}/send-reservation.php`;
+            let responseNotification = await fetch(sendURLNotification, fetchDataNotification);
+            let responseDataNotification = await response.json();
+            
         },
 
         setHall(tab){

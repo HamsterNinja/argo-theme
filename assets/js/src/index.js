@@ -225,7 +225,11 @@ const app = new Vue({
             },
             house: {
                 required
-            }   
+            },
+            email: {
+                required,
+                email
+            },   
         }
     },
     components: {
@@ -260,6 +264,7 @@ const app = new Vue({
         this.checkout.city = this.user.city;
         this.checkout.street = this.user.street;
         this.checkout.house = this.user.house;
+        this.checkout.email = this.user.email;
     },
     methods: {
         async addCart(ID) {
@@ -381,14 +386,19 @@ const app = new Vue({
                     method: "POST",
                     body: bodyFormData
                 };
+
+                this.checkout.submitStatus = 'PENDING'
                 let response = await fetch(`${SITEDATA.ajax_url}?action=create_order`, fetchData);
                 let jsonResponse = await response.json();
                 if (jsonResponse.data.result == 'fail') {
-                    console.log(jsonResponse);
+                    this.checkout.submitStatus = 'ERROR';
+                    setTimeout(() => {this.checkout.submitStatus = ''}, 1000);
                     this.showModal("modal-window--error-checkout");
                 } else if(jsonResponse.data.result == 'success'){
                     app.clearOrderForm();
-                    this.showModal("modal-window--thanks");
+                    // this.showModal("modal-window--thanks");
+                    this.checkout.submitStatus = 'SUCCESS';
+                    setTimeout(() => {this.checkout.submitStatus = ''}, 1000);
                     document.location = jsonResponse.data.redirect;
                 }
             }

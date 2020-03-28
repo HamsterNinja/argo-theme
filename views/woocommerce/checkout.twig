@@ -27,6 +27,15 @@
                             <div class="error" v-if="checkout.submitted && $v.checkout.phone.$error">Телефон обязателен</div>
                         </label>
 
+                        <label for="" class="" :class="{ 'input--error': $v.checkout.email.$error }">
+                            <p class="checkout-label">E-mail *</p>
+                            <input type="text" v-model="$v.checkout.email.$model">
+                            <div class="errors-form">
+                                <div class="error" v-if="!$v.checkout.email.required">Почта обязательна</div>
+                                <div class="error" v-if="!$v.checkout.email.email">Должен быть действительный адрес электронной почты</div>
+                            </div>
+                        </label>
+
                         <label for="" v-if="delivery == 'courier'">
                             <p class="checkout-label">Введите адрес доставки *</p>
                             <!-- TODO: временно скрыл -->
@@ -119,8 +128,13 @@
                             </label>
                         </div>
                         <p class="policy_text">Подтверждая заказ, вы соглашаетесь с <a target="_blank" rel="noopener" href="{{ site.link }}/privacy-policy">политикой конфиденциальности</a>.</p>
-                        <button class="checkout-btn" v-on:click.prevent="orderProducts">Подтвердить заказ</button>
-                        
+                        <button class="checkout-btn state-button" 
+                        :class="{ 
+                            'state-button--pending': checkout.submitStatus == 'PENDING', 
+                            'state-button--success': checkout.submitStatus == 'SUCCESS',
+                            'state-button--fail': checkout.submitStatus == 'ERROR',
+                        }"
+                        v-on:click.prevent="orderProducts"><span class="state-button__text">Подтвердить заказ</span></button>                        
                 </form>
             </div>
         </div>

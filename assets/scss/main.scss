@@ -404,18 +404,23 @@ textarea {
 .popular-dishes {
     padding: 25px 0 80px;
 }
+
 .popular-dishes .new-block-fone {
     padding-bottom: 1px;
 }
-.popular-dishes .all-page-title{
+
+.popular-dishes .all-page-title {
     margin-bottom: 20px;
 }
+
 .popular-slick .slick-slide {
     text-align: center;
 }
+
 .popular-slick .slick-dots {
     bottom: -75px;
 }
+
 .popular-slick button.slick-prev.slick-arrow {
     background: url(../images/arrow-lslide.svg) no-repeat 50%;
     width: 50px;
@@ -820,9 +825,11 @@ a.page_menu-item:hover .page_menu-item-name {
 .choice-button.active {
     border-color: #FFC844;
 }
+
 .single_menu-content {
     overflow: hidden;
 }
+
 .single_menu-tabs-content {
     visibility: hidden;
     height: 0;
@@ -1939,6 +1946,7 @@ p.cart-product-name {
     padding: 5px 15px;
     width: 100%;
     transition: 0.3s ease;
+    position: relative;
 }
 
 .woocommerce-cart .woo-content a.checkout-btn:hover {
@@ -2349,9 +2357,11 @@ p.policy_text a {
     transition: 0.3s ease;
     outline: none;
 }
+
 button.acoount-submit:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
+
 .addresses-content {
     max-width: 535px;
     width: 100%;
@@ -2430,9 +2440,11 @@ a.add-address {
     margin-right: 20px;
     transition: 0.3s ease;
 }
+
 a.add-address:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
+
 .history-content p {
     font-size: 18px;
     line-height: 24px;
@@ -2847,11 +2859,13 @@ button.close-error {
     {
     opacity: 0;
 }
+
 .woocommerce-cart div#app {
     display: flex;
     flex-direction: column;
     min-height: 100%;
 }
+
 .woocommerce-cart .woo-content {
     padding-top: 20px;
     color: #fff;
@@ -3005,12 +3019,15 @@ button.close-error {
 .modal-callback input {
     border: 1px solid #ccc;
 }
+
 form.woocommerce-ResetPassword.lost_reset_password p {
     margin-bottom: 30px;
 }
+
 form.woocommerce-ResetPassword.lost_reset_password p label {
     font-size: 12px;
 }
+
 form.woocommerce-ResetPassword.lost_reset_password p.woocommerce-form-row.woocommerce-form-row--first.form-row.form-row-first input {
     display: block;
     margin-top: 5px;
@@ -3020,6 +3037,7 @@ form.woocommerce-ResetPassword.lost_reset_password p.woocommerce-form-row.woocom
     padding: 10px;
     outline: none;
 }
+
 form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.button {
     font-size: 14px;
     line-height: 18px;
@@ -3036,13 +3054,16 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     transition: 0.3s ease;
     cursor: pointer;
 }
+
 form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.button:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
-.woocommerce-address-fields__field-wrapper label{
+
+.woocommerce-address-fields__field-wrapper label {
     font-size: 14px;
     color: #000;
 }
+
 .woocommerce-address-fields__field-wrapper input {
     width: 100%;
     font-size: 14px;
@@ -3054,6 +3075,7 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
 .woocommerce-address-fields__field-wrapper span.select2-selection.select2-selection--single {
     font-size: 14px;
     color: #000;
@@ -3063,6 +3085,7 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
 .woocommerce-address-fields button.button {
     font-size: 14px;
     line-height: 18px;
@@ -3079,9 +3102,15 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     transition: 0.3s ease;
     cursor: pointer;
 }
+
 .woocommerce-address-fields button.button:hover {
     box-shadow: 0 0 15px rgba(255, 200, 68, 1);
 }
+
+.checkout-form-content .errors-form {
+    margin-top: 0;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';

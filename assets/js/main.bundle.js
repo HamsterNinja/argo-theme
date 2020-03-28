@@ -15227,7 +15227,8 @@ var nest = function nest(seq, keys) {
       regeneratorRuntime.mark(function _callee2() {
         var _this = this;
 
-        var formLogin, sendURL, fetchData, response, data;
+        var formLogin, sendURL, fetchData, _response, data, formNotification, fetchDataNotification, sendURLNotification, responseNotification, responseDataNotification;
+
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -15269,9 +15270,9 @@ var nest = function nest(seq, keys) {
                 return fetch(sendURL, fetchData);
 
               case 23:
-                response = _context2.sent;
+                _response = _context2.sent;
                 _context2.next = 26;
-                return response.json();
+                return _response.json();
 
               case 26:
                 data = _context2.sent;
@@ -15291,6 +15292,32 @@ var nest = function nest(seq, keys) {
                 }
 
               case 28:
+                formNotification = new FormData();
+                formNotification.append("name", this.name);
+                formNotification.append("phone", this.phone);
+                formNotification.append("comment", this.comment);
+                formNotification.append("date", this.date);
+                formNotification.append("time", this.time);
+                formNotification.append("guests", this.guests);
+                formNotification.append("halls", this.halls);
+                formNotification.append("table", this.table);
+                fetchDataNotification = {
+                  method: "POST",
+                  body: formNotification
+                };
+                sendURLNotification = "".concat(SITEDATA.themepath, "/send-reservation.php");
+                _context2.next = 41;
+                return fetch(sendURLNotification, fetchDataNotification);
+
+              case 41:
+                responseNotification = _context2.sent;
+                _context2.next = 44;
+                return response.json();
+
+              case 44:
+                responseDataNotification = _context2.sent;
+
+              case 45:
               case "end":
                 return _context2.stop();
             }
@@ -28072,6 +28099,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       },
       house: {
         required: __WEBPACK_IMPORTED_MODULE_20_vuelidate_lib_validators__["required"]
+      },
+      email: {
+        required: __WEBPACK_IMPORTED_MODULE_20_vuelidate_lib_validators__["required"],
+        email: __WEBPACK_IMPORTED_MODULE_20_vuelidate_lib_validators__["email"]
       }
     }
   },
@@ -28103,6 +28134,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     this.checkout.city = this.user.city;
     this.checkout.street = this.user.street;
     this.checkout.house = this.user.house;
+    this.checkout.email = this.user.email;
   },
   methods: {
     addCart: function () {
@@ -28238,7 +28270,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }, 4000);
 
                 if (this.errors.length) {
-                  _context2.next = 30;
+                  _context2.next = 31;
                   break;
                 }
 
@@ -28262,27 +28294,35 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   method: "POST",
                   body: bodyFormData
                 };
-                _context2.next = 25;
+                this.checkout.submitStatus = 'PENDING';
+                _context2.next = 26;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
-              case 25:
+              case 26:
                 response = _context2.sent;
-                _context2.next = 28;
+                _context2.next = 29;
                 return response.json();
 
-              case 28:
+              case 29:
                 jsonResponse = _context2.sent;
 
                 if (jsonResponse.data.result == 'fail') {
-                  console.log(jsonResponse);
+                  this.checkout.submitStatus = 'ERROR';
+                  setTimeout(function () {
+                    _this.checkout.submitStatus = '';
+                  }, 1000);
                   this.showModal("modal-window--error-checkout");
                 } else if (jsonResponse.data.result == 'success') {
-                  app.clearOrderForm();
-                  this.showModal("modal-window--thanks");
+                  app.clearOrderForm(); // this.showModal("modal-window--thanks");
+
+                  this.checkout.submitStatus = 'SUCCESS';
+                  setTimeout(function () {
+                    _this.checkout.submitStatus = '';
+                  }, 1000);
                   document.location = jsonResponse.data.redirect;
                 }
 
-              case 30:
+              case 31:
               case "end":
                 return _context2.stop();
             }
@@ -70701,7 +70741,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "account-right-form notice" }, [
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v("\n                SMS уведомление\n                "),
+            _vm._v("\r\n                SMS уведомление\r\n                "),
             _c("input", {
               directives: [
                 {
@@ -70747,7 +70787,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v("\n                E-mail уведомление\n                "),
+            _vm._v(
+              "\r\n                E-mail уведомление\r\n                "
+            ),
             _c("input", {
               directives: [
                 {
