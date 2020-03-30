@@ -548,6 +548,18 @@
         display: none;
     }
 
+    .main-header-contacts {
+        width: calc(100% - 100px);
+    }
+
+    .main-header-cart {
+        padding-left: 10px;
+    }
+
+    .user-controls {
+        width: 100px;
+    }
+
     .btn-hamburger {
         height: 36px;
         width: 30px;
