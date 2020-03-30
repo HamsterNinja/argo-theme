@@ -3115,6 +3115,10 @@ form.woocommerce-ResetPassword.lost_reset_password button.woocommerce-Button.but
     text-decoration: none;
 }
 
+.home .main-slick-content img {
+    width: 100%;
+}
+
 @import 'pages/home';
 @import 'components/buttons';
 @import 'components/popup';
