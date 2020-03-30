@@ -15185,6 +15185,7 @@ var nest = function nest(seq, keys) {
         });
       } catch (e) {
         console.log(e);
+        result = [];
       }
 
       return result;
