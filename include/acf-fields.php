@@ -84,9 +84,21 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'text'
             ),
             array(
+                'key' => 'field_5c99f95645927_worktime_restaurant_title',
+                'label' => 'Время работы ресторана Заголовок',
+                'name' => 'worktime_restaurant_title',
+                'type' => 'text'
+            ),
+            array(
                 'key' => 'field_5c99f95645927_worktime_restaurant',
                 'label' => 'Время работы ресторана',
                 'name' => 'worktime_restaurant',
+                'type' => 'text'
+            ),
+            array(
+                'key' => 'field_5c99f95645927_worktime_delivery_title',
+                'label' => 'Время работы доставки Заголовок',
+                'name' => 'worktime_delivery_title',
                 'type' => 'text'
             ),
             array(

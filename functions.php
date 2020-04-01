@@ -287,6 +287,8 @@ if ( class_exists( 'Timber' ) ){
 
             $context['worktime_delivery'] = get_field('worktime_delivery', 'options');
             $context['worktime_restaurant'] = get_field('worktime_restaurant', 'options');
+            $context['worktime_restaurant_title'] = get_field('worktime_restaurant_title', 'options');
+            $context['worktime_delivery_title'] = get_field('worktime_delivery_title', 'options');
             $context['address'] = get_field('address', 'options');
                 
             return $context;
