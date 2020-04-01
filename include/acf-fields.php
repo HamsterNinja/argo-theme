@@ -119,6 +119,12 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'map_frame',
                 'type' => 'text'
             ),
+            array(
+                'key' => 'field_5c99f95645927_footer_title',
+                'label' => 'Заголовок в футере',
+                'name' => 'footer_title',
+                'type' => 'text'
+            ),
         ),
         'location' => array(
             array(
