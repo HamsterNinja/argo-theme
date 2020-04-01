@@ -15228,7 +15228,7 @@ var nest = function nest(seq, keys) {
       regeneratorRuntime.mark(function _callee2() {
         var _this = this;
 
-        var formLogin, sendURL, fetchData, _response, data, formNotification, fetchDataNotification, sendURLNotification, responseNotification, responseDataNotification;
+        var isReservation, formLogin, sendURL, fetchData, _response, data, formNotification, fetchDataNotification, sendURLNotification, responseNotification, responseDataNotification;
 
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
@@ -15238,6 +15238,13 @@ var nest = function nest(seq, keys) {
                 this.submitted = true;
                 this.focusPhone = true;
                 this.$v.$touch();
+                isReservation = this.orderedTables.includes(this.table.toString());
+
+                if (isReservation) {
+                  _context2.next = 49;
+                  break;
+                }
+
                 formLogin = new FormData();
                 formLogin.append("name", this.name);
                 formLogin.append("phone", this.phone);
@@ -15254,7 +15261,7 @@ var nest = function nest(seq, keys) {
                 };
 
                 if (!this.$v.$invalid) {
-                  _context2.next = 20;
+                  _context2.next = 22;
                   break;
                 }
 
@@ -15262,20 +15269,20 @@ var nest = function nest(seq, keys) {
                 setTimeout(function () {
                   _this.submitStatus = '';
                 }, 1000);
-                _context2.next = 28;
+                _context2.next = 30;
                 break;
 
-              case 20:
+              case 22:
                 this.submitStatus = 'PENDING';
-                _context2.next = 23;
+                _context2.next = 25;
                 return fetch(sendURL, fetchData);
 
-              case 23:
+              case 25:
                 _response = _context2.sent;
-                _context2.next = 26;
+                _context2.next = 28;
                 return _response.json();
 
-              case 26:
+              case 28:
                 data = _context2.sent;
 
                 if (data.success) {
@@ -15292,7 +15299,7 @@ var nest = function nest(seq, keys) {
                   }, 1000);
                 }
 
-              case 28:
+              case 30:
                 formNotification = new FormData();
                 formNotification.append("name", this.name);
                 formNotification.append("phone", this.phone);
@@ -15307,18 +15314,27 @@ var nest = function nest(seq, keys) {
                   body: formNotification
                 };
                 sendURLNotification = "".concat(SITEDATA.themepath, "/send-reservation.php");
-                _context2.next = 41;
+                _context2.next = 43;
                 return fetch(sendURLNotification, fetchDataNotification);
 
-              case 41:
+              case 43:
                 responseNotification = _context2.sent;
-                _context2.next = 44;
+                _context2.next = 46;
                 return response.json();
 
-              case 44:
+              case 46:
                 responseDataNotification = _context2.sent;
+                _context2.next = 52;
+                break;
 
-              case 45:
+              case 49:
+                this.submitStatus = 'ERROR';
+                this.showModal("modal-window--is-reservation-error");
+                setTimeout(function () {
+                  _this.submitStatus = '';
+                }, 1000);
+
+              case 52:
               case "end":
                 return _context2.stop();
             }
@@ -70750,7 +70766,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "account-right-form notice" }, [
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v("\r\n                SMS уведомление\r\n                "),
+            _vm._v("\n                SMS уведомление\n                "),
             _c("input", {
               directives: [
                 {
@@ -70796,9 +70812,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "form-group control control-checkbox" }, [
-            _vm._v(
-              "\r\n                E-mail уведомление\r\n                "
-            ),
+            _vm._v("\n                E-mail уведомление\n                "),
             _c("input", {
               directives: [
                 {

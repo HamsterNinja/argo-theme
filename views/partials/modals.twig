@@ -10,6 +10,15 @@
         </div>
     </div>
 
+    <div class="modal-window modal-window--is-reservation-error" role="dialog" aria-modal="true">
+        <div class="modal-window-container">
+            <button class="modal-window__close" v-on:click="closeModal"></button>
+            <div class="modal-window__content">
+                <div class="thanktext">Данный стол уже забронирован</div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-window modal-window--error-checkout" role="dialog" aria-modal="true">
         <div class="modal-window-container">
             <button class="modal-window__close" v-on:click="closeModal"></button>

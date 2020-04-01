@@ -218,58 +218,65 @@ export default {
             this.focusPhone = true;
             this.$v.$touch()
 
-            let formLogin = new FormData(); 
-            formLogin.append("name", this.name);
-            formLogin.append("phone", this.phone);
-            formLogin.append("comment", this.comment);
-            formLogin.append("date", this.date);
-            formLogin.append("time", this.time);
-            formLogin.append("guests", this.guests);
-            formLogin.append("halls", this.halls);
-            formLogin.append("table", this.table);
+            let isReservation = this.orderedTables.includes(this.table.toString())
+            if(!isReservation){
+                let formLogin = new FormData(); 
+                formLogin.append("name", this.name);
+                formLogin.append("phone", this.phone);
+                formLogin.append("comment", this.comment);
+                formLogin.append("date", this.date);
+                formLogin.append("time", this.time);
+                formLogin.append("guests", this.guests);
+                formLogin.append("halls", this.halls);
+                formLogin.append("table", this.table);
 
-            const sendURL = `${SITEDATA.url}/wp-json/amadreh/v1/add-reservation/`;
-            
-            let fetchData = {
-                method: "POST",
-                body: formLogin
-            };
+                const sendURL = `${SITEDATA.url}/wp-json/amadreh/v1/add-reservation/`;
+                
+                let fetchData = {
+                    method: "POST",
+                    body: formLogin
+                };
 
-            if (this.$v.$invalid) {
-                this.submitStatus = 'ERROR'
-                setTimeout(() => {this.submitStatus = ''}, 1000)
-            } else {
-                this.submitStatus = 'PENDING'
-                let response = await fetch(sendURL, fetchData)
-                let data = await response.json()
-                if (data.success) {
-                    this.submitStatus = 'SUCCESS'
-                    this.showModal("modal-window--thank")
-                    setTimeout(() => {this.submitStatus = ''}, 1000)
-                    this.$store.dispatch('fetchOrders')
-                }
-                else{
+                if (this.$v.$invalid) {
                     this.submitStatus = 'ERROR'
                     setTimeout(() => {this.submitStatus = ''}, 1000)
+                } else {
+                    this.submitStatus = 'PENDING'
+                    let response = await fetch(sendURL, fetchData)
+                    let data = await response.json()
+                    if (data.success) {
+                        this.submitStatus = 'SUCCESS'
+                        this.showModal("modal-window--thank")
+                        setTimeout(() => {this.submitStatus = ''}, 1000)
+                        this.$store.dispatch('fetchOrders')
+                    }
+                    else{
+                        this.submitStatus = 'ERROR'
+                        setTimeout(() => {this.submitStatus = ''}, 1000)
+                    }
                 }
-            }
 
-            let formNotification = new FormData(); 
-            formNotification.append("name", this.name);
-            formNotification.append("phone", this.phone);
-            formNotification.append("comment", this.comment);
-            formNotification.append("date", this.date);
-            formNotification.append("time", this.time);
-            formNotification.append("guests", this.guests);
-            formNotification.append("halls", this.halls);
-            formNotification.append("table", this.table);
-            let fetchDataNotification = {
-                method: "POST",
-                body: formNotification
-            };
-            const sendURLNotification = `${SITEDATA.themepath}/send-reservation.php`;
-            let responseNotification = await fetch(sendURLNotification, fetchDataNotification);
-            let responseDataNotification = await response.json();
+                let formNotification = new FormData(); 
+                formNotification.append("name", this.name);
+                formNotification.append("phone", this.phone);
+                formNotification.append("comment", this.comment);
+                formNotification.append("date", this.date);
+                formNotification.append("time", this.time);
+                formNotification.append("guests", this.guests);
+                formNotification.append("halls", this.halls);
+                formNotification.append("table", this.table);
+                let fetchDataNotification = {
+                    method: "POST",
+                    body: formNotification
+                };
+                const sendURLNotification = `${SITEDATA.themepath}/send-reservation.php`;
+                let responseNotification = await fetch(sendURLNotification, fetchDataNotification);
+                let responseDataNotification = await response.json();
+            } else{
+                this.submitStatus = 'ERROR'
+                this.showModal("modal-window--is-reservation-error")
+                setTimeout(() => {this.submitStatus = ''}, 1000)
+            }
             
         },
 
