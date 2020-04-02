@@ -40,19 +40,20 @@ header.main-header {
 .main-header-contacts {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 .callback-wrap {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
 }
 
 .main-header-callback {
     margin-bottom: 10px;
+    padding-top: 5px;
 }
 
 .main-header-phone:first-child {
@@ -198,13 +199,13 @@ header.main-header {
 }
 
 .contacts-block-item.contacts-block-item--header .contacts-block-item-name{
-    margin-bottom: 0px;
+    margin-bottom: 4px;
     font-size: 12px;
     line-height: 1.5;
 }
 
 .contacts-block-item.contacts-block-item--header .contacts-block-item-value{
-    margin-bottom: 0px;
+    margin-bottom: 4px;
     font-size: 12px;
     line-height: 1.5;
 }
