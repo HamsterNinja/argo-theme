@@ -292,6 +292,7 @@ if ( class_exists( 'Timber' ) ){
             $context['address'] = get_field('address', 'options');
 
             $context['footer_title'] = get_field('footer_title', 'options');
+            $context['header_title'] = get_field('header_title', 'options');
                 
             return $context;
         }

@@ -92,6 +92,7 @@
     .main-header-contacts {
         padding-left: 28px;
         position: absolute;
+        align-items: center;
         left: calc(50% - 246px);
     }
 
@@ -366,7 +367,7 @@
     }
 
     .main-header-bottom {
-        height: 70px;
+        height: 88px;
     }
 
     .main-header-cart {
@@ -378,6 +379,10 @@
         position: relative;
         left: auto;
         width: calc(100% - 45px);
+    }
+
+    .main-header-callback {
+        padding-top: 5px;
     }
 
     .history-content-inner.desktop {

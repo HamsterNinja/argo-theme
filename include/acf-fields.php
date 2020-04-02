@@ -125,6 +125,12 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'footer_title',
                 'type' => 'text'
             ),
+            array(
+                'key' => 'field_5c99f95645927_header_title',
+                'label' => 'Заголовок в хедере',
+                'name' => 'header_title',
+                'type' => 'text'
+            ),
         ),
         'location' => array(
             array(
