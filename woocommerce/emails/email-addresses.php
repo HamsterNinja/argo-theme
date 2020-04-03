@@ -36,7 +36,19 @@ $order_meta = get_post_meta($order_id);
 				<?
 				$meta_data = $order->get_meta_data();
 				$delivery_method = get_post_meta( $order->get_id(), 'delivery', true );
-    			$delivery_method = $delivery_method == "courier" ? 'Курьер' : 'Самовывоз';
+				$delivery_method = $delivery_method == "courier" ? 'Курьер' : 'Самовывоз';
+
+				$payment_method = get_post_meta( $order->get_id(), 'payment', true );
+				if($payment_method == 'robokassa'){
+					$payment_method  = 'Оплата картой банка';
+				}
+				if($payment_method == 'jetpack_custom_gateway'){
+					$payment_method  = 'Оплата терминалом';
+				}
+				if($payment_method == 'cod'){
+					$payment_method  = 'Наличными при получении';
+				}
+				
 				echo '<p><strong>Телефон:</strong> <br/>' . get_post_meta( $order->get_id(), 'phone', true ) . '</p>';
 				echo '<p><strong>Город:</strong> <br/>' . get_post_meta( $order->get_id(), 'city', true ) . '</p>';
 				echo '<p><strong>Улица:</strong> <br/>' . get_post_meta( $order->get_id(), 'street', true ) . '</p>';
@@ -47,6 +59,7 @@ $order_meta = get_post_meta($order_id);
 				echo '<p><strong>Этаж:</strong> <br/>' . get_post_meta( $order->get_id(), 'floor', true ) . '</p>';
 				echo '<p><strong>Комментарий:</strong> <br/>' . get_post_meta( $order->get_id(), 'comment', true ) . '</p>';
 				echo '<p><strong>Доставка:</strong> <br/>' . $delivery_method . '</p>';
+				echo '<p><strong>Метод оплаты:</strong> <br/>' . $payment_method . '</p>';
 				?>
 			</address>
 		</td>
