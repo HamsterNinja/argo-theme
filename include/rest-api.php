@@ -389,6 +389,10 @@ function ajax_create_order() {
 
 	// // Process Payment
     $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+    
+    if($payment_method == "jetpack_custom_gateway"){
+        $payment_method = 'cod';
+    }
 
     $result = $available_gateways[ $payment_method ]->process_payment( $order->get_id() );
 
