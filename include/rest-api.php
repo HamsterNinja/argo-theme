@@ -306,16 +306,16 @@ function ajax_create_order() {
     
     $default_password = wp_generate_password();
     // TODO: заменить на телефон
-    if(!$email){
-        $email = $default_password.'@user.ru';
-        $email = 'studio@is-art.ru';
+    if(!$billing_email){
+        $billing_email = $default_password.'@user.ru';
+        $billing_email = 'studio@is-art.ru';
     }
     
-    if (!$user = get_user_by('login', $email)) $user = wp_create_user( $email, $default_password, $email );
+    if (!$user = get_user_by('login', $billing_email)) $user_id = wp_create_user( $billing_email, $default_password, $billing_email );
 
     $order = wc_create_order(
         [
-            'customer_id' => $user->id,
+            'customer_id' => $user ? $user->id : $user_id,
             'first_name' => $extra_first_name,
             'phone' => $extra_phone,
             'city' => $extra_city,
@@ -347,7 +347,9 @@ function ajax_create_order() {
 	// Информация о покупателе
 	$order->set_address( $address, 'billing' );
     $order->set_address( $address, 'shipping' );
+
     
+
     //Установить тип оплаты
 	$order->set_payment_method($payment_method);
 	
@@ -387,6 +389,7 @@ function ajax_create_order() {
 
 	// // Process Payment
     $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+
     $result = $available_gateways[ $payment_method ]->process_payment( $order->get_id() );
 
     // //Redirect to success/confirmation/payment page

@@ -65,19 +65,6 @@ function wps_deregister_styles() {
 }
 add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
 
-//remove type js and css for validator
-add_action('wp_loaded', 'prefix_output_buffer_start');
-function prefix_output_buffer_start() { 
-    ob_start("prefix_output_callback"); 
-}
-add_action('shutdown', 'prefix_output_buffer_end');
-function prefix_output_buffer_end() { 
-    ob_end_flush(); 
-}
-function prefix_output_callback($buffer) {
-    return preg_replace( "%[ ]type=[\'\"]text\/(javascript|css)[\'\"]%", '', $buffer );
-}
-
 register_nav_menus(array(
     'menu_header' => 'Верхнее меню',
     'menu_footer' => 'Нижние меню',
