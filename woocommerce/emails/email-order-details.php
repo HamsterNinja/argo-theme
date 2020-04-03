@@ -18,7 +18,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $text_align = is_rtl() ? 'right' : 'left';
-date_default_timezone_set("Europe/Moscow");
 do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text, $email ); ?>
 
 <h2>
@@ -30,10 +29,14 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		$before = '';
 		$after  = '';
 	}
+
+	$dt = new DateTime($order->get_date_created(), new DateTimeZone('UTC'));
+	$dt->setTimezone(new DateTimeZone('Europe/Moscow'));
+	$data_utc = $dt->format('d.m.y, H:i:s');
 	/* translators: %s: Order ID. */
 	echo wp_kses_post( $before . sprintf( __( '[Order #%s]', 'woocommerce' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(),
 	$order->get_date_created()->format( 'c' ),
-	$order->get_date_created()->format( 'd.m.y, H:i:s' ) ) );
+	$data_utc ) );
 	?>
 </h2>
 
