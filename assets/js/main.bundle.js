@@ -14909,7 +14909,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.submitStatus = '';
                   }, 1000);
                   setTimeout(function () {
-                    _this.showModal("modal-window--callback");
+                    _this.closeModal();
                   }, 1300);
                   setTimeout(function () {
                     _this.showModal("modal-window--thank");

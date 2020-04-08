@@ -93,7 +93,7 @@ export default {
                     this.submitStatus = 'SUCCESS';
                     this.clearForm();
                     setTimeout(() => {this.submitStatus = ''}, 1000);
-                    setTimeout(() => {this.showModal("modal-window--callback")}, 1300);
+                    setTimeout(() => {this.closeModal()}, 1300);
                     setTimeout(() => {this.showModal("modal-window--thank")}, 1500);
                 }
                 else{
