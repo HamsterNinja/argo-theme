@@ -376,9 +376,10 @@ function ajax_create_order() {
     $order->calculate_totals();
     
 	// Отправить письмо юзеру
-	$mailer = WC()->mailer();
-	$email = $mailer->emails['WC_Email_Customer_Processing_Order'];
-    $email->trigger( $order->get_id() );
+    $mailer = WC()->mailer();
+    // TODO: наверно лишния отправка письма
+	// $email = $mailer->emails['WC_Email_Customer_Processing_Order'];
+    // $email->trigger( $order->get_id() );
     
 	// Отправить письмо админу
 	$email = $mailer->emails['WC_Email_New_Order'];
