@@ -92,9 +92,9 @@ export default {
                 if(responseData.status == 'success'){
                     this.submitStatus = 'SUCCESS';
                     this.clearForm();
-                    setTimeout(() => {this.submitStatus = ''}, 1000);
-                    setTimeout(() => {this.closeModal()}, 1300);
-                    setTimeout(() => {this.showModal("modal-window--thank")}, 1500);
+                    setTimeout(() => {this.closeModal()}, 0);
+                    setTimeout(() => {this.submitStatus = ''}, 500);
+                    setTimeout(() => {this.showModal("modal-window--thank")}, 1000);
                 }
                 else{
                     this.submitStatus = 'ERROR';

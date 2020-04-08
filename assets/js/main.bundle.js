@@ -14906,14 +14906,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   this.submitStatus = 'SUCCESS';
                   this.clearForm();
                   setTimeout(function () {
-                    _this.submitStatus = '';
-                  }, 1000);
-                  setTimeout(function () {
                     _this.closeModal();
-                  }, 1300);
+                  }, 0);
+                  setTimeout(function () {
+                    _this.submitStatus = '';
+                  }, 500);
                   setTimeout(function () {
                     _this.showModal("modal-window--thank");
-                  }, 1500);
+                  }, 1000);
                 } else {
                   this.submitStatus = 'ERROR';
                   setTimeout(function () {
