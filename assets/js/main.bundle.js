@@ -14814,6 +14814,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -14902,6 +14908,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   setTimeout(function () {
                     _this.submitStatus = '';
                   }, 1000);
+                  setTimeout(function () {
+                    _this.showModal("modal-window--callback");
+                  }, 1300);
                   setTimeout(function () {
                     _this.showModal("modal-window--thank");
                   }, 1500);
@@ -72609,7 +72618,22 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("button", { staticClass: "button" }, [_vm._v("Отправить")])
+          _c(
+            "button",
+            {
+              staticClass: "button state-button",
+              class: {
+                "state-button--pending": _vm.submitStatus == "PENDING",
+                "state-button--success": _vm.submitStatus == "SUCCESS",
+                "state-button--fail": _vm.submitStatus == "ERROR"
+              }
+            },
+            [
+              _c("span", { staticClass: "state-button__text" }, [
+                _vm._v("Отправить")
+              ])
+            ]
+          )
         ]
       )
     ])

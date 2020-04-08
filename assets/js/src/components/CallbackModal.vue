@@ -22,7 +22,13 @@
                 </div>
 
       
-                <button class="button">Отправить</button>
+                <button class="button state-button"
+                :class="{ 
+                    'state-button--pending': submitStatus == 'PENDING', 
+                    'state-button--success': submitStatus == 'SUCCESS',
+                    'state-button--fail': submitStatus == 'ERROR',
+				}"
+                ><span class="state-button__text">Отправить</span></button>
             </form>
         </div>
     </div>
@@ -87,6 +93,7 @@ export default {
                     this.submitStatus = 'SUCCESS';
                     this.clearForm();
                     setTimeout(() => {this.submitStatus = ''}, 1000);
+                    setTimeout(() => {this.showModal("modal-window--callback")}, 1300);
                     setTimeout(() => {this.showModal("modal-window--thank")}, 1500);
                 }
                 else{
