@@ -467,3 +467,5 @@ function cs_woocommerce_remote_shipping_fields( $fields ) {
     return $fields;
 }
 add_filter( 'woocommerce_shipping_fields', 'cs_woocommerce_remote_shipping_fields' );
+
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 15;' ), 20 );
