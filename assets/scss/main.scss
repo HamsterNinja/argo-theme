@@ -973,8 +973,9 @@ a.page-numbers {
 
 .product-content-img img {
     width: 100%;
-    object-fit: content;
+    object-fit: contain;
     object-position: 50%;
+    max-height: 400px;
 }
 
 .product-content-top-info {
