@@ -929,6 +929,11 @@ a.page_menu-item:hover .page_menu-item-name {
     background-color: #FFC844;
 }
 
+.vue-pagination li.active.dots a {
+    background-color: transparent;
+    border: none;
+}
+
 .vue-pagination li a {
     padding: 3px 1px;
     border: 1px solid #000;
@@ -943,6 +948,8 @@ a.page_menu-item:hover .page_menu-item-name {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 a.page-numbers {
