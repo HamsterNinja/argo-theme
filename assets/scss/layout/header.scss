@@ -1,5 +1,5 @@
 header.main-header {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
@@ -21,39 +21,43 @@ header.main-header {
 .main-header-text {
     font-size: 14px;
     line-height: 18px;
-    color: #000;
+    color: #fff;
     width: 240px;
     padding-left: 40px;
-    background-image: url(../images/fork.gif);
+    background-image: url(../images/fork.png);
     background-repeat: no-repeat;
     background-position: 0 50%;
 }
 
 .main-header-logo {
-    transform: translate(90px, 0px)
+    text-align: center;
+    padding: 50px 15px 16%;
 }
 
 .main-header-logo a {
     display: inline-block
 }
 
+
 .main-header-contacts {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: calc(100% - 240px);
+    max-width: 910px;
 }
 
 .callback-wrap {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
     justify-content: flex-start;
     align-items: center;
 }
 
 .main-header-callback {
-    // margin-bottom: 10px;
     padding-top: 5px;
+    order: 5;
 }
 
 .main-header-phone:first-child {
@@ -67,7 +71,7 @@ header.main-header {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-image: url(../images/phone.svg);
+    background-image: url(../images/phone_w.svg);
     background-repeat: no-repeat;
     background-position: 50%;
     left: -28px;
@@ -78,16 +82,16 @@ header.main-header {
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     position: relative;
 }
 
 .main-header-phone a span.upper {
-    font-size: 14px;
-    line-height: 14px;
-    color: #d29100;
-    top: -1px;
-    position: relative;
+    // font-size: 14px;
+    // line-height: 14px;
+    // color: #d29100;
+    // top: -1px;
+    // position: relative;
 }
 
 .main-header-phone a span {
@@ -105,7 +109,7 @@ header.main-header {
     text-decoration: none;
     display: inline-block;
     padding: 7px 11px;
-    width: 170px;
+    width: 155px;
     text-align: center;
     box-shadow: 0 0 15px rgba(255, 200, 68, 0);
     transition: 0.3s ease;
@@ -127,10 +131,10 @@ header.main-header {
     z-index: 1;
     width: 100%;
     height: 20px;
-    top: 100%;
+    top: calc(100% - 1px);
     position: absolute;
     background-image: url(../images/header-decore.png);
-    background-position: 50% 100%
+    background-position: 50% 100%;
 }
 
 .main-header-bottom .container {
@@ -156,7 +160,7 @@ header.main-header {
     line-height: 20px;
     color: #000;
     text-decoration: none;
-    background: linear-gradient(to right, #ffc844, #ffc844 50%, #000 50%);
+    background: linear-gradient(to right, #ffc844, #ffc844 50%, #fff 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -192,22 +196,24 @@ header.main-header {
     font-size: 15px;
     line-height: 20px;
     text-align: right;
-    color: #000;
+    color: #fff;
     display: flex;
     flex-wrap: wrap;
-    text-decoration: none
+    text-decoration: none;
 }
 
-.contacts-block-item.contacts-block-item--header .contacts-block-item-name{
+.contacts-block-item.contacts-block-item--header .contacts-block-item-name {
     margin-bottom: 4px;
     font-size: 12px;
     line-height: 1.5;
+    color: #fff;
 }
 
 .contacts-block-item.contacts-block-item--header .contacts-block-item-value{
     margin-bottom: 4px;
     font-size: 12px;
     line-height: 1.5;
+    color: #fff;
 }
 
 .contacts-block-item.contacts-block-item--header {

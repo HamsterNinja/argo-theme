@@ -40,24 +40,23 @@
     </head>
     <body class="{{ body_class }}">
         <div id="app">
+            <div class="yellow-fone">Внимание! Временно кафе работает только на доставку. Принимаем заказы и доставляем домой и на дачу!</div>
         <header class="main-header desktop">
         <div class="main-header-top">
             <div class="container">
                 <div class="main-header-text">{{ header_title }}</div>
-                <div class="main-header-logo">
-                    <a href="{{ site.link }}">
-                        <img src="{{ site.theme.link }}/assets/images/logo.svg" alt="">
-                    </a>
-                </div>
+                
                 <div class="main-header-contacts">
                     <div class="contacts-block-item contacts-block-item--header">
                         <div class="contacts-block-item-name">{{ worktime_restaurant_title }}</div>
                         <div class="contacts-block-item-value">{{worktime_restaurant}}</div>
+                    </div>
+                    <div class="contacts-block-item contacts-block-item--header">
                         <div class="contacts-block-item-name">{{ worktime_delivery_title }}</div>
                         <div class="contacts-block-item-value">{{worktime_delivery}}</div>
                     </div>
 
-                    <div class="callback-wrap">
+                   
                         <div class="main-header-callback">
                             <a href="#" v-on:click.prevent="showModal('modal-window--callback')">Обратный звонок</a>
                         </div>
@@ -65,7 +64,7 @@
                             <div class="main-header-phone"><a href="tel:{{ phone_1|striptags|replace({' ': ''}) }}">{{ phone_1 }}</a></div>
                             <div class="main-header-phone"><a href="tel:{{ phone_2|striptags|replace({' ': ''}) }}">{{ phone_2 }}</a></div>
                         </div>
-                    </div>
+                   
 
                 </div>
             </div>
@@ -87,7 +86,7 @@
                 </div>
                 <div class="user-controls">
                     {% do action('header_action') %}
-                    <a href="{{ site.link }}/my-account/" class="main-header-lk"><svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 12.5a4.169 4.169 0 004.167-4.167A4.165 4.165 0 0012.5 4.167a4.166 4.166 0 100 8.333zm0 2.083c-2.776 0-8.333 1.391-8.333 4.167v2.083h16.666V18.75c0-2.776-5.557-4.167-8.333-4.167z" fill="#000"/></svg></a>
+                    <a href="{{ site.link }}/my-account/" class="main-header-lk"><svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 12.5a4.169 4.169 0 004.167-4.167A4.165 4.165 0 0012.5 4.167a4.166 4.166 0 100 8.333zm0 2.083c-2.776 0-8.333 1.391-8.333 4.167v2.083h16.666V18.75c0-2.776-5.557-4.167-8.333-4.167z" fill="#fff"/></svg></a>
                 </div>
             </div>
         </div>

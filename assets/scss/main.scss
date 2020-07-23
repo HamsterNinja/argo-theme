@@ -21,14 +21,27 @@ html {
 [v-cloak]>* {
     display: none
 }
-
+b{
+	font-weight: bold;
+}
 body {
     font-family: 'Roboto Slab', serif;
     background-image: url(../images/menu-bg.jpg);
     background-position: 50% 0%;
     height: 100%
 }
-
+body.home {
+    background-image: url(../images/home-bg-1.png), url(../images/home-bg-2.png), url(../images/home-bg-3.png), url(../images/menu-bg.jpg);
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-position: 0px 120px, 50% 390px, 100% 7px, 50% 0px;
+    background-size: 20%, 73%, 40%, auto;
+}
+.yellow-fone {
+    text-align: center;
+    padding: 10px;
+    background: #ffc844;
+    font-size: 18px;
+}
 img {
     max-width: 100%;
 }
@@ -156,7 +169,7 @@ textarea {
 .btn-hamburger span {
     height: 2px;
     display: block;
-    background: #391E25;
+    background: #fff;
     transition: 0.5s ease;
 }
 
@@ -166,7 +179,7 @@ textarea {
     display: block;
     width: 100%;
     height: 2px;
-    background: #391E25;
+    background: #fff;
     position: absolute;
     transition: 0.5s ease;
 }
@@ -265,9 +278,9 @@ textarea {
 
 .new-block-fone-white {
     background-color: #fff;
-    max-width: 1230px;
+    max-width: 1200px;
     width: 100%;
-    margin: 30px auto;
+    margin: 0 auto 30px;
     border-radius: 30px;
     border: 1px solid #dad6c6;
     -webkit-box-sizing: border-box;
@@ -290,7 +303,7 @@ textarea {
 }
 
 .main-page-tiggers {
-    padding: 45px 0;
+    padding: 24px 0 12px;
 }
 
 .main-page-tiggers .container {
@@ -298,15 +311,16 @@ textarea {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
+    max-width: 1135px;
 }
 
 .main-page-trigger {
-    width: 33.333%;
+    width: calc(33.333% - 10px);
 }
 
 .main-page-trigger:nth-child(1) .main-page-trigger-text {
-    max-width: 302px;
+    max-width: 345px;
 }
 
 .main-page-trigger:nth-child(2) .main-page-trigger-text {
@@ -314,16 +328,17 @@ textarea {
 }
 
 .main-page-trigger:nth-child(3) .main-page-trigger-text {
-    max-width: 216px;
+    max-width: 345px;
 }
 
 .main-page-trigger-text {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 24px;
     line-height: 32px;
     text-align: center;
-    color: #000000;
+    color: #000;
     margin: 0 auto;
+    text-transform: uppercase;
 }
 
 .activity-block {

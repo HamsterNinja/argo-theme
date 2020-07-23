@@ -43,6 +43,9 @@
 }
 
 @media(max-width: 1023px) {
+    .main-slider {
+    padding: 20%;
+}
     .main-header.desktop {
         display: none;
     }
@@ -72,6 +75,7 @@
     .main-header-logo {
         text-align: center;
         transform: inherit;
+        padding: 0;
     }
 
     .main-header-bottom {
@@ -90,19 +94,22 @@
     }
 
     .main-header-contacts {
-        padding-left: 28px;
         position: absolute;
         align-items: center;
-        left: calc(50% - 246px);
+        left: 10px;
+        padding-right: 10px;
+        justify-content: flex-end;
     }
-
+    .main-slider .main-header-logo {
+        display: none;
+    }
     .main-header-phones {
-        width: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-    }
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
 
     .main-header-phone:first-child {
         margin-bottom: 0;
@@ -298,8 +305,8 @@
     }
 
     .main-page-trigger {
-        width: 50%;
-        margin: 10px 0;
+        width: calc(50% - 10px);
+        margin: 10px 5px;
     }
 
     .reservation-content .container {
@@ -392,6 +399,12 @@
     .history-content-inner.mobile {
         display: block;
     }
+    body.home {
+    background-image: url(../images/home-bg-1.png), url(../images/home-bg-2.png), url(../images/home-bg-3.png), url(../images/menu-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: 0 130px, 50% 300px, 100% 0, 50% 0px;
+    background-size: 33%, 100%, 64%, auto;
+}
 }
 
 @media(max-width: 680px) {
@@ -548,8 +561,35 @@
     }
 
     .main-header-logo a {
-        width: 174px;
+        width: 264px;
         height: 46px;
+    }
+
+    .main-header-bottom {
+    position: relative;
+    padding: 0px 0 11px;
+    font-size: 0;
+}
+
+    .main-header-cart {
+        font-size: 15px;
+        line-height: 20px;
+        text-align: right;
+        color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        text-decoration: none;
+        float: right;
+        width: 75px;
+        right: 0;
+        position: absolute;
+        top: 59px;
+        z-index: 99;
+    }
+
+    .main-header-phone {
+        margin-left: 30px;
+        margin-right: 0px;
     }
 
     .main-header-callback {
@@ -557,8 +597,15 @@
     }
 
     .main-header-contacts {
-        width: calc(100% - 100px);
+        width: 100%;
     }
+    .main-header-phone a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
 
     .main-header-cart {
         padding-left: 10px;
