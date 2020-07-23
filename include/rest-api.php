@@ -421,3 +421,31 @@ function set_item_from_cart_by_cart_id() {
 }
 add_action('wp_ajax_set_item_from_cart_by_cart_id', 'set_item_from_cart_by_cart_id');
 add_action('wp_ajax_nopriv_set_item_from_cart_by_cart_id', 'set_item_from_cart_by_cart_id');
+
+function getAreas(WP_REST_Request $request){
+    $areas_raw = get_field('areas', 'options');
+    $areas = [];
+    foreach ($areas_raw as $k => $area_raw) {
+        $object_area = (object)[];
+        $object_area->name = $area_raw['name'];
+        $object_area->price = $area_raw['price'];
+
+        $new_subareas = [];
+        foreach ($area_raw['subareas'] as $subarea) {
+            $subarea['price'] = $area_raw['price'];
+            $new_subareas[] = $subarea;
+        }
+        $object_area->subareas = $new_subareas;
+        $areas[] = $object_area;
+    }
+
+    $response = $areas;
+    wp_send_json_success($response);
+}
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'amadreh/v1/', '/get-areas/', array(
+          'methods' => WP_REST_Server::READABLE,
+          'callback' => 'getAreas',
+      ));
+});

@@ -27946,16 +27946,16 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapMutations */]);
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   __WEBPACK_IMPORTED_MODULE_4__contacts_map___default.a.init(); //TODO: переписать
 
-  $('.btn-hamburger').click(function () {
-    $('.mobile-menu').addClass('active');
+  $(".btn-hamburger").click(function () {
+    $(".mobile-menu").addClass("active");
   });
-  $('.btn-hamburger.active').click(function () {
-    $('.mobile-menu').removeClass('active');
+  $(".btn-hamburger.active").click(function () {
+    $(".mobile-menu").removeClass("active");
   });
-  $('.activity-block-slick').slick({
+  $(".activity-block-slick").slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -27981,7 +27981,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }]
   });
-  $('.popular-slick').slick({
+  $(".popular-slick").slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -28016,74 +28016,74 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }]
   });
-  $('.menu-slick').slick({
+  $(".menu-slick").slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     speed: 500,
     fade: true,
-    cssEase: 'linear'
+    cssEase: "linear"
   });
-  $('.choice-button').click(function (event) {
+  $(".choice-button").click(function (event) {
     event.preventDefault();
-    $('.choice-button').removeClass('active');
-    $(this).addClass('active');
-    var id = $(this).attr('data-id');
+    $(".choice-button").removeClass("active");
+    $(this).addClass("active");
+    var id = $(this).attr("data-id");
 
     if (id) {
-      $('.single_menu-tabs-content:visible').removeClass('visible');
-      $('.single_menu-tabs').find('#' + id).addClass('visible');
+      $(".single_menu-tabs-content:visible").removeClass("visible");
+      $(".single_menu-tabs").find("#" + id).addClass("visible");
     }
   });
 });
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuelidate___default.a);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('map-hall', __WEBPACK_IMPORTED_MODULE_6__components_MapHall_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("map-hall", __WEBPACK_IMPORTED_MODULE_6__components_MapHall_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('map-hall-2', __WEBPACK_IMPORTED_MODULE_7__components_MapHall2_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("map-hall-2", __WEBPACK_IMPORTED_MODULE_7__components_MapHall2_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('registration-form', __WEBPACK_IMPORTED_MODULE_8__components_RegistrationForm_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("registration-form", __WEBPACK_IMPORTED_MODULE_8__components_RegistrationForm_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('change-password', __WEBPACK_IMPORTED_MODULE_9__components_ChangePassword_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("change-password", __WEBPACK_IMPORTED_MODULE_9__components_ChangePassword_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('page-login-form', __WEBPACK_IMPORTED_MODULE_10__components_PageLoginForm_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("page-login-form", __WEBPACK_IMPORTED_MODULE_10__components_PageLoginForm_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('callback-modal', __WEBPACK_IMPORTED_MODULE_11__components_callbackModal_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("callback-modal", __WEBPACK_IMPORTED_MODULE_11__components_callbackModal_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('reservation', __WEBPACK_IMPORTED_MODULE_12__components_Reservation_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("reservation", __WEBPACK_IMPORTED_MODULE_12__components_Reservation_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('quantity-button', __WEBPACK_IMPORTED_MODULE_13__components_QuantityButton_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("quantity-button", __WEBPACK_IMPORTED_MODULE_13__components_QuantityButton_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs', __WEBPACK_IMPORTED_MODULE_14__components_Tabs_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("tabs", __WEBPACK_IMPORTED_MODULE_14__components_Tabs_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab', __WEBPACK_IMPORTED_MODULE_15__components_Tab_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("tab", __WEBPACK_IMPORTED_MODULE_15__components_Tab_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tabs-table', __WEBPACK_IMPORTED_MODULE_16__components_TabsTable_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("tabs-table", __WEBPACK_IMPORTED_MODULE_16__components_TabsTable_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('tab-table', __WEBPACK_IMPORTED_MODULE_17__components_TabTable_vue__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component("tab-table", __WEBPACK_IMPORTED_MODULE_17__components_TabTable_vue__["a" /* default */]);
 
 
-__WEBPACK_IMPORTED_MODULE_19_numeral___default.a.register('locale', 'ru', {
+__WEBPACK_IMPORTED_MODULE_19_numeral___default.a.register("locale", "ru", {
   delimiters: {
-    thousands: ' ',
-    decimal: ','
+    thousands: " ",
+    decimal: ","
   },
   abbreviations: {
-    thousand: 'тыс.',
-    million: 'млн.',
-    billion: 'млрд.',
-    trillion: 'трлн.'
+    thousand: "тыс.",
+    million: "млн.",
+    billion: "млрд.",
+    trillion: "трлн."
   },
   ordinal: function ordinal() {
-    return '.';
+    return ".";
   },
   currency: {
-    symbol: 'руб.'
+    symbol: "руб."
   }
 });
-__WEBPACK_IMPORTED_MODULE_19_numeral___default.a.locale('ru');
+__WEBPACK_IMPORTED_MODULE_19_numeral___default.a.locale("ru");
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.filter("formatNumber", function (value) {
   return __WEBPACK_IMPORTED_MODULE_19_numeral___default()(value).format();
 });
@@ -28100,20 +28100,20 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     cart: {},
     checkout: {
       submitted: false,
-      submitStatus: '',
-      first_name: '',
-      phone: '',
-      email: '',
-      address: '',
-      city: '',
-      street: '',
-      house: '',
-      apartment: '',
-      intercom: '',
-      porch: '',
-      floor: '',
-      comment: '',
-      payment: 'cod'
+      submitStatus: "",
+      first_name: "",
+      phone: "",
+      email: "",
+      address: "",
+      city: "",
+      street: "",
+      house: "",
+      apartment: "",
+      intercom: "",
+      porch: "",
+      floor: "",
+      comment: "",
+      payment: "cod"
     }
   },
   validations: {
@@ -28137,15 +28137,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     }
   },
   components: {
-    'masked-input': __WEBPACK_IMPORTED_MODULE_18_vue_masked_input__["a" /* default */]
+    "masked-input": __WEBPACK_IMPORTED_MODULE_18_vue_masked_input__["a" /* default */]
   },
-  computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["d" /* mapState */])(['pageNum', 'cartSubtotal']), {
+  computed: _objectSpread({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["d" /* mapState */])(["pageNum", "cartSubtotal"]), {
     delivery: {
       get: function get() {
         return this.$store.state.delivery;
       },
       set: function set(value) {
-        this.$store.commit('updateDelivery', value);
+        this.$store.commit("updateDelivery", value);
       }
     },
     cartTotal: function cartTotal() {
@@ -28154,56 +28154,101 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       return subtototal;
     },
     shippingPrice: function shippingPrice() {
+      var _this = this;
+
       var shippingPrice = 0;
+      this.areas.forEach(function (area) {
+        if (area.name === _this.checkout.city) {
+          shippingPrice = area.price;
+        }
+
+        area.subareas.forEach(function (subarea) {
+          if (subarea.name === _this.checkout.city) {
+            shippingPrice = subarea.price;
+          }
+        });
+      });
       return shippingPrice;
+    },
+    areas: function areas() {
+      return this.$store.getters["areas"];
     }
   }),
-  mounted: function mounted() {
-    this.checkout.first_name = this.user.first_name;
-    this.checkout.phone = this.user.phone;
-    this.checkout.city = this.user.city;
-    this.checkout.street = this.user.street;
-    this.checkout.house = this.user.house;
-    this.checkout.email = this.user.email;
-    this.checkout.apartment = this.user.apartment;
-    this.checkout.intercom = this.user.intercom;
-    this.checkout.porch = this.user.porch;
-    this.checkout.floor = this.user.floor;
-  },
+  mounted: function () {
+    var _mounted = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee() {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this.checkout.first_name = this.user.first_name;
+              this.checkout.phone = this.user.phone;
+              this.checkout.city = this.user.city;
+              this.checkout.street = this.user.street;
+              this.checkout.house = this.user.house;
+              this.checkout.email = this.user.email;
+              this.checkout.apartment = this.user.apartment;
+              this.checkout.intercom = this.user.intercom;
+              this.checkout.porch = this.user.porch;
+              this.checkout.floor = this.user.floor;
+
+              if (!(this.$store.getters["areas"].length === 0)) {
+                _context.next = 13;
+                break;
+              }
+
+              _context.next = 13;
+              return this.$store.dispatch("fetchAreas");
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function mounted() {
+      return _mounted.apply(this, arguments);
+    }
+
+    return mounted;
+  }(),
   methods: {
     addCart: function () {
       var _addCart = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(ID) {
+      regeneratorRuntime.mark(function _callee2(ID) {
         var targetButton, cart, imgtodrag, imgclone, formProduct, fetchData, response, jsonResponse;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 // TODO: убрать jquery
                 targetButton = event.target;
-                cart = $('.main-header-cart');
-                imgtodrag = $(event.target).parents('.popular-item').find(".popular-item-img img").eq(0);
+                cart = $(".main-header-cart");
+                imgtodrag = $(event.target).parents(".popular-item").find(".popular-item-img img").eq(0);
 
                 if (imgtodrag.length !== 0) {
                   imgclone = imgtodrag.clone().offset({
                     top: imgtodrag.offset().top,
                     left: imgtodrag.offset().left
                   }).css({
-                    'opacity': '0.5',
-                    'position': 'absolute',
-                    'height': '150px',
-                    'width': '150px',
-                    'z-index': '100'
-                  }).appendTo($('body')).animate({
-                    'top': cart.offset().top + 10,
-                    'left': cart.offset().left + 10,
-                    'width': 75,
-                    'height': 75
+                    opacity: "0.5",
+                    position: "absolute",
+                    height: "150px",
+                    width: "150px",
+                    "z-index": "100"
+                  }).appendTo($("body")).animate({
+                    top: cart.offset().top + 10,
+                    left: cart.offset().left + 10,
+                    width: 75,
+                    height: 75
                   }, 1000);
                   imgclone.animate({
-                    'width': 0,
-                    'height': 0
+                    width: 0,
+                    height: 0
                   }, function () {
                     $(this).detach();
                   });
@@ -28211,25 +28256,25 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
 
                 this.adding = true;
                 formProduct = new FormData();
-                formProduct.append('action', 'add_one_product');
-                formProduct.append('product_id', ID);
-                formProduct.append('quantity', __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].state.productCount ? __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].state.productCount : 1);
+                formProduct.append("action", "add_one_product");
+                formProduct.append("product_id", ID);
+                formProduct.append("quantity", __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].state.productCount ? __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].state.productCount : 1);
                 fetchData = {
                   method: "POST",
                   body: formProduct
                 };
-                _context.next = 12;
+                _context2.next = 12;
                 return fetch(wc_add_to_cart_params.ajax_url, fetchData);
 
               case 12:
-                response = _context.sent;
-                _context.next = 15;
+                response = _context2.sent;
+                _context2.next = 15;
                 return response.json();
 
               case 15:
-                jsonResponse = _context.sent;
+                jsonResponse = _context2.sent;
 
-                if (jsonResponse.error != 'undefined' && jsonResponse.error) {
+                if (jsonResponse.error != "undefined" && jsonResponse.error) {
                   console.log(jsonResponse.error);
                 } else if (jsonResponse.success) {// location = SITEDATA.url + "/cart/";
                 }
@@ -28237,11 +28282,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 if (jsonResponse.fragments) {
                   // TODO: переписать
                   Array.from(jsonResponse.fragments).forEach(function (element) {
-                    element.classList.add('updating');
+                    element.classList.add("updating");
                   });
                   $.each(jsonResponse.fragments, function (key, value) {
                     $(key).replaceWith(value);
-                    $(key).stop(true).css('opacity', '1');
+                    $(key).stop(true).css("opacity", "1");
                   });
                 }
 
@@ -28249,10 +28294,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
 
               case 19:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function addCart(_x) {
@@ -28264,19 +28309,19 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     orderProducts: function () {
       var _orderProducts = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
-        var _this = this;
+      regeneratorRuntime.mark(function _callee3() {
+        var _this2 = this;
 
         var bodyFormData, fetchData, response, jsonResponse;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 // TODO: валидация без popup
                 this.errors = [];
 
                 if (!this.checkout.first_name) {
-                  this.errors.push('Требуется указать имя.');
+                  this.errors.push("Требуется указать имя.");
                 }
 
                 if (!this.checkout.phone) {
@@ -28285,83 +28330,83 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                   this.errors.push("Укажите корректный номер телефона.");
                 }
 
-                if (this.delivery == 'courier') {
+                if (this.delivery == "courier") {
                   if (!this.checkout.city) {
-                    this.errors.push('Требуется указать город.');
+                    this.errors.push("Требуется указать город.");
                   }
 
                   if (!this.checkout.street) {
-                    this.errors.push('Требуется указать адрес.');
+                    this.errors.push("Требуется указать адрес.");
                   }
 
                   if (!this.checkout.house) {
-                    this.errors.push('Требуется указать дом.');
+                    this.errors.push("Требуется указать дом.");
                   }
                 }
 
                 setTimeout(function () {
-                  _this.errors = [];
+                  _this2.errors = [];
                 }, 4000);
 
                 if (this.errors.length) {
-                  _context2.next = 31;
+                  _context3.next = 31;
                   break;
                 }
 
                 bodyFormData = new FormData();
-                bodyFormData.append('payment_method', this.checkout.payment);
-                bodyFormData.append('first_name', this.checkout.first_name);
-                bodyFormData.append('email', this.checkout.email);
-                bodyFormData.append('phone', this.checkout.phone);
-                bodyFormData.append('address', this.checkout.address);
-                bodyFormData.append('city', this.checkout.city);
-                bodyFormData.append('street', this.checkout.street);
-                bodyFormData.append('house', this.checkout.house);
-                bodyFormData.append('apartment', this.checkout.apartment);
-                bodyFormData.append('intercom', this.checkout.intercom);
-                bodyFormData.append('porch', this.checkout.porch);
-                bodyFormData.append('floor', this.checkout.floor);
-                bodyFormData.append('comment', this.checkout.comment);
-                bodyFormData.append('payment', this.checkout.payment);
-                bodyFormData.append('delivery', this.delivery);
+                bodyFormData.append("payment_method", this.checkout.payment);
+                bodyFormData.append("first_name", this.checkout.first_name);
+                bodyFormData.append("email", this.checkout.email);
+                bodyFormData.append("phone", this.checkout.phone);
+                bodyFormData.append("address", this.checkout.address);
+                bodyFormData.append("city", this.checkout.city);
+                bodyFormData.append("street", this.checkout.street);
+                bodyFormData.append("house", this.checkout.house);
+                bodyFormData.append("apartment", this.checkout.apartment);
+                bodyFormData.append("intercom", this.checkout.intercom);
+                bodyFormData.append("porch", this.checkout.porch);
+                bodyFormData.append("floor", this.checkout.floor);
+                bodyFormData.append("comment", this.checkout.comment);
+                bodyFormData.append("payment", this.checkout.payment);
+                bodyFormData.append("delivery", this.delivery);
                 fetchData = {
                   method: "POST",
                   body: bodyFormData
                 };
-                this.checkout.submitStatus = 'PENDING';
-                _context2.next = 26;
+                this.checkout.submitStatus = "PENDING";
+                _context3.next = 26;
                 return fetch("".concat(SITEDATA.ajax_url, "?action=create_order"), fetchData);
 
               case 26:
-                response = _context2.sent;
-                _context2.next = 29;
+                response = _context3.sent;
+                _context3.next = 29;
                 return response.json();
 
               case 29:
-                jsonResponse = _context2.sent;
+                jsonResponse = _context3.sent;
 
-                if (jsonResponse.data.result == 'fail') {
-                  this.checkout.submitStatus = 'ERROR';
+                if (jsonResponse.data.result == "fail") {
+                  this.checkout.submitStatus = "ERROR";
                   setTimeout(function () {
-                    _this.checkout.submitStatus = '';
+                    _this2.checkout.submitStatus = "";
                   }, 1000);
                   this.showModal("modal-window--error-checkout");
-                } else if (jsonResponse.data.result == 'success') {
+                } else if (jsonResponse.data.result == "success") {
                   app.clearOrderForm(); // this.showModal("modal-window--thanks");
 
-                  this.checkout.submitStatus = 'SUCCESS';
+                  this.checkout.submitStatus = "SUCCESS";
                   setTimeout(function () {
-                    _this.checkout.submitStatus = '';
+                    _this2.checkout.submitStatus = "";
                   }, 1000);
                   document.location = jsonResponse.data.redirect;
                 }
 
               case 31:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function orderProducts() {
@@ -28374,19 +28419,19 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
       this.errors = [];
     },
     clearOrderForm: function clearOrderForm() {
-      this.checkout.first_name = '';
-      this.checkout.email = '';
-      this.checkout.phone = '';
-      this.checkout.address = '';
-      this.checkout.city = '';
-      this.checkout.street = '';
-      this.checkout.house = '';
-      this.checkout.apartment = '';
-      this.checkout.intercom = '';
-      this.checkout.porch = '';
-      this.checkout.floor = '';
-      this.checkout.comment = '';
-      this.checkout.comment = '';
+      this.checkout.first_name = "";
+      this.checkout.email = "";
+      this.checkout.phone = "";
+      this.checkout.address = "";
+      this.checkout.city = "";
+      this.checkout.street = "";
+      this.checkout.house = "";
+      this.checkout.apartment = "";
+      this.checkout.intercom = "";
+      this.checkout.porch = "";
+      this.checkout.floor = "";
+      this.checkout.comment = "";
+      this.checkout.comment = "";
     },
     validEmail: function validEmail(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -28399,11 +28444,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   }
 });
 $(document).ready(function () {
-  $('.photo-gallery_content-inner').masonry({
+  $(".photo-gallery_content-inner").masonry({
     // options
-    itemSelector: '.gallery-item',
+    itemSelector: ".gallery-item",
     percentPosition: true,
-    columnWidth: '.gallery-item'
+    columnWidth: ".gallery-item"
   });
 });
 
@@ -46422,7 +46467,8 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     product: {},
     products: [],
     orders: [],
-    delivery: 'courier'
+    delivery: 'courier',
+    areas: []
   },
   plugins: [Object(__WEBPACK_IMPORTED_MODULE_2_vuex_persistedstate__["a" /* default */])({
     reducer: function reducer(state) {
@@ -46437,13 +46483,17 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     },
     orders: function orders(state) {
       return state.orders;
+    },
+    areas: function areas(state) {
+      return state.areas;
     }
   },
   mutations: {
     updateProductCount: set('productCount'),
     updateCartSubtotal: set('cartSubtotal'),
     updateOrders: set('orders'),
-    updateDelivery: set('delivery')
+    updateDelivery: set('delivery'),
+    updateAreas: set('areas')
   },
   actions: {
     fetchOrders: function () {
@@ -46481,6 +46531,42 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
       }
 
       return fetchOrders;
+    }(),
+    fetchAreas: function () {
+      var _fetchAreas = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2(_ref2) {
+        var commit, areas, data;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                commit = _ref2.commit;
+                _context2.next = 3;
+                return fetch("".concat(SITEDATA.url, "/wp-json/amadreh/v1/get-areas"));
+
+              case 3:
+                areas = _context2.sent;
+                _context2.next = 6;
+                return areas.json();
+
+              case 6:
+                data = _context2.sent;
+                commit('updateAreas', data.data);
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function fetchAreas(_x2) {
+        return _fetchAreas.apply(this, arguments);
+      }
+
+      return fetchAreas;
     }()
   }
 });

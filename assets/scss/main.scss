@@ -3014,6 +3014,10 @@ button.close-error {
     animation: loading-btn--fade-in .6s ease;
 }
 
+.parent-area{
+    font-weight: bold;
+}
+
 @keyframes loading-btn--fade-in {
     0% {
         opacity: 0;

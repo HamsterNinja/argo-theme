@@ -38,16 +38,23 @@
 
                         <label for="" v-if="delivery == 'courier'">
                             <p class="checkout-label">Введите адрес доставки *</p>
-                            <!-- TODO: временно скрыл -->
-                            <!-- <select name="address" v-model="checkout.address">
-                                <option value="">Не выбрано</option>
-                            </select> -->
                         </label>
 
                         <div class="checkout-form-row" v-if="delivery == 'courier'">
                             <label  for="" :class="{ 'input--error': checkout.submitted && $v.checkout.city.$error }">
                                 <p class="checkout-label">Город *</p>
-                                <input type="text" v-model="checkout.city">
+                                <select v-model="checkout.city">
+                                    <template v-for="area in areas">
+                                        <option class="parent-area" :value="area.name" :key="area.name">
+                                            (( area.name ))
+                                        </option>
+                                        <template v-if="area.subareas">
+                                            <option class="chidren-area" v-for="subarea in area.subareas" :value="subarea.name">
+                                                (( subarea.name ))
+                                            </option>
+                                        </template>
+                                    </template>
+                                </select>
                                 <div class="error" v-if="checkout.submitted && $v.checkout.city.$error">Город обязателен</div>
                             </label>
                             <label for="" :class="{ 'input--error': checkout.submitted && $v.checkout.street.$error }">

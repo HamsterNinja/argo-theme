@@ -20,7 +20,8 @@ const store = new Vuex.Store({
         product: {},
         products: [],
         orders: [],
-        delivery: 'courier'
+        delivery: 'courier',
+        areas: []
     },
     plugins: [createPersistedState({
         reducer: state => ({
@@ -30,18 +31,25 @@ const store = new Vuex.Store({
     getters: {
         getProductCount: state => state.productCount,
         orders: state => state.orders,
+        areas: state => state.areas
     },
     mutations: {
         updateProductCount: set('productCount'),
         updateCartSubtotal: set('cartSubtotal'),
         updateOrders: set('orders'),
         updateDelivery: set('delivery'),
+        updateAreas: set('areas')
     },
     actions: {
         async fetchOrders({commit}) {
             const orders = await fetch(`${SITEDATA.url}/wp-json/amadreh/v1/get-orders`)
             let data = await orders.json()
             commit('updateOrders', data.data.orders)
+        },
+        async fetchAreas({commit}) {
+            const areas = await fetch(`${SITEDATA.url}/wp-json/amadreh/v1/get-areas`)
+            let data = await areas.json()
+            commit('updateAreas', data.data)
         },
     },
 });

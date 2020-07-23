@@ -1,183 +1,186 @@
-import 'babel-polyfill';
-import Vue from 'vue';
-import Vuex from 'vuex';
-import {mapState, mapGetters, mapMutations} from 'vuex';
+import "babel-polyfill";
+import Vue from "vue";
+import Vuex from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 Vue.use(Vuex);
 Vue.use(mapState);
 Vue.use(mapGetters);
 Vue.use(mapMutations);
-import store from './store';
+import store from "./store";
 
-import contactsMap from './contacts-map';
+import contactsMap from "./contacts-map";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     contactsMap.init();
 
-
     //TODO: переписать
-    $('.btn-hamburger').click(function () {
-        $('.mobile-menu').addClass('active');
+    $(".btn-hamburger").click(function() {
+        $(".mobile-menu").addClass("active");
     });
-    $('.btn-hamburger.active').click(function () {
-        $('.mobile-menu').removeClass('active');
+    $(".btn-hamburger.active").click(function() {
+        $(".mobile-menu").removeClass("active");
     });
-    
-    
-    $('.activity-block-slick').slick({
+
+    $(".activity-block-slick").slick({
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         arrows: false,
         dots: true,
-        responsive: [{
+        responsive: [
+            {
                 breakpoint: 950,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     infinite: true,
                     arrows: false,
-                    dots: true
-                }
-            }, {
+                    dots: true,
+                },
+            },
+            {
                 breakpoint: 640,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     arrows: false,
-                    dots: true
-                }
-            }
-        ]
+                    dots: true,
+                },
+            },
+        ],
     });
-    
-    
-    $('.popular-slick').slick({
+
+    $(".popular-slick").slick({
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         arrows: true,
         dots: true,
-        responsive: [{
+        responsive: [
+            {
                 breakpoint: 1350,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
                     arrows: false,
-                    dots: true
-                }
-            },{
+                    dots: true,
+                },
+            },
+            {
                 breakpoint: 950,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     infinite: true,
                     arrows: false,
-                    dots: true
-                }
-            }, {
+                    dots: true,
+                },
+            },
+            {
                 breakpoint: 640,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     arrows: false,
-                    dots: true
-                }
-            }
-        ]
+                    dots: true,
+                },
+            },
+        ],
     });
-    
-    $('.menu-slick').slick({
+
+    $(".menu-slick").slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         speed: 500,
         fade: true,
-        cssEase: 'linear'
+        cssEase: "linear",
     });
-    
-    $('.choice-button').click(function (event) {
+
+    $(".choice-button").click(function(event) {
         event.preventDefault();
-        $('.choice-button').removeClass('active');
-        $(this).addClass('active');
-    
-        var id = $(this).attr('data-id');
+        $(".choice-button").removeClass("active");
+        $(this).addClass("active");
+
+        var id = $(this).attr("data-id");
         if (id) {
-            $('.single_menu-tabs-content:visible').removeClass('visible');
-            $('.single_menu-tabs').find('#' + id).addClass('visible');
+            $(".single_menu-tabs-content:visible").removeClass("visible");
+            $(".single_menu-tabs")
+                .find("#" + id)
+                .addClass("visible");
         }
     });
 });
 
-import Vuelidate from 'vuelidate';
+import Vuelidate from "vuelidate";
 Vue.use(Vuelidate);
 
-import MapHall from './components/MapHall.vue';
-Vue.component('map-hall', MapHall);
+import MapHall from "./components/MapHall.vue";
+Vue.component("map-hall", MapHall);
 
-import MapHall2 from './components/MapHall2.vue';
-Vue.component('map-hall-2', MapHall2);
+import MapHall2 from "./components/MapHall2.vue";
+Vue.component("map-hall-2", MapHall2);
 
-import RegistrationForm from './components/RegistrationForm.vue';
-Vue.component('registration-form', RegistrationForm);
+import RegistrationForm from "./components/RegistrationForm.vue";
+Vue.component("registration-form", RegistrationForm);
 
-import ChangePassword from './components/ChangePassword.vue';
-Vue.component('change-password', ChangePassword);
+import ChangePassword from "./components/ChangePassword.vue";
+Vue.component("change-password", ChangePassword);
 
-import PageLoginForm from './components/PageLoginForm.vue';
-Vue.component('page-login-form', PageLoginForm);
+import PageLoginForm from "./components/PageLoginForm.vue";
+Vue.component("page-login-form", PageLoginForm);
 
-import callbackModal from './components/callbackModal.vue';
-Vue.component('callback-modal', callbackModal);
+import callbackModal from "./components/callbackModal.vue";
+Vue.component("callback-modal", callbackModal);
 
-import Reservation from './components/Reservation.vue';
-Vue.component('reservation', Reservation);
+import Reservation from "./components/Reservation.vue";
+Vue.component("reservation", Reservation);
 
-import QuantityButton from './components/QuantityButton.vue';
-Vue.component('quantity-button', QuantityButton);
+import QuantityButton from "./components/QuantityButton.vue";
+Vue.component("quantity-button", QuantityButton);
 
-import Tabs from './components/Tabs.vue';
-Vue.component('tabs', Tabs);
+import Tabs from "./components/Tabs.vue";
+Vue.component("tabs", Tabs);
 
-import Tab from './components/Tab.vue';
-Vue.component('tab', Tab);
+import Tab from "./components/Tab.vue";
+Vue.component("tab", Tab);
 
-import TabsTable from './components/TabsTable.vue';
-Vue.component('tabs-table', TabsTable);
+import TabsTable from "./components/TabsTable.vue";
+Vue.component("tabs-table", TabsTable);
 
-import TabTable from './components/TabTable.vue';
-Vue.component('tab-table', TabTable);
+import TabTable from "./components/TabTable.vue";
+Vue.component("tab-table", TabTable);
 
-import MaskedInput from 'vue-masked-input';
+import MaskedInput from "vue-masked-input";
 
-import numeral from 'numeral';
-numeral.register('locale', 'ru', {
+import numeral from "numeral";
+numeral.register("locale", "ru", {
     delimiters: {
-        thousands: ' ',
-        decimal: ','
+        thousands: " ",
+        decimal: ",",
     },
     abbreviations: {
-        thousand: 'тыс.',
-        million: 'млн.',
-        billion: 'млрд.',
-        trillion: 'трлн.'
+        thousand: "тыс.",
+        million: "млн.",
+        billion: "млрд.",
+        trillion: "трлн.",
     },
-    ordinal: function () {
-        return '.';
+    ordinal: function() {
+        return ".";
     },
     currency: {
-        symbol: 'руб.'
-    }
+        symbol: "руб.",
+    },
 });
 
-numeral.locale('ru');
+numeral.locale("ru");
 
-
-Vue.filter("formatNumber", function (value) {
-    return numeral(value).format(); 
+Vue.filter("formatNumber", function(value) {
+    return numeral(value).format();
 });
 
 import { required, email, minLength } from "vuelidate/lib/validators";
@@ -191,74 +194,82 @@ const app = new Vue({
     data: {
         user: SITEDATA.user_data,
         errors: [],
-        cart:{
- 
-        },
+        cart: {},
         checkout: {
             submitted: false,
-            submitStatus: '',
-            first_name: '',
-            phone: '',
-            email: '',
-            address: '',
-            city: '',
-            street: '',
-            house: '',
-            apartment: '',
-            intercom: '',
-            porch: '',
-            floor: '',
-            comment: '',
-            payment: 'cod',
-        }
+            submitStatus: "",
+            first_name: "",
+            phone: "",
+            email: "",
+            address: "",
+            city: "",
+            street: "",
+            house: "",
+            apartment: "",
+            intercom: "",
+            porch: "",
+            floor: "",
+            comment: "",
+            payment: "cod",
+        },
     },
     validations: {
         checkout: {
             phone: {
-                required
+                required,
             },
             city: {
-                required
+                required,
             },
             street: {
-                required
+                required,
             },
             house: {
-                required
+                required,
             },
             email: {
                 required,
-                email
-            },   
-        }
+                email,
+            },
+        },
     },
     components: {
-        'masked-input': MaskedInput,
+        "masked-input": MaskedInput,
     },
     computed: {
-        ...mapState([
-            'pageNum',
-            'cartSubtotal',
-        ]),
-        delivery:{
+        ...mapState(["pageNum", "cartSubtotal"]),
+        delivery: {
             get() {
-                return this.$store.state.delivery 
+                return this.$store.state.delivery;
             },
             set(value) {
-                this.$store.commit('updateDelivery', value);
-            }
+                this.$store.commit("updateDelivery", value);
+            },
         },
-        cartTotal: function () {
+        cartTotal() {
             let subtototal = this.cartSubtotal;
             subtototal = subtototal + this.shippingPrice;
             return subtototal;
         },
-        shippingPrice: function(){
+        shippingPrice() {
             let shippingPrice = 0;
-            return shippingPrice;
+            this.areas.forEach(area => {
+                if(area.name === this.checkout.city){
+                    shippingPrice = area.price
+                }
+                area.subareas.forEach(subarea => {
+                    if(subarea.name === this.checkout.city){
+                        shippingPrice = subarea.price
+                    }
+                });
+            });
+            return shippingPrice
+        },
+        areas() {
+            return this.$store.getters["areas"]
         },
     },
-    mounted(){
+    async mounted() {
         this.checkout.first_name = this.user.first_name;
         this.checkout.phone = this.user.phone;
         this.checkout.city = this.user.city;
@@ -269,69 +280,90 @@ const app = new Vue({
         this.checkout.intercom = this.user.intercom;
         this.checkout.porch = this.user.porch;
         this.checkout.floor = this.user.floor;
+
+        if (this.$store.getters["areas"].length === 0) {
+            await this.$store.dispatch("fetchAreas");
+        }
     },
     methods: {
         async addCart(ID) {
             // TODO: убрать jquery
             let targetButton = event.target;
-            var cart = $('.main-header-cart');
-            let imgtodrag = $(event.target).parents('.popular-item').find(".popular-item-img img").eq(0);
+            var cart = $(".main-header-cart");
+            let imgtodrag = $(event.target)
+                .parents(".popular-item")
+                .find(".popular-item-img img")
+                .eq(0);
             if (imgtodrag.length !== 0) {
-                var imgclone = imgtodrag.clone()
+                var imgclone = imgtodrag
+                    .clone()
                     .offset({
-                    top: imgtodrag.offset().top,
-                    left: imgtodrag.offset().left
-                })
+                        top: imgtodrag.offset().top,
+                        left: imgtodrag.offset().left,
+                    })
                     .css({
-                    'opacity': '0.5',
-                        'position': 'absolute',
-                        'height': '150px',
-                        'width': '150px',
-                        'z-index': '100'
-                })
-                    .appendTo($('body'))
-                    .animate({
-                    'top': cart.offset().top + 10,
-                        'left': cart.offset().left + 10,
-                        'width': 75,
-                        'height': 75
-                }, 1000);
+                        opacity: "0.5",
+                        position: "absolute",
+                        height: "150px",
+                        width: "150px",
+                        "z-index": "100",
+                    })
+                    .appendTo($("body"))
+                    .animate(
+                        {
+                            top: cart.offset().top + 10,
+                            left: cart.offset().left + 10,
+                            width: 75,
+                            height: 75,
+                        },
+                        1000
+                    );
 
-                
-                imgclone.animate({
-                    'width': 0,
-                        'height': 0
-                }, function () {
-                    $(this).detach()
-                });
+                imgclone.animate(
+                    {
+                        width: 0,
+                        height: 0,
+                    },
+                    function() {
+                        $(this).detach();
+                    }
+                );
             }
 
             this.adding = true;
             let formProduct = new FormData();
-            formProduct.append('action', 'add_one_product');
-            formProduct.append('product_id', ID);
-            formProduct.append('quantity', store.state.productCount ?  store.state.productCount : 1);
-                        
+            formProduct.append("action", "add_one_product");
+            formProduct.append("product_id", ID);
+            formProduct.append(
+                "quantity",
+                store.state.productCount ? store.state.productCount : 1
+            );
+
             let fetchData = {
                 method: "POST",
-                body: formProduct
+                body: formProduct,
             };
-            let response = await fetch(wc_add_to_cart_params.ajax_url, fetchData);
+            let response = await fetch(
+                wc_add_to_cart_params.ajax_url,
+                fetchData
+            );
             let jsonResponse = await response.json();
-            if (jsonResponse.error != 'undefined' && jsonResponse.error) {
+            if (jsonResponse.error != "undefined" && jsonResponse.error) {
                 console.log(jsonResponse.error);
             } else if (jsonResponse.success) {
                 // location = SITEDATA.url + "/cart/";
             }
-            if ( jsonResponse.fragments ) {
+            if (jsonResponse.fragments) {
                 // TODO: переписать
-                Array.from(jsonResponse.fragments).forEach(element => {
-                    element.classList.add('updating');
+                Array.from(jsonResponse.fragments).forEach((element) => {
+                    element.classList.add("updating");
                 });
 
-                $.each( jsonResponse.fragments, function( key, value ) {
-                    $( key ).replaceWith( value );
-                    $( key ).stop( true ).css( 'opacity', '1' );
+                $.each(jsonResponse.fragments, function(key, value) {
+                    $(key).replaceWith(value);
+                    $(key)
+                        .stop(true)
+                        .css("opacity", "1");
                 });
             }
             this.adding = false;
@@ -342,7 +374,7 @@ const app = new Vue({
             this.errors = [];
 
             if (!this.checkout.first_name) {
-                this.errors.push('Требуется указать имя.');
+                this.errors.push("Требуется указать имя.");
             }
 
             if (!this.checkout.phone) {
@@ -351,101 +383,106 @@ const app = new Vue({
                 this.errors.push("Укажите корректный номер телефона.");
             }
 
-            if(this.delivery == 'courier'){
+            if (this.delivery == "courier") {
                 if (!this.checkout.city) {
-                    this.errors.push('Требуется указать город.');
+                    this.errors.push("Требуется указать город.");
                 }
                 if (!this.checkout.street) {
-                    this.errors.push('Требуется указать адрес.');
+                    this.errors.push("Требуется указать адрес.");
                 }
-    
+
                 if (!this.checkout.house) {
-                    this.errors.push('Требуется указать дом.');
+                    this.errors.push("Требуется указать дом.");
                 }
             }
-            
-            setTimeout(()=>{
+
+            setTimeout(() => {
                 this.errors = [];
             }, 4000);
 
             if (!this.errors.length) {
                 let bodyFormData = new FormData();
-                bodyFormData.append('payment_method', this.checkout.payment);
-                bodyFormData.append('first_name', this.checkout.first_name);
-                bodyFormData.append('email', this.checkout.email);
-                bodyFormData.append('phone', this.checkout.phone);
-                bodyFormData.append('address', this.checkout.address);
-                bodyFormData.append('city', this.checkout.city);
-                bodyFormData.append('street', this.checkout.street);
-                bodyFormData.append('house', this.checkout.house);
-                bodyFormData.append('apartment', this.checkout.apartment);
-                bodyFormData.append('intercom', this.checkout.intercom);
-                bodyFormData.append('porch', this.checkout.porch);
-                bodyFormData.append('floor', this.checkout.floor);
-                bodyFormData.append('comment', this.checkout.comment);
-                bodyFormData.append('payment', this.checkout.payment);
-                bodyFormData.append('delivery', this.delivery);
-                          
+                bodyFormData.append("payment_method", this.checkout.payment);
+                bodyFormData.append("first_name", this.checkout.first_name);
+                bodyFormData.append("email", this.checkout.email);
+                bodyFormData.append("phone", this.checkout.phone);
+                bodyFormData.append("address", this.checkout.address);
+                bodyFormData.append("city", this.checkout.city);
+                bodyFormData.append("street", this.checkout.street);
+                bodyFormData.append("house", this.checkout.house);
+                bodyFormData.append("apartment", this.checkout.apartment);
+                bodyFormData.append("intercom", this.checkout.intercom);
+                bodyFormData.append("porch", this.checkout.porch);
+                bodyFormData.append("floor", this.checkout.floor);
+                bodyFormData.append("comment", this.checkout.comment);
+                bodyFormData.append("payment", this.checkout.payment);
+                bodyFormData.append("delivery", this.delivery);
+
                 let fetchData = {
                     method: "POST",
-                    body: bodyFormData
+                    body: bodyFormData,
                 };
 
-                this.checkout.submitStatus = 'PENDING'
-                let response = await fetch(`${SITEDATA.ajax_url}?action=create_order`, fetchData);
+                this.checkout.submitStatus = "PENDING";
+                let response = await fetch(
+                    `${SITEDATA.ajax_url}?action=create_order`,
+                    fetchData
+                );
                 let jsonResponse = await response.json();
-                if (jsonResponse.data.result == 'fail') {
-                    this.checkout.submitStatus = 'ERROR';
-                    setTimeout(() => {this.checkout.submitStatus = ''}, 1000);
+                if (jsonResponse.data.result == "fail") {
+                    this.checkout.submitStatus = "ERROR";
+                    setTimeout(() => {
+                        this.checkout.submitStatus = "";
+                    }, 1000);
                     this.showModal("modal-window--error-checkout");
-                } else if(jsonResponse.data.result == 'success'){
+                } else if (jsonResponse.data.result == "success") {
                     app.clearOrderForm();
                     // this.showModal("modal-window--thanks");
-                    this.checkout.submitStatus = 'SUCCESS';
-                    setTimeout(() => {this.checkout.submitStatus = ''}, 1000);
+                    this.checkout.submitStatus = "SUCCESS";
+                    setTimeout(() => {
+                        this.checkout.submitStatus = "";
+                    }, 1000);
                     document.location = jsonResponse.data.redirect;
                 }
             }
-
         },
 
         onCloseErrors() {
-            this.errors = []
+            this.errors = [];
         },
 
         clearOrderForm() {
-            this.checkout.first_name = '';
-            this.checkout.email = '';
-            this.checkout.phone = '';
-            this.checkout.address = '';
-            this.checkout.city = '';
-            this.checkout.street = '';
-            this.checkout.house = '';
-            this.checkout.apartment = '';
-            this.checkout.intercom = '';
-            this.checkout.porch = '';
-            this.checkout.floor = '';
-            this.checkout.comment = '';
-            this.checkout.comment = '';
+            this.checkout.first_name = "";
+            this.checkout.email = "";
+            this.checkout.phone = "";
+            this.checkout.address = "";
+            this.checkout.city = "";
+            this.checkout.street = "";
+            this.checkout.house = "";
+            this.checkout.apartment = "";
+            this.checkout.intercom = "";
+            this.checkout.porch = "";
+            this.checkout.floor = "";
+            this.checkout.comment = "";
+            this.checkout.comment = "";
         },
-        
-        validEmail: function (email) {
+
+        validEmail: function(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         },
 
-        validRussianPhone: function (phone) {
+        validRussianPhone: function(phone) {
             const re = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
             return re.test(phone);
         },
-        
     },
 });
-$(document).ready(function (){
-$('.photo-gallery_content-inner').masonry({
-  // options
-  itemSelector: '.gallery-item',
-  percentPosition: true,
-  columnWidth: '.gallery-item'
-});
+$(document).ready(function() {
+    $(".photo-gallery_content-inner").masonry({
+        // options
+        itemSelector: ".gallery-item",
+        percentPosition: true,
+        columnWidth: ".gallery-item",
+    });
 });
