@@ -28168,7 +28168,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
           }
         });
       });
-      return shippingPrice;
+      return parseInt(shippingPrice);
     },
     areas: function areas() {
       return this.$store.getters["areas"];

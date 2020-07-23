@@ -247,9 +247,9 @@ const app = new Vue({
             },
         },
         cartTotal() {
-            let subtototal = this.cartSubtotal;
-            subtototal = subtototal + this.shippingPrice;
-            return subtototal;
+            let subtototal = this.cartSubtotal
+            subtototal = subtototal + this.shippingPrice
+            return subtototal
         },
         shippingPrice() {
             let shippingPrice = 0;
@@ -261,9 +261,9 @@ const app = new Vue({
                     if(subarea.name === this.checkout.city){
                         shippingPrice = subarea.price
                     }
-                });
+                })
             });
-            return shippingPrice
+            return parseInt(shippingPrice)
         },
         areas() {
             return this.$store.getters["areas"]
