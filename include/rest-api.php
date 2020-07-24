@@ -431,11 +431,13 @@ function getAreas(WP_REST_Request $request){
         $object_area->price = $area_raw['price'];
 
         $new_subareas = [];
-        foreach ($area_raw['subareas'] as $subarea) {
-            $subarea['price'] = $area_raw['price'];
-            $new_subareas[] = $subarea;
-        }
-        $object_area->subareas = $new_subareas;
+	if($area_raw['subareas']){
+	    foreach ($area_raw['subareas'] as $subarea) {
+		$subarea['price'] = $area_raw['price'];
+		$new_subareas[] = $subarea;
+	     }
+             $object_area->subareas = $new_subareas;
+	}
         $areas[] = $object_area;
     }
 
