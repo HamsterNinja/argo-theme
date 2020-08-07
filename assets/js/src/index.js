@@ -270,16 +270,17 @@ const app = new Vue({
         },
     },
     async mounted() {
-        this.checkout.first_name = this.user.first_name;
-        this.checkout.phone = this.user.phone;
-        this.checkout.city = this.user.city;
-        this.checkout.street = this.user.street;
-        this.checkout.house = this.user.house;
-        this.checkout.email = this.user.email;
-        this.checkout.apartment = this.user.apartment;
-        this.checkout.intercom = this.user.intercom;
-        this.checkout.porch = this.user.porch;
-        this.checkout.floor = this.user.floor;
+
+        this.checkout.first_name = this.user && this.user.first_name? this.user.first_name: '';
+        this.checkout.phone =this.user && this.user.phone ? this.user.phone : '';
+        this.checkout.city = this.user && this.user.city ? this.user.city : '';
+        this.checkout.street = this.user && this.user.street ? this.user.street: '';
+        this.checkout.house = this.user && this.user.house ? this.user.house : '';
+        this.checkout.email = this.user && this.user.email ? this.user.email : '';
+        this.checkout.apartment = this.user && this.user.apartment ? this.user.apartment : '';
+        this.checkout.intercom = this.user && this.user.intercom ? this.user.intercom : '';
+        this.checkout.porch = this.user && this.user.porch ? this.user.porch : '';
+        this.checkout.floor = this.user && this.user.floor ? this.user.floor : '';
 
         if (this.$store.getters["areas"].length === 0) {
             await this.$store.dispatch("fetchAreas");
